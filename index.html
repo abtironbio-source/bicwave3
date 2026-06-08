@@ -435,10 +435,28 @@ nav.s .lang-btn.active{background:var(--blue-light);color:var(--blue);border-col
 
 /* Hero real phone images */
 .hero-phones-wrap{position:relative;height:520px;display:flex;align-items:flex-end;justify-content:center}
-.hphone{border-radius:38px;display:block;position:absolute;box-shadow:0 32px 80px rgba(0,0,0,.45)}
-.hphone.left{width:178px;bottom:24px;left:10px;transform:rotate(-7deg);z-index:1}
-.hphone.right{width:208px;bottom:0;right:0;transform:rotate(4deg);z-index:2;box-shadow:0 36px 90px rgba(0,149,255,.25),0 12px 32px rgba(0,0,0,.3)}
-.hero-cover-img{max-height:500px;width:auto;object-fit:contain;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45));display:block}
+/* Hero two-phone layout */
+.hero-phones-wrap{position:relative;height:520px}
+.hphone{display:block;position:absolute}
+/* COSBACK — raw screenshot, add phone frame via CSS */
+.hphone-cos{
+  width:196px;
+  border-radius:36px;
+  bottom:30px;
+  left:0;
+  transform:rotate(-7deg);
+  z-index:1;
+  box-shadow:0 32px 72px rgba(0,0,0,.55),0 0 0 8px #1a1a1a,0 0 0 10px #333;
+}
+/* Dr.Reward — already has phone frame, use drop-shadow */
+.hphone-dr{
+  width:228px;
+  bottom:0;
+  right:-10px;
+  transform:rotate(5deg);
+  z-index:2;
+  filter:drop-shadow(0 28px 56px rgba(0,0,0,.5)) drop-shadow(0 8px 20px rgba(0,201,177,.25));
+}
 
 /* COSBACK real phone in section */
 .cos-real-phone{width:218px;border-radius:38px;box-shadow:0 36px 90px rgba(0,149,255,.15),0 8px 28px rgba(0,0,0,.12);display:block;position:relative;z-index:2}
@@ -528,7 +546,8 @@ nav.s .lang-btn.active{background:var(--blue-light);color:var(--blue);border-col
     </div>
     <div class="hero-right r d2">
       <div class="hero-phones-wrap">
-        <img src="표지이미지.png" class="hero-cover-img" alt="COSBACK &amp; Dr.Reward App">
+        <img src="cosback 메인화면.jpg" class="hphone hphone-cos" alt="COSBACK 앱">
+        <img src="닥터리워드-스마트폰.png" class="hphone hphone-dr" alt="Dr.Reward 앱">
       </div>
     </div>
   </div>
