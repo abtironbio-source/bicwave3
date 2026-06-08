@@ -424,6 +424,15 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 .ft-badges{display:flex;gap:8px}
 .ft-bdg{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:6px;padding:5px 11px;font-size:10.5px;color:rgba(255,255,255,.4)}
 
+/* Language switcher */
+.lang-sw{display:flex;gap:3px;align-items:center;margin-right:10px}
+.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.6);font-size:10.5px;font-weight:700;padding:4px 8px;border-radius:5px;cursor:pointer;font-family:var(--eng);transition:.2s;letter-spacing:.05em;line-height:1}
+.lang-btn:hover{border-color:rgba(255,255,255,.55);color:#fff}
+.lang-btn.active{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.5)}
+nav.s .lang-btn{border-color:var(--line2);color:var(--muted)}
+nav.s .lang-btn:hover{border-color:var(--blue);color:var(--blue)}
+nav.s .lang-btn.active{background:var(--blue-light);color:var(--blue);border-color:var(--blue)}
+
 /* Hero real phone images */
 .hero-phones-wrap{position:relative;height:520px;display:flex;align-items:flex-end;justify-content:center}
 .hphone{border-radius:38px;display:block;position:absolute;box-shadow:0 32px 80px rgba(0,0,0,.45)}
@@ -469,13 +478,19 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
     <img class="nlogo-img" src="빅웨이브로고.png" alt="BIGWAVE3">
   </div>
   <ul class="nlinks">
-    <li><a href="#cosback">코스백</a></li>
-    <li><a href="#dreward">닥터리워드</a></li>
-    <li><a href="#greatbeauty">정회원</a></li>
-    <li><a href="#compare">혜택비교</a></li>
-    <li><a href="#drtv">미디어</a></li>
+    <li><a href="#cosback" data-i18n="nav-cosback">코스백</a></li>
+    <li><a href="#dreward" data-i18n="nav-dreward">닥터리워드</a></li>
+    <li><a href="#greatbeauty" data-i18n="nav-member">정회원</a></li>
+    <li><a href="#compare" data-i18n="nav-compare">혜택비교</a></li>
+    <li><a href="#drtv" data-i18n="nav-media">미디어</a></li>
   </ul>
-  <a href="#cta-final" class="ncta">IR 자료 요청</a>
+  <div class="lang-sw">
+    <button class="lang-btn active" data-lang="ko">KO</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ja">JA</button>
+    <button class="lang-btn" data-lang="zh">ZH</button>
+  </div>
+  <a href="#cta-final" class="ncta" data-i18n="nav-cta">IR 자료 요청</a>
 </nav>
 
 <!-- HERO -->
@@ -485,18 +500,18 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
     <div class="hero-left">
       <div class="hero-badge r">
         <span class="hdot"></span>
-        세계 최초 CosTechMed 뷰티핀테크 생태계
+        <span data-i18n="hero-badge">세계 최초 CosTechMed 뷰티핀테크 생태계</span>
         <span class="hlive">LIVE</span>
       </div>
-      <h1 class="hero-h1 r d1">소비가 자산이 되는<br><em>K-뷰티의 미래</em></h1>
-      <p class="hero-sub r d2">화장품 소비가 <strong>캐시백</strong>이 되고,<br>시술 리워드가 되고, <strong>안심 보험</strong>이 됩니다.<br>BIGWAVE3는 코스백과 닥터 리워드를 연결해<br>소비가 자산이 되는 K-뷰티 생태계를 만듭니다.</p>
+      <h1 class="hero-h1 r d1" data-i18n="hero-h1">소비가 자산이 되는<br><em>K-뷰티의 미래</em></h1>
+      <p class="hero-sub r d2" data-i18n="hero-sub">화장품 소비가 <strong>캐시백</strong>이 되고,<br>시술 리워드가 되고, <strong>안심 보험</strong>이 됩니다.<br>BIGWAVE3는 코스백과 닥터 리워드를 연결해<br>소비가 자산이 되는 K-뷰티 생태계를 만듭니다.</p>
       <div class="hero-btns r d3">
-        <a href="#greatbeauty" class="btn btn-primary">정회원 혜택 보기 →</a>
-        <a href="#cosback" class="btn btn-ghost">코스백 들러보기</a>
-        <a href="#dreward" class="btn btn-ghost">닥터 리워드 알아보기</a>
+        <a href="#greatbeauty" class="btn btn-primary" data-i18n="hero-btn1">정회원 혜택 보기 →</a>
+        <a href="#cosback" class="btn btn-ghost" data-i18n="hero-btn2">코스백 들러보기</a>
+        <a href="#dreward" class="btn btn-ghost" data-i18n="hero-btn3">닥터 리워드 알아보기</a>
       </div>
       <div class="hero-partners r d4">
-        <span class="hp-lbl">파트너십</span>
+        <span class="hp-lbl" data-i18n="hero-plbl">파트너십</span>
         <span class="hp-b">💳 Samsung Card iD VITA</span>
         <span class="hp-b">🛡 Samsung Fire Insurance</span>
         <span class="hp-b">🏥 Partner Clinics 60+</span>
@@ -522,14 +537,14 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 <!-- METRICS -->
 <section id="metrics" class="sec">
   <div class="wrap">
-    <div class="sec-head c r"><div class="label">Key Metrics</div><h2 class="title">한눈에 보는 BIGWAVE3 <em>핵심 지표</em></h2></div>
+    <div class="sec-head c r"><div class="label">Key Metrics</div><h2 class="title" data-i18n="sec-metrics-h">한눈에 보는 BIGWAVE3 <em>핵심 지표</em></h2></div>
     <div class="mgrid">
-      <div class="mc r d1"><div class="mc-ico b">🔄</div><div class="mc-num bl">10<span class="u">%</span></div><div class="mc-lbl">본인 구매 캐시백</div><div class="mc-desc">코스백 입점 브랜드 구매 시 최대 적립</div></div>
-      <div class="mc r d2"><div class="mc-ico m">∞</div><div class="mc-num mn">15<span class="u">%</span></div><div class="mc-lbl">친구 추천 무한 캐시백</div><div class="mc-desc">제휴 삼성카드 결제 시 친구 구매금액 기준</div></div>
-      <div class="mc r d3"><div class="mc-ico co">🎁</div><div class="mc-num co">50<span class="u">만원</span></div><div class="mc-lbl">연간 Great Beauty 키트</div><div class="mc-desc">정회원 가입 시 제공되는 연간 혜택 상당액</div></div>
-      <div class="mc r d4"><div class="mc-ico lv">💎</div><div class="mc-num lv">250<span class="u">만원</span></div><div class="mc-lbl">5년 누적 정회원 가치</div><div class="mc-desc">정회원 유지 시 누적 혜택 추산</div></div>
-      <div class="mc r d5"><div class="mc-ico b">🏥</div><div class="mc-num bl">1,000<span class="u">개+</span></div><div class="mc-lbl">파트너 병원 네트워크</div><div class="mc-desc">피부과·성형외과 500개 + 치과·여성의원 500개</div></div>
-      <div class="mc r d6"><div class="mc-ico m">🌍</div><div class="mc-num mn">103<span class="u">개국</span></div><div class="mc-lbl">글로벌 Language Support</div><div class="mc-desc">2032 회원 목표 600만 명</div></div>
+      <div class="mc r d1"><div class="mc-ico b">🔄</div><div class="mc-num bl">10<span class="u">%</span></div><div class="mc-lbl" data-i18n="mc1-lbl">본인 구매 캐시백</div><div class="mc-desc" data-i18n="mc1-desc">코스백 입점 브랜드 구매 시 최대 적립</div></div>
+      <div class="mc r d2"><div class="mc-ico m">∞</div><div class="mc-num mn">15<span class="u">%</span></div><div class="mc-lbl" data-i18n="mc2-lbl">친구 추천 무한 캐시백</div><div class="mc-desc" data-i18n="mc2-desc">제휴 삼성카드 결제 시 친구 구매금액 기준</div></div>
+      <div class="mc r d3"><div class="mc-ico co">🎁</div><div class="mc-num co">50<span class="u">만원</span></div><div class="mc-lbl" data-i18n="mc3-lbl">연간 Great Beauty 키트</div><div class="mc-desc" data-i18n="mc3-desc">정회원 가입 시 제공되는 연간 혜택 상당액</div></div>
+      <div class="mc r d4"><div class="mc-ico lv">💎</div><div class="mc-num lv">250<span class="u">만원</span></div><div class="mc-lbl" data-i18n="mc4-lbl">5년 누적 정회원 가치</div><div class="mc-desc" data-i18n="mc4-desc">정회원 유지 시 누적 혜택 추산</div></div>
+      <div class="mc r d5"><div class="mc-ico b">🏥</div><div class="mc-num bl">1,000<span class="u">개+</span></div><div class="mc-lbl" data-i18n="mc5-lbl">파트너 병원 네트워크</div><div class="mc-desc" data-i18n="mc5-desc">피부과·성형외과 500개 + 치과·여성의원 500개</div></div>
+      <div class="mc r d6"><div class="mc-ico m">🌍</div><div class="mc-num mn">103<span class="u">개국</span></div><div class="mc-lbl" data-i18n="mc6-lbl">글로벌 Language Support</div><div class="mc-desc" data-i18n="mc6-desc">2032 회원 목표 600만 명</div></div>
     </div>
   </div>
 </section>
@@ -537,25 +552,25 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 <!-- COSTECHMED -->
 <section id="ctm" class="sec">
   <div class="wrap">
-    <div class="sec-head c r"><div class="label">Core Architecture</div><h2 class="title">CosTechMed <em>아키텍처</em></h2><p class="lead" style="margin-top:12px">Cosmetics × Technology × Medical — 소비를 자산으로 전환하는 세계 최초 생태계</p></div>
+    <div class="sec-head c r"><div class="label">Core Architecture</div><h2 class="title" data-i18n="sec-ctm-h">CosTechMed <em>아키텍처</em></h2><p class="lead" style="margin-top:12px" data-i18n="sec-ctm-lead">Cosmetics × Technology × Medical — 소비를 자산으로 전환하는 세계 최초 생태계</p></div>
     <div class="ctm-grid r d1">
       <div class="ctmc cos">
         <div class="ctm-letter">COS</div><div class="ctm-eng">Cosmetics</div>
-        <div class="ctm-h">일상 소비 플랫폼</div>
-        <div class="ctm-p">화장품, 건강식품, 패션, 여행 등 고객의 일상 라이프스타일 소비를 코스백 플랫폼에서 통합 관리합니다.</div>
-        <div class="ctm-tags"><span class="ctm-tag">화장품</span><span class="ctm-tag">건강식품</span><span class="ctm-tag">패션·여행</span></div>
+        <div class="ctm-h" data-i18n="ctm-cos-h">일상 소비 플랫폼</div>
+        <div class="ctm-p" data-i18n="ctm-cos-p">화장품, 건강식품, 패션, 여행 등 고객의 일상 라이프스타일 소비를 코스백 플랫폼에서 통합 관리합니다.</div>
+        <div class="ctm-tags"><span class="ctm-tag" data-i18n="ctm-cos-t1">화장품</span><span class="ctm-tag" data-i18n="ctm-cos-t2">건강식품</span><span class="ctm-tag" data-i18n="ctm-cos-t3">패션·여행</span></div>
       </div>
       <div class="ctmc tech">
         <div class="ctm-letter">TECH</div><div class="ctm-eng">Technology</div>
-        <div class="ctm-h">디지털 연결 레이어</div>
-        <div class="ctm-p">QR 인증, 앱 연동, 캐시백, 리워드, 보험, 결제 기술 인프라로 소비와 혜택을 실시간 연결합니다.</div>
-        <div class="ctm-tags"><span class="ctm-tag">QR·앱</span><span class="ctm-tag">캐시백·리워드</span><span class="ctm-tag">결제 연동</span></div>
+        <div class="ctm-h" data-i18n="ctm-tech-h">디지털 연결 레이어</div>
+        <div class="ctm-p" data-i18n="ctm-tech-p">QR 인증, 앱 연동, 캐시백, 리워드, 보험, 결제 기술 인프라로 소비와 혜택을 실시간 연결합니다.</div>
+        <div class="ctm-tags"><span class="ctm-tag" data-i18n="ctm-tech-t1">QR·앱</span><span class="ctm-tag" data-i18n="ctm-tech-t2">캐시백·리워드</span><span class="ctm-tag" data-i18n="ctm-tech-t3">결제 연동</span></div>
       </div>
       <div class="ctmc med">
         <div class="ctm-letter">MED</div><div class="ctm-eng">Medical</div>
-        <div class="ctm-h">뷰티 자산화</div>
-        <div class="ctm-p">병원 정보 탐색, 시술 리워드 크레딧, 삼성화재 안심보험 연동으로 소비가 뷰티 자산이 됩니다.</div>
-        <div class="ctm-tags"><span class="ctm-tag">병원 정보</span><span class="ctm-tag">시술 리워드</span><span class="ctm-tag">안심 보험</span></div>
+        <div class="ctm-h" data-i18n="ctm-med-h">뷰티 자산화</div>
+        <div class="ctm-p" data-i18n="ctm-med-p">병원 정보 탐색, 시술 리워드 크레딧, 삼성화재 안심보험 연동으로 소비가 뷰티 자산이 됩니다.</div>
+        <div class="ctm-tags"><span class="ctm-tag" data-i18n="ctm-med-t1">병원 정보</span><span class="ctm-tag" data-i18n="ctm-med-t2">시술 리워드</span><span class="ctm-tag" data-i18n="ctm-med-t3">안심 보험</span></div>
       </div>
     </div>
     <div class="ctm-flow r d2">
@@ -574,16 +589,16 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
       <div>
         <img src="cosback logo.png" alt="COSBACK" class="cos-logo-img r">
         <div class="label r">E-Commerce Platform</div>
-        <h2 class="title r d1">COSBACK<br><em>이커머스 플랫폼</em></h2>
-        <p class="lead r d2" style="margin:14px 0 26px">쇼핑할수록 현금이 돌아오는 성과 기반 이커머스 — 캐시백과 닥터 리워드가 연결됩니다.</p>
+        <h2 class="title r d1" data-i18n="sec-cos-h">COSBACK<br><em>이커머스 플랫폼</em></h2>
+        <p class="lead r d2" style="margin:14px 0 26px" data-i18n="sec-cos-lead">쇼핑할수록 현금이 돌아오는 성과 기반 이커머스 — 캐시백과 닥터 리워드가 연결됩니다.</p>
         <div class="cos-feats r d3">
-          <div class="cof"><div class="cof-ico">🔄</div><div class="cof-num">10%</div><div class="cof-lbl">본인 구매 캐시백</div><div class="cof-desc">코스백 입점 브랜드에서 구매 시 최대 10% 현금성 적립</div></div>
-          <div class="cof"><div class="cof-ico">👥</div><div class="cof-num">15%</div><div class="cof-lbl">친구 추천 무한 캐시백</div><div class="cof-desc">추천 링크로 가입한 친구가 구매할 때마다 지속 적립</div></div>
-          <div class="cof"><div class="cof-ico">📱</div><div class="cof-num">QR</div><div class="cof-lbl">닥터 리워드 연동</div><div class="cof-desc">제품 QR 스캔 시 뷰티 시술 리워드 자동 연동</div></div>
-          <div class="cof"><div class="cof-ico">🌏</div><div class="cof-num">4</div><div class="cof-lbl">카테고리</div><div class="cof-desc">Beauty · Health · Fashion · Travel 전 카테고리</div></div>
+          <div class="cof"><div class="cof-ico">🔄</div><div class="cof-num">10%</div><div class="cof-lbl" data-i18n="cof1-lbl">본인 구매 캐시백</div><div class="cof-desc" data-i18n="cof1-desc">코스백 입점 브랜드에서 구매 시 최대 10% 현금성 적립</div></div>
+          <div class="cof"><div class="cof-ico">👥</div><div class="cof-num">15%</div><div class="cof-lbl" data-i18n="cof2-lbl">친구 추천 무한 캐시백</div><div class="cof-desc" data-i18n="cof2-desc">추천 링크로 가입한 친구가 구매할 때마다 지속 적립</div></div>
+          <div class="cof"><div class="cof-ico">📱</div><div class="cof-num">QR</div><div class="cof-lbl" data-i18n="cof3-lbl">닥터 리워드 연동</div><div class="cof-desc" data-i18n="cof3-desc">제품 QR 스캔 시 뷰티 시술 리워드 자동 연동</div></div>
+          <div class="cof"><div class="cof-ico">🌏</div><div class="cof-num">4</div><div class="cof-lbl" data-i18n="cof4-lbl">카테고리</div><div class="cof-desc" data-i18n="cof4-desc">Beauty · Health · Fashion · Travel 전 카테고리</div></div>
         </div>
         <div class="cos-brands r d4">
-          <div class="cos-brands-lbl">입점 브랜드 예시</div>
+          <div class="cos-brands-lbl" data-i18n="cos-brands-lbl">입점 브랜드 예시</div>
           <div class="cos-brands-list">
             <img src="01 로고_셀루크.png"         class="brand-logo" alt="셀루크">
             <img src="02 로고_마데카파마시아.png"  class="brand-logo" alt="마데카파마시아">
@@ -598,8 +613,8 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
       </div>
       <div class="cos-vis r d2">
         <img src="cosback 메인화면.jpg" class="cos-real-phone" alt="COSBACK 앱 메인화면">
-        <div class="cf1"><div class="cfv">₩48,200</div><div class="cfs">이번달 캐시백 적립</div></div>
-        <div class="cf2"><div class="cfv m">연결됨 ✓</div><div class="cfs">Dr. Reward 리워드 연동</div></div>
+        <div class="cf1"><div class="cfv">₩48,200</div><div class="cfs" data-i18n="cos-float1">이번달 캐시백 적립</div></div>
+        <div class="cf2"><div class="cfv m">연결됨 ✓</div><div class="cfs" data-i18n="cos-float2">Dr. Reward 리워드 연동</div></div>
       </div>
     </div>
   </div>
@@ -608,28 +623,28 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 <!-- BEAUTY ASSET LOOP -->
 <section id="loop" class="sec">
   <div class="wrap">
-    <div class="sec-head c r"><div class="label">Customer Journey</div><h2 class="title">뷰티 <em>자산 루프</em> 고객 여정</h2><p class="lead" style="margin-top:12px;color:rgba(255,255,255,.58)">From First Purchase to Infinite Cashback — 10-Step Beauty Asset Journey</p></div>
+    <div class="sec-head c r"><div class="label">Customer Journey</div><h2 class="title" data-i18n="sec-loop-h">뷰티 <em>자산 루프</em> 고객 여정</h2><p class="lead" style="margin-top:12px;color:rgba(255,255,255,.58)" data-i18n="sec-loop-lead">From First Purchase to Infinite Cashback — 10-Step Beauty Asset Journey</p></div>
     <div class="loop-wrap r d1">
       <div class="loop-row">
-        <div class="lstep a"><div class="lstep-num">👤</div><div class="lstep-t">① 코스백<br>가입</div></div>
-        <div class="lstep b"><div class="lstep-num">⭐</div><div class="lstep-t">② 정회원<br>혜택 활성화</div></div>
-        <div class="lstep a"><div class="lstep-num">🛍</div><div class="lstep-t">③ 브랜드<br>상품 구매</div></div>
-        <div class="lstep b"><div class="lstep-num">💰</div><div class="lstep-t">④ 캐시백<br>적립</div></div>
-        <div class="lstep a"><div class="lstep-num">📱</div><div class="lstep-t">⑤ QR<br>스캔</div></div>
+        <div class="lstep a"><div class="lstep-num">👤</div><div class="lstep-t" data-i18n="ls1">① 코스백<br>가입</div></div>
+        <div class="lstep b"><div class="lstep-num">⭐</div><div class="lstep-t" data-i18n="ls2">② 정회원<br>혜택 활성화</div></div>
+        <div class="lstep a"><div class="lstep-num">🛍</div><div class="lstep-t" data-i18n="ls3">③ 브랜드<br>상품 구매</div></div>
+        <div class="lstep b"><div class="lstep-num">💰</div><div class="lstep-t" data-i18n="ls4">④ 캐시백<br>적립</div></div>
+        <div class="lstep a"><div class="lstep-num">📱</div><div class="lstep-t" data-i18n="ls5">⑤ QR<br>스캔</div></div>
       </div>
       <div class="loop-row" style="margin-top:16px;direction:rtl">
-        <div class="lstep b" style="direction:ltr"><div class="lstep-num">🔗</div><div class="lstep-t">⑩ 친구추천<br>무한 캐시백</div></div>
-        <div class="lstep a" style="direction:ltr"><div class="lstep-num">🛡</div><div class="lstep-t">⑨ 삼성화재<br>보험 연동</div></div>
-        <div class="lstep b" style="direction:ltr"><div class="lstep-num">✨</div><div class="lstep-t">⑧ 시술 후<br>리워드 활용</div></div>
-        <div class="lstep a" style="direction:ltr"><div class="lstep-num">🏥</div><div class="lstep-t">⑦ 병원<br>정보 탐색</div></div>
-        <div class="lstep b" style="direction:ltr"><div class="lstep-num">💊</div><div class="lstep-t">⑥ 닥터리워드<br>적립</div></div>
+        <div class="lstep b" style="direction:ltr"><div class="lstep-num">🔗</div><div class="lstep-t" data-i18n="ls10">⑩ 친구추천<br>무한 캐시백</div></div>
+        <div class="lstep a" style="direction:ltr"><div class="lstep-num">🛡</div><div class="lstep-t" data-i18n="ls9">⑨ 삼성화재<br>보험 연동</div></div>
+        <div class="lstep b" style="direction:ltr"><div class="lstep-num">✨</div><div class="lstep-t" data-i18n="ls8">⑧ 시술 후<br>리워드 활용</div></div>
+        <div class="lstep a" style="direction:ltr"><div class="lstep-num">🏥</div><div class="lstep-t" data-i18n="ls7">⑦ 병원<br>정보 탐색</div></div>
+        <div class="lstep b" style="direction:ltr"><div class="lstep-num">💊</div><div class="lstep-t" data-i18n="ls6">⑥ 닥터리워드<br>적립</div></div>
       </div>
     </div>
     <div class="loop-bottom r d2">
-      <span class="lbt">코스백 캐시백</span><span class="lbar">→</span>
-      <span class="lbh">닥터 리워드 크레딧</span><span class="lbar">→</span>
-      <span class="lbh">삼성화재 안심보험</span><span class="lbar">→</span>
-      <span class="lbh">무한 캐시백 루틴</span>
+      <span class="lbt" data-i18n="loop-b1">코스백 캐시백</span><span class="lbar">→</span>
+      <span class="lbh" data-i18n="loop-b2">닥터 리워드 크레딧</span><span class="lbar">→</span>
+      <span class="lbh" data-i18n="loop-b3">삼성화재 안심보험</span><span class="lbar">→</span>
+      <span class="lbh" data-i18n="loop-b4">무한 캐시백 루틴</span>
       <span class="lbar" style="color:var(--mint);font-size:20px">∞</span>
     </div>
   </div>
@@ -652,19 +667,19 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
       </div>
       <div class="r d1">
         <div class="label">Samsung Card iD VITA 제휴</div>
-        <h2 class="title" style="margin-bottom:14px">삼성카드 <em>iD VITA</em><br>제휴 금융 루틴</h2>
-        <p class="lead" style="margin-bottom:22px">COSBACK × Samsung Card iD VITA — 고객이 스스로 선택하는 스마트한 정회원 전환 엔진</p>
+        <h2 class="title" style="margin-bottom:14px" data-i18n="sec-sc-h">삼성카드 <em>iD VITA</em><br>제휴 금융 루틴</h2>
+        <p class="lead" style="margin-bottom:22px" data-i18n="sec-sc-lead">COSBACK × Samsung Card iD VITA — 고객이 스스로 선택하는 스마트한 정회원 전환 엔진</p>
         <div class="sc-feats">
-          <div class="scf-item"><div class="scf-ico">💳</div><div class="scf-t">병원·약국 혜택</div><div class="scf-d">파트너 병원 및 약국에서 특별 혜택 제공</div></div>
-          <div class="scf-item"><div class="scf-ico">🏠</div><div class="scf-t">생활 영역 혜택</div><div class="scf-d">일상 생활 전반의 카드 혜택</div></div>
-          <div class="scf-item"><div class="scf-ico">∞</div><div class="scf-t">최대 15% 무한 캐시백</div><div class="scf-d">제휴 삼성카드 결제 시 친구 구매금액의 15%</div></div>
-          <div class="scf-item"><div class="scf-ico">🛡</div><div class="scf-t">삼성화재 보험 연동</div><div class="scf-d">뷰티케어 안심보험 앱에서 실시간 확인</div></div>
+          <div class="scf-item"><div class="scf-ico">💳</div><div class="scf-t" data-i18n="scf1-t">병원·약국 혜택</div><div class="scf-d" data-i18n="scf1-d">파트너 병원 및 약국에서 특별 혜택 제공</div></div>
+          <div class="scf-item"><div class="scf-ico">🏠</div><div class="scf-t" data-i18n="scf2-t">생활 영역 혜택</div><div class="scf-d" data-i18n="scf2-d">일상 생활 전반의 카드 혜택</div></div>
+          <div class="scf-item"><div class="scf-ico">∞</div><div class="scf-t" data-i18n="scf3-t">최대 15% 무한 캐시백</div><div class="scf-d" data-i18n="scf3-d">제휴 삼성카드 결제 시 친구 구매금액의 15%</div></div>
+          <div class="scf-item"><div class="scf-ico">🛡</div><div class="scf-t" data-i18n="scf4-t">삼성화재 보험 연동</div><div class="scf-d" data-i18n="scf4-d">뷰티케어 안심보험 앱에서 실시간 확인</div></div>
         </div>
         <div class="paths">
-          <div class="paths-lbl">정회원 가입 경로</div>
+          <div class="paths-lbl" data-i18n="paths-lbl">정회원 가입 경로</div>
           <div class="path-row">
-            <div class="pi"><div class="pi-tag">Path A</div><div class="pi-t">현금 납부형</div><div class="pi-d">연회비 ₩150,000 직접 납부</div></div>
-            <div class="pi rec"><div class="pi-tag">Path B ⭐ Recommended</div><div class="pi-t">iD VITA 자발적 가입형</div><div class="pi-d">고객 스스로 선택 — 강요 없음</div></div>
+            <div class="pi"><div class="pi-tag" data-i18n="piA-tag">Path A</div><div class="pi-t" data-i18n="piA-t">현금 납부형</div><div class="pi-d" data-i18n="piA-d">연회비 ₩150,000 직접 납부</div></div>
+            <div class="pi rec"><div class="pi-tag" data-i18n="piB-tag">Path B ⭐ Recommended</div><div class="pi-t" data-i18n="piB-t">iD VITA 자발적 가입형</div><div class="pi-d" data-i18n="piB-d">고객 스스로 선택 — 강요 없음</div></div>
           </div>
         </div>
       </div>
@@ -679,13 +694,13 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
       <div>
         <img src="Group 332.png" alt="Dr.Reward" class="dr-logo-img r">
         <div class="label r">Mobile Platform</div>
-        <h2 class="title r d1">Dr. Reward<br><em>모바일 플랫폼</em></h2>
+        <h2 class="title r d1" data-i18n="sec-dr-h">Dr. Reward<br><em>모바일 플랫폼</em></h2>
         <p class="lead r d2" style="margin:14px 0 26px">Reward Management · Clinic Discovery · Credit Utilization · Insurance Status</p>
         <div class="dr-feats">
-          <div class="drf r d2"><div class="drf-ico b">💎</div><div><div class="drf-t">리워드 확인</div><div class="drf-d">코스백 구매·QR 인증·정회원 혜택·친구 추천으로 쌓인 리워드를 앱에서 한눈에 확인</div></div></div>
-          <div class="drf r d3"><div class="drf-ico m">🏥</div><div><div class="drf-t">병원 정보 탐색</div><div class="drf-d">피부과·성형외과·시술 카테고리·지역별 병원 정보 자유 탐색. 고객 자율 선택 — 강제 추천 없음</div></div></div>
-          <div class="drf r d4"><div class="drf-ico co">✨</div><div><div class="drf-t">시술 후 크레딧 활용</div><div class="drf-d">보유 리워드를 시술 후 결제 단계에서 크레딧처럼 활용</div></div></div>
-          <div class="drf r d5"><div class="drf-ico lv">🛡</div><div><div class="drf-t">보험 상태 확인</div><div class="drf-d">삼성화재 뷰티케어 안심보험 연동 상태를 앱에서 실시간 확인</div></div></div>
+          <div class="drf r d2"><div class="drf-ico b">💎</div><div><div class="drf-t" data-i18n="drf1-t">리워드 확인</div><div class="drf-d" data-i18n="drf1-d">코스백 구매·QR 인증·정회원 혜택·친구 추천으로 쌓인 리워드를 앱에서 한눈에 확인</div></div></div>
+          <div class="drf r d3"><div class="drf-ico m">🏥</div><div><div class="drf-t" data-i18n="drf2-t">병원 정보 탐색</div><div class="drf-d" data-i18n="drf2-d">피부과·성형외과·시술 카테고리·지역별 병원 정보 자유 탐색. 고객 자율 선택 — 강제 추천 없음</div></div></div>
+          <div class="drf r d4"><div class="drf-ico co">✨</div><div><div class="drf-t" data-i18n="drf3-t">시술 후 크레딧 활용</div><div class="drf-d" data-i18n="drf3-d">보유 리워드를 시술 후 결제 단계에서 크레딧처럼 활용</div></div></div>
+          <div class="drf r d5"><div class="drf-ico lv">🛡</div><div><div class="drf-t" data-i18n="drf4-t">보험 상태 확인</div><div class="drf-d" data-i18n="drf4-d">삼성화재 뷰티케어 안심보험 연동 상태를 앱에서 실시간 확인</div></div></div>
         </div>
       </div>
       <div class="dr-vis r d2">
@@ -719,19 +734,19 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
   <div class="wrap">
     <div class="gb-hdr r">
       <div><div class="label">Premium Membership</div><h2 class="title">Great Beauty <em>정회원</em> 멤버십 혜택</h2><p class="lead" style="margin-top:10px">Annual Value ₩500,000 — Premium Beauty Fintech Membership</p></div>
-      <div class="gb-badge">연 50만원 상당</div>
+      <div class="gb-badge" data-i18n="gb-badge">연 50만원 상당</div>
     </div>
     <div class="gb-cards r d1">
-      <div class="gbc"><div class="gbc-n">01</div><div class="gbc-ico">💊</div><div class="gbc-t">닥터 리워드 시술 리워드</div><div class="gbc-v">₩300,000 상당</div><div class="gbc-d">피부과·성형외과 파트너 병원에서 활용 가능한 뷰티 리워드 크레딧</div></div>
-      <div class="gbc"><div class="gbc-n">02</div><div class="gbc-ico">🛡</div><div class="gbc-t">삼성화재 뷰티케어 안심보험</div><div class="gbc-v">1년 무상 보장</div><div class="gbc-d">시술 후 부작용·후유증 리스크 안전망. BIGWAVE3가 보험료 지원</div></div>
-      <div class="gbc"><div class="gbc-n">03</div><div class="gbc-ico">💄</div><div class="gbc-t">프리미엄 더마 코스메틱 세트</div><div class="gbc-v">₩150,000 상당</div><div class="gbc-d">시술 전후 피부 컨디션 관리를 위한 홈케어 제품. 고객 선택형 혜택</div></div>
-      <div class="gbc"><div class="gbc-n">04</div><div class="gbc-ico">∞</div><div class="gbc-t">무한 캐시백 루틴</div><div class="gbc-v">무제한 적립</div><div class="gbc-d">친구 추천과 코스백 구매를 통한 지속적인 현금성 캐시백 적립</div></div>
+      <div class="gbc"><div class="gbc-n">01</div><div class="gbc-ico">💊</div><div class="gbc-t" data-i18n="gbc1-t">닥터 리워드 시술 리워드</div><div class="gbc-v" data-i18n="gbc1-v">₩300,000 상당</div><div class="gbc-d" data-i18n="gbc1-d">피부과·성형외과 파트너 병원에서 활용 가능한 뷰티 리워드 크레딧</div></div>
+      <div class="gbc"><div class="gbc-n">02</div><div class="gbc-ico">🛡</div><div class="gbc-t" data-i18n="gbc2-t">삼성화재 뷰티케어 안심보험</div><div class="gbc-v" data-i18n="gbc2-v">1년 무상 보장</div><div class="gbc-d" data-i18n="gbc2-d">시술 후 부작용·후유증 리스크 안전망. BIGWAVE3가 보험료 지원</div></div>
+      <div class="gbc"><div class="gbc-n">03</div><div class="gbc-ico">💄</div><div class="gbc-t" data-i18n="gbc3-t">프리미엄 더마 코스메틱 세트</div><div class="gbc-v" data-i18n="gbc3-v">₩150,000 상당</div><div class="gbc-d" data-i18n="gbc3-d">시술 전후 피부 컨디션 관리를 위한 홈케어 제품. 고객 선택형 혜택</div></div>
+      <div class="gbc"><div class="gbc-n">04</div><div class="gbc-ico">∞</div><div class="gbc-t" data-i18n="gbc4-t">무한 캐시백 루틴</div><div class="gbc-v" data-i18n="gbc4-v">무제한 적립</div><div class="gbc-d" data-i18n="gbc4-d">친구 추천과 코스백 구매를 통한 지속적인 현금성 캐시백 적립</div></div>
     </div>
     <div class="gb-join r d2">
-      <div><div class="gj-t">처음에는 무료로 시작하세요</div><div class="gj-s">하지만 Great Beauty 혜택은 정회원에게만 열립니다</div></div>
+      <div><div class="gj-t" data-i18n="gj-t">처음에는 무료로 시작하세요</div><div class="gj-s" data-i18n="gj-s">하지만 Great Beauty 혜택은 정회원에게만 열립니다</div></div>
       <div class="gj-paths">
-        <div class="gjp a">A형 — 연회비 ₩150,000 납부형</div>
-        <div class="gjp b">B형 — iD VITA 자발적 가입형 ⭐</div>
+        <div class="gjp a" data-i18n="gjpA">A형 — 연회비 ₩150,000 납부형</div>
+        <div class="gjp b" data-i18n="gjpB">B형 — iD VITA 자발적 가입형 ⭐</div>
       </div>
     </div>
   </div>
@@ -740,33 +755,33 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 <!-- COMPARISON -->
 <section id="compare" class="sec">
   <div class="wrap">
-    <div class="sec-head c r"><div class="label">Membership Comparison</div><h2 class="title">일반 회원 vs <em>정회원</em> 혜택 비교</h2></div>
+    <div class="sec-head c r"><div class="label">Membership Comparison</div><h2 class="title" data-i18n="sec-cmp-h">일반 회원 vs <em>정회원</em> 혜택 비교</h2></div>
     <div class="cmp-table r d1">
       <div class="cmp-col">
-        <div class="cmp-head"><div class="ch-lbl">General Member</div><div class="ch-title">일반 회원</div><span class="ch-sub">무료 가입</span></div>
+        <div class="cmp-head"><div class="ch-lbl" data-i18n="ch-gen-lbl">General Member</div><div class="ch-title" data-i18n="ch-gen-t">일반 회원</div><span class="ch-sub" data-i18n="ch-gen-sub">무료 가입</span></div>
         <div class="cmp-rows">
-          <div class="cmp-row"><span class="cr-feat">🛍 코스백 구매</span><span class="cr-val yes">가능</span></div>
-          <div class="cmp-row"><span class="cr-feat">💰 본인 캐시백</span><span class="cr-val">기본 혜택</span></div>
-          <div class="cmp-row"><span class="cr-feat">👥 친구 추천 캐시백</span><span class="cr-val">제한적</span></div>
-          <div class="cmp-row"><span class="cr-feat">🏥 닥터 리워드</span><span class="cr-val">일부 정보만</span></div>
-          <div class="cmp-row"><span class="cr-feat">🎁 Great Beauty 키트</span><span class="cr-val no">미제공</span></div>
-          <div class="cmp-row"><span class="cr-feat">🛡 삼성화재 보험</span><span class="cr-val no">미제공</span></div>
-          <div class="cmp-row"><span class="cr-feat">🔗 추천 코드</span><span class="cr-val">일반 추천</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr1">🛍 코스백 구매</span><span class="cr-val yes" data-i18n="gen-v1">가능</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr2">💰 본인 캐시백</span><span class="cr-val" data-i18n="gen-v2">기본 혜택</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr3">👥 친구 추천 캐시백</span><span class="cr-val" data-i18n="gen-v3">제한적</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr4">🏥 닥터 리워드</span><span class="cr-val" data-i18n="gen-v4">일부 정보만</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr5">🎁 Great Beauty 키트</span><span class="cr-val no" data-i18n="gen-v5">미제공</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr6">🛡 삼성화재 보험</span><span class="cr-val no" data-i18n="gen-v6">미제공</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr7">🔗 추천 코드</span><span class="cr-val" data-i18n="gen-v7">일반 추천</span></div>
         </div>
-        <div class="cmp-foot"><div class="cf-note">체험 고객 · 트래픽 엔진</div></div>
+        <div class="cmp-foot"><div class="cf-note" data-i18n="gen-foot">체험 고객 · 트래픽 엔진</div></div>
       </div>
       <div class="cmp-col prem">
-        <div class="cmp-head"><div class="ch-lbl">Premium Member</div><div class="ch-title">정회원</div><span class="ch-sub">연회비 또는 제휴카드 등록</span></div>
+        <div class="cmp-head"><div class="ch-lbl" data-i18n="ch-prem-lbl">Premium Member</div><div class="ch-title" data-i18n="ch-prem-t">정회원</div><span class="ch-sub" data-i18n="ch-prem-sub">연회비 또는 제휴카드 등록</span></div>
         <div class="cmp-rows">
-          <div class="cmp-row"><span class="cr-feat">🛍 코스백 구매</span><span class="cr-val best">최대 혜택 ✓</span></div>
-          <div class="cmp-row"><span class="cr-feat">💰 본인 캐시백</span><span class="cr-val best">최대 10% ✓</span></div>
-          <div class="cmp-row"><span class="cr-feat">👥 친구 추천 캐시백</span><span class="cr-val best">삼성카드 최대 15% 무한 ✓</span></div>
-          <div class="cmp-row"><span class="cr-feat">🏥 닥터 리워드</span><span class="cr-val best">시술 리워드 적립·활용 ✓</span></div>
-          <div class="cmp-row"><span class="cr-feat">🎁 Great Beauty 키트</span><span class="cr-val best">연 50만원 상당 ✓</span></div>
-          <div class="cmp-row"><span class="cr-feat">🛡 삼성화재 보험</span><span class="cr-val best">연동 가능 ✓</span></div>
-          <div class="cmp-row"><span class="cr-feat">🔗 추천 코드</span><span class="cr-val best">오너십 추천 코드 ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr1">🛍 코스백 구매</span><span class="cr-val best" data-i18n="prem-v1">최대 혜택 ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr2">💰 본인 캐시백</span><span class="cr-val best" data-i18n="prem-v2">최대 10% ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr3">👥 친구 추천 캐시백</span><span class="cr-val best" data-i18n="prem-v3">삼성카드 최대 15% 무한 ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr4">🏥 닥터 리워드</span><span class="cr-val best" data-i18n="prem-v4">시술 리워드 적립·활용 ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr5">🎁 Great Beauty 키트</span><span class="cr-val best" data-i18n="prem-v5">연 50만원 상당 ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr6">🛡 삼성화재 보험</span><span class="cr-val best" data-i18n="prem-v6">연동 가능 ✓</span></div>
+          <div class="cmp-row"><span class="cr-feat" data-i18n="cr7">🔗 추천 코드</span><span class="cr-val best" data-i18n="prem-v7">오너십 추천 코드 ✓</span></div>
         </div>
-        <div class="cmp-foot"><div class="cf-note">핵심 혜택 고객 · 수익 엔진</div><a href="#cta-final" class="cf-btn">정회원 혜택 활성화하기 →</a></div>
+        <div class="cmp-foot"><div class="cf-note" data-i18n="prem-foot">핵심 혜택 고객 · 수익 엔진</div><a href="#cta-final" class="cf-btn" data-i18n="prem-cta">정회원 혜택 활성화하기 →</a></div>
       </div>
     </div>
   </div>
@@ -805,17 +820,17 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 <section id="cta-final" class="sec">
   <div class="wrap">
     <div class="cta-tag r">
-      <h2>BIGWAVE3 생태계에<br><em>지금 합류하세요</em></h2>
-      <p>고객, 브랜드, 병원, 투자자 모두를 위한 연결이 여기서 시작됩니다</p>
+      <h2 data-i18n="cta-h2">BIGWAVE3 생태계에<br><em>지금 합류하세요</em></h2>
+      <p data-i18n="cta-p">고객, 브랜드, 병원, 투자자 모두를 위한 연결이 여기서 시작됩니다</p>
     </div>
     <div class="cta-cards r d1">
-      <div class="ctac"><div class="ctac-ico">🎁</div><div class="ctac-for">For Customers</div><div class="ctac-t">고객</div><div class="ctac-d">Great Beauty 정회원이 되어 캐시백, 시술 리워드, 안심 보험 혜택을 시작하세요</div><a href="#greatbeauty" class="ctac-btn">정회원 가입하기 →</a></div>
-      <div class="ctac"><div class="ctac-ico">🏪</div><div class="ctac-for">For Brands</div><div class="ctac-t">브랜드사</div><div class="ctac-d">광고비 없이 성과 기반으로 고객에게 혜택이 돌아가는 코스백 입점을 시작하세요</div><a href="#" class="ctac-btn">브랜드 입점 신청 →</a></div>
-      <div class="ctac"><div class="ctac-ico">🏥</div><div class="ctac-for">For Clinics</div><div class="ctac-t">파트너 병원</div><div class="ctac-d">고관여 뷰티 고객과 연결되는 닥터 리워드 파트너 병원이 되세요</div><a href="#" class="ctac-btn">병원 입점 신청 →</a></div>
-      <div class="ctac"><div class="ctac-ico">📈</div><div class="ctac-for">For Investors</div><div class="ctac-t">투자자</div><div class="ctac-d">CosTechMed 생태계의 성장성과 투자 기회를 확인하세요</div><a href="#" class="ctac-btn">IR 자료 요청 →</a></div>
+      <div class="ctac"><div class="ctac-ico">🎁</div><div class="ctac-for">For Customers</div><div class="ctac-t" data-i18n="ctac1-t">고객</div><div class="ctac-d" data-i18n="ctac1-d">Great Beauty 정회원이 되어 캐시백, 시술 리워드, 안심 보험 혜택을 시작하세요</div><a href="#greatbeauty" class="ctac-btn" data-i18n="ctac1-btn">정회원 가입하기 →</a></div>
+      <div class="ctac"><div class="ctac-ico">🏪</div><div class="ctac-for">For Brands</div><div class="ctac-t" data-i18n="ctac2-t">브랜드사</div><div class="ctac-d" data-i18n="ctac2-d">광고비 없이 성과 기반으로 고객에게 혜택이 돌아가는 코스백 입점을 시작하세요</div><a href="#" class="ctac-btn" data-i18n="ctac2-btn">브랜드 입점 신청 →</a></div>
+      <div class="ctac"><div class="ctac-ico">🏥</div><div class="ctac-for">For Clinics</div><div class="ctac-t" data-i18n="ctac3-t">파트너 병원</div><div class="ctac-d" data-i18n="ctac3-d">고관여 뷰티 고객과 연결되는 닥터 리워드 파트너 병원이 되세요</div><a href="#" class="ctac-btn" data-i18n="ctac3-btn">병원 입점 신청 →</a></div>
+      <div class="ctac"><div class="ctac-ico">📈</div><div class="ctac-for">For Investors</div><div class="ctac-t" data-i18n="ctac4-t">투자자</div><div class="ctac-d" data-i18n="ctac4-d">CosTechMed 생태계의 성장성과 투자 기회를 확인하세요</div><a href="#" class="ctac-btn" data-i18n="ctac4-btn">IR 자료 요청 →</a></div>
     </div>
     <div class="cta-bottom r d2">
-      <p>소비는 더 이상 사라지는 비용이 아닙니다</p>
+      <p data-i18n="cta-bottom-p">소비는 더 이상 사라지는 비용이 아닙니다</p>
       <span>COSBACK × Dr. Reward × Samsung Financial Infrastructure — The Future of Beauty Fintech starts with BIGWAVE3</span>
     </div>
   </div>
@@ -840,6 +855,7 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
   </div>
 </footer>
 
+<script src="lang.js"></script>
 <script>
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('s', scrollY > 60), {passive:true});
