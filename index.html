@@ -54,10 +54,9 @@ h2.title em{font-style:normal;color:var(--blue)}
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:.4s}
 nav.s{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);padding:13px 48px;box-shadow:0 1px 0 var(--line)}
-.nlogo{display:flex;align-items:center;gap:10px}
-.nlogo-mark{width:34px;height:34px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--eng);font-weight:800;font-size:13px;color:#fff}
-.nlogo-text{font-weight:800;font-size:16px;letter-spacing:-.02em;color:#fff;transition:color .3s}
-nav.s .nlogo-text{color:var(--navy)}
+.nlogo{display:flex;align-items:center}
+.nlogo-img{height:36px;width:auto;object-fit:contain;filter:brightness(0) invert(1);transition:filter .3s}
+nav.s .nlogo-img{filter:none}
 .nlinks{display:flex;gap:30px;list-style:none}
 .nlinks a{font-size:13.5px;font-weight:500;color:rgba(255,255,255,.78);transition:color .25s}
 .nlinks a:hover{color:#fff}
@@ -414,9 +413,8 @@ section{position:relative}
 /* FOOTER */
 footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 .ft-inner{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
-.ft-brand .fbl{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.ft-mark{width:30px;height:30px;background:var(--blue);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:800;color:#fff;font-family:var(--eng)}
-.ft-name{font-size:15px;font-weight:800;color:#fff}
+.ft-brand .fbl{display:flex;align-items:center;margin-bottom:12px}
+.ft-logo-img{height:30px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 .ft-brand p{font-size:12px;line-height:1.75;max-width:230px;color:rgba(255,255,255,.35)}
 .ft-col h4{font-size:11px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.08em;text-transform:uppercase;font-family:var(--eng);margin-bottom:12px}
 .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
@@ -450,8 +448,7 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 <!-- NAV -->
 <nav id="nav">
   <div class="nlogo">
-    <div class="nlogo-mark">BW3</div>
-    <span class="nlogo-text">BIGWAVE3</span>
+    <img class="nlogo-img" src="빅웨이브로고.png" alt="BIGWAVE3">
   </div>
   <ul class="nlinks">
     <li><a href="#cosback">코스백</a></li>
@@ -840,7 +837,7 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
   <div class="wrap">
     <div class="ft-inner">
       <div class="ft-brand">
-        <div class="fbl"><div class="ft-mark">BW3</div><span class="ft-name">BIGWAVE3</span></div>
+        <div class="fbl"><img class="ft-logo-img" src="빅웨이브로고.png" alt="BIGWAVE3"></div>
         <p>소비가 자산이 되는 세계 최초의 CosTechMed 뷰티핀테크 생태계. COSBACK과 닥터 리워드, 삼성카드·삼성화재가 함께합니다.</p>
       </div>
       <div class="ft-col"><h4>Platform</h4><ul><li><a href="#cosback">코스백 (COSBACK)</a></li><li><a href="#dreward">닥터 리워드</a></li><li><a href="#greatbeauty">Great Beauty 정회원</a></li><li><a href="#drtv">Dr. Reward TV</a></li></ul></div>
