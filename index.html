@@ -424,6 +424,24 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 .ft-badges{display:flex;gap:8px}
 .ft-bdg{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:6px;padding:5px 11px;font-size:10.5px;color:rgba(255,255,255,.4)}
 
+/* Hero real phone images */
+.hero-phones-wrap{position:relative;height:520px;display:flex;align-items:flex-end;justify-content:center}
+.hphone{border-radius:38px;display:block;position:absolute;box-shadow:0 32px 80px rgba(0,0,0,.45)}
+.hphone.left{width:178px;bottom:24px;left:10px;transform:rotate(-7deg);z-index:1}
+.hphone.right{width:208px;bottom:0;right:0;transform:rotate(4deg);z-index:2;box-shadow:0 36px 90px rgba(0,149,255,.25),0 12px 32px rgba(0,0,0,.3)}
+
+/* COSBACK real phone in section */
+.cos-real-phone{width:218px;border-radius:38px;box-shadow:0 36px 90px rgba(0,149,255,.15),0 8px 28px rgba(0,0,0,.12);display:block;position:relative;z-index:2}
+
+/* Section platform logos */
+.cos-logo-img{height:28px;width:auto;object-fit:contain;display:block;margin-bottom:18px}
+.dr-logo-img{height:22px;width:auto;object-fit:contain;display:block;margin-bottom:18px}
+
+/* Brand logos grid */
+.cos-brands-list{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.brand-logo{height:36px;max-width:96px;width:auto;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:9px;padding:5px 10px;transition:box-shadow .2s,transform .2s}
+.brand-logo:hover{box-shadow:0 4px 16px rgba(0,0,0,.1);transform:translateY(-2px)}
+
 @media(max-width:900px){
   .wrap{padding:0 22px}
   nav{padding:15px 22px}
@@ -485,32 +503,10 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
       </div>
     </div>
     <div class="hero-right r d2">
-      <div class="amock cb">
-        <div class="anotch"><div class="abar"></div></div>
-        <div class="ahead blue">COSBACK</div>
-        <div class="abody">
-          <div class="atag b">🎁 본인 캐시백</div>
-          <div class="arow">
-            <div class="astat"><div class="av b">10%</div><div class="al">본인구매</div></div>
-            <div class="astat"><div class="av m">15%</div><div class="al">친구추천</div></div>
-            <div class="astat"><div class="av b">QR</div><div class="al">인증</div></div>
-          </div>
-          <div class="aitem"><div class="aico b">💄</div><div><div class="at">Celuque 세럼</div><div class="as">32,000원 · 3,200원 캐시백</div></div></div>
-          <div class="aitem"><div class="aico g">🌿</div><div><div class="at">연비수 토너</div><div class="as">28,000원 · 2,800원 캐시백</div></div></div>
-        </div>
+      <div class="hero-phones-wrap">
+        <img src="cosback_적립페이지.jpg" class="hphone left" alt="COSBACK 캐시백">
+        <img src="cosback 메인화면.jpg" class="hphone right" alt="COSBACK 앱">
       </div>
-      <div class="amock dr">
-        <div class="anotch"><div class="abar"></div></div>
-        <div class="ahead mint">Dr. Reward</div>
-        <div class="abody">
-          <div class="atag g">💎 My Reward</div>
-          <div class="arow"><div class="astat"><div class="av m">₩300,000</div></div></div>
-          <div class="aitem"><div class="aico g">🏥</div><div><div class="at">Beauty Care Insurance</div><div class="as">Samsung Fire · Active ✓</div></div></div>
-          <div class="aitem"><div class="aico p">📍</div><div><div class="at">닥터리 피부과 강남점</div><div class="as">리워드 사용 가능 · 0.4km</div></div></div>
-        </div>
-      </div>
-      <div class="afloat f1"><div class="afv">+₩48,000</div><div class="afs">이번달 캐시백 적립</div></div>
-      <div class="afloat f2"><div class="afv m">Active ✓</div><div class="afs">뷰티케어 안심보험</div></div>
     </div>
   </div>
 </section>
@@ -576,7 +572,8 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
   <div class="wrap">
     <div class="cos-grid">
       <div>
-        <div class="label r">COSBACK E-Commerce</div>
+        <img src="cosback logo.png" alt="COSBACK" class="cos-logo-img r">
+        <div class="label r">E-Commerce Platform</div>
         <h2 class="title r d1">COSBACK<br><em>이커머스 플랫폼</em></h2>
         <p class="lead r d2" style="margin:14px 0 26px">쇼핑할수록 현금이 돌아오는 성과 기반 이커머스 — 캐시백과 닥터 리워드가 연결됩니다.</p>
         <div class="cos-feats r d3">
@@ -588,28 +585,19 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
         <div class="cos-brands r d4">
           <div class="cos-brands-lbl">입점 브랜드 예시</div>
           <div class="cos-brands-list">
-            <span class="cob">Celuque</span><span class="cob">연비수</span><span class="cob">비그린</span><span class="cob">마리아포사떼</span><span class="cob">Dr. Halo</span><span class="cob">La Creamque</span><span class="cob">Underskin</span><span class="cob">+more</span>
+            <img src="01 로고_셀루크.png"         class="brand-logo" alt="셀루크">
+            <img src="02 로고_마데카파마시아.png"  class="brand-logo" alt="마데카파마시아">
+            <img src="03 로고_비그린.png"          class="brand-logo" alt="비그린">
+            <img src="04 로고_연비수.png"           class="brand-logo" alt="연비수">
+            <img src="05 로고_머리마나.png"         class="brand-logo" alt="머리마나">
+            <img src="마리아포사테.jpg"             class="brand-logo" alt="마리아포사테">
+            <img src="닥터할로 로고.png"            class="brand-logo" alt="Dr.Halo">
+            <img src="셀퓸 로고.png"               class="brand-logo" alt="셀퓸">
           </div>
         </div>
       </div>
       <div class="cos-vis r d2">
-        <div class="cphone">
-          <div class="cp-notch"><div class="cp-bar"></div></div>
-          <div class="cp-body">
-            <div class="cp-hdr"><div class="cp-logo">COSBACK</div><span>🔔 🔍</span></div>
-            <div class="cp-stats">
-              <div class="cp-stat"><div class="v">10%</div><div class="l">본인캐시백</div></div>
-              <div class="cp-stat"><div class="v m">15%</div><div class="l">친추캐시백</div></div>
-              <div class="cp-stat"><div class="v" style="color:var(--coral)">QR</div><div class="l">인증</div></div>
-            </div>
-            <div class="cp-plbl">베스트 상품</div>
-            <div class="cp-prods">
-              <div class="cp-prod"><div class="cp-pn">프라이머 세럼</div><div class="cp-pb">Celuque</div><div class="cp-pp">32,000원</div><div class="cp-pc">10% 캐시백</div></div>
-              <div class="cp-prod"><div class="cp-pn">더마 토너</div><div class="cp-pb">연비수</div><div class="cp-pp">28,000원</div><div class="cp-pc">10% 캐시백</div></div>
-            </div>
-            <div class="cp-qr">📱 QR 스캔하기</div>
-          </div>
-        </div>
+        <img src="cosback 메인화면.jpg" class="cos-real-phone" alt="COSBACK 앱 메인화면">
         <div class="cf1"><div class="cfv">₩48,200</div><div class="cfs">이번달 캐시백 적립</div></div>
         <div class="cf2"><div class="cfv m">연결됨 ✓</div><div class="cfs">Dr. Reward 리워드 연동</div></div>
       </div>
@@ -689,7 +677,8 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
   <div class="wrap">
     <div class="dr-grid">
       <div>
-        <div class="label r">Dr. Reward Platform</div>
+        <img src="Group 332.png" alt="Dr.Reward" class="dr-logo-img r">
+        <div class="label r">Mobile Platform</div>
         <h2 class="title r d1">Dr. Reward<br><em>모바일 플랫폼</em></h2>
         <p class="lead r d2" style="margin:14px 0 26px">Reward Management · Clinic Discovery · Credit Utilization · Insurance Status</p>
         <div class="dr-feats">
