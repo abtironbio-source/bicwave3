@@ -3,7 +3,7 @@ const T = {
   ko: {
     /* NAV */
     'nav-cosback':'코스백','nav-dreward':'닥터리워드','nav-member':'정회원',
-    'nav-compare':'혜택비교','nav-media':'미디어','nav-cta':'IR 자료 요청',
+    'nav-compare':'혜택비교','nav-media':'미디어','nav-cta':'Contact',
     /* HERO */
     'hero-badge':'세계 최초 CosTechMed 뷰티핀테크 생태계',
     'hero-h1':'소비가 자산이 되는<br><em>K-뷰티의 미래</em>',
@@ -45,7 +45,7 @@ const T = {
     'ls6':'⑥ 닥터리워드<br>적립','ls7':'⑦ 병원<br>정보 탐색','ls8':'⑧ 시술 후<br>리워드 활용','ls9':'⑨ 삼성화재<br>보험 연동','ls10':'⑩ 친구추천<br>무한 캐시백',
     'loop-b1':'코스백 캐시백','loop-b2':'닥터 리워드 크레딧','loop-b3':'삼성화재 안심보험','loop-b4':'무한 캐시백 루틴',
     /* SAMSUNG CARD */
-    'sec-sc-h':'삼성카드 <em>iD VITA</em><br>제휴 금융 루틴',
+    'sec-sc-h':'삼성카드 <em>iD VITA</em><br>협력 금융 루틴',
     'sec-sc-lead':'COSBACK × Samsung Card iD VITA — 고객이 스스로 선택하는 스마트한 정회원 전환 엔진',
     'scf1-t':'병원·약국 혜택','scf1-d':'파트너 병원 및 약국에서 특별 혜택 제공',
     'scf2-t':'생활 영역 혜택','scf2-d':'일상 생활 전반의 카드 혜택',
@@ -61,7 +61,7 @@ const T = {
     'drf1-t':'리워드 확인','drf1-d':'코스백 구매·QR 인증·정회원 혜택·친구 추천으로 쌓인 리워드를 앱에서 한눈에 확인',
     'drf2-t':'병원 정보 탐색','drf2-d':'피부과·성형외과·시술 카테고리·지역별 병원 정보 자유 탐색. 고객 자율 선택 — 강제 추천 없음',
     'drf3-t':'시술 후 크레딧 활용','drf3-d':'보유 리워드를 시술 후 결제 단계에서 크레딧처럼 활용',
-    'drf4-t':'보험 상태 확인','drf4-d':'삼성화재 뷰티케어 안심보험 연동 상태를 앱에서 실시간 확인',
+    'drf4-t':'삼성화재 보험 연동','drf4-d':'앱에서 삼성화재 뷰티케어 안심보험에 바로 가입할 수 있으며, 시술 후 부작용·후유증 리스크를 안전하게 보장받을 수 있습니다',
     'dr-float1-s':'리워드 적립 완료','dr-float2-s':'파트너 병원 네트워크',
     /* GREAT BEAUTY */
     'sec-gb-h':'Great Beauty <em>정회원</em> 멤버십 혜택',
@@ -76,7 +76,7 @@ const T = {
     /* COMPARE */
     'sec-cmp-h':'일반 회원 vs <em>정회원</em> 혜택 비교',
     'ch-gen-lbl':'General Member','ch-gen-t':'일반 회원','ch-gen-sub':'무료 가입',
-    'ch-prem-lbl':'Premium Member','ch-prem-t':'정회원','ch-prem-sub':'연회비 또는 제휴카드 등록',
+    'ch-prem-lbl':'Premium Member','ch-prem-t':'정회원','ch-prem-sub':'연회비 또는 연계카드 등록',
     'cr1':'🛍 코스백 구매','cr2':'💰 본인 캐시백','cr3':'👥 친구 추천 캐시백',
     'cr4':'🏥 닥터 리워드','cr5':'🎁 Great Beauty 키트','cr6':'🛡 삼성화재 보험','cr7':'🔗 추천 코드',
     'gen-v1':'가능','gen-v2':'기본 혜택','gen-v3':'제한적','gen-v4':'일부 정보만','gen-v5':'미제공','gen-v6':'미제공','gen-v7':'일반 추천',
