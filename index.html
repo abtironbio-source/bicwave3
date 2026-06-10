@@ -159,10 +159,13 @@ section{position:relative}
 .sec-head.c .label{justify-content:center}
 
 /* METRICS */
-#metrics{background:var(--white)}
-.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border:1px solid var(--line);border-radius:20px;overflow:hidden}
-.mc{padding:38px 32px;background:var(--white);transition:background .25s}
-.mc:hover{background:var(--bg)}
+#metrics{background:var(--white);position:relative;overflow:hidden}
+#metrics::before{content:'';position:absolute;inset:0;background:url('img-arch2.jpg') center/cover no-repeat;z-index:0;pointer-events:none}
+#metrics::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom, rgba(255,255,255,.05) 0%, rgba(255,255,255,.45) 60%, rgba(255,255,255,.80) 100%);z-index:1;pointer-events:none}
+#metrics .wrap{position:relative;z-index:2}
+.mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border:1px solid rgba(255,255,255,.5);border-radius:20px;overflow:hidden}
+.mc{padding:38px 32px;background:rgba(255,255,255,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background .25s}
+.mc:hover{background:rgba(255,255,255,.68)}
 .mc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:16px}
 .mc-ico.b{background:var(--blue-light)}
 .mc-ico.m{background:var(--mint-light)}
@@ -499,14 +502,19 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 .ft-badges{display:flex;gap:8px}
 .ft-bdg{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:6px;padding:5px 11px;font-size:10.5px;color:rgba(255,255,255,.4)}
 
-/* Language switcher */
-.lang-sw{display:flex;gap:3px;align-items:center;margin-left:12px}
-.lang-btn{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.6);font-size:10.5px;font-weight:700;padding:4px 8px;border-radius:5px;cursor:pointer;font-family:var(--eng);transition:.2s;letter-spacing:.05em;line-height:1}
-.lang-btn:hover{border-color:rgba(255,255,255,.55);color:#fff}
-.lang-btn.active{background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.5)}
-nav.s .lang-btn{border-color:var(--line2);color:var(--muted)}
-nav.s .lang-btn:hover{border-color:var(--blue);color:var(--blue)}
-nav.s .lang-btn.active{background:var(--blue-light);color:var(--blue);border-color:var(--blue)}
+/* Language switcher – dropdown */
+.lang-sw{position:relative;margin-left:14px;display:flex;align-items:center}
+.lang-trigger{display:inline-flex;flex-direction:row;align-items:center;gap:0;background:transparent;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.75);font-size:11px;font-weight:700;padding:5px 10px;border-radius:6px;cursor:pointer;font-family:var(--eng);letter-spacing:.06em;transition:.2s;white-space:nowrap;line-height:1}
+.lang-trigger:hover{border-color:rgba(255,255,255,.6);color:#fff}
+.lang-trigger .lt-arr{font-size:9px;opacity:.7;transition:transform .2s}
+.lang-sw.open .lt-arr{transform:rotate(180deg)}
+nav.s .lang-trigger{border-color:var(--line2);color:var(--muted)}
+nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
+.lang-drop{position:absolute;top:calc(100% + 10px);right:0;min-width:80px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-radius:8px;box-shadow:0 8px 28px rgba(0,0,0,.14);overflow:hidden;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .18s,visibility .18s,transform .18s;z-index:300}
+.lang-sw.open .lang-drop{opacity:1;visibility:visible;transform:translateY(0)}
+.lang-drop button{display:flex;align-items:center;gap:8px;width:100%;background:none;border:none;padding:9px 16px;font-size:12px;font-weight:700;font-family:var(--eng);color:var(--navy);cursor:pointer;text-align:left;letter-spacing:.06em;transition:.15s}
+.lang-drop button:hover{background:var(--blue-light);color:var(--blue)}
+.lang-drop button.active{color:var(--blue)}
 
 /* Hero real phone images */
 .hero-phones-wrap{position:relative;display:flex;align-items:flex-end;gap:20px;padding:60px 20px 0}
@@ -629,11 +637,16 @@ nav.s .lang-btn.active{background:var(--blue-light);color:var(--blue);border-col
     <li><a href="#drtv" data-i18n="nav-media">미디어</a></li>
     <li><a href="#cta-final" data-i18n="nav-cta">Contact</a></li>
   </ul>
-  <div class="lang-sw">
-    <button class="lang-btn active" data-lang="ko">KO</button>
-    <button class="lang-btn" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="ja">JA</button>
-    <button class="lang-btn" data-lang="zh">ZH</button>
+  <div class="lang-sw" id="lang-sw">
+    <button class="lang-trigger" id="lang-trigger">
+      <img id="lang-flag" src="https://flagcdn.com/20x15/kr.png" alt="KR" style="width:20px;height:15px;border-radius:2px;display:inline-block;flex-shrink:0"><span id="lang-label" style="margin-left:6px;margin-right:4px">KO</span><span class="lt-arr">▾</span>
+    </button>
+    <div class="lang-drop">
+      <button class="lang-btn active" data-lang="ko" data-flagcode="kr"><img src="https://flagcdn.com/20x15/kr.png" alt="KR" style="width:18px;height:13px;border-radius:2px;vertical-align:middle;margin-right:6px">KO</button>
+      <button class="lang-btn" data-lang="en" data-flagcode="us"><img src="https://flagcdn.com/20x15/us.png" alt="US" style="width:18px;height:13px;border-radius:2px;vertical-align:middle;margin-right:6px">EN</button>
+      <button class="lang-btn" data-lang="ja" data-flagcode="jp"><img src="https://flagcdn.com/20x15/jp.png" alt="JP" style="width:18px;height:13px;border-radius:2px;vertical-align:middle;margin-right:6px">JA</button>
+      <button class="lang-btn" data-lang="zh" data-flagcode="cn"><img src="https://flagcdn.com/20x15/cn.png" alt="CN" style="width:18px;height:13px;border-radius:2px;vertical-align:middle;margin-right:6px">ZH</button>
+    </div>
   </div>
 </nav>
 

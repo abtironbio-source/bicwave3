@@ -402,6 +402,12 @@ function setLang(lang) {
   });
   document.querySelectorAll('.lang-btn').forEach(b =>
     b.classList.toggle('active', b.dataset.lang === lang));
+  // 드롭다운 트리거 라벨 + 국기 업데이트
+  const label = document.getElementById('lang-label');
+  const flagEl = document.getElementById('lang-flag');
+  const flagCodes = {ko:'kr', en:'us', ja:'jp', zh:'cn'};
+  if(label) label.textContent = lang.toUpperCase();
+  if(flagEl) flagEl.src = `https://flagcdn.com/20x15/${flagCodes[lang]}.png`;
   document.title = {
     ko:'BIGWAVE3 — 소비가 자산이 되는 K-뷰티의 미래',
     en:'BIGWAVE3 — The Future of K-Beauty Where Spending Becomes Assets',
@@ -412,8 +418,26 @@ function setLang(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const sw = document.getElementById('lang-sw');
+  const trigger = document.getElementById('lang-trigger');
+
+  // 드롭다운 열기/닫기
+  if(trigger) {
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+      sw.classList.toggle('open');
+    });
+  }
+  // 외부 클릭 시 닫기
+  document.addEventListener('click', () => { if(sw) sw.classList.remove('open'); });
+
+  // 언어 버튼 클릭
   document.querySelectorAll('.lang-btn').forEach(b =>
-    b.addEventListener('click', () => setLang(b.dataset.lang)));
+    b.addEventListener('click', () => {
+      setLang(b.dataset.lang);
+      if(sw) sw.classList.remove('open');
+    }));
+
   const saved = localStorage.getItem('bw3-lang') || 'ko';
   setLang(saved);
 });
