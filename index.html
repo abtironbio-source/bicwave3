@@ -95,6 +95,13 @@ nav.s .ndrop-inner{background:rgba(255,255,255,.92)}
 .ncta{background:#fff;color:var(--blue);font-size:13px;font-weight:700;padding:10px 20px;border-radius:7px;transition:.3s}
 .ncta:hover{background:var(--blue);color:#fff}
 nav.s .ncta{background:var(--blue);color:#fff}
+.hbg-btn{display:none}
+.nav-mob-right{display:flex;flex-direction:row;align-items:center;gap:8px}
+.mob-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:#fff;z-index:9000;padding:70px 28px 40px;overflow-y:auto;transition:right .3s cubic-bezier(.16,1,.3,1);box-shadow:-8px 0 40px rgba(0,0,0,.12)}
+.mob-menu.open{right:0}
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:8999;opacity:0;visibility:hidden;transition:.3s}
+.mob-overlay.open{opacity:1;visibility:visible}
+.mob-close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--navy);padding:4px}
 
 /* HERO */
 @keyframes heroOrb1{0%,100%{transform:translate(0,0) scale(1)}30%{transform:translate(-80px,60px) scale(1.1)}70%{transform:translate(50px,-40px) scale(.92)}}
@@ -118,12 +125,16 @@ nav.s .ncta{background:var(--blue);color:#fff}
 .hero-sub{font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,.65);line-height:1.85;max-width:460px;margin-bottom:34px}
 .hero-sub strong{color:#fff;font-weight:600}
 .hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
-.hero-partners{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.hp-lbl{font-size:10.5px;color:rgba(255,255,255,.4);letter-spacing:.1em;font-family:var(--eng);text-transform:uppercase}
-.hp-b{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:7px 13px;font-size:12px;font-weight:600;color:rgba(255,255,255,.78)}
+.hero-partners{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.hero-partners .hp-row{display:flex;align-items:center;gap:8px;flex-wrap:nowrap}
+.hp-lbl{font-size:13px;color:#fff;letter-spacing:.15em;font-family:var(--eng);text-transform:uppercase;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.hp-lbl::before,.hp-lbl::after{content:'';flex:1;height:1px;background:#fff;min-width:30px}
+.hp-logo{height:22px;width:auto;object-fit:contain}
+.hp-b{display:flex;align-items:center;gap:6px;background:#fff;border:none;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600;color:var(--navy)}
 
 /* App mockups */
-.hero-right{position:relative;height:520px;display:flex;justify-content:center;align-items:flex-end;overflow:visible}
+.hero-right{position:relative;height:520px;display:flex;justify-content:center;align-items:center;overflow:visible}
+.hero-composite{display:none;width:100%;max-width:420px;height:auto;object-fit:contain;filter:drop-shadow(0 24px 60px rgba(0,0,0,.35))}
 .amock{position:absolute;width:196px;border-radius:26px;background:#fff;box-shadow:0 28px 80px rgba(0,0,0,.35);overflow:hidden}
 .amock.cb{left:0;bottom:20px;transform:rotate(-5deg)}
 .amock.dr{right:0;bottom:60px;transform:rotate(4deg)}
@@ -595,23 +606,41 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   nav{padding:15px 22px}
   nav.s{padding:11px 22px}
   .nlinks{display:none}
-  .hbg-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:4px;margin-right:4px}
+  .nlogo-img{height:32px}
+  .nav-mob-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+  .hbg-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:4px;margin-right:0}
   .hbg-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:.25s}
   nav.s .hbg-btn span{background:var(--navy)}
-  .mob-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:#fff;z-index:9000;padding:70px 28px 40px;overflow-y:auto;transition:right .3s cubic-bezier(.16,1,.3,1);box-shadow:-8px 0 40px rgba(0,0,0,.12)}
-  .mob-menu.open{right:0}
-  .mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:8999;opacity:0;visibility:hidden;transition:.3s}
-  .mob-overlay.open{opacity:1;visibility:visible}
-  .mob-close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--navy);padding:4px}
+  .lang-sw{display:none}
+  .mob-lang{display:flex;gap:8px;padding:20px 0 0;border-top:1px solid var(--line);margin-top:8px}
+  .mob-lang-btn{display:flex;align-items:center;justify-content:center;flex:1;padding:7px 4px;border:1.5px solid var(--line);border-radius:7px;background:#fff;font-size:12px;font-weight:700;color:var(--navy);cursor:pointer;transition:.2s;letter-spacing:.04em}
+  .mob-lang-btn.active{border-color:var(--blue);color:var(--blue);background:rgba(0,112,255,.06)}
+  .mob-lang-btn:hover{border-color:var(--blue);color:var(--blue)}
   .mob-links{list-style:none;padding:0;margin:0}
   .mob-links>li{border-bottom:1px solid var(--line);padding:14px 0}
   .mob-links>li>a{font-size:17px;font-weight:700;color:var(--navy);text-decoration:none}
   .mob-group>span{font-size:17px;font-weight:700;color:var(--navy);display:block;margin-bottom:8px}
   .mob-group ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
   .mob-group ul li a{font-size:14px;color:var(--muted);text-decoration:none;padding:2px 0;display:block}
-  .hero-inner{grid-template-columns:1fr;gap:36px;text-align:center;padding:120px 0 60px}
-  .hero-right{height:380px}
-  .hero-partners,.hero-btns{justify-content:center}
+  .hero-inner{display:flex;flex-direction:column;text-align:center;padding:100px 0 60px;gap:0}
+  .hero-left{display:contents}
+  .hero-text{order:1;padding:0 22px}
+  .hero-right{order:2;height:340px;margin-top:-60px;flex-shrink:0}
+  .hero-actions{order:3;margin-top:20px;padding:0 22px}
+  .hphone{display:none}
+  .hf-card{padding:5px 8px;gap:5px;border-radius:10px}
+  .hf-icon{font-size:13px}
+  .hf-label{font-size:8px;margin-bottom:1px}
+  .hf-amount{font-size:11px}
+  .hf-pill{font-size:9px;padding:4px 8px}
+  .hf-left{right:auto;left:6px;z-index:10}
+  .hf-right{left:auto;right:6px;z-index:10}
+  .hf-pill{z-index:10;bottom:20px}
+  .hero-composite{display:block;position:relative;z-index:1;margin:0 auto}
+  .hero-phones-wrap{height:340px;display:flex;align-items:center;justify-content:center}
+  .hero-partners{align-items:center}
+  .hero-btns{flex-direction:column;align-items:center;gap:10px}
+  .hero-btns .btn{width:100%;max-width:280px;text-align:center;padding:10px 28px;justify-content:center}
   .mgrid{grid-template-columns:1fr 1fr}
   .mc{padding:24px 16px}
   .mc-lbl{font-size:13px;word-break:keep-all}
@@ -668,6 +697,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
     <li><a href="#drtv" data-i18n="nav-media">미디어</a></li>
     <li><a href="#cta-final" data-i18n="nav-cta">Contact</a></li>
   </ul>
+  <div class="nav-mob-right">
   <button class="hbg-btn" id="hbg-btn" aria-label="메뉴 열기">
     <span></span><span></span><span></span>
   </button>
@@ -682,6 +712,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
       <button class="lang-btn" data-lang="zh" data-flagcode="cn"><img src="https://flagcdn.com/20x15/cn.png" alt="CN" style="width:18px;height:13px;border-radius:2px;vertical-align:middle;margin-right:6px">ZH</button>
     </div>
   </div>
+  </div><!-- /.nav-mob-right -->
 </nav>
 
 <!-- 모바일 메뉴 드로어 -->
@@ -692,28 +723,34 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
     <li class="mob-group">
       <span>코스백</span>
       <ul>
-        <li><a href="#cosback">🛍 COSBACK 소개</a></li>
-        <li><a href="#loop">🔄 뷰티 자산 루프</a></li>
-        <li><a href="#samcard">💳 삼성카드 iD VITA</a></li>
+        <li><a href="#cosback">COSBACK 소개</a></li>
+        <li><a href="#loop">뷰티 자산 루프</a></li>
+        <li><a href="#samcard">삼성카드 iD VITA</a></li>
       </ul>
     </li>
     <li class="mob-group">
       <span>닥터리워드</span>
       <ul>
-        <li><a href="#dreward">💊 Dr.Reward 소개</a></li>
-        <li><a href="#greatbeauty">🛡 삼성화재 보험</a></li>
+        <li><a href="#dreward">Dr.Reward 소개</a></li>
+        <li><a href="#greatbeauty">삼성화재 보험</a></li>
       </ul>
     </li>
     <li class="mob-group">
       <span>정회원</span>
       <ul>
-        <li><a href="#greatbeauty">👑 Great Beauty 멤버십</a></li>
-        <li><a href="#compare">📊 혜택 비교</a></li>
+        <li><a href="#greatbeauty">Great Beauty 멤버십</a></li>
+        <li><a href="#compare">혜택 비교</a></li>
       </ul>
     </li>
     <li><a href="#drtv">미디어</a></li>
     <li><a href="#cta-final">Contact</a></li>
   </ul>
+  <div class="mob-lang">
+    <button class="mob-lang-btn" data-lang="ko">KO</button>
+    <button class="mob-lang-btn" data-lang="en">EN</button>
+    <button class="mob-lang-btn" data-lang="ja">JA</button>
+    <button class="mob-lang-btn" data-lang="zh">ZH</button>
+  </div>
 </div>
 <div class="mob-overlay" id="mob-overlay"></div>
 
@@ -722,27 +759,29 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   <div class="hbg1"></div><div class="hbg2"></div><div class="hbg3"></div><div class="hbeam"></div><div class="hbeam"></div>
   <div class="wrap hero-inner">
     <div class="hero-left">
-      <div class="hero-badge r">
-        <span class="hdot"></span>
-        <span data-i18n="hero-badge">세계 최초 CosTechMed 뷰티핀테크 생태계</span>
-        <span class="hlive">LIVE</span>
+      <div class="hero-text">
+        <h1 class="hero-h1 r d1" data-i18n="hero-h1">소비가 자산이 되는<br><em>K-뷰티의 미래</em></h1>
+        <p class="hero-sub r d2" data-i18n="hero-sub">화장품 소비가 <strong>캐시백</strong>이 되고,<br>시술 리워드가 되고, <strong>안심 보험</strong>이 됩니다.<br>BIGWAVE3는 코스백과 닥터 리워드를 연결해<br>소비가 자산이 되는 K-뷰티 생태계를 만듭니다.</p>
       </div>
-      <h1 class="hero-h1 r d1" data-i18n="hero-h1">소비가 자산이 되는<br><em>K-뷰티의 미래</em></h1>
-      <p class="hero-sub r d2" data-i18n="hero-sub">화장품 소비가 <strong>캐시백</strong>이 되고,<br>시술 리워드가 되고, <strong>안심 보험</strong>이 됩니다.<br>BIGWAVE3는 코스백과 닥터 리워드를 연결해<br>소비가 자산이 되는 K-뷰티 생태계를 만듭니다.</p>
-      <div class="hero-btns r d3">
-        <a href="#greatbeauty" class="btn btn-primary" data-i18n="hero-btn1">정회원 혜택 보기 →</a>
-        <a href="#cosback" class="btn btn-ghost" data-i18n="hero-btn2">코스백 들러보기</a>
-        <a href="#dreward" class="btn btn-ghost" data-i18n="hero-btn3">닥터 리워드 알아보기</a>
-      </div>
-      <div class="hero-partners r d4">
-        <span class="hp-lbl" data-i18n="hero-plbl">파트너십</span>
-        <span class="hp-b">💳 Samsung Card iD VITA</span>
-        <span class="hp-b">🛡 Samsung Fire Insurance</span>
-        <span class="hp-b">🏥 Partner Clinics 60+</span>
+      <div class="hero-actions">
+        <div class="hero-btns r d3">
+          <a href="#greatbeauty" class="btn btn-primary" data-i18n="hero-btn1">정회원 혜택 보기 →</a>
+          <a href="#cosback" class="btn btn-ghost" data-i18n="hero-btn2">코스백 들러보기</a>
+          <a href="#dreward" class="btn btn-ghost" data-i18n="hero-btn3">닥터 리워드 알아보기</a>
+        </div>
+        <div class="hero-partners r d4">
+          <span class="hp-lbl">PARTNERS</span>
+          <div class="hp-row">
+            <span class="hp-b"><img src="삼성카드로고.png" alt="삼성카드" class="hp-logo"></span>
+            <span class="hp-b"><img src="삼성화재로고.png" alt="삼성화재" class="hp-logo"></span>
+            <span class="hp-b">Clinics 60+</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero-right r d2">
       <div class="hero-phones-wrap">
+        <img src="표지이미지.png" class="hero-composite" alt="COSBACK & Dr.Reward 앱">
         <img src="cosback 메인화면.jpg" class="hphone hphone-cos" alt="COSBACK 앱">
         <img src="dr reward main.png" class="hphone hphone-dr" alt="Dr.Reward 앱">
         <!-- floating financial badges -->
@@ -1410,6 +1449,18 @@ addEventListener('load', () => {
     if(closeBtn) closeBtn.addEventListener('click', close);
     if(overlay) overlay.addEventListener('click', close);
     menu.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+
+    // 모바일 드로어 언어 버튼
+    const mobLangBtns = document.querySelectorAll('.mob-lang-btn');
+    function syncMobLang(lang) {
+      mobLangBtns.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    }
+    mobLangBtns.forEach(b => b.addEventListener('click', () => {
+      if(typeof setLang === 'function') setLang(b.dataset.lang);
+      syncMobLang(b.dataset.lang);
+      close();
+    }));
+    syncMobLang(document.documentElement.lang || 'ko');
   })();
 
   initModal({ openBtnId:'brand-apply-btn', modalId:'brand-modal', formId:'brand-form', doneId:'bm-done', subject:'[COSBACK 브랜드 입점 신청]' });
