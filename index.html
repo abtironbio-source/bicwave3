@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="https://www.bigwave3.com/표지이미지.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
 :root{
@@ -50,7 +50,7 @@ img{max-width:100%;display:block}
 
 .wrap{max-width:1200px;margin:0 auto;padding:0 48px}
 .label{font-family:var(--eng);font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
-.label::before{content:'';width:22px;height:2px;background:var(--blue);border-radius:2px}
+.label::before,.label::after{content:'';width:22px;height:2px;background:var(--blue);border-radius:2px}
 h2.title{font-size:clamp(30px,3.8vw,50px);font-weight:800;line-height:1.1;letter-spacing:-.03em;color:var(--navy);word-break:keep-all}
 h2.title em{font-style:normal;color:var(--blue)}
 .lead{font-size:clamp(14px,1.1vw,16px);color:var(--muted);line-height:1.9}
@@ -96,6 +96,7 @@ nav.s .ndrop-inner{background:rgba(255,255,255,.92)}
 .ncta:hover{background:var(--blue);color:#fff}
 nav.s .ncta{background:var(--blue);color:#fff}
 .hbg-btn{display:none}
+.lj-center{display:none}
 .nav-mob-right{display:flex;flex-direction:row;align-items:center;gap:8px}
 .mob-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:#fff;z-index:9000;padding:70px 28px 40px;overflow-y:auto;transition:right .3s cubic-bezier(.16,1,.3,1);box-shadow:-8px 0 40px rgba(0,0,0,.12)}
 .mob-menu.open{right:0}
@@ -239,7 +240,7 @@ section{position:relative}
 .cof-ico{font-size:22px;margin-bottom:10px}
 .cof-num{font-family:var(--eng);font-size:26px;font-weight:800;color:var(--blue);line-height:1;margin-bottom:3px}
 .cof-lbl{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px}
-.cof-desc{font-size:11.5px;color:var(--muted);line-height:1.5}
+.cof-desc{font-size:11.5px;color:var(--muted);line-height:1.5;word-break:keep-all}
 .cos-brands{margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
 .cos-brands-lbl{font-size:14px;color:var(--muted);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-family:var(--eng);margin-bottom:10px}
 .cos-brands-list{display:flex;flex-wrap:wrap;gap:7px}
@@ -264,7 +265,7 @@ section{position:relative}
 .cp-pp{font-size:11px;font-weight:800;color:var(--navy);margin-top:3px}
 .cp-pc{font-size:8.5px;font-weight:700;color:var(--blue);background:var(--blue-light);padding:2px 5px;border-radius:8px;margin-top:2px;display:inline-block}
 .cp-qr{margin-top:9px;background:var(--blue);color:#fff;width:100%;padding:9px;border-radius:9px;text-align:center;font-size:10.5px;font-weight:700}
-.cf1,.cf2{position:absolute;background:#fff;border-radius:11px;box-shadow:0 7px 28px rgba(0,0,0,.11);padding:11px 14px}
+.cf1,.cf2{position:absolute;background:#fff;border-radius:11px;box-shadow:0 7px 28px rgba(0,0,0,.11);padding:11px 14px;z-index:3}
 .cf1{top:40px;right:-18px}
 .cf2{bottom:50px;left:-24px}
 .cfv{font-size:17px;font-weight:800;font-family:var(--eng);color:var(--blue);line-height:1}
@@ -408,7 +409,7 @@ section{position:relative}
 .drc-n{font-size:9.5px;font-weight:700;color:var(--navy)}
 .drc-t{font-size:8.5px;color:var(--muted)}
 .drc-tag{font-size:8px;font-weight:700;color:var(--mint);background:var(--mint-light);padding:2px 5px;border-radius:8px;margin-left:auto}
-.drf1,.drf2{position:absolute;background:#fff;border-radius:11px;box-shadow:0 7px 28px rgba(0,0,0,.11);padding:11px 14px}
+.drf1,.drf2{position:absolute;background:#fff;border-radius:11px;box-shadow:0 7px 28px rgba(0,0,0,.11);padding:11px 14px;z-index:3}
 .drf1{top:50px;right:-18px}
 .drf2{bottom:80px;left:-18px}
 .dfv{font-size:17px;font-weight:800;font-family:var(--eng);color:var(--mint);line-height:1}
@@ -647,12 +648,88 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   .mc-desc{font-size:12px;word-break:keep-all}
   .mc-num{font-size:clamp(28px,7vw,40px)}
   .ctm-grid,.cos-grid,.sc-grid,.dr-grid{grid-template-columns:1fr}
-  .gb-cards{grid-template-columns:1fr 1fr}
+  .cos-grid>div:first-child,.dr-grid>div:first-child{text-align:center}
+  .dr-grid{display:flex;flex-direction:column;gap:0}
+  .dr-grid>div:first-child{display:contents}
+  .dr-grid .dr-logo-img{order:1;margin-bottom:18px;margin-top:0}
+  .dr-grid .label{order:2;margin-bottom:16px}
+  .dr-grid .title{order:3;margin-bottom:0;margin-top:0}
+  .dr-grid .lead{order:4;margin:14px 0 26px}
+  .dr-grid .dr-vis{order:5;margin:24px 0 56px;height:400px}
+  .dr-grid .dr-feats{order:6;margin-bottom:20px}
+  .sc-grid{display:flex;flex-direction:column;gap:0}
+  .sc-grid .sc-vis{order:5;margin:24px 0 32px;height:400px}
+  .sc-grid>div:last-child{display:contents}
+  .sc-grid .label{order:1;margin-bottom:16px}
+  .sc-grid .title{order:2;margin-bottom:0;margin-top:0}
+  .sc-grid .lead{order:3;margin:14px 0 26px}
+  .sc-grid .sc-feats{order:6;margin-bottom:20px}
+  .sc-grid .paths{order:7}
+  .cos-grid{display:flex;flex-direction:column;gap:0}
+  .cos-grid>div:first-child{display:contents}
+  .cos-grid .cos-logo-img{order:1;margin-bottom:18px;margin-top:0}
+  .cos-grid .label{order:2;margin-bottom:16px}
+  .cos-grid .title{order:3;margin-bottom:0;margin-top:0}
+  .cos-grid .lead{order:4;margin:14px 0 26px}
+  .cos-grid .cos-vis{order:5;margin:36px 0 64px;height:400px}
+  .cos-grid .cos-feats{order:6;margin-bottom:20px}
+  .cos-grid .cos-brands{order:7}
+  .dr-feats,.drf,.drf-t,.drf-d{text-align:left}
+  .cos-logo-img,.dr-logo-img{margin-left:auto;margin-right:auto}
+  .ctmc{text-align:center}
+  .ctm-tags{justify-content:center}
+  #greatbeauty .gb-hdr{text-align:center}
+  .gb-cards{grid-template-columns:1fr;gap:8px}
+  .gbc{padding:18px 20px;text-align:center}
+  .gbc-d{margin-top:0}
+  .gbc-ico{font-size:24px;margin-bottom:8px}
+  .gbc-v{font-size:24px;margin-bottom:6px}
+  .gbc-t{font-size:14px;margin-bottom:4px}
+  .gbc-d{font-size:12px}
   .gb-hdr{flex-direction:column;gap:12px}
   .cmp-table{grid-template-columns:1fr}
   .tv-layout{grid-template-columns:1fr}
-  .cta-cards{grid-template-columns:1fr 1fr}
+  .cta-cards{grid-template-columns:1fr;gap:8px}
+  .ctac{padding:18px 20px}
+  .ctac-ico{font-size:22px;margin-bottom:8px}
+  .ctac-t{font-size:15px;margin-bottom:6px}
+  .ctac-d{font-size:12px;margin-bottom:12px}
+  .ctac-btn{padding:9px 16px;font-size:12px}
   .ft-inner{grid-template-columns:1fr 1fr}
+
+  /* Loop section — perimeter loop */
+  .lj-phases,.lj-uturn{display:none}
+  .loop-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:0;margin-top:24px}
+  .lj-row{display:contents}
+  .lj-arr{display:none}
+  /* Grid positions: perimeter layout */
+  .s01{grid-column:1;grid-row:1}
+  .s02{grid-column:2;grid-row:1}
+  .s03{grid-column:3;grid-row:1}
+  .s04{grid-column:3;grid-row:2}
+  .s05{grid-column:3;grid-row:3}
+  .s06{grid-column:3;grid-row:4}
+  .s07{grid-column:2;grid-row:4}
+  .s08{grid-column:1;grid-row:4}
+  .s09{grid-column:1;grid-row:3}
+  .s10{grid-column:1;grid-row:2}
+  /* Cards */
+  .lj-step{width:100%;aspect-ratio:1/1;padding:8px 6px;border-radius:12px;justify-content:center;align-items:center;gap:3px;flex:none;overflow:visible}
+  .lj-ico{display:none}
+  .lj-d{display:none}
+  .lj-sn{font-size:18px;font-weight:900;opacity:.2;letter-spacing:-.02em;line-height:1;position:absolute;top:6px;left:8px;margin-bottom:0}
+  .lj-t{font-size:13px;line-height:1.3;word-break:keep-all}
+  /* Direction arrows */
+  .lj-center{display:flex;flex-direction:column;align-items:center;justify-content:center;grid-column:2;grid-row:2/4;gap:4px;padding:4px;opacity:.35}
+  .lj-center-ico{font-size:48px;color:#FFD54F;text-shadow:0 0 20px rgba(255,213,79,1),0 0 40px rgba(255,213,79,.6);line-height:1}
+  .lj-center-txt{font-size:18px;font-weight:700;color:transparent;-webkit-text-stroke:.5px rgba(255,255,255,.8);text-align:center;line-height:1.3;letter-spacing:.02em;font-family:'Oswald',sans-serif;text-transform:uppercase}
+  .s01::after,.s02::after{content:'▶';position:absolute;right:-7px;top:50%;transform:translateY(-50%);font-size:9px;color:#4EC9FF;text-shadow:0 0 6px rgba(78,201,255,.8);z-index:2}
+  .s03::after,.s04::after,.s05::after{content:'▼';position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);font-size:9px;color:#00C9B1;text-shadow:0 0 6px rgba(0,201,177,.8);z-index:2}
+  .s06::after,.s07::after{content:'◀';position:absolute;left:-7px;top:50%;transform:translateY(-50%);font-size:9px;color:#FF8F8F;text-shadow:0 0 6px rgba(255,143,143,.8);z-index:2}
+  .s08::after,.s09::after,.s10::after{content:'▲';position:absolute;top:-7px;left:50%;transform:translateX(-50%);font-size:9px;color:#FFD54F;text-shadow:0 0 6px rgba(255,213,79,.8);z-index:2}
+  .loop-bottom{padding:16px 18px;gap:6px}
+  .lbt,.lbh{font-size:13px}
+  .lbar{font-size:13px}
 }
 </style>
 </head>
@@ -847,7 +924,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
 <!-- COSTECHMED -->
 <section id="ctm" class="sec">
   <div class="wrap">
-    <div class="sec-head c r"><div class="label">Core Architecture</div><h2 class="title" data-i18n="sec-ctm-h">CosTechMed <em>아키텍처</em></h2><p class="lead" style="margin-top:12px" data-i18n="sec-ctm-lead">Cosmetics × Technology × Medical — 소비를 자산으로 전환하는 세계 최초 생태계</p></div>
+    <div class="sec-head c r"><div class="label">Core Architecture</div><h2 class="title" data-i18n="sec-ctm-h">CosTechMed <em>아키텍처</em></h2><p class="lead" style="margin-top:12px" data-i18n="sec-ctm-lead">Cosmetics × Technology × Medical —<br>소비를 자산으로 전환하는 세계 최초 생태계</p></div>
     <div class="ctm-grid r d1">
       <div class="ctmc cos">
         <div class="ctm-letter">COS</div><div class="ctm-eng">Cosmetics</div>
@@ -938,41 +1015,39 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
 
       <!-- Row 1: Steps 01 → 05 -->
       <div class="lj-row">
-        <div class="lj-step p1"><div class="lj-sn">STEP 01</div><div class="lj-ico">👤</div><div class="lj-t">코스백 가입</div><div class="lj-d">무료 회원가입</div></div>
+        <div class="lj-step p1 s01"><div class="lj-sn">STEP 01</div><div class="lj-ico">👤</div><div class="lj-t">코스백 가입</div><div class="lj-d">무료 회원가입</div></div>
         <div class="lj-arr right"></div>
-        <div class="lj-step p1"><div class="lj-sn">STEP 02</div><div class="lj-ico">⭐</div><div class="lj-t">정회원 혜택 활성화</div><div class="lj-d">Great Beauty 구독</div></div>
+        <div class="lj-step p1 s02"><div class="lj-sn">STEP 02</div><div class="lj-ico">⭐</div><div class="lj-t">정회원 혜택 활성화</div><div class="lj-d">Great Beauty 구독</div></div>
         <div class="lj-arr right"></div>
-        <div class="lj-step p1"><div class="lj-sn">STEP 03</div><div class="lj-ico">🛍</div><div class="lj-t">브랜드 상품 구매</div><div class="lj-d">코스백 입점 브랜드</div></div>
+        <div class="lj-step p1 s03"><div class="lj-sn">STEP 03</div><div class="lj-ico">🛍</div><div class="lj-t">브랜드 상품 구매</div><div class="lj-d">코스백 입점 브랜드</div></div>
         <div class="lj-arr right"></div>
-        <div class="lj-step p2"><div class="lj-sn">STEP 04</div><div class="lj-ico">💰</div><div class="lj-t">최대 10% 캐시백 적립</div><div class="lj-d">즉시 현금성 적립</div></div>
+        <div class="lj-step p2 s04"><div class="lj-sn">STEP 04</div><div class="lj-ico">💰</div><div class="lj-t">최대 10% 캐시백 적립</div><div class="lj-d">즉시 현금성 적립</div></div>
         <div class="lj-arr right"></div>
-        <div class="lj-step p2"><div class="lj-sn">STEP 05</div><div class="lj-ico">📱</div><div class="lj-t">QR 스캔</div><div class="lj-d">제품 QR 인증</div></div>
+        <div class="lj-step p2 s05"><div class="lj-sn">STEP 05</div><div class="lj-ico">📱</div><div class="lj-t">QR 스캔</div><div class="lj-d">제품 QR 인증</div></div>
       </div>
 
       <!-- U-turn connector -->
       <div class="lj-uturn"><div class="lj-uturn-arrow">▼</div></div>
+      <!-- Center label -->
+      <div class="lj-center">
+        <div class="lj-center-ico">∞</div>
+        <div class="lj-center-txt">Infinite<br>Cashback<br>Loop</div>
+      </div>
 
       <!-- Row 2: Steps 06 → 10 (right to left, 06 on right connected to U-turn) -->
       <div class="lj-row">
-        <div class="lj-step p4"><div class="lj-sn">STEP 10</div><div class="lj-ico">🔁</div><div class="lj-t">친구 추천 무한 캐시백</div><div class="lj-d">친구 구매시 15% 무한 적립 루틴</div></div>
+        <div class="lj-step p4 s10"><div class="lj-sn">STEP 10</div><div class="lj-ico">🔁</div><div class="lj-t">친구 추천 무한 캐시백</div><div class="lj-d">친구 구매시 15% 무한 적립 루틴</div></div>
         <div class="lj-arr left"></div>
-        <div class="lj-step p3"><div class="lj-sn">STEP 09</div><div class="lj-ico">🛡</div><div class="lj-t">삼성화재 보험 연동</div><div class="lj-d">안심 보험 자동 적용</div></div>
+        <div class="lj-step p3 s09"><div class="lj-sn">STEP 09</div><div class="lj-ico">🛡</div><div class="lj-t">삼성화재 보험 연동</div><div class="lj-d">안심 보험 자동 적용</div></div>
         <div class="lj-arr left"></div>
-        <div class="lj-step p3"><div class="lj-sn">STEP 08</div><div class="lj-ico">✨</div><div class="lj-t">시술 후 리워드 활용</div><div class="lj-d">크레딧으로 결제</div></div>
+        <div class="lj-step p3 s08"><div class="lj-sn">STEP 08</div><div class="lj-ico">✨</div><div class="lj-t">시술 후 리워드 활용</div><div class="lj-d">크레딧으로 결제</div></div>
         <div class="lj-arr left"></div>
-        <div class="lj-step p3"><div class="lj-sn">STEP 07</div><div class="lj-ico">🏥</div><div class="lj-t">병원 정보 탐색</div><div class="lj-d">파트너 병원 검색</div></div>
+        <div class="lj-step p3 s07"><div class="lj-sn">STEP 07</div><div class="lj-ico">🏥</div><div class="lj-t">병원 정보 탐색</div><div class="lj-d">파트너 병원 검색</div></div>
         <div class="lj-arr left"></div>
-        <div class="lj-step p2"><div class="lj-sn">STEP 06</div><div class="lj-ico">💊</div><div class="lj-t">닥터리워드 적립</div><div class="lj-d">시술 리워드 전환</div></div>
+        <div class="lj-step p2 s06"><div class="lj-sn">STEP 06</div><div class="lj-ico">💊</div><div class="lj-t">닥터리워드 적립</div><div class="lj-d">시술 리워드 전환</div></div>
       </div>
     </div>
 
-    <div class="loop-bottom r d2">
-      <span class="lbt" data-i18n="loop-b1">코스백 캐시백</span><span class="lbar">→</span>
-      <span class="lbh" data-i18n="loop-b2">닥터 리워드 크레딧</span><span class="lbar">→</span>
-      <span class="lbh" data-i18n="loop-b3">삼성화재 안심보험</span><span class="lbar">→</span>
-      <span class="lbh" data-i18n="loop-b4">무한 캐시백 루틴</span>
-      <span class="lbar" style="color:#FFD54F;font-size:22px">∞</span>
-    </div>
   </div>
 </section>
 
@@ -987,8 +1062,8 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
       </div>
       <div class="r d1">
         <div class="label">Samsung Card iD VITA 제휴</div>
-        <h2 class="title" style="margin-bottom:14px" data-i18n="sec-sc-h">삼성카드 <em>iD VITA</em><br>협력 금융 루틴</h2>
-        <p class="lead" style="margin-bottom:22px" data-i18n="sec-sc-lead">COSBACK × Samsung Card iD VITA — 고객이 스스로 선택하는 스마트한 정회원 전환 엔진</p>
+        <h2 class="title" data-i18n="sec-sc-h">삼성카드 <em>iD VITA</em><br>협력 금융 루틴</h2>
+        <p class="lead" data-i18n="sec-sc-lead">COSBACK × Samsung Card iD VITA — 고객이 스스로 선택하는 스마트한 정회원 전환 엔진</p>
         <div class="sc-feats">
           <div class="scf-item"><div class="scf-ico">💳</div><div class="scf-t" data-i18n="scf1-t">병원·약국 혜택</div><div class="scf-d" data-i18n="scf1-d">파트너 병원 및 약국에서 특별 혜택 제공</div></div>
           <div class="scf-item"><div class="scf-ico">🏠</div><div class="scf-t" data-i18n="scf2-t">생활 영역 혜택</div><div class="scf-d" data-i18n="scf2-d">일상 생활 전반의 카드 혜택</div></div>
@@ -1015,7 +1090,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <img src="Group 332.png" alt="Dr.Reward" class="dr-logo-img r">
         <div class="label r">Mobile Platform</div>
         <h2 class="title r d1" data-i18n="sec-dr-h">Dr. Reward<br><em>모바일 플랫폼</em></h2>
-        <p class="lead r d2" style="margin:14px 0 26px">Reward Management · Clinic Discovery · Credit Utilization · Insurance Status</p>
+        <p class="lead r d2">Reward Management · Clinic Discovery · Credit Utilization · Insurance Status</p>
         <div class="dr-feats">
           <div class="drf r d2"><div class="drf-ico b">💎</div><div><div class="drf-t" data-i18n="drf1-t">리워드 확인</div><div class="drf-d" data-i18n="drf1-d">코스백 구매·QR 인증·정회원 혜택·친구 추천으로 쌓인 리워드를 앱에서 한눈에 확인</div></div></div>
           <div class="drf r d3"><div class="drf-ico m">🏥</div><div><div class="drf-t" data-i18n="drf2-t">병원 정보 탐색</div><div class="drf-d" data-i18n="drf2-d">피부과·성형외과·시술 카테고리·지역별 병원 정보 자유 탐색. 고객 자율 선택 — 강제 추천 없음</div></div></div>
@@ -1036,8 +1111,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
 <section id="greatbeauty" class="sec">
   <div class="wrap">
     <div class="gb-hdr r">
-      <div><div class="label">Premium Membership</div><h2 class="title">Great Beauty <em>정회원</em> 멤버십 혜택</h2><p class="lead" style="margin-top:10px">Annual Value ₩500,000 — Premium Beauty Fintech Membership</p></div>
-      <div class="gb-badge" data-i18n="gb-badge">연 50만원 상당</div>
+      <div><div class="label">Premium Membership</div><h2 class="title">Great Beauty <em>정회원</em> 멤버십 혜택</h2><p class="lead" style="margin-top:10px">Annual Value ₩500,000 —<br>Premium Beauty Fintech Membership</p></div>
     </div>
     <div class="gb-cards r d1">
       <div class="gbc"><div class="gbc-n">01</div><div class="gbc-ico">💊</div><div class="gbc-t" data-i18n="gbc1-t">닥터 리워드 시술 리워드</div><div class="gbc-v" data-i18n="gbc1-v">₩300,000 상당</div><div class="gbc-d" data-i18n="gbc1-d">피부과·성형외과 파트너 병원에서 활용 가능한 뷰티 리워드 크레딧</div></div>
@@ -1118,7 +1192,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   <div class="wrap">
     <div class="cta-tag r">
       <h2 data-i18n="cta-h2">BIGWAVE3 생태계에<br><em>지금 합류하세요</em></h2>
-      <p data-i18n="cta-p">고객, 브랜드, 병원, 투자자 모두를 위한 연결이 여기서 시작됩니다</p>
+      <p data-i18n="cta-p" style="word-break:keep-all">고객, 브랜드, 병원, 투자자 모두를 위한 연결이 여기서 시작됩니다</p>
     </div>
     <div class="cta-cards r d1">
       <div class="ctac"><div class="ctac-ico">🎁</div><div class="ctac-for">For Customers</div><div class="ctac-t" data-i18n="ctac1-t">고객</div><div class="ctac-d" data-i18n="ctac1-d">Great Beauty 정회원이 되어 캐시백, 시술 리워드, 안심 보험 혜택을 시작하세요</div><a href="#greatbeauty" class="ctac-btn" data-i18n="ctac1-btn">정회원 가입하기 →</a></div>
