@@ -96,6 +96,11 @@ nav.s .ndrop-inner{background:rgba(255,255,255,.92)}
 .ncta:hover{background:var(--blue);color:#fff}
 nav.s .ncta{background:var(--blue);color:#fff}
 .hbg-btn{display:none}
+.mob-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:#fff;z-index:9000;padding:70px 28px 40px;overflow-y:auto;transition:right .3s cubic-bezier(.16,1,.3,1);box-shadow:-8px 0 40px rgba(0,0,0,.12)}
+.mob-menu.open{right:0}
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:8999;opacity:0;visibility:hidden;transition:.3s}
+.mob-overlay.open{opacity:1;visibility:visible}
+.mob-close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--navy);padding:4px}
 
 /* HERO */
 @keyframes heroOrb1{0%,100%{transform:translate(0,0) scale(1)}30%{transform:translate(-80px,60px) scale(1.1)}70%{transform:translate(50px,-40px) scale(.92)}}
@@ -599,11 +604,6 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   .hbg-btn{display:flex;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:transparent;border:none;cursor:pointer;padding:4px;margin-right:4px}
   .hbg-btn span{display:block;width:22px;height:2px;background:#fff;border-radius:2px;transition:.25s}
   nav.s .hbg-btn span{background:var(--navy)}
-  .mob-menu{position:fixed;top:0;right:-100%;width:80%;max-width:320px;height:100vh;background:#fff;z-index:9000;padding:70px 28px 40px;overflow-y:auto;transition:right .3s cubic-bezier(.16,1,.3,1);box-shadow:-8px 0 40px rgba(0,0,0,.12)}
-  .mob-menu.open{right:0}
-  .mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:8999;opacity:0;visibility:hidden;transition:.3s}
-  .mob-overlay.open{opacity:1;visibility:visible}
-  .mob-close{position:absolute;top:18px;right:20px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--navy);padding:4px}
   .mob-links{list-style:none;padding:0;margin:0}
   .mob-links>li{border-bottom:1px solid var(--line);padding:14px 0}
   .mob-links>li>a{font-size:17px;font-weight:700;color:var(--navy);text-decoration:none}
