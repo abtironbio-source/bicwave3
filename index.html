@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="심볼.png">
 <meta name="naver-site-verification" content="49fb7608b46e25dd10a71e724720cce8cc147255" />
 <title>BIGWAVE3 — 소비가 자산이 되는 K-뷰티의 미래</title>
 <meta name="description" content="BIGWAVE3 CosTechMed — 화장품 소비가 캐시백이 되고, 시술 리워드가 되고, 안심 보험이 됩니다. 세계 최초 뷰티핀테크 생태계.">
@@ -510,7 +511,8 @@ section{position:relative}
 .cta-tag h2 em{font-style:normal;color:#4EC9FF}
 .cta-tag p{font-size:15px;color:rgba(255,255,255,.58)}
 .cta-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative;z-index:2;margin-bottom:44px}
-.ctac{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:28px 22px;text-align:center;transition:background .3s,transform .3s}
+.ctac{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:28px 22px;text-align:center;transition:background .3s,transform .3s;display:flex;flex-direction:column}
+.ctac-btn{margin-top:auto}
 .ctac:hover{background:rgba(255,255,255,.11);transform:translateY(-4px)}
 .ctac-ico{font-size:30px;margin-bottom:14px}
 .ctac-for{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.45);letter-spacing:.1em;text-transform:uppercase;font-family:var(--eng);margin-bottom:5px}
@@ -536,6 +538,7 @@ footer{background:#06101f;color:rgba(255,255,255,.45);padding:48px 0 28px}
 .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
 .ft-col ul a{font-size:12.5px;color:rgba(255,255,255,.35);transition:color .2s}
 .ft-col ul a:hover{color:#fff}
+.ft-biz{padding:20px 0;border-top:1px solid rgba(255,255,255,.07);font-size:11.5px;color:rgba(255,255,255,.4);line-height:2;text-align:center}
 .ft-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid rgba(255,255,255,.07);font-size:11.5px;flex-wrap:wrap;gap:10px}
 .ft-badges{display:flex;gap:8px}
 .ft-bdg{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:6px;padding:5px 11px;font-size:10.5px;color:rgba(255,255,255,.4)}
@@ -1086,8 +1089,8 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <div class="paths">
           <div class="paths-lbl" data-i18n="paths-lbl">정회원 가입 경로</div>
           <div class="path-row">
-            <div class="pi"><div class="pi-tag" data-i18n="piA-tag">Path A</div><div class="pi-t" data-i18n="piA-t">현금 납부형</div><div class="pi-d" data-i18n="piA-d">연회비 ₩150,000 직접 납부</div></div>
-            <div class="pi rec"><div class="pi-tag" data-i18n="piB-tag">Path B ⭐ Recommended</div><div class="pi-t" data-i18n="piB-t">iD VITA 가입형</div><div class="pi-d" data-i18n="piB-d">연회비 무료</div></div>
+            <div class="pi"><div class="pi-tag" data-i18n="piA-tag">Path A</div><div class="pi-t" data-i18n="piA-t">현금 납부형</div><div class="pi-d" data-i18n="piA-d">코스백 연회비 ₩150,000 직접 납부</div></div>
+            <div class="pi rec"><div class="pi-tag" data-i18n="piB-tag">Path B ⭐ Recommended</div><div class="pi-t" data-i18n="piB-t">iD VITA 가입형</div><div class="pi-d" data-i18n="piB-d">코스백 정회원 연회비 무료</div></div>
           </div>
         </div>
         <div class="sc-feats">
@@ -1209,15 +1212,14 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <div class="tv-main">
           <iframe src="https://www.youtube.com/embed/p13eecxPcvU?si=sapeg7XY-G1YTBl5" title="Dr. Reward TV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border-radius:16px"></iframe>
         </div>
-        <div class="tv-pods"><span class="tv-plbl">🎙 팟캐스트</span><span class="tv-pb">▶ YouTube</span><span class="tv-pb">🎵 Spotify</span><span class="tv-pb">🎧 Apple Podcasts</span></div>
-      </div>
+        <div style="text-align:left;margin-top:16px"><a href="https://www.youtube.com/@Dr.Reward" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:12.5px;padding:10px 18px">전체 영상 보기 →</a></div>
+              </div>
       <div class="tv-list">
         <div class="tv-item"><div class="tv-thumb b">💳</div><div><div class="tv-it">삼성화재 보험 안내</div><div class="tv-im"><span>5분</span><span>보험 안내</span></div></div></div>
         <div class="tv-item"><div class="tv-thumb m">💳</div><div><div class="tv-it">삼성카드 iD VITA 안내</div><div class="tv-im"><span>5분</span><span>카드 혜택</span></div></div></div>
         <div class="tv-item"><div class="tv-thumb co">👤</div><div><div class="tv-it">고객 인터뷰 — 뷰티 소비가 자산이 된 경험</div><div class="tv-im"><span>5분</span><span>고객 스토리</span></div></div></div>
         <div class="tv-item"><div class="tv-thumb lv">👨‍⚕️</div><div><div class="tv-it">피부과 원장 인터뷰 — 의사가 보는 뷰티 리워드</div><div class="tv-im"><span>5분</span><span>전문가 의견</span></div></div></div>
         <div class="tv-item"><div class="tv-thumb b">📈</div><div><div class="tv-it">투자자 인터뷰 — 뷰티핀테크 새로운 시장</div><div class="tv-im"><span>5분</span><span>투자 관점</span></div></div></div>
-        <div style="text-align:right;margin-top:10px"><a href="#" class="btn btn-outline" style="font-size:12.5px;padding:10px 18px">전체 영상 보기 →</a></div>
       </div>
     </div>
   </div>
@@ -1252,8 +1254,12 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <p>소비가 자산이 되는 세계 최초의 CosTechMed 뷰티핀테크 생태계. COSBACK과 닥터 리워드, 삼성카드·삼성화재가 함께합니다.</p>
       </div>
       <div class="ft-col"><h4>Platform</h4><ul><li><a href="#cosback">코스백 (COSBACK)</a></li><li><a href="#dreward">닥터 리워드</a></li><li><a href="#greatbeauty">Great Beauty 정회원</a></li><li><a href="#drtv">Dr. Reward TV</a></li></ul></div>
-      <div class="ft-col"><h4>Partner</h4><ul><li><a href="#">브랜드 입점 신청</a></li><li><a href="#">병원 입점 신청</a></li><li><a href="#">삼성카드 제휴</a></li><li><a href="#">삼성화재 연동</a></li></ul></div>
+      <div class="ft-col"><h4>Partner</h4><ul><li><a href="#">브랜드 입점 신청</a></li><li><a href="#">병원 입점 신청</a></li><li><a href="#">삼성카드 협업</a></li><li><a href="#">삼성화재 협업</a></li></ul></div>
       <div class="ft-col"><h4>Company</h4><ul><li><a href="about.html">회사 소개</a></li><li><a href="#">IR 자료 요청</a></li><li><a href="#">뉴스룸</a></li></ul></div>
+    </div>
+    <div class="ft-biz">
+      <p>상호: 빅웨이브3 &nbsp;|&nbsp; 대표자: 서민희 &nbsp;|&nbsp; 사업자등록번호: 796-87-03133 &nbsp;|&nbsp; 통신판매업신고: 1748-2300-3044-0372</p>
+      <p>전화: 02-456-5551 &nbsp;|&nbsp; E-mail: doctorreward@gmail.com</p>
     </div>
     <div class="ft-bottom">
       <span>© 2026 BIGWAVE3 Corp. All rights reserved. CosTechMed® Platform</span>
@@ -1634,5 +1640,6 @@ addEventListener('load', () => {
   })();
 })();
 </script>
+
 </body>
 </html>

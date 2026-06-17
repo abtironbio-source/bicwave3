@@ -52,8 +52,8 @@ const T = {
     'scf3-t':'최대 15% 무한 캐시백','scf3-d':'제휴 삼성카드 결제 시 친구 구매금액의 15%',
     'scf4-t':'삼성화재 보험 연동','scf4-d':'뷰티케어 안심보험 앱에서 실시간 확인',
     'paths-lbl':'정회원 가입 경로',
-    'piA-tag':'Path A','piA-t':'현금 납부형','piA-d':'연회비 ₩150,000 직접 납부',
-    'piB-tag':'Path B ⭐ Recommended','piB-t':'iD VITA 가입형','piB-d':'연회비 무료',
+    'piA-tag':'Path A','piA-t':'현금 납부형','piA-d':'코스백 연회비 ₩150,000 직접 납부',
+    'piB-tag':'Path B ⭐ Recommended','piB-t':'iD VITA 가입형','piB-d':'코스백 정회원 연회비 무료',
     'sc-float1-t':'친구 추천 캐시백','sc-float1-s':'제휴 삼성카드 결제 시',
     'sc-float2-t':'뷰티케어 보험','sc-float2-s':'Samsung Fire 연동 완료',
     /* DR REWARD */
