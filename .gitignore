@@ -1,2 +1,3 @@
 .claude/
 *.pdf
+!Bigwave3 IR.pdf
