@@ -498,7 +498,7 @@ section{position:relative}
 .tv-thumb.co{background:var(--coral-light)}
 .tv-thumb.lv{background:var(--lavender-light)}
 .tv-it{font-size:12.5px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:2px}
-.tv-im{font-size:11px;color:var(--muted);display:flex;gap:7px}
+.tv-im{display:none}
 .tv-pods{margin-top:24px;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .tv-plbl{font-size:11.5px;color:var(--muted);font-weight:600}
 .tv-pb{display:flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--navy);background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:6px 11px}
@@ -688,22 +688,36 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   .cos-grid .title{order:3;margin-bottom:0;margin-top:0}
   .cos-grid .lead{order:4;margin:14px 0 26px}
   .cos-grid .cos-vis{order:5;margin:36px 0 64px;height:400px}
+  .cf1{top:30px;right:-30px}
+  .cf2{bottom:40px;left:-30px}
+  .cf3{top:30px;left:-30px}
   .cos-grid .cos-feats{order:6;margin-bottom:20px}
   .cos-grid .cos-brands{order:7}
   .dr-feats,.drf,.drf-t,.drf-d{text-align:left}
   .cos-logo-img,.dr-logo-img{margin-left:auto;margin-right:auto}
   .ctmc{text-align:center}
   .ctm-tags{justify-content:center}
-  #greatbeauty{background-size:cover;background-position:center top}
+  #greatbeauty{background-size:cover;background-position:center top;padding-top:36px;padding-bottom:40px}
+  #greatbeauty .gb-hdr{margin-bottom:16px}
   #greatbeauty .gb-hdr{text-align:center}
-  .gb-left{max-width:100%!important}
+  .gb-left{max-width:100%!important;text-align:center}
+  .gb-hdr>div{width:100%;text-align:center}
+  .gb-left .label,.gb-left .title,.gb-left .lead,.gb-left p,.gb-left span{text-align:center;width:100%}
+  .gb-left .label{justify-content:center}
+  .gb-join{flex-direction:column;align-items:center;text-align:center;padding:20px 16px}
+  .gj-t{justify-content:center}
+  .gj-chips{justify-content:center}
+  .gj-paths{margin-left:0;justify-content:center;width:100%}
+  .gj-s{text-align:center}
   .gb-cards{grid-template-columns:1fr;gap:8px}
-  .gbc{padding:18px 20px;text-align:center}
-  .gbc-d{margin-top:0}
-  .gbc-ico{font-size:24px;margin-bottom:8px}
-  .gbc-v{font-size:24px;margin-bottom:6px}
-  .gbc-t{font-size:14px;margin-bottom:4px}
-  .gbc-d{font-size:12px}
+  .gbc{padding:12px 16px;text-align:center;gap:2px;justify-content:flex-start}
+  .gbc-ico{font-size:24px;margin-bottom:4px;width:100%}
+  .gbc-ico-img{width:28px;height:28px;margin:0 auto}
+  .gbc-t,.gbc-v,.gbc-d{width:100%;text-align:center}
+  .gbc-d{margin-top:0!important}
+  .gbc-v{font-size:20px;margin-bottom:2px}
+  .gbc-t{font-size:13px;margin-bottom:2px}
+  .gbc-d{font-size:11px}
   .gb-hdr{flex-direction:column;gap:12px}
   .cmp-table{grid-template-columns:1fr}
   .tv-layout{grid-template-columns:1fr}
@@ -1215,11 +1229,11 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <div style="text-align:left;margin-top:16px"><a href="https://www.youtube.com/@Dr.Reward" target="_blank" rel="noopener" class="btn btn-outline" style="font-size:12.5px;padding:10px 18px">전체 영상 보기 →</a></div>
               </div>
       <div class="tv-list">
-        <div class="tv-item"><div class="tv-thumb b">💳</div><div><div class="tv-it">삼성화재 보험 안내</div><div class="tv-im"><span>5분</span><span>보험 안내</span></div></div></div>
-        <div class="tv-item"><div class="tv-thumb m">💳</div><div><div class="tv-it">삼성카드 iD VITA 안내</div><div class="tv-im"><span>5분</span><span>카드 혜택</span></div></div></div>
-        <div class="tv-item"><div class="tv-thumb co">👤</div><div><div class="tv-it">고객 인터뷰 — 뷰티 소비가 자산이 된 경험</div><div class="tv-im"><span>5분</span><span>고객 스토리</span></div></div></div>
-        <div class="tv-item"><div class="tv-thumb lv">👨‍⚕️</div><div><div class="tv-it">피부과 원장 인터뷰 — 의사가 보는 뷰티 리워드</div><div class="tv-im"><span>5분</span><span>전문가 의견</span></div></div></div>
-        <div class="tv-item"><div class="tv-thumb b">📈</div><div><div class="tv-it">투자자 인터뷰 — 뷰티핀테크 새로운 시장</div><div class="tv-im"><span>5분</span><span>투자 관점</span></div></div></div>
+        <a class="tv-item" href="https://youtu.be/QR4IXjkJNSY" target="_blank" rel="noopener"><div class="tv-thumb b">🎬</div><div><div class="tv-it">빅웨이브3 COS-TECH-MED 생태계</div><div class="tv-im"><span>5분</span><span>생태계 소개</span></div></div></a>
+        <a class="tv-item" href="https://www.youtube.com/watch?v=0bteIEDg9TM" target="_blank" rel="noopener"><div class="tv-thumb m">🎬</div><div><div class="tv-it">닥터리워드 앱 사용설명 영상</div><div class="tv-im"><span>5분</span><span>앱 사용법</span></div></div></a>
+        <a class="tv-item" href="https://www.youtube.com/watch?v=Z2FH94fxuZs" target="_blank" rel="noopener"><div class="tv-thumb co">🎬</div><div><div class="tv-it">병원광고 OUT! 닥터리워드 후기 영상</div><div class="tv-im"><span>5분</span><span>고객 후기</span></div></div></a>
+        <a class="tv-item" href="https://www.youtube.com/watch?v=xjO8mQzY7L8" target="_blank" rel="noopener"><div class="tv-thumb lv">🎬</div><div><div class="tv-it">Great beauty! 시작되다!</div><div class="tv-im"><span>5분</span><span>Great Beauty</span></div></div></a>
+        <a class="tv-item" href="https://www.youtube.com/watch?v=Q8zWpj65WzE" target="_blank" rel="noopener"><div class="tv-thumb b">🎬</div><div><div class="tv-it">닥터리워드 피부과 시술 결제 여정</div><div class="tv-im"><span>5분</span><span>시술 결제</span></div></div></a>
       </div>
     </div>
   </div>
@@ -1255,7 +1269,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
       </div>
       <div class="ft-col"><h4>Platform</h4><ul><li><a href="#cosback">코스백 (COSBACK)</a></li><li><a href="#dreward">닥터 리워드</a></li><li><a href="#greatbeauty">Great Beauty 정회원</a></li><li><a href="#drtv">Dr. Reward TV</a></li></ul></div>
       <div class="ft-col"><h4>Partner</h4><ul><li><a href="#">브랜드 입점 신청</a></li><li><a href="#">병원 입점 신청</a></li><li><a href="#">삼성카드 협업</a></li><li><a href="#">삼성화재 협업</a></li></ul></div>
-      <div class="ft-col"><h4>Company</h4><ul><li><a href="about.html">회사 소개</a></li><li><a href="Bigwave3 IR.pdf" target="_blank" rel="noopener">IR 자료 요청</a></li><li><a href="#">뉴스룸</a></li></ul></div>
+      <div class="ft-col"><h4>Company</h4><ul><li><a href="about.html">회사 소개</a></li><li><a href="Bigwave3 IR.pdf" target="_blank" rel="noopener">IR 자료 바로보기</a></li><li><a href="#">뉴스룸</a></li></ul></div>
     </div>
     <div class="ft-biz">
       <p>상호: 빅웨이브3 &nbsp;|&nbsp; 대표자: 서민희 &nbsp;|&nbsp; 사업자등록번호: 796-87-03133 &nbsp;|&nbsp; 통신판매업신고: 1748-2300-3044-0372</p>
