@@ -1269,7 +1269,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <p>소비가 자산이 되는 세계 최초의 CosTechMed 뷰티핀테크 생태계. COSBACK과 닥터 리워드, 삼성카드·삼성화재가 함께합니다.</p>
       </div>
       <div class="ft-col"><h4>Platform</h4><ul><li><a href="#cosback">코스백 (COSBACK)</a></li><li><a href="#dreward">닥터 리워드</a></li><li><a href="#greatbeauty">Great Beauty 정회원</a></li><li><a href="#drtv">Dr. Reward TV</a></li></ul></div>
-      <div class="ft-col"><h4>Partner</h4><ul><li><a href="#">브랜드 입점 신청</a></li><li><a href="#">병원 입점 신청</a></li><li><a href="#">삼성카드 협업</a></li><li><a href="#">삼성화재 협업</a></li></ul></div>
+      <div class="ft-col"><h4>Partner</h4><ul><li><a href="#" id="ft-brand-apply-btn">브랜드 입점 신청</a></li><li><a href="#" id="ft-clinic-apply-btn">병원 입점 신청</a></li><li><a href="#">삼성카드 협업</a></li><li><a href="#">삼성화재 협업</a></li></ul></div>
       <div class="ft-col"><h4>Company</h4><ul><li><a href="about.html">회사 소개</a></li><li><a href="#" id="ir-pdf-btn">IR 자료 바로보기</a></li><li><a href="#" id="beauty-pdf-btn">뷰티 핀테크 프로세스</a></li><li><a href="#">뉴스룸</a></li></ul></div>
     </div>
     <div class="ft-biz">
@@ -1688,6 +1688,10 @@ addEventListener('load', () => {
     });
   })();
 })();
+
+// 푸터 입점 신청 버튼 연결
+document.getElementById('ft-brand-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('brand-apply-btn').click(); });
+document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('clinic-apply-btn').click(); });
 
 // 뷰티 핀테크 프로세스 모달
 (function(){
