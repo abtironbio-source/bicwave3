@@ -478,6 +478,19 @@ section{position:relative}
 .cmp-foot .cf-btn{display:block;text-align:center;padding:13px;border-radius:9px;font-size:13.5px;font-weight:700;background:var(--blue);color:#fff;transition:.3s}
 .cmp-foot .cf-btn:hover{background:var(--blue2)}
 
+/* NEWSROOM */
+.news-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.news-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.15);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.news-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.news-img-wrap{width:100%;overflow:hidden;background:#eee}
+.news-img-wrap img{width:100%;height:auto;display:block;transition:transform .4s}
+.news-card:hover .news-img-wrap img{transform:scale(1.03)}
+.news-info{display:flex;justify-content:space-between;align-items:center;padding:10px 14px 4px}
+.news-outlet{font-size:12px;font-weight:700;color:#0a2060}
+.news-date{font-size:11px;color:#999}
+.news-caption{font-size:12px;color:rgba(0,0,0,.3);line-height:1.5;padding:0 14px 10px}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr;gap:16px}}
+
 /* DR TV */
 #drtv{background:var(--white)}
 .tv-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}
@@ -1240,6 +1253,45 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
   </div>
 </section>
 
+<!-- NEWSROOM -->
+<section id="newsroom" class="sec" style="background:#06101f">
+  <div class="wrap">
+    <div class="sec-label" style="margin-bottom:12px;color:rgba(255,255,255,.45);letter-spacing:.2em;font-size:11px">— NEWSROOM —</div>
+    <h2 style="font-size:clamp(36px,5vw,64px);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:12px">미디어 보도</h2>
+    <p style="color:rgba(255,255,255,.45);font-size:14px;margin-bottom:44px">빅웨이브3와 닥터리워드의 언론 보도를 확인하세요.</p>
+    <div class="news-grid">
+      <div class="news-card" onclick="openNewsImg(this)" data-full="서울신문 2026년1월19일자 빅웨이브3.jpg">
+        <div class="news-img-wrap"><img src="서울신문.png" alt="서울신문 보도" loading="lazy"></div>
+        <div class="news-info"><span class="news-outlet">서울신문</span><span class="news-date">2026.01.15</span></div>
+        <div class="news-caption">신라면세점 입점, 닥터리워드 존 오픈 — K-뷰티 핀테크의 글로벌 도약</div>
+      </div>
+      <div class="news-card" onclick="openNewsImg(this)" data-full="전자신문2026년4월 7일자 닥터리워드.jpg">
+        <div class="news-img-wrap"><img src="전자신문 섬네일.png" alt="전자신문 보도" loading="lazy"></div>
+        <div class="news-info"><span class="news-outlet">전자신문</span><span class="news-date">2026.04.07</span></div>
+        <div class="news-caption">닥터리워드, 피부과 시술 리워드 시스템으로 뷰티 핀테크 새 지평</div>
+      </div>
+      <div class="news-card" onclick="openNewsImg(this)" data-full="이데일리 2026년4월10일자 빅웨이브3.jpg">
+        <div class="news-img-wrap"><img src="이데일리 섬네일.png" alt="이데일리 보도" loading="lazy"></div>
+        <div class="news-info"><span class="news-outlet">이데일리</span><span class="news-date">2025.06.22</span></div>
+        <div class="news-caption">빅웨이브3, 삼성카드·삼성화재와 손잡고 CosTechMed 생태계 구축</div>
+      </div>
+      <div class="news-card" onclick="openNewsImg(this)" data-full="MK뉴스룸 2025년5월2일자.png">
+        <div class="news-img-wrap"><img src="MK 뉴스룸.png" alt="MK뉴스룸 보도" loading="lazy"></div>
+        <div class="news-info"><span class="news-outlet">MK뉴스룸</span><span class="news-date">2025.05.02</span></div>
+        <div class="news-caption">화장품 구매가 자산이 되는 세상, COSBACK이 만든 소비 혁명</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 뉴스 이미지 모달 -->
+<div id="news-img-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);overflow-y:auto;padding:40px 20px" onclick="if(event.target===this){this.style.display='none';document.body.style.overflow=''}">
+  <div style="position:relative;width:100%;max-width:1400px;margin:0 auto">
+    <button onclick="document.getElementById('news-img-modal').style.display='none';document.body.style.overflow=''" style="position:fixed;top:16px;right:20px;background:#fff;border:none;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:10">×</button>
+    <img id="news-img-modal-img" src="" style="width:100%;border-radius:12px;object-fit:contain;box-shadow:0 32px 100px rgba(0,0,0,.7)">
+  </div>
+</div>
+
 <!-- FINAL CTA -->
 <section id="cta-final" class="sec">
   <div class="wrap">
@@ -1268,7 +1320,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
         <div class="fbl"><img class="ft-logo-img" src="빅웨이브로고-1.png?v=2" alt="BIGWAVE3"></div>
         <p>소비가 자산이 되는 세계 최초의 CosTechMed 뷰티핀테크 생태계. COSBACK과 닥터 리워드, 삼성카드·삼성화재가 함께합니다.</p>
       </div>
-      <div class="ft-col"><h4>Platform</h4><ul><li><a href="#cosback">코스백 (COSBACK)</a></li><li><a href="#dreward">닥터 리워드</a></li><li><a href="#greatbeauty">Great Beauty 정회원</a></li><li><a href="#drtv">Dr. Reward TV</a></li></ul></div>
+      <div class="ft-col"><h4>Platform</h4><ul><li><a href="#cosback">코스백 (COSBACK)</a></li><li><a href="#dreward">닥터 리워드</a></li><li><a href="#" id="glowtrip-pdf-btn">GLOW TRIP</a></li><li><a href="#drtv">Dr. Reward TV</a></li></ul></div>
       <div class="ft-col"><h4>Partner</h4><ul><li><a href="#" id="ft-brand-apply-btn">브랜드 입점 신청</a></li><li><a href="#" id="ft-clinic-apply-btn">병원 입점 신청</a></li><li><a href="#">삼성카드 협업</a></li><li><a href="#">삼성화재 협업</a></li></ul></div>
       <div class="ft-col"><h4>Company</h4><ul><li><a href="about.html">회사 소개</a></li><li><a href="#" id="ir-pdf-btn">IR 자료 바로보기</a></li><li><a href="#" id="beauty-pdf-btn">뷰티 핀테크 프로세스</a></li><li><a href="#">뉴스룸</a></li></ul></div>
     </div>
@@ -1282,6 +1334,23 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
     </div>
   </div>
 </footer>
+
+<!-- GLOW TRIP 모달 -->
+<div id="glowtrip-pdf-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(6,15,40,.85);backdrop-filter:blur(6px);align-items:center;justify-content:center">
+  <div style="position:relative;width:96%;max-width:1200px;height:92vh;background:#0a1428;border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.1)">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:#0d1e3d;border-bottom:1px solid rgba(255,255,255,.08)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="심볼.png" style="height:22px;object-fit:contain">
+        <span style="color:#fff;font-weight:700;font-size:14px">GLOW TRIP × Dr. Reward</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <a href="GLOW_TRIP_×_Dr.pdf" target="_blank" rel="noopener" style="background:rgba(255,255,255,.1);border:none;color:#fff;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;white-space:nowrap">↗ 전체화면 보기</a>
+        <button id="glowtrip-pdf-close" style="background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1">×</button>
+      </div>
+    </div>
+    <iframe src="GLOW_TRIP_×_Dr.pdf" style="width:100%;height:calc(100% - 53px);border:none"></iframe>
+  </div>
+</div>
 
 <!-- 뷰티 핀테크 프로세스 모달 -->
 <div id="beauty-pdf-modal" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(6,15,40,.85);backdrop-filter:blur(6px);align-items:center;justify-content:center">
@@ -1689,9 +1758,45 @@ addEventListener('load', () => {
   })();
 })();
 
+// 뉴스 이미지 모달
+function openNewsImg(card){
+  const full = card.getAttribute('data-full') || card.querySelector('img').src;
+  const modal = document.getElementById('news-img-modal');
+  document.getElementById('news-img-modal-img').src = full;
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
 // 푸터 입점 신청 버튼 연결
 document.getElementById('ft-brand-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('brand-apply-btn').click(); });
 document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('clinic-apply-btn').click(); });
+
+// GLOW TRIP 모달
+(function(){
+  const modal = document.getElementById('glowtrip-pdf-modal');
+  const openBtn = document.getElementById('glowtrip-pdf-btn');
+  const closeBtn = document.getElementById('glowtrip-pdf-close');
+  if(!modal||!openBtn) return;
+  openBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    if(window.innerWidth <= 900){
+      window.open('GLOW_TRIP_×_Dr.pdf', '_blank');
+      return;
+    }
+    modal.style.display='flex';
+    document.body.style.overflow='hidden';
+  });
+  closeBtn.addEventListener('click', function(){
+    modal.style.display='none';
+    document.body.style.overflow='';
+  });
+  modal.addEventListener('click', function(e){
+    if(e.target===modal){
+      modal.style.display='none';
+      document.body.style.overflow='';
+    }
+  });
+})();
 
 // 뷰티 핀테크 프로세스 모달
 (function(){
