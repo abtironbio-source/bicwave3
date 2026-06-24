@@ -1941,18 +1941,8 @@ document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', functi
 // IR PDF 모달
 (function(){
   const modal = document.getElementById('ir-pdf-modal');
-  const openBtn = document.getElementById('ir-pdf-btn');
   const closeBtn = document.getElementById('ir-pdf-close');
-  if(!modal||!openBtn) return;
-  openBtn.addEventListener('click', function(e){
-    e.preventDefault();
-    if(window.innerWidth <= 900){
-      window.open('Bigwave3%20IR.pdf', '_blank');
-      return;
-    }
-    modal.style.display='flex';
-    document.body.style.overflow='hidden';
-  });
+  if(!modal) return;
   closeBtn.addEventListener('click', function(){
     modal.style.display='none';
     document.body.style.overflow='';
