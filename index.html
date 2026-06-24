@@ -1858,6 +1858,7 @@ function checkDocPassword(){
   const val = document.getElementById('ir-doc-pw-input').value;
   if(val === '7777'){
     closeDocPw();
+    closeIRRoom();
     const modal = document.getElementById('ir-pdf-modal');
     modal.querySelector('iframe').src = _irDocTarget;
     modal.querySelector('a[target="_blank"]').href = _irDocTarget;
