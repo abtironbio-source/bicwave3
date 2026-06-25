@@ -23,8 +23,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:fl
 .nav-back svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
 /* HERO */
-.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(30,100,255,.18) 0%,transparent 70%)}
+.hero{min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden;background:url('shutterstock_2307316047 (1).jpg') center/cover no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(6,15,40,.88) 0%,rgba(6,15,40,.78) 50%,rgba(6,15,40,.95) 100%)}
+.hero h1,.hero-sub,.hero-label{position:relative;z-index:1;text-shadow:0 2px 16px rgba(0,0,0,.8)}
 .hero-label{display:inline-block;background:rgba(30,100,255,.15);border:1px solid rgba(30,100,255,.3);color:#7eb3ff;font-size:12px;font-weight:700;letter-spacing:.1em;padding:6px 16px;border-radius:20px;margin-bottom:24px;text-transform:uppercase}
 .hero h1{font-size:clamp(32px,5vw,64px);font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
 .hero h1 em{color:var(--blue);font-style:normal}
@@ -112,7 +113,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.3)}
   <div>
     <div class="hero-label">Company Introduction</div>
     <h1>뷰티 소비를 <em>자산으로</em><br>연결하는 플랫폼</h1>
-    <p class="hero-sub">주식회사 빅웨이브쓰리 — K-뷰티, 헬스케어, 이커머스, 리워드 시스템을 결합한 차세대 뷰티핀테크 플랫폼 기업</p>
+    <p class="hero-sub">K-뷰티, 헬스케어, 이커머스, 리워드 시스템을 결합한 차세대 뷰티핀테크 플랫폼 기업</p>
   </div>
 </div>
 
