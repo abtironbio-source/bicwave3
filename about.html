@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>회사 소개 — BIGWAVE3</title>
 <link rel="icon" href="심볼.png">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -29,7 +30,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 40px;display:fl
 .hero-label{display:inline-block;background:rgba(30,100,255,.15);border:1px solid rgba(30,100,255,.3);color:#7eb3ff;font-size:12px;font-weight:700;letter-spacing:.1em;padding:6px 16px;border-radius:20px;margin-bottom:24px;text-transform:uppercase}
 .hero h1{font-size:clamp(32px,5vw,64px);font-weight:900;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
 .hero h1 em{color:var(--blue);font-style:normal}
-.hero-sub{color:rgba(255,255,255,.55);font-size:clamp(14px,2vw,18px);max-width:600px;margin:0 auto}
+.hero-sub{color:#fff;font-size:clamp(14px,2vw,18px);max-width:600px;margin:0 auto}
 
 /* WRAP */
 .wrap{max-width:960px;margin:0 auto;padding:0 24px}
@@ -50,35 +51,97 @@ section + section{border-top:1px solid rgba(255,255,255,.06)}
 
 /* SERVICE CARDS */
 .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.service-card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:28px 24px;transition:transform .2s,box-shadow .2s}
-.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,100,255,.15)}
-.sc-ico{width:48px;height:48px;background:rgba(30,100,255,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.sc-ico svg{width:24px;height:24px;stroke:#7eb3ff;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.sc-name{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:.05em;margin-bottom:6px}
+.service-card{background:var(--card);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(30,100,255,.2)}
+.sc-img{width:100%;height:200px;object-fit:cover;display:block}
+.sc-body{padding:22px 22px 24px}
+.sc-name{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:.08em;margin-bottom:6px;text-transform:uppercase}
 .sc-title{font-size:18px;font-weight:800;margin-bottom:10px}
 .sc-desc{font-size:13px;color:rgba(255,255,255,.55);line-height:1.65}
 
 /* STRENGTHS */
-.strength-list{display:flex;flex-direction:column;gap:24px}
-.strength-item{display:flex;gap:20px;align-items:flex-start;background:var(--card);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:24px}
-.si-num{flex-shrink:0;width:40px;height:40px;background:rgba(30,100,255,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:var(--blue)}
-.si-body h4{font-size:16px;font-weight:800;margin-bottom:6px}
-.si-body p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65}
+.strength-section{position:relative;overflow:hidden}
+.strength-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.strength-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(3,10,35,.97) 0%,rgba(3,10,35,.85) 40%,rgba(3,10,35,.1) 70%,rgba(3,10,35,0) 100%)}
+.strength-overlay::after{content:'';position:absolute;inset:0;background:linear-gradient(120deg,rgba(30,100,255,.18) 0%,rgba(10,40,160,.12) 30%,rgba(30,100,255,.06) 60%,transparent 100%);background-size:200% 200%;animation:shimmer 6s ease-in-out infinite}
+@keyframes shimmer{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.strength-section .wrap{position:relative;z-index:1}
+.strength-sub{font-size:17px;color:rgba(255,255,255,.7);line-height:1.7;max-width:520px;margin-bottom:40px}
+.strength-list{display:flex;flex-direction:column;gap:20px}
+.strength-item{position:relative;display:flex;align-items:stretch;border-radius:18px;overflow:hidden;background:rgba(10,20,70,.55);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:transform .2s,box-shadow .2s}
+.strength-item::before{content:'';position:absolute;inset:0;border-radius:18px;padding:1px;background:linear-gradient(135deg,rgba(30,100,255,.55),rgba(255,255,255,.06),rgba(30,100,255,.2));-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.strength-item:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(30,100,255,.25)}
+.si-num-box{flex-shrink:0;width:130px;background:linear-gradient(160deg,#1a3aad,#0d1e6e);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:30px 16px}
+.si-num-box span{font-size:40px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+.si-num-label{font-size:8px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.4);text-transform:uppercase}
+.si-divider{width:1px;background:rgba(255,255,255,.08);margin:20px 0;flex-shrink:0}
+.si-body{flex:1;padding:26px 28px;display:flex;flex-direction:column;justify-content:center}
+.si-body h4{font-size:17px;font-weight:800;margin-bottom:10px;color:#fff}
+.si-body p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.75}
+.si-arrow{flex-shrink:0;display:flex;align-items:center;padding:0 24px;color:rgba(30,100,255,.6);font-size:24px;transition:color .2s}
+.strength-item:hover .si-arrow{color:var(--blue)}
 
-/* PATENT */
-.patent-box{background:linear-gradient(135deg,rgba(30,100,255,.12),rgba(30,100,255,.05));border:1px solid rgba(30,100,255,.25);border-radius:18px;padding:32px;display:flex;gap:20px;align-items:flex-start}
-.patent-ico{flex-shrink:0;font-size:36px}
-.patent-body h4{font-size:18px;font-weight:800;margin-bottom:8px}
-.patent-body p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7}
+/* OVERVIEW */
+.overview-section{position:relative;overflow:hidden;background:linear-gradient(145deg,#060f28,#081534,#0a2060,#060f28);background-size:300% 300%;animation:overview-grad 10s ease-in-out infinite}
+@keyframes overview-grad{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes ovOrb1{0%{transform:translate(0,0) scale(1)}25%{transform:translate(-200px,120px) scale(1.1)}50%{transform:translate(-350px,30px) scale(.95)}75%{transform:translate(-150px,-80px) scale(1.08)}100%{transform:translate(0,0) scale(1)}}
+@keyframes ovOrb2{0%{transform:translate(0,0) scale(1)}25%{transform:translate(180px,-100px) scale(1.12)}50%{transform:translate(300px,60px) scale(.9)}75%{transform:translate(120px,140px) scale(1.05)}100%{transform:translate(0,0) scale(1)}}
+@keyframes ovOrb3{0%{transform:translate(0,0) scale(1)}33%{transform:translate(-180px,100px) scale(1.15)}66%{transform:translate(160px,-120px) scale(.88)}100%{transform:translate(0,0) scale(1)}}
+.ov-orb{position:absolute;border-radius:50%;filter:blur(50px);pointer-events:none;z-index:0}
+.ov-orb-1{width:600px;height:600px;background:rgba(0,149,255,.25);right:-150px;top:-200px;animation:ovOrb1 9s ease-in-out infinite}
+.ov-orb-2{width:400px;height:400px;background:rgba(30,80,255,.22);left:-100px;bottom:-100px;animation:ovOrb2 11s ease-in-out infinite}
+.ov-orb-3{width:300px;height:300px;background:rgba(80,100,255,.2);left:45%;top:20%;animation:ovOrb3 7s ease-in-out infinite}
+.overview-section .wrap{position:relative;z-index:1}
+
+/* PATENT / KEY ACHIEVEMENT */
+.achievement-section{position:relative;overflow:hidden}
+.achievement-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.achievement-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(3,10,35,.97) 0%,rgba(3,10,35,.85) 45%,rgba(3,10,35,.2) 70%,rgba(3,10,35,0) 100%)}
+.achievement-section .wrap{position:relative;z-index:1}
+.achievement-sub{font-size:16px;color:rgba(255,255,255,.65);line-height:1.7;max-width:480px;margin-bottom:36px}
+@property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes spin-border{to{--angle:360deg}}
+.patent-box-wrap{position:relative;max-width:640px;margin-bottom:40px;border-radius:18px;border:1px solid rgba(30,100,255,.35)}
+.patent-box-wrap::after{content:'';position:absolute;inset:-1px;border-radius:18px;padding:1.5px;background:conic-gradient(from var(--angle,0deg),transparent 0%,transparent 46%,rgba(180,220,255,1) 50%,transparent 54%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;animation:spin-border 3s linear infinite paused;pointer-events:none}
+.patent-box-wrap:hover{border-color:transparent}
+.patent-box-wrap:hover::after{opacity:1;animation-play-state:running}
+.patent-box{background:rgba(10,20,70,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:17px;padding:32px 36px;display:flex;gap:24px;align-items:center}
+.patent-box{background:rgba(10,20,70,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-radius:17px;padding:32px 36px;display:flex;gap:24px;align-items:center}
+.patent-ico{flex-shrink:0;width:80px;display:flex;align-items:center;justify-content:center}
+.patent-ico img{width:80px;height:80px;object-fit:contain}
+.patent-body h4{font-size:26px;font-weight:900;margin-bottom:12px;color:#fff}
+.patent-body p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:16px}
+.patent-note{font-size:13px;color:rgba(100,160,255,.85);line-height:1.75;border-top:1px solid rgba(30,100,255,.2);padding-top:16px}
+.achievement-tags{display:flex;gap:32px;max-width:640px}
+.ach-tag{display:flex;align-items:center;gap:12px}
+.ach-tag-ico{width:44px;height:44px;flex-shrink:0;background:rgba(30,100,255,.12);border:1px solid rgba(30,100,255,.25);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.ach-tag-ico svg{width:20px;height:20px;stroke:var(--blue);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ach-tag-text strong{display:block;font-size:14px;font-weight:800;color:#fff;margin-bottom:2px}
+.ach-tag-text span{font-size:11px;color:rgba(255,255,255,.45)}
 
 /* VISION */
-.vision-box{text-align:center;padding:60px 40px;background:linear-gradient(135deg,rgba(30,100,255,.15),rgba(10,64,200,.1));border:1px solid rgba(30,100,255,.2);border-radius:24px}
-.vision-quote{font-size:clamp(16px,2.5vw,22px);font-weight:800;line-height:1.5;color:#fff;margin-bottom:20px}
-.vision-quote em{color:#7eb3ff;font-style:normal}
-.vision-desc{font-size:14px;color:rgba(255,255,255,.5);max-width:600px;margin:0 auto;line-height:1.75}
+.vision-section{position:relative;overflow:hidden;padding:100px 0}
+.vision-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 0%}
+.vision-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(3,10,35,.88) 0%,rgba(3,10,35,.5) 45%,rgba(3,10,35,.05) 100%);z-index:1}
+.vision-sparkle-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.vision-section .wrap{position:relative;z-index:3}
+.vision-quote-wrap{position:relative;margin-bottom:48px;border-radius:20px;border:1px solid rgba(30,100,255,.3)}
+.vision-quote-wrap::after{content:'';position:absolute;inset:-1px;border-radius:20px;padding:1.5px;background:conic-gradient(from var(--angle,0deg),transparent 0%,transparent 21%,rgba(180,220,255,1) 25%,transparent 29%,transparent 71%,rgba(180,220,255,1) 75%,transparent 79%,transparent 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin-border 3s linear infinite;pointer-events:none}
+.vision-quote-wrap{border-color:transparent}
+.vision-quote-card{border-radius:19px}
+.vision-quote-card{position:relative;border-radius:19px;padding:52px 60px;background:rgba(5,15,60,.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden}
+.vision-quote-card::before,.vision-quote-card::after{display:none}
+.vision-quote-text{font-size:clamp(20px,2.8vw,30px);font-weight:900;line-height:1.6;color:#fff;text-align:center;position:relative;z-index:1}
+.vq-mark{font-size:2.2em;color:rgba(100,170,255,.9);font-family:'Playfair Display',Georgia,serif;font-weight:700;vertical-align:-.2em;line-height:0;margin:0 8px}
+.vision-quote-text em{color:#7eb3ff;font-style:normal}
+.vision-card-desc{font-size:15px;color:rgba(255,255,255,.65);line-height:1.85;text-align:center;margin-top:28px;padding-top:28px;border-top:1px solid rgba(30,100,255,.2);position:relative;z-index:1}
+.vision-divider{display:flex;align-items:center;gap:16px;margin-bottom:0}
+.vision-divider::before,.vision-divider::after{content:'';flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(30,100,255,.5),transparent)}
+.vision-divider span{font-size:15px;color:#fff;white-space:nowrap;font-weight:600;padding:20px 0;text-align:center}
+.vision-divider strong{color:#7eb3ff;font-weight:800}
 
 /* CLOSING */
-.closing{background:rgba(255,255,255,.03);border-top:1px solid rgba(255,255,255,.06);padding:60px 0;text-align:center}
+.closing{background:rgba(255,255,255,.02);border-top:1px solid rgba(255,255,255,.06);padding:60px 0;text-align:center}
 .closing p{font-size:15px;color:rgba(255,255,255,.5);line-height:1.9;max-width:680px;margin:0 auto 8px}
 .closing p strong{color:#fff}
 
@@ -113,12 +176,15 @@ footer p{font-size:12px;color:rgba(255,255,255,.3)}
   <div>
     <div class="hero-label">Company Introduction</div>
     <h1>뷰티 소비를 <em>자산으로</em><br>연결하는 플랫폼</h1>
-    <p class="hero-sub">K-뷰티, 헬스케어, 이커머스, 리워드 시스템을 결합한 차세대 뷰티핀테크 플랫폼 기업</p>
+    <p class="hero-sub">K-뷰티, 헬스케어, 이커머스, 리워드 시스템을 결합한<br>차세대 뷰티핀테크 플랫폼 기업</p>
   </div>
 </div>
 
 <!-- 회사 개요 -->
-<section>
+<section class="overview-section">
+  <div class="ov-orb ov-orb-1"></div>
+  <div class="ov-orb ov-orb-2"></div>
+  <div class="ov-orb ov-orb-3"></div>
   <div class="wrap">
     <div class="sec-label">Company Overview</div>
     <h2 class="sec-title">회사 <em>개요</em></h2>
@@ -141,87 +207,147 @@ footer p{font-size:12px;color:rgba(255,255,255,.3)}
     <h2 class="sec-title">핵심 <em>서비스</em></h2>
     <div class="service-grid">
       <div class="service-card">
-        <div class="sc-ico">
-          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <img src="Image 뷰티.png" alt="COSBACK" class="sc-img">
+        <div class="sc-body">
+          <div class="sc-name">COSBACK</div>
+          <div class="sc-title">코스백</div>
+          <div class="sc-desc">K-뷰티, 헬스케어, 패션, 여행, 라이프스타일 상품을 기반으로 한 이커머스 플랫폼. 구매 활동과 제휴 혜택을 기반으로 다양한 리워드를 적립할 수 있습니다.</div>
         </div>
-        <div class="sc-name">COSBACK</div>
-        <div class="sc-title">코스백</div>
-        <div class="sc-desc">K-뷰티, 헬스케어, 패션, 여행, 라이프스타일 상품을 기반으로 한 이커머스 플랫폼. 구매 활동과 제휴 혜택을 기반으로 다양한 리워드를 적립할 수 있습니다.</div>
       </div>
       <div class="service-card">
-        <div class="sc-ico">
-          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <img src="Image 의료.png" alt="DR. REWARD" class="sc-img">
+        <div class="sc-body">
+          <div class="sc-name">DR. REWARD</div>
+          <div class="sc-title">닥터 리워드</div>
+          <div class="sc-desc">병원과 헤어, 네일, 필라테스 등 웰니스 정보를 제공하고 리워드 적립을 결합한 모바일 플랫폼. 고객과 브랜드 간의 접점을 확대합니다.</div>
         </div>
-        <div class="sc-name">DR. REWARD</div>
-        <div class="sc-title">닥터 리워드</div>
-        <div class="sc-desc">병원과 헤어, 네일, 필라테스 등 웰니스 정보를 제공하고 리워드 적립을 결합한 모바일 플랫폼. 고객과 브랜드 간의 접점을 확대합니다.</div>
       </div>
       <div class="service-card">
-        <div class="sc-ico">
-          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <img src="Image 플랫폼.png" alt="COSTECHMED" class="sc-img">
+        <div class="sc-body">
+          <div class="sc-name">COSTECHMED</div>
+          <div class="sc-title">하이브리드 생태계</div>
+          <div class="sc-desc">COSBACK과 Doctor Reward를 중심으로 K-뷰티, 병원·웰니스 정보, 고객 리워드, 제휴 금융·보험 서비스를 연결하는 하이브리드 플랫폼 구조.</div>
         </div>
-        <div class="sc-name">COSTECHMED</div>
-        <div class="sc-title">하이브리드 생태계</div>
-        <div class="sc-desc">COSBACK과 Doctor Reward를 중심으로 K-뷰티, 병원·웰니스 정보, 고객 리워드, 제휴 금융·보험 서비스를 연결하는 하이브리드 플랫폼 구조.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 핵심 강점 -->
-<section>
+<section class="strength-section">
+  <img src="회사소개배경이미지.png" alt="" class="strength-bg">
+  <div class="strength-overlay"></div>
   <div class="wrap">
     <div class="sec-label">Core Strengths</div>
     <h2 class="sec-title">핵심 <em>강점</em></h2>
+    <p class="strength-sub">뷰티, 헬스케어, 핀테크를 연결하는 BIGWAVE3의 차별화된 경쟁력으로<br>지속 가능한 성장을 만들어갑니다.</p>
     <div class="strength-list">
       <div class="strength-item">
-        <div class="si-num">1</div>
+        <div class="si-num-box">
+          <span>01</span>
+          <div class="si-num-label">STRENGTH</div>
+        </div>
+        <div class="si-divider"></div>
         <div class="si-body">
           <h4>이커머스와 병원정보 플랫폼의 이중 구조</h4>
           <p>COSBACK은 제품 구매와 리워드 적립의 중심 플랫폼이며, Doctor Reward는 병원 정보 제공과 웰니스 혜택의 접점 플랫폼입니다. 두 플랫폼은 각각 독립적인 기능을 갖추면서도, 고객 경험 안에서는 하나의 연결된 뷰티핀테크 생태계로 작동합니다.</p>
         </div>
+        <div class="si-arrow">›</div>
       </div>
       <div class="strength-item">
-        <div class="si-num">2</div>
+        <div class="si-num-box">
+          <span>02</span>
+          <div class="si-num-label">STRENGTH</div>
+        </div>
+        <div class="si-divider"></div>
         <div class="si-body">
           <h4>K-뷰티 브랜드 유통 기반</h4>
           <p>국내 프리미엄 K-뷰티 브랜드와의 유통 및 플랫폼 연동을 통해 제품 기반의 고객 유입 구조를 강화하고 있습니다. 단순 광고 중심이 아니라, 실제 제품 구매와 사용 경험을 통해 플랫폼 회원으로 전환되는 구조를 지향합니다.</p>
         </div>
+        <div class="si-arrow">›</div>
       </div>
       <div class="strength-item">
-        <div class="si-num">3</div>
+        <div class="si-num-box">
+          <span>03</span>
+          <div class="si-num-label">STRENGTH</div>
+        </div>
+        <div class="si-divider"></div>
         <div class="si-body">
           <h4>리워드 시스템 관련 지식재산 기반</h4>
           <p>화장품 구매에 따른 리워드 적립 및 사용 시스템과 관련된 특허결정 내용을 기반으로 사업모델이 고도화되고 있습니다. 구매 행위와 리워드 사용 구조를 시스템화한 플랫폼 기술 자산으로 확장됩니다.</p>
         </div>
+        <div class="si-arrow">›</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 주요 실적 -->
-<section>
+<section class="achievement-section">
+  <img src="배경이미지-주요실적.png" alt="" class="achievement-bg">
+  <div class="achievement-overlay"></div>
   <div class="wrap">
     <div class="sec-label">Key Achievement</div>
     <h2 class="sec-title">주요 <em>실적</em></h2>
+    <p class="achievement-sub">BIGWAVE3는 독자적인 기술력과<br>지식재산 기반으로 차별화된 가치를 만들어갑니다.</p>
+    <div class="patent-box-wrap">
     <div class="patent-box">
-      <div class="patent-ico">🏅</div>
+      <div class="patent-ico"><img src="메달.png" alt="medal"></div>
       <div class="patent-body">
         <h4>특허결정 기반 기술 자산</h4>
-        <p>회사의 핵심 사업모델과 연결되는 <strong>화장품 구매에 따른 리워드 적립 및 사용 시스템</strong>, 그리고 해당 시스템에서 수행되는 리워드 적립 및 사용 방법에 대한 특허결정이 확인되었습니다. 이는 향후 COSBACK과 Doctor Reward의 리워드 구조를 차별화하는 기술적 근거로 활용될 수 있습니다.</p>
+        <p>회사의 핵심 사업모델과 연결되는 <strong>화장품 구매에 따른 리워드 적립 및 사용 시스템</strong>, 그리고 해당 시스템에서 수행되는 리워드 적립 및 사용 방법에 대한 특허결정이 확인되었습니다.</p>
+        <div class="patent-note">이는 향후 COSBACK과 Doctor Reward의<br>리워드 구조를 차별화하는 기술적 근거로 활용될 수 있습니다.</div>
+      </div>
+    </div>
+    </div>
+    <div class="achievement-tags">
+      <div class="ach-tag">
+        <div class="ach-tag-ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="ach-tag-text">
+          <strong>지식재산 기반</strong>
+          <span>독자적 기술 자산 확보</span>
+        </div>
+      </div>
+      <div class="ach-tag">
+        <div class="ach-tag-ico">
+          <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        </div>
+        <div class="ach-tag-text">
+          <strong>사업 연계성 강화</strong>
+          <span>핵심 사업모델과 직접 연결</span>
+        </div>
+      </div>
+      <div class="ach-tag">
+        <div class="ach-tag-ico">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="ach-tag-text">
+          <strong>미래 가치 창출</strong>
+          <span>지속 가능한 경쟁 우위</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 비전 -->
-<section>
+<section class="vision-section">
+  <img src="비전 배경.png" alt="" class="vision-bg">
+  <div class="vision-overlay"></div>
   <div class="wrap">
     <div class="sec-label">Vision</div>
     <h2 class="sec-title">빅웨이브3의 <em>비전</em></h2>
-    <div class="vision-box">
-      <div class="vision-quote">"K-뷰티 구매 경험을 <em>리워드 금융 경험으로 확장</em>하고,<br>병원 정보와 웰니스 혜택을 연결하는<br>글로벌 뷰티핀테크 플랫폼"</div>
-      <div class="vision-desc">빅웨이브3는 고객이 단순히 제품을 구매하는 것을 넘어, 구매 과정에서 혜택을 적립하고, 적립된 혜택을 다시 웰니스와 병원 정보 경험으로 연결하는 새로운 소비 구조를 만들고자 합니다.</div>
+    <div class="vision-quote-wrap">
+    <div class="vision-quote-card">
+      <div class="vision-quote-text"><span class="vq-mark">"</span>K-뷰티 구매 경험을 <em>리워드 금융 경험으로 확장</em>하고,<br>병원 정보와 웰니스 혜택을 연결하는<br>글로벌 뷰티핀테크 플랫폼<span class="vq-mark">"</span></div>
+      <div class="vision-card-desc">빅웨이브3는 고객이 단순히 제품을 구매하는 것을 넘어, 구매 과정에서 혜택을 적립하고,<br>적립된 혜택을 다시 웰니스와 병원 정보 경험으로 연결하는 새로운 소비 구조를 만들고자 합니다.</div>
+    </div>
+    </div>
+    <div class="vision-divider">
+      <span>빅웨이브3는 뷰티 산업의 구매 경험을 <strong>데이터와 리워드 중심으로 재설계</strong>하고 있습니다.</span>
     </div>
   </div>
 </section>
@@ -229,8 +355,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.3)}
 <!-- CLOSING -->
 <div class="closing">
   <div class="wrap">
-    <p>빅웨이브3는 뷰티 산업의 구매 경험을 <strong>데이터와 리워드 중심으로 재설계</strong>하고 있습니다.</p>
-    <p><strong>COSBACK</strong>은 K-뷰티 이커머스의 확장성을 담당하고, <strong>Doctor Reward</strong>는 병원 정보와 웰니스 리워드 경험을 연결합니다.</p>
+    <p><strong>COSBACK</strong>은 K-뷰티 이커머스의 확장성을 담당하고,<br><strong>Doctor Reward</strong>는 병원 정보와 웰니스 리워드 경험을 연결합니다.</p>
     <p>앞으로도 K-뷰티, 헬스케어, 핀테크, 글로벌 유통을 연결하는 혁신적인 플랫폼 기업으로 성장해 나가겠습니다.</p>
   </div>
 </div>
@@ -241,6 +366,73 @@ footer p{font-size:12px;color:rgba(255,255,255,.3)}
   <p style="margin-top:6px">전화: 02-456-5551 &nbsp;|&nbsp; E-mail: doctorreward@gmail.com</p>
   <p style="margin-top:12px">© 2026 BIGWAVE3 Corp. All rights reserved. CosTechMed® Platform</p>
 </footer>
+<script>
+(function(){
+  const section = document.querySelector('.vision-section');
+  if(!section) return;
+  const canvas = document.createElement('canvas');
+  canvas.className = 'vision-sparkle-canvas';
+  section.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  const COUNT = 60;
+  const stars = [];
 
+  function resize(){
+    canvas.width = section.offsetWidth;
+    canvas.height = section.offsetHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  for(let i=0;i<COUNT;i++){
+    stars.push({
+      x: Math.random() * 0.48,
+      y: Math.random(),
+      size: Math.random() * 1.2 + 0.3,
+      speed: Math.random() * 0.8 + 0.4,
+      phase: Math.random() * Math.PI * 2,
+      delay: Math.random() * 3000
+    });
+  }
+
+  let start = null;
+  function draw(ts){
+    if(!start) start = ts;
+    const elapsed = ts - start;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s=>{
+      if(elapsed < s.delay) return;
+      const t = ((elapsed - s.delay) * s.speed) / 1000;
+      const alpha = Math.pow((Math.sin(t + s.phase) + 1) / 2, 2);
+      const x = s.x * canvas.width;
+      const y = s.y * canvas.height;
+      const r = s.size;
+      const grd = ctx.createRadialGradient(x,y,0,x,y,r*3);
+      grd.addColorStop(0, `rgba(255,255,255,${alpha})`);
+      grd.addColorStop(0.3, `rgba(180,220,255,${alpha*0.6})`);
+      grd.addColorStop(1, 'rgba(100,180,255,0)');
+      ctx.beginPath();
+      ctx.arc(x, y, r*3, 0, Math.PI*2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+      // 십자 반짝임
+      if(alpha > 0.5){
+        ctx.save();
+        ctx.globalAlpha = (alpha - 0.5) * 0.8;
+        ctx.strokeStyle = 'rgba(200,230,255,0.9)';
+        ctx.lineWidth = 0.5;
+        const len = r * 6 * alpha;
+        ctx.beginPath();
+        ctx.moveTo(x - len, y); ctx.lineTo(x + len, y);
+        ctx.moveTo(x, y - len); ctx.lineTo(x, y + len);
+        ctx.stroke();
+        ctx.restore();
+      }
+    });
+    requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+})();
+</script>
 </body>
 </html>
