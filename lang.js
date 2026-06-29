@@ -107,6 +107,7 @@ const T = {
     'ft-l5':'브랜드 입점 신청','ft-l6':'병원 입점 신청','ft-l7':'삼성카드 제휴','ft-l8':'삼성화재 연동',
     'ft-l9':'회사 소개','ft-l10':'IR 자료 요청','ft-l11':'뉴스룸','ft-l12':'이용약관 · 개인정보처리방침',
     /* ABOUT PAGE */
+    'about-nav-ir':'IR 자료실',
     'about-nav-back':'홈으로 돌아가기',
     'about-hero-label':'Company Introduction',
     'about-hero-h1':'뷰티 소비를 <em>자산으로</em><br>연결하는 플랫폼',
@@ -234,6 +235,7 @@ const T = {
     'ft-l5':'Brand Listing','ft-l6':'Clinic Listing','ft-l7':'Samsung Card Partnership','ft-l8':'Samsung Fire Link',
     'ft-l9':'About Us','ft-l10':'IR Materials','ft-l11':'Newsroom','ft-l12':'Terms · Privacy Policy',
     /* ABOUT PAGE */
+    'about-nav-ir':'IR Room',
     'about-nav-back':'Back to Home',
     'about-hero-label':'Company Introduction',
     'about-hero-h1':'The Platform That Turns<br><em>Beauty Spending into Assets</em>',
@@ -361,6 +363,7 @@ const T = {
     'ft-l5':'ブランド入店申請','ft-l6':'クリニック入店申請','ft-l7':'Samsung Card 提携','ft-l8':'Samsung Fire 連携',
     'ft-l9':'会社紹介','ft-l10':'IR資料請求','ft-l11':'ニュースルーム','ft-l12':'利用規約 · プライバシーポリシー',
     /* ABOUT PAGE */
+    'about-nav-ir':'IRルーム',
     'about-nav-back':'ホームへ戻る',
     'about-hero-label':'会社紹介',
     'about-hero-h1':'ビューティー消費を<em>資産へ</em><br>つなぐプラットフォーム',
@@ -488,6 +491,7 @@ const T = {
     'ft-l5':'品牌入驻申请','ft-l6':'医院入驻申请','ft-l7':'三星卡联名','ft-l8':'三星火灾联动',
     'ft-l9':'公司介绍','ft-l10':'IR资料申请','ft-l11':'新闻室','ft-l12':'使用条款 · 隐私政策',
     /* ABOUT PAGE */
+    'about-nav-ir':'IR资料室',
     'about-nav-back':'返回首页',
     'about-hero-label':'公司介绍',
     'about-hero-h1':'将美妆消费<em>转化为资产</em><br>的平台',
