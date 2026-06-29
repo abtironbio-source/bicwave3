@@ -2,8 +2,12 @@
 const T = {
   ko: {
     /* NAV */
+    'nav-overview':'개요','nav-ir':'IR 자료실',
     'nav-cosback':'코스백','nav-dreward':'닥터리워드','nav-member':'정회원',
     'nav-compare':'혜택비교','nav-media':'미디어','nav-cta':'Contact',
+    'nav-sub-cos1':'COSBACK 소개','nav-sub-cos2':'뷰티 자산 루프','nav-sub-cos3':'삼성카드 iD VITA',
+    'nav-sub-dr1':'Dr.Reward 소개','nav-sub-dr2':'삼성화재 보험',
+    'nav-sub-mem1':'Great Beauty 멤버십','nav-sub-media2':'미디어 보도',
     /* HERO */
     'hero-badge':'세계 최초 CosTechMed 뷰티핀테크 생태계',
     'hero-h1':'소비가 자산이 되는<br><em>K-뷰티의 미래</em>',
@@ -144,8 +148,12 @@ const T = {
   },
 
   en: {
+    'nav-overview':'Overview','nav-ir':'IR Room',
     'nav-cosback':'COSBACK','nav-dreward':'Dr. Reward','nav-member':'Premium',
     'nav-compare':'Compare','nav-media':'Media','nav-cta':'Request IR',
+    'nav-sub-cos1':'About COSBACK','nav-sub-cos2':'Beauty Asset Loop','nav-sub-cos3':'Samsung Card iD VITA',
+    'nav-sub-dr1':'About Dr.Reward','nav-sub-dr2':'Samsung Fire Insurance',
+    'nav-sub-mem1':'Great Beauty Membership','nav-sub-media2':'Media Coverage',
     'hero-badge':'World\'s First CosTechMed Beauty Fintech Ecosystem',
     'hero-h1':'Where Spending Becomes<br><em>The Future of K-Beauty</em>',
     'hero-sub':'Cosmetics spending becomes <strong>cashback</strong>,<br>treatment rewards, and <strong>peace-of-mind insurance</strong>.<br>BIGWAVE3 connects COSBACK &amp; Dr. Reward<br>to build a K-Beauty ecosystem where spending becomes assets.',
@@ -272,8 +280,12 @@ const T = {
   },
 
   ja: {
+    'nav-overview':'概要','nav-ir':'IR資料室',
     'nav-cosback':'コスバック','nav-dreward':'Dr.リワード','nav-member':'プレミアム',
     'nav-compare':'特典比較','nav-media':'メディア','nav-cta':'IR資料請求',
+    'nav-sub-cos1':'COSBACKについて','nav-sub-cos2':'美容資産ループ','nav-sub-cos3':'サムスンカード iD VITA',
+    'nav-sub-dr1':'Dr.リワードについて','nav-sub-dr2':'サムスン火災保険',
+    'nav-sub-mem1':'Great Beautyメンバーシップ','nav-sub-media2':'メディア報道',
     'hero-badge':'世界初 CosTechMed 美容フィンテックエコシステム',
     'hero-h1':'消費が資産になる<br><em>K-ビューティーの未来</em>',
     'hero-sub':'化粧品の消費が<strong>キャッシュバック</strong>になり、<br>施術リワードになり、<strong>安心保険</strong>になります。<br>BIGWAVE3はコスバックとDr.リワードを繋ぎ、<br>消費が資産になるK-ビューティーエコシステムを作ります。',
@@ -400,8 +412,12 @@ const T = {
   },
 
   zh: {
+    'nav-overview':'概述','nav-ir':'IR资料室',
     'nav-cosback':'返现购物','nav-dreward':'博士奖励','nav-member':'高级会员',
     'nav-compare':'权益比较','nav-media':'媒体','nav-cta':'申请IR资料',
+    'nav-sub-cos1':'COSBACK介绍','nav-sub-cos2':'美妆资产循环','nav-sub-cos3':'三星卡 iD VITA',
+    'nav-sub-dr1':'Dr.奖励介绍','nav-sub-dr2':'三星火灾保险',
+    'nav-sub-mem1':'Great Beauty会员','nav-sub-media2':'媒体报道',
     'hero-badge':'全球首个 CosTechMed 美容金融科技生态系统',
     'hero-h1':'消费变资产的<br><em>K-美妆未来</em>',
     'hero-sub':'化妆品消费变成<strong>返现</strong>，<br>变成美容奖励，变成<strong>安心保险</strong>。<br>BIGWAVE3连接COSBACK和博士奖励，<br>构建消费变资产的K-美妆生态系统。',
