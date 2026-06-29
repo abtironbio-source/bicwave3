@@ -1427,6 +1427,12 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
           <div><div style="color:#fff;font-weight:700;font-size:14px">Bigwave3 IR</div></div>
           <span style="margin-left:auto;color:rgba(255,255,255,.4);font-size:18px">↗</span>
         </div>
+        <div onclick="openLockedDoc('Cos-Tech-Med_의료법_준수_조건부_적법성_및_컴플라이언스_설계_보고서 (3).pdf','6666')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;cursor:pointer;transition:background .2s"
+          onmouseover="this.style.background='rgba(30,100,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+          <span style="font-size:22px">🔒</span>
+          <div><div style="color:#fff;font-weight:700;font-size:14px">Cos-Tech-Med 컴플라이언스</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px">의료법 준수 조건부 적법성 설계 보고서</div></div>
+          <span style="margin-left:auto;color:rgba(255,255,255,.4);font-size:18px">↗</span>
+        </div>
         <div onclick="openPdfModal('GLOW_TRIP_×_Dr.pdf')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;cursor:pointer;transition:background .2s"
           onmouseover="this.style.background='rgba(30,100,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
           <span style="font-size:22px">📄</span>
@@ -1856,12 +1862,14 @@ function openPdfModal(url){
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
-function openLockedDoc(url){
+var _irDocPassword = '7777';
+function openLockedDoc(url, pw){
   _irDocTarget = url;
-  const pw = document.getElementById('ir-doc-pw-modal');
+  _irDocPassword = pw || '7777';
+  const modal = document.getElementById('ir-doc-pw-modal');
   document.getElementById('ir-doc-pw-input').value = '';
   document.getElementById('ir-doc-pw-err').style.display = 'none';
-  pw.style.display = 'flex';
+  modal.style.display = 'flex';
   setTimeout(()=>document.getElementById('ir-doc-pw-input').focus(), 100);
 }
 function closeDocPw(){
@@ -1869,7 +1877,7 @@ function closeDocPw(){
 }
 function checkDocPassword(){
   const val = document.getElementById('ir-doc-pw-input').value;
-  if(val === '7777'){
+  if(val === _irDocPassword){
     closeDocPw();
     closeIRRoom();
     const modal = document.getElementById('ir-pdf-modal');
