@@ -189,7 +189,7 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
 .nav-menu{display:flex;align-items:center;gap:0}
 .nav-divider{width:1px;height:16px;background:var(--gray2);opacity:.5}
 .nav-btn{padding:10px 24px;background:none;color:var(--navy);border:none;border-radius:6px;font-size:16px;font-weight:400;cursor:pointer;letter-spacing:.06em;transition:.2s;position:relative}
-.nav-btn:hover{color:#0ea5e9;background:var(--bg2)}
+.nav-btn:hover{color:#0ea5e9;background:none;transform:scale(1.1)}
 .nav-btn.active{color:#0ea5e9}
 .nav-btn.active::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:#0ea5e9;border-radius:2px}
 /* ── 카테고리 페이지 ── */
@@ -346,7 +346,7 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
   <!-- 헤더 -->
   <header>
     <div class="h-logo" onclick="goHome()" style="cursor:pointer">
-      <div class="h-logo-mark">B3</div>
+      <img src="빅웨이브로고-1.png?v=2" alt="BIGWAVE3" style="height:32px;width:auto;object-fit:contain">
       <div>
         <div class="h-logo-text">BIGWAVE3 Partners Only</div>
         <div class="h-logo-sub">Sales Resource Center</div>
@@ -360,7 +360,10 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
         <div class="nav-divider"></div>
         <button class="nav-btn" onclick="showPage('wellness',this)">Wellness</button>
       </nav>
-      <div class="h-right" style="color:#ef4444;font-weight:700">내부 열람 전용 · 외부 유출 금지</div>
+      <div style="display:flex;align-items:center;gap:20px">
+        <a href="index.html" style="font-size:13px;color:var(--gray);text-decoration:none;display:flex;align-items:center;gap:5px;transition:.2s" onmouseover="this.style.color='#0ea5e9'" onmouseout="this.style.color='var(--gray)'">← 홈페이지</a>
+        <div class="h-right" style="color:#ef4444;font-weight:700">내부 열람 전용 · 외부 유출 금지</div>
+      </div>
     </div>
   </header>
 
