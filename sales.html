@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BIGWAVE3 Partners Only</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --white:#ffffff;
+  --bg:#f8fcff;
+  --bg2:#e0f2fe;
+  --navy:#0c1e35;
+  --blue:#0ea5e9;
+  --blue-light:#e0f2fe;
+  --gray:#4b6a85;
+  --gray2:#90b4cc;
+  --line:#bae6fd;
+  --card:#ffffff;
+  --shadow:0 2px 12px rgba(14,165,233,.08);
+  --shadow2:0 4px 24px rgba(14,165,233,.12);
+}
+body{font-family:'Pretendard','Apple SD Gothic Neo','맑은 고딕',sans-serif;background:var(--bg);color:var(--navy);min-height:100vh}
+
+/* ── 비밀번호 화면 ── */
+#pw-screen{position:fixed;inset:0;z-index:9999;display:flex;align-items:stretch;overflow:hidden}
+#pw-bg-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+#pw-screen::after{content:'';position:absolute;inset:0;background:rgba(8,18,36,0.35);z-index:1;pointer-events:none}
+.pw-photo{flex:0 0 58%;position:relative;z-index:2}
+.pw-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent,rgba(8,20,40,0.15))}
+.pw-photo-tag{position:absolute;bottom:40px;left:40px;z-index:1;color:#fff}
+.pw-photo-tag strong{display:block;font-size:38px;font-weight:900;letter-spacing:-.02em;line-height:1.2;text-shadow:0 2px 16px rgba(0,0,0,.4)}
+.pw-photo-tag span{font-size:17px;opacity:.8;letter-spacing:.05em;font-weight:500}
+.pw-panel{flex:1;background:rgba(20,24,32,0.68);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;padding:48px 40px;border-left:1px solid rgba(255,255,255,.08);position:relative;z-index:2}
+.pw-box{width:100%;max-width:320px;text-align:center}
+.pw-logo{font-size:11px;font-weight:900;letter-spacing:.2em;color:#7dd3fc;margin-bottom:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.pw-logo::before,.pw-logo::after{content:'';flex:1;height:1px;background:rgba(125,211,252,.25)}
+.pw-title{font-size:26px;font-weight:300;color:#fff;margin-bottom:3px;letter-spacing:.02em}
+.pw-sub{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:12px;line-height:1.6;font-family:'Pretendard','Apple SD Gothic Neo','맑은 고딕',sans-serif;font-weight:400;letter-spacing:.01em}
+.pw-input{width:100%;padding:10px 20px;border:1px solid rgba(255,255,255,.2);border-radius:4px;font-size:20px;letter-spacing:.4em;text-align:center;outline:none;transition:.2s;color:#fff;background:rgba(255,255,255,.08)}
+.pw-input::placeholder{color:rgba(255,255,255,.3)}
+.pw-input:focus{border-color:#38bdf8;background:rgba(255,255,255,.12);box-shadow:0 0 0 3px rgba(56,189,248,.15)}
+.pw-err{color:#f87171;font-size:12px;margin:6px 0 0;min-height:16px}
+.pw-btn{width:100%;margin-top:-1px;padding:10px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.25);border-radius:4px;font-size:20px;font-weight:300;cursor:pointer;transition:.2s;letter-spacing:.3em;font-family:'Pretendard','Apple SD Gothic Neo','맑은 고딕',sans-serif}
+.pw-btn:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.6);transform:translateY(-1px);box-shadow:0 4px 20px rgba(255,255,255,.1);letter-spacing:.4em}
+@media(max-width:700px){.pw-photo{display:none}.pw-panel{padding:40px 24px;background:rgba(8,20,40,0.82)}}
+
+/* ── 메인 레이아웃 ── */
+#main{display:none}
+header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.05)}
+.h-logo{display:flex;align-items:center;gap:10px}
+.h-logo-mark{width:32px;height:32px;background:linear-gradient(135deg,#38bdf8,#0284c7);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:900}
+.h-logo-text{font-size:15px;font-weight:800;color:var(--navy)}
+.h-logo-sub{font-size:11px;color:var(--gray);font-weight:500}
+.h-logo:hover .h-logo-mark{background:linear-gradient(135deg,#0ea5e9,#0369a1);transform:scale(1.05);transition:.2s}
+.h-logo:hover .h-logo-text{color:#0ea5e9;transition:.2s}
+.h-right{font-size:12px;color:var(--gray2)}
+
+/* ── 히어로 ── */
+.hero{
+  background:#f0f4ff;
+  min-height:540px;
+  display:flex;
+  align-items:stretch;
+  overflow:hidden;
+}
+.hero-left{
+  flex:0 0 48%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:72px 48px 72px 64px;
+  background:#082035;
+  position:relative;
+  z-index:1;
+  overflow:hidden;
+}
+.hero-left::before{
+  content:'';
+  position:absolute;
+  width:900px;
+  height:900px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(14,90,138,0.7) 0%,rgba(12,58,94,0.4) 40%,transparent 70%);
+  animation:orb1 9s ease-in-out infinite;
+  pointer-events:none;
+}
+.hero-left .orb2{
+  position:absolute;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(56,189,248,0.18) 0%,rgba(14,90,138,0.12) 40%,transparent 70%);
+  animation:orb2 13s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes orb1{
+  0%{top:-10%;left:-10%}
+  33%{top:40%;left:60%}
+  66%{top:70%;left:10%}
+  100%{top:-10%;left:-10%}
+}
+@keyframes orb2{
+  0%{top:60%;left:50%}
+  33%{top:10%;left:70%}
+  66%{top:30%;left:-10%}
+  100%{top:60%;left:50%}
+}
+.hero-left::after{
+  content:'';
+  position:absolute;
+  right:-32px;top:0;bottom:0;
+  width:64px;
+  background:linear-gradient(135deg,#082035 0%,#0c3a5e 60%,#0e5a8a 100%);
+  clip-path:polygon(0 0,0% 100%,100% 100%);
+  z-index:2;
+}
+.hero-right{
+  flex:1;
+  position:relative;
+  overflow:hidden;
+}
+.hero-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#a8c8ff;font-size:11px;font-weight:700;letter-spacing:.12em;padding:7px 18px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-size:clamp(26px,3vw,46px);font-weight:900;color:#fff;line-height:1.2;margin-bottom:16px}
+.hero h1 em{color:#38bdf8;font-style:italic;display:block;font-size:1.25em;letter-spacing:-.02em;line-height:1.1;margin-top:6px;text-shadow:0 0 40px rgba(56,189,248,.4)}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.7);line-height:1.85;margin-top:4px}
+.hero-content{position:relative;z-index:3}
+
+/* ── 섹션 공통 ── */
+.sec{max-width:1100px;margin:0 auto;padding:56px 24px}
+.sec-label{font-size:11px;font-weight:800;letter-spacing:.12em;color:#0284c7;margin-bottom:8px}
+.sec-title{font-size:clamp(22px,3vw,32px);font-weight:900;color:var(--navy);margin-bottom:8px}
+.sec-sub{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:40px}
+
+/* ── 플라이휠 타이포 ── */
+.fw-typo-wrap{margin-bottom:56px}
+.fw-typo-row{display:grid;grid-template-columns:repeat(7,1fr);gap:0;position:relative;margin-bottom:40px}
+.fw-typo-row::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,#bae6fd 20%,#38bdf8 50%,#bae6fd 80%,transparent);z-index:0}
+.fw-typo-item{display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;position:relative;z-index:1}
+.fw-typo-num{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid #e0f2fe;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:#0ea5e9;margin-bottom:20px;box-shadow:0 2px 12px rgba(14,165,233,.12);flex-shrink:0}
+.fw-typo-item:hover .fw-typo-num{background:#0ea5e9;color:#fff;border-color:#0ea5e9}
+.fw-typo-photo{width:100%;border-radius:12px 12px 0 0;overflow:hidden;aspect-ratio:1;box-shadow:none}
+.fw-typo-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:.3s}
+.fw-typo-item:hover .fw-typo-photo img{transform:scale(1.05)}
+.fw-typo-title{font-size:clamp(12px,1.1vw,15px);font-weight:800;color:var(--navy);line-height:1.45;word-break:keep-all;background:#fff;border:1px solid #e0f2fe;border-top:none;border-radius:0 0 12px 12px;padding:12px 10px 14px;box-shadow:0 4px 16px rgba(14,165,233,.08);width:100%;height:52px;display:flex;align-items:center;justify-content:center}
+.fw-cashback{padding:40px 0 0;text-align:center;border:none;background:none}
+.fw-cashback strong{font-size:clamp(22px,2.8vw,36px);font-weight:900;display:block;margin-bottom:12px;color:#0284c7;letter-spacing:-.01em}
+.fw-cashback span{font-size:clamp(14px,1.4vw,18px);color:var(--navy);line-height:1.8;font-weight:500}
+.fw-cashback span em{color:#38bdf8;font-style:normal;font-weight:900}
+
+/* ── 혜택 카드 브로셔형 ── */
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:48px;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(14,165,233,.12)}
+.benefit-card{position:relative;overflow:hidden;aspect-ratio:3/4;cursor:default}
+.benefit-card img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.benefit-card:hover img{transform:scale(1.05)}
+.benefit-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(8,24,48,.82) 0%,rgba(8,24,48,.3) 50%,transparent 100%)}
+.bc-overlay{position:absolute;inset:0;z-index:1;padding:24px}
+.bc-num{position:absolute;top:16px;left:20px;font-size:clamp(72px,7vw,110px);font-weight:900;color:rgba(255,255,255,.12);line-height:1;letter-spacing:-.04em;pointer-events:none;user-select:none}
+.bc-body{position:absolute;bottom:28px;left:24px;right:24px;display:flex;flex-direction:column-reverse;gap:0}
+.bc-amount{font-size:clamp(36px,3.2vw,52px);font-weight:900;color:#38bdf8;line-height:1;letter-spacing:-.02em;margin-top:8px}
+.bc-label{font-size:clamp(16px,1.4vw,20px);font-weight:800;color:#fff;margin-top:8px}
+.bc-desc{font-size:clamp(13px,1vw,15px);color:rgba(255,255,255,.65);line-height:1.6}
+
+/* ── O2O 원형 레이아웃 ── */
+.o2o-orbit{position:relative;width:780px;height:780px;margin:0 auto 48px}
+.o2o-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:170px;height:170px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px #e0f2fe,0 8px 40px rgba(14,165,233,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
+.o2o-center svg{width:88px;height:88px}
+.o2o-center-label{font-size:11px;font-weight:800;letter-spacing:.1em;color:#0284c7;margin-top:5px}
+.o2o-ring{position:absolute;inset:0;pointer-events:none}
+.o2o-ring::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;height:440px;border-radius:50%;border:1px dashed #bae6fd}
+.o2o-node{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:9px;cursor:default}
+.o2o-node-img{width:116px;height:116px;border-radius:50%;overflow:hidden;border:3px solid #fff;box-shadow:0 4px 20px rgba(14,165,233,.18);transition:.3s}
+.o2o-node-img img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.o2o-node:hover .o2o-node-img img{transform:scale(1.1)}
+.o2o-node-label{font-size:13px;font-weight:800;color:var(--navy);text-align:center;line-height:1.3;white-space:nowrap}
+.o2o-node-tip{font-size:11px;color:var(--gray);text-align:center;line-height:1.3;white-space:nowrap}
+
+/* ── 카테고리 탭 ── */
+/* ── 네비게이션 ── */
+.nav-menu{display:flex;align-items:center;gap:4px}
+.nav-menu{display:flex;align-items:center;gap:0}
+.nav-divider{width:1px;height:16px;background:var(--gray2);opacity:.5}
+.nav-btn{padding:10px 24px;background:none;color:var(--navy);border:none;border-radius:6px;font-size:16px;font-weight:400;cursor:pointer;letter-spacing:.06em;transition:.2s;position:relative}
+.nav-btn:hover{color:#0ea5e9;background:var(--bg2)}
+.nav-btn.active{color:#0ea5e9}
+.nav-btn.active::after{content:'';position:absolute;bottom:-1px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:#0ea5e9;border-radius:2px}
+/* ── 카테고리 페이지 ── */
+.cat-page{display:none;min-height:100vh;background:#f4f8fb;padding:48px 0 80px;background-size:cover;background-position:center;background-attachment:fixed;position:relative}
+.cat-page::before{content:'';position:absolute;inset:0;background:rgba(240,248,255,0.3);backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);z-index:0}
+.cat-page-inner{position:relative;z-index:1}
+#page-clinic{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_024423_682027f2-96cb-43e3-babb-6c967cbf4fbf.png')}
+#page-insure{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_024426_d44b94ea-7543-4a58-b0f4-e3750957c2a7.png')}
+#page-insure::before{background:rgba(240,248,255,0.52)}
+#page-wellness{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_024429_5fcb9a84-63e6-4fec-b75c-9dc7acad51aa.png')}
+.cat-page.active{display:block}
+.cat-page-inner{max-width:860px;margin:0 auto;padding:0 32px}
+.cat-page-head{margin-bottom:40px;padding-bottom:28px;border-bottom:2px solid #e0f2fe}
+.cat-page-label{font-size:11px;font-weight:800;letter-spacing:.16em;color:#0ea5e9;margin-bottom:8px}
+.cat-page-title{font-size:clamp(26px,3vw,40px);font-weight:900;color:var(--navy);margin-bottom:6px;letter-spacing:-.02em}
+.cat-page-sub{font-size:14px;color:var(--gray)}
+
+/* 자료 게시판 테이블 */
+.res-board{width:100%;border-radius:0;overflow:hidden;border:1px solid #d0e8f7;box-shadow:0 4px 24px rgba(14,165,233,.08);background:#fff}
+.res-board-header{display:grid;grid-template-columns:180px 1fr 120px 100px;background:#0c1e35;color:#fff}
+.res-board-header>div{padding:16px 20px;font-size:14px;font-weight:800;letter-spacing:.08em;color:rgba(255,255,255,.7)}
+.res-board-header>div:first-child{color:#7dd3fc}
+.res-group{}
+.res-group-row{display:grid;grid-template-columns:180px 1fr 120px 100px;border-bottom:1px solid #e8f4fb;transition:.15s}
+.res-group-row:last-child{border-bottom:none}
+.res-group-row:hover{background:#f0f9ff}
+.res-cat-cell{padding:0;display:flex;background:#f8fcff;border-right:1px solid #d0e8f7}
+.res-cat-inner{padding:22px 20px;width:100%}
+.res-cat-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:#0ea5e9;margin-bottom:6px}
+.res-cat-tag::before{content:'';width:14px;height:2px;background:#0ea5e9;border-radius:1px}
+.res-cat-name{font-size:15px;font-weight:900;color:#0c1e35;line-height:1.2}
+.res-cat-desc{font-size:11px;color:#4b6a85;margin-top:4px;line-height:1.4}
+.res-rows{display:flex;flex-direction:column}
+.res-row-item{display:contents}
+.res-name-cell{padding:20px 20px;display:flex;align-items:center;gap:12px;border-right:1px solid #e8f4fb}
+.res-type-badge{display:inline-flex;align-items:center;justify-content:center;width:34px;height:22px;border-radius:4px;font-size:9px;font-weight:900;letter-spacing:.05em;flex-shrink:0}
+.res-type-badge.PDF{background:#fee2e2;color:#dc2626}
+.res-type-badge.MP3{background:#d1fae5;color:#059669}
+.res-type-badge.QA{background:#fef3c7;color:#d97706}
+.res-name-text{font-size:13px;font-weight:600;color:#0c1e35;line-height:1.4}
+.res-date-cell{padding:20px 20px;font-size:12px;color:#90b4cc;display:flex;align-items:center;border-right:1px solid #e8f4fb}
+.res-status-cell{padding:20px 20px;display:flex;align-items:center;justify-content:center}
+.res-status{display:inline-flex;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.05em}
+.res-status.ready{background:#f1f5f9;color:#94a3b8}
+.res-status.new{background:#e0f2fe;color:#0284c7}
+.res-empty-row{display:grid;grid-template-columns:180px 1fr;border-bottom:1px solid #e8f4fb}
+.res-empty-row:last-child{border-bottom:none}
+/* Q&A 문서 영역 */
+.qa-section{margin-top:32px}
+.qa-section-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.qa-section-label{font-size:10px;font-weight:900;letter-spacing:.14em;color:#0ea5e9}
+.qa-section-title{font-size:18px;font-weight:900;color:#0c1e35}
+.qa-section-desc{font-size:12px;color:#4b6a85;margin-left:auto}
+.qa-doc{border:1px solid #d0e8f7;border-radius:0;overflow:hidden;background:#fff;box-shadow:0 4px 24px rgba(14,165,233,.08)}
+.qa-doc-top{background:#0c1e35;padding:16px 28px;display:flex;align-items:center;gap:12px}
+.qa-doc-top-label{font-size:10px;font-weight:900;letter-spacing:.14em;color:#7dd3fc}
+.qa-doc-top-title{font-size:14px;font-weight:700;color:#fff}
+.qa-item{padding:24px 28px;border-bottom:1px solid #e8f4fb}
+.qa-item:last-child{border-bottom:none}
+.qa-q{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px}
+.qa-q-mark{width:26px;height:26px;border-radius:6px;background:#e0f2fe;color:#0284c7;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.qa-q-text{font-size:14px;font-weight:700;color:#0c1e35;line-height:1.55}
+.qa-a{display:flex;gap:14px;align-items:flex-start}
+.qa-a-mark{width:26px;height:26px;border-radius:6px;background:#f0fdf4;color:#16a34a;font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.qa-a-text{font-size:13px;color:#4b6a85;line-height:1.7}
+.qa-empty{padding:40px 28px;text-align:center;color:#b0c8d8;font-size:13px}
+.res-empty-cat{background:#f8fcff;border-right:1px solid #d0e8f7;padding:28px 20px}
+.res-empty-cat .res-cat-tag{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:900;letter-spacing:.12em;color:#0ea5e9;margin-bottom:6px}
+.res-empty-cat .res-cat-tag::before{content:'';width:14px;height:2px;background:#0ea5e9;border-radius:1px}
+.res-empty-cat .res-cat-name{font-size:15px;font-weight:900;color:#0c1e35;line-height:1.2}
+.res-empty-cat .res-cat-desc{font-size:11px;color:#4b6a85;margin-top:4px}
+.res-empty-body{padding:28px 24px;display:flex;align-items:center;gap:10px;color:#b0c8d8;font-size:12px}
+.res-empty-body::before{content:'';width:20px;height:1px;background:#d0e8f7}
+.res-section{margin-bottom:36px}
+.res-section-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.res-section-icon{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#38bdf8,#0284c7);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.res-section-title{font-size:16px;font-weight:900;color:var(--navy)}
+.res-section-desc{font-size:12px;color:var(--gray);margin-left:auto}
+.res-list{background:#fff;border-radius:14px;border:1px solid #e0f2fe;overflow:hidden;box-shadow:0 2px 12px rgba(14,165,233,.06)}
+.res-item{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #f0f7ff;cursor:pointer;transition:.15s;text-decoration:none}
+.res-item:last-child{border-bottom:none}
+.res-item:hover{background:#f0f9ff}
+.res-item-type{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}
+.res-item-type.pdf{background:#fff0f0;color:#ef4444}
+.res-item-type.mp3{background:#f0fff4;color:#22c55e}
+.res-item-type.qa{background:#fffbeb;color:#f59e0b}
+.res-item-info{flex:1;min-width:0}
+.res-item-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.res-item-meta{font-size:11px;color:var(--gray2)}
+.res-item-badge{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;flex-shrink:0}
+.res-item-badge.new{background:#e0f2fe;color:#0284c7}
+.res-item-badge.ready{background:#f1f5f9;color:#94a3b8}
+.res-empty{padding:32px 20px;text-align:center;color:var(--gray2);font-size:13px;letter-spacing:.02em}
+
+/* ── KPI ── */
+.kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.kpi-card{background:#fff;border-radius:14px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--line);display:flex;align-items:center;gap:14px}
+.kpi-num{width:36px;height:36px;background:#e0f2fe;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#0284c7;flex-shrink:0}
+.kpi-text{font-size:13px;font-weight:700;color:var(--navy);line-height:1.3}
+
+/* ── 모바일 ── */
+@media(max-width:700px){
+  header{padding:12px 16px}
+  .hero{flex-direction:column;min-height:auto}
+  .hero-left{flex:none;padding:48px 24px 40px;width:100%}
+  .hero-left::after{display:none}
+  .hero-right{height:260px;width:100%}
+  .sec{padding:40px 16px}
+  .fw-grid-wrap{overflow-x:auto;padding-bottom:8px}
+  .fw-row{flex-wrap:nowrap;justify-content:flex-start!important;padding:0 4px}
+  .fw-photo-card{width:120px}
+  .fw-photo-card img{height:88px}
+  .fw-arrow-down{padding-right:calc(120px/2 + 4px)}
+  .fw-step{min-width:60px}
+  .fw-icon{width:44px;height:44px;font-size:18px}
+  .fw-label{font-size:10px;max-width:60px}
+  .fw-arr{font-size:16px}
+  .benefit-grid{grid-template-columns:1fr}
+  .o2o-grid{grid-template-columns:repeat(2,1fr)}
+  .sub-grid{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- 비밀번호 화면 -->
+<div id="pw-screen">
+  <video id="pw-bg-video" autoplay muted loop playsinline>
+    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_050418_6c5231b1-bb4a-4ab8-bd57-c3d0f34fc001.mp4" type="video/mp4">
+  </video>
+  <div class="pw-photo">
+    <div class="pw-photo-tag">
+      <strong>고객의 대기시간을<br>자산으로 바꾸는 플랫폼</strong>
+      <span>BIGWAVE3 × COSBACK</span>
+    </div>
+  </div>
+  <div class="pw-panel">
+    <div class="pw-box">
+      <div class="pw-logo">BIGWAVE3</div>
+      <div class="pw-title">Partners Only</div>
+      <div class="pw-sub">접근 권한이 있는 분만 이용 가능합니다</div>
+      <input class="pw-input" id="pw-input" type="password" placeholder="••••" maxlength="10"
+        onkeydown="if(event.key==='Enter')checkPw()">
+      <div class="pw-err" id="pw-err"></div>
+      <button class="pw-btn" onclick="checkPw()">Enter</button>
+    </div>
+  </div>
+</div>
+
+<!-- 메인 -->
+<div id="main">
+
+  <!-- 헤더 -->
+  <header>
+    <div class="h-logo" onclick="goHome()" style="cursor:pointer">
+      <div class="h-logo-mark">B3</div>
+      <div>
+        <div class="h-logo-text">BIGWAVE3 Partners Only</div>
+        <div class="h-logo-sub">Sales Resource Center</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px">
+      <nav class="nav-menu">
+        <button class="nav-btn" onclick="showPage('clinic',this)">Clinic</button>
+        <div class="nav-divider"></div>
+        <button class="nav-btn" onclick="showPage('insure',this)">Insure</button>
+        <div class="nav-divider"></div>
+        <button class="nav-btn" onclick="showPage('wellness',this)">Wellness</button>
+      </nav>
+      <div class="h-right" style="color:#ef4444;font-weight:700">내부 열람 전용 · 외부 유출 금지</div>
+    </div>
+  </header>
+
+  <!-- Clinic 페이지 -->
+  <div class="cat-page" id="page-clinic">
+    <div class="cat-page-inner">
+      <div class="cat-page-head">
+        <div class="cat-page-label">CLINIC</div>
+        <div class="cat-page-title">피부과 · 성형외과</div>
+        <div class="cat-page-sub">피부과·성형외과 영업사원 전용 자료실</div>
+      </div>
+      <div class="res-board">
+        <div class="res-board-header">
+          <div>구분</div><div>자료명</div><div>등록일</div><div>상태</div>
+        </div>
+        <div class="res-empty-row">
+          <div class="res-empty-cat">
+            <div class="res-cat-tag">PDF</div>
+            <div class="res-cat-name">PDF 자료</div>
+            <div class="res-cat-desc">영업 현장 문서</div>
+          </div>
+          <div class="res-empty-body">준비 중인 자료입니다</div>
+        </div>
+        <div class="res-empty-row">
+          <div class="res-empty-cat">
+            <div class="res-cat-tag">MP3</div>
+            <div class="res-cat-name">음성 자료</div>
+            <div class="res-cat-desc">멘트 가이드 · 고객 응대</div>
+          </div>
+          <div class="res-empty-body">준비 중인 자료입니다</div>
+        </div>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-head">
+          <div class="qa-section-label">Q&amp;A</div>
+          <div class="qa-section-title">자주 묻는 질문</div>
+          <div class="qa-section-desc">피부과·성형외과 영업 현장</div>
+        </div>
+        <div class="qa-doc">
+          <div class="qa-doc-top">
+            <div class="qa-doc-top-label">CLINIC Q&amp;A</div>
+            <div class="qa-doc-top-title">피부과·성형외과 영업 FAQ</div>
+          </div>
+          <div class="qa-empty">준비 중인 자료입니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Insure 페이지 -->
+  <div class="cat-page" id="page-insure">
+    <div class="cat-page-inner">
+      <div class="cat-page-head">
+        <div class="cat-page-label">INSURE</div>
+        <div class="cat-page-title">보험 FC</div>
+        <div class="cat-page-sub">보험 FC·라이프 컨설턴트 전용 자료실</div>
+      </div>
+      <div class="res-board">
+        <div class="res-board-header">
+          <div>구분</div><div>자료명</div><div>등록일</div><div>상태</div>
+        </div>
+        <div class="res-empty-row">
+          <div class="res-empty-cat">
+            <div class="res-cat-tag">PDF</div>
+            <div class="res-cat-name">PDF 자료</div>
+            <div class="res-cat-desc">보험 FC 영업 문서</div>
+          </div>
+          <div class="res-empty-body">준비 중인 자료입니다</div>
+        </div>
+        <div class="res-empty-row">
+          <div class="res-empty-cat">
+            <div class="res-cat-tag">MP3</div>
+            <div class="res-cat-name">음성 자료</div>
+            <div class="res-cat-desc">상담 멘트 · 고객 응대</div>
+          </div>
+          <div class="res-empty-body">준비 중인 자료입니다</div>
+        </div>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-head">
+          <div class="qa-section-label">Q&amp;A</div>
+          <div class="qa-section-title">자주 묻는 질문</div>
+          <div class="qa-section-desc">보험 FC 영업 현장</div>
+        </div>
+        <div class="qa-doc">
+          <div class="qa-doc-top">
+            <div class="qa-doc-top-label">INSURE Q&amp;A</div>
+            <div class="qa-doc-top-title">보험 FC 영업 FAQ</div>
+          </div>
+          <div class="qa-empty">준비 중인 자료입니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wellness 페이지 -->
+  <div class="cat-page" id="page-wellness">
+    <div class="cat-page-inner">
+      <div class="cat-page-head">
+        <div class="cat-page-label">WELLNESS</div>
+        <div class="cat-page-title">웰니스 · 뷰티</div>
+        <div class="cat-page-sub">필라테스·요가·에스테틱·헤어·네일 전용 자료실</div>
+      </div>
+      <div class="res-board">
+        <div class="res-board-header">
+          <div>구분</div><div>자료명</div><div>등록일</div><div>상태</div>
+        </div>
+        <div class="res-empty-row">
+          <div class="res-empty-cat">
+            <div class="res-cat-tag">PDF</div>
+            <div class="res-cat-name">PDF 자료</div>
+            <div class="res-cat-desc">웰니스 영업 문서</div>
+          </div>
+          <div class="res-empty-body">준비 중인 자료입니다</div>
+        </div>
+        <div class="res-empty-row">
+          <div class="res-empty-cat">
+            <div class="res-cat-tag">MP3</div>
+            <div class="res-cat-name">음성 자료</div>
+            <div class="res-cat-desc">현장 고객 응대 음성</div>
+          </div>
+          <div class="res-empty-body">준비 중인 자료입니다</div>
+        </div>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-head">
+          <div class="qa-section-label">Q&amp;A</div>
+          <div class="qa-section-title">자주 묻는 질문</div>
+          <div class="qa-section-desc">웰니스·뷰티 영업 현장</div>
+        </div>
+        <div class="qa-doc">
+          <div class="qa-doc-top">
+            <div class="qa-doc-top-label">WELLNESS Q&amp;A</div>
+            <div class="qa-doc-top-title">웰니스·뷰티 영업 FAQ</div>
+          </div>
+          <div class="qa-empty">준비 중인 자료입니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 메인 홈 콘텐츠 -->
+  <div id="main-home">
+  <!-- 히어로 -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="orb2"></div>
+      <div class="hero-content">
+        <div class="hero-badge">COSBACK × O2O QR 온보딩 플라이휠</div>
+        <h1>고객의 대기시간을 회원 전환과<br>평생 캐시백 자산으로 바꾸는<em>O2O QR 온보딩 솔루션</em></h1>
+        <p class="hero-sub">피부과·에스테틱·네일·헤어·필라테스·드럭스토어·보험FC·인플루언서까지,<br>8대 O2O 업종에서 QR 스캔만으로 코스백 정회원 가입과 추천 플라이휠을 시작합니다.</p>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_053556_9530169d-ec0d-4492-9868-fbe5eeb093fa.png" alt="COSBACK 플랫레이">
+    </div>
+  </div>
+
+  <!-- 플라이휠 + 혜택 -->
+  <div class="sec">
+    <div class="sec-label">FLYWHEEL STRUCTURE</div>
+    <div class="sec-title">코스백 정회원 플라이휠</div>
+    <div class="sec-sub">QR 스캔 한 번이 만드는 평생 캐시백 구조</div>
+
+    <div class="fw-typo-wrap">
+      <div class="fw-typo-row">
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">01</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061723_64c531e4-87e9-4e20-8fe6-cd6a12ddbb14.png" alt="QR 스캔"></div>
+          <div class="fw-typo-title">QR 스캔</div>
+        </div>
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">02</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061730_9ffa89d5-36bd-4cdb-9176-13a3cdbceb95.png" alt="코스백 가입"></div>
+          <div class="fw-typo-title">코스백 가입</div>
+        </div>
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">03</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061738_38135e58-6261-47c3-8c9e-001183775b69.png" alt="제휴카드 연동"></div>
+          <div class="fw-typo-title">제휴카드 연동</div>
+        </div>
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">04</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061745_5827228f-6211-4bf7-b812-3b9d8afe4b2a.png" alt="정회원 활성화"></div>
+          <div class="fw-typo-title">정회원 활성화</div>
+        </div>
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">05</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061751_b4b1a9a0-0353-4917-8cba-a1bd89123173.png" alt="가입 혜택 지급"></div>
+          <div class="fw-typo-title">가입 혜택 지급</div>
+        </div>
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">06</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061800_3683ab1a-f4e4-4edd-b458-e24054b13bc3.png" alt="추천코드 자동 매핑"></div>
+          <div class="fw-typo-title">추천코드 자동 매핑</div>
+        </div>
+        <div class="fw-typo-item">
+          <div class="fw-typo-num">07</div>
+          <div class="fw-typo-photo"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_061806_c9ea6dcc-9899-4cdd-adf2-f42d61187a2c.png" alt="15% 캐시백"></div>
+          <div class="fw-typo-title">친구 소비 15% 캐시백</div>
+        </div>
+      </div>
+      <div class="fw-cashback">
+        <strong>추천인 평생 캐시백 구조</strong>
+        <span>추천 회원이 코스백에서 결제할 때마다 추천인에게<br>실결제액의 <em>15%</em>가 <em>매월 자동 정산</em>됩니다</span>
+      </div>
+    </div>
+
+    <!-- Great Beauty Kit -->
+    <div class="sec-label">GREAT BEAUTY KIT</div>
+    <div class="sec-title">정회원 가입 첫해 혜택</div>
+    <div class="sec-sub">총 50만원 상당의 혜택이 가입 즉시 시작됩니다</div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_084330_3f0f756e-18fc-4cce-996d-2144dad06fc0.png" alt="리워드 크레딧">
+        <div class="bc-overlay">
+          <div class="bc-num">01</div>
+          <div class="bc-body">
+            <div class="bc-amount">30만원</div>
+            <div class="bc-label">리워드 크레딧</div>
+            <div class="bc-desc">피부과·에스테틱·헤어·네일·필라테스 등<br>제휴 업종 교차 사용 가능</div>
+          </div>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_084335_f52ed583-4464-4956-8fc2-a905a8e5805c.png" alt="프리미엄 더마 화장품">
+        <div class="bc-overlay">
+          <div class="bc-num">02</div>
+          <div class="bc-body">
+            <div class="bc-amount">15만원</div>
+            <div class="bc-label">프리미엄 더마 화장품</div>
+            <div class="bc-desc">정회원 전용 고기능 더마 화장품 세트 제공</div>
+          </div>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_084338_3c1f0e1b-4894-4c73-9845-f634cf249af4.png" alt="뷰티케어 안심보험">
+        <div class="bc-overlay">
+          <div class="bc-num">03</div>
+          <div class="bc-body">
+            <div class="bc-amount">삼성화재</div>
+            <div class="bc-label">뷰티케어 안심보험</div>
+            <div class="bc-desc">삼성화재 뷰티케어 보험<br>정회원 혜택으로 무상 제공</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8대 O2O 업종 -->
+    <div class="sec-label">8대 O2O 업종</div>
+    <div class="sec-title">QR 온보딩 운영 채널</div>
+    <div class="sec-sub">고객이 기다리거나 결제를 결정하는 지점에 QR을 배치하세요</div>
+    <div class="o2o-orbit">
+      <!-- 중앙 QR -->
+      <div class="o2o-center">
+        <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="26" height="26" rx="3" fill="#0ea5e9" opacity=".15"/>
+          <rect x="8" y="8" width="18" height="18" rx="2" fill="#0ea5e9" opacity=".3"/>
+          <rect x="12" y="12" width="10" height="10" rx="1" fill="#0284c7"/>
+          <rect x="42" y="4" width="26" height="26" rx="3" fill="#0ea5e9" opacity=".15"/>
+          <rect x="46" y="8" width="18" height="18" rx="2" fill="#0ea5e9" opacity=".3"/>
+          <rect x="50" y="12" width="10" height="10" rx="1" fill="#0284c7"/>
+          <rect x="4" y="42" width="26" height="26" rx="3" fill="#0ea5e9" opacity=".15"/>
+          <rect x="8" y="46" width="18" height="18" rx="2" fill="#0ea5e9" opacity=".3"/>
+          <rect x="12" y="50" width="10" height="10" rx="1" fill="#0284c7"/>
+          <rect x="36" y="36" width="5" height="5" fill="#38bdf8"/>
+          <rect x="43" y="36" width="5" height="5" fill="#38bdf8"/>
+          <rect x="50" y="36" width="5" height="5" fill="#38bdf8"/>
+          <rect x="57" y="36" width="5" height="5" fill="#38bdf8"/>
+          <rect x="36" y="43" width="5" height="5" fill="#38bdf8"/>
+          <rect x="50" y="43" width="5" height="5" fill="#0284c7"/>
+          <rect x="57" y="43" width="5" height="5" fill="#38bdf8"/>
+          <rect x="36" y="50" width="5" height="5" fill="#38bdf8"/>
+          <rect x="43" y="50" width="5" height="5" fill="#0284c7"/>
+          <rect x="57" y="50" width="5" height="5" fill="#38bdf8"/>
+          <rect x="36" y="57" width="5" height="5" fill="#38bdf8"/>
+          <rect x="43" y="57" width="5" height="5" fill="#38bdf8"/>
+          <rect x="50" y="57" width="5" height="5" fill="#38bdf8"/>
+        </svg>
+        <div class="o2o-center-label">QR SCAN</div>
+      </div>
+      <div class="o2o-ring"></div>
+      <!-- 8개 노드: 45도 간격으로 배치 (반지름 300px, 중심 390px) -->
+      <div class="o2o-node" style="top:calc(390px - 300px);left:390px">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085756_bb05ba6e-7a02-4676-aa45-90bfd5c88711.png" alt="피부과"></div>
+        <div class="o2o-node-label">피부과·성형외과</div>
+        <div class="o2o-node-tip">시술 후 대기실</div>
+      </div>
+      <div class="o2o-node" style="top:calc(390px - 300px * 0.707);left:calc(390px + 300px * 0.707)">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085658_9bc65436-44ba-4a7f-b6d3-25aeb922b86d.png" alt="에스테틱"></div>
+        <div class="o2o-node-label">에스테틱</div>
+        <div class="o2o-node-tip">관리실 입구</div>
+      </div>
+      <div class="o2o-node" style="top:390px;left:calc(390px + 300px)">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085702_c4590c85-8b67-4a8e-a88f-eba5df7e2667.png" alt="네일숍"></div>
+        <div class="o2o-node-label">네일숍</div>
+        <div class="o2o-node-tip">거울 앞</div>
+      </div>
+      <div class="o2o-node" style="top:calc(390px + 300px * 0.707);left:calc(390px + 300px * 0.707)">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085711_dfa9d74b-7fa2-4c41-98e8-fdbab941d1e6.png" alt="헤어살롱"></div>
+        <div class="o2o-node-label">헤어살롱</div>
+        <div class="o2o-node-tip">거울 하단</div>
+      </div>
+      <div class="o2o-node" style="top:calc(390px + 300px);left:390px">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085718_b9a9e2aa-e5f2-43e3-bd07-f270e5a742c2.png" alt="필라테스"></div>
+        <div class="o2o-node-label">필라테스·요가</div>
+        <div class="o2o-node-tip">락커룸, 상담 데스크</div>
+      </div>
+      <div class="o2o-node" style="top:calc(390px + 300px * 0.707);left:calc(390px - 300px * 0.707)">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085722_57735421-c25d-4e66-a926-cee3bc6e9e32.png" alt="드럭스토어"></div>
+        <div class="o2o-node-label">드럭스토어·화장품</div>
+        <div class="o2o-node-tip">결제 전 구역</div>
+      </div>
+      <div class="o2o-node" style="top:390px;left:calc(390px - 300px)">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085726_1c036aa7-c1ac-43b9-ae8b-fce61355ced5.png" alt="보험FC"></div>
+        <div class="o2o-node-label">보험 FC</div>
+        <div class="o2o-node-tip">상담 태블릿</div>
+      </div>
+      <div class="o2o-node" style="top:calc(390px - 300px * 0.707);left:calc(390px - 300px * 0.707)">
+        <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085747_b5e161f2-345c-49a3-b55c-e0d6706449ca.png" alt="인플루언서"></div>
+        <div class="o2o-node-label">뷰티 인플루언서</div>
+        <div class="o2o-node-tip">숏츠·릴스</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- KPI -->
+  <div class="sec">
+    <div class="sec-label">PERFORMANCE KPI</div>
+    <div class="sec-title">주간 성과 관리 지표</div>
+    <div class="sec-sub">QR 설치 후 스캔 → 가입 → 연동 → 추천 → 재구매 전체 흐름을 매주 확인하세요</div>
+    <div class="kpi-grid">
+      <div class="kpi-card"><div class="kpi-num">01</div><div class="kpi-text">QR 스캔 수</div></div>
+      <div class="kpi-card"><div class="kpi-num">02</div><div class="kpi-text">가입 전환율</div></div>
+      <div class="kpi-card"><div class="kpi-num">03</div><div class="kpi-text">카드 연동 완료율</div></div>
+      <div class="kpi-card"><div class="kpi-num">04</div><div class="kpi-text">Great Beauty Kit 지급 건수</div></div>
+      <div class="kpi-card"><div class="kpi-num">05</div><div class="kpi-text">친구 추천 전환 수</div></div>
+      <div class="kpi-card"><div class="kpi-num">06</div><div class="kpi-text">반복 구매율</div></div>
+      <div class="kpi-card"><div class="kpi-num">07</div><div class="kpi-text">캐시백 정산액</div></div>
+      <div class="kpi-card"><div class="kpi-num">08</div><div class="kpi-text">업종별 ROI</div></div>
+      <div class="kpi-card"><div class="kpi-num">09</div><div class="kpi-text">정회원 유지율</div></div>
+    </div>
+  </div>
+
+  <footer style="background:#082035;padding:28px 32px;text-align:center">
+    <div style="font-size:12px;color:rgba(255,255,255,.4)">© 2025 BIGWAVE3 Co., Ltd. · 내부 열람 전용 자료 · 무단 배포 금지</div>
+  </footer>
+
+  </div><!-- /main-home -->
+
+</div>
+
+<script>
+function checkPw(){
+  const val = document.getElementById('pw-input').value;
+  if(val === '4321'){
+    document.getElementById('pw-screen').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+  } else {
+    const err = document.getElementById('pw-err');
+    err.textContent = '비밀번호가 올바르지 않습니다.';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+    setTimeout(()=>err.textContent='', 2500);
+  }
+}
+
+function switchTab(id, el){
+  document.querySelectorAll('.cat-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  el.classList.add('active');
+}
+function goHome(){
+  document.querySelectorAll('.cat-page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('main-home').style.display='block';
+  window.scrollTo(0,0);
+}
+function showPage(id, btn){
+  const isActive = btn && btn.classList.contains('active');
+  document.querySelectorAll('.cat-page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('main-home').style.display = isActive ? 'block' : 'none';
+  if(!isActive){
+    document.getElementById('page-'+id).classList.add('active');
+    if(btn) btn.classList.add('active');
+  } else {
+    document.getElementById('main-home').style.display = 'block';
+  }
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
