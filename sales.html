@@ -170,13 +170,13 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
 .bc-desc{font-size:clamp(13px,1vw,15px);color:rgba(255,255,255,.65);line-height:1.6}
 
 /* ── O2O 원형 레이아웃 ── */
-.o2o-orbit{position:relative;width:780px;height:780px;margin:0 auto 48px}
+.o2o-orbit{position:relative;width:680px;height:680px;margin:0 auto 48px}
 .o2o-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:170px;height:170px;border-radius:50%;background:#fff;box-shadow:0 0 0 6px #e0f2fe,0 8px 40px rgba(14,165,233,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2}
 .o2o-center svg{width:88px;height:88px}
 .o2o-center-label{font-size:11px;font-weight:800;letter-spacing:.1em;color:#0284c7;margin-top:5px}
 .o2o-ring{position:absolute;inset:0;pointer-events:none}
 .o2o-ring::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:440px;height:440px;border-radius:50%;border:1px dashed #bae6fd}
-.o2o-ring::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;border:1px dashed rgba(186,230,253,0.35)}
+.o2o-ring::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;border:1px dashed rgba(186,230,253,0.35)}
 .o2o-dot{position:absolute;top:50%;left:50%;pointer-events:none}
 .o2o-dot-inner{position:absolute;border-radius:50%;background:radial-gradient(circle,#fff 0%,#38bdf8 40%,transparent 70%);box-shadow:0 0 10px 4px rgba(56,189,248,0.7)}
 /* inner ring dots (r=220) */
@@ -184,10 +184,10 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
 .o2o-dot.d1 .o2o-dot-inner{width:10px;height:10px;top:-5px;left:50%;margin-left:-5px}
 .o2o-dot.d2{width:440px;height:440px;margin:-220px 0 0 -220px;animation:orbitCW 7s linear infinite;animation-delay:-3.5s}
 .o2o-dot.d2 .o2o-dot-inner{width:8px;height:8px;top:-4px;left:50%;margin-left:-4px;opacity:.7}
-/* outer ring dots (r=300) */
-.o2o-dot.d3{width:600px;height:600px;margin:-300px 0 0 -300px;animation:orbitCCW 11s linear infinite}
+/* outer ring dots (r=250) */
+.o2o-dot.d3{width:500px;height:500px;margin:-250px 0 0 -250px;animation:orbitCCW 11s linear infinite}
 .o2o-dot.d3 .o2o-dot-inner{width:9px;height:9px;top:-4px;left:50%;margin-left:-4px;background:radial-gradient(circle,#fff 0%,#7dd3fc 40%,transparent 70%);box-shadow:0 0 8px 3px rgba(125,211,252,0.6)}
-.o2o-dot.d4{width:600px;height:600px;margin:-300px 0 0 -300px;animation:orbitCCW 11s linear infinite;animation-delay:-5.5s}
+.o2o-dot.d4{width:500px;height:500px;margin:-250px 0 0 -250px;animation:orbitCCW 11s linear infinite;animation-delay:-5.5s}
 .o2o-dot.d4 .o2o-dot-inner{width:7px;height:7px;top:-3px;left:50%;margin-left:-3px;opacity:.6;background:radial-gradient(circle,#fff 0%,#7dd3fc 40%,transparent 70%);box-shadow:0 0 7px 3px rgba(125,211,252,0.5)}
 @keyframes orbitCW{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 @keyframes orbitCCW{from{transform:rotate(0deg)}to{transform:rotate(-360deg)}}
@@ -667,42 +667,42 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
         <div class="o2o-dot d4"><div class="o2o-dot-inner"></div></div>
       </div>
       <!-- 8개 노드: 45도 간격으로 배치 (반지름 300px, 중심 390px) -->
-      <div class="o2o-node" style="top:calc(390px - 300px);left:390px">
+      <div class="o2o-node" style="top:calc(340px - 250px);left:340px">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085756_bb05ba6e-7a02-4676-aa45-90bfd5c88711.png" alt="피부과"></div>
         <div class="o2o-node-label">피부과·성형외과</div>
         <div class="o2o-node-tip">시술 후 대기실</div>
       </div>
-      <div class="o2o-node" style="top:calc(390px - 300px * 0.707);left:calc(390px + 300px * 0.707)">
+      <div class="o2o-node" style="top:calc(340px - 250px * 0.707);left:calc(340px + 250px * 0.707)">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085658_9bc65436-44ba-4a7f-b6d3-25aeb922b86d.png" alt="에스테틱"></div>
         <div class="o2o-node-label">에스테틱</div>
         <div class="o2o-node-tip">관리실 입구</div>
       </div>
-      <div class="o2o-node" style="top:390px;left:calc(390px + 300px)">
+      <div class="o2o-node" style="top:340px;left:calc(340px + 250px)">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085702_c4590c85-8b67-4a8e-a88f-eba5df7e2667.png" alt="네일숍"></div>
         <div class="o2o-node-label">네일숍</div>
         <div class="o2o-node-tip">거울 앞</div>
       </div>
-      <div class="o2o-node" style="top:calc(390px + 300px * 0.707);left:calc(390px + 300px * 0.707)">
+      <div class="o2o-node" style="top:calc(340px + 250px * 0.707);left:calc(340px + 250px * 0.707)">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085711_dfa9d74b-7fa2-4c41-98e8-fdbab941d1e6.png" alt="헤어살롱"></div>
         <div class="o2o-node-label">헤어살롱</div>
         <div class="o2o-node-tip">거울 하단</div>
       </div>
-      <div class="o2o-node" style="top:calc(390px + 300px);left:390px">
+      <div class="o2o-node" style="top:calc(340px + 250px);left:340px">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085718_b9a9e2aa-e5f2-43e3-bd07-f270e5a742c2.png" alt="필라테스"></div>
         <div class="o2o-node-label">필라테스·요가</div>
         <div class="o2o-node-tip">락커룸, 상담 데스크</div>
       </div>
-      <div class="o2o-node" style="top:calc(390px + 300px * 0.707);left:calc(390px - 300px * 0.707)">
+      <div class="o2o-node" style="top:calc(340px + 250px * 0.707);left:calc(340px - 250px * 0.707)">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085722_57735421-c25d-4e66-a926-cee3bc6e9e32.png" alt="드럭스토어"></div>
         <div class="o2o-node-label">드럭스토어·화장품</div>
         <div class="o2o-node-tip">결제 전 구역</div>
       </div>
-      <div class="o2o-node" style="top:390px;left:calc(390px - 300px)">
+      <div class="o2o-node" style="top:340px;left:calc(340px - 250px)">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085726_1c036aa7-c1ac-43b9-ae8b-fce61355ced5.png" alt="보험FC"></div>
         <div class="o2o-node-label">보험 FC</div>
         <div class="o2o-node-tip">상담 태블릿</div>
       </div>
-      <div class="o2o-node" style="top:calc(390px - 300px * 0.707);left:calc(390px - 300px * 0.707)">
+      <div class="o2o-node" style="top:calc(340px - 250px * 0.707);left:calc(340px - 250px * 0.707)">
         <div class="o2o-node-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260713_085747_b5e161f2-345c-49a3-b55c-e0d6706449ca.png" alt="인플루언서"></div>
         <div class="o2o-node-label">뷰티 인플루언서</div>
         <div class="o2o-node-tip">숏츠·릴스</div>
