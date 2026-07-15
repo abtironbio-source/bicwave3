@@ -1,5 +1,6 @@
 .claude/
 *.pdf
+!files/*.pdf
 !Bigwave3 IR.pdf
 !BIGWAVE3_투자제안서 260624-C ver.pdf
 !Bigwave3 Official.pdf
