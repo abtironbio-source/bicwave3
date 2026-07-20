@@ -1424,7 +1424,26 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
           <div><div style="color:#fff;font-weight:700;font-size:14px">GLOW TRIP</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px">글로벌 뷰티케어 의료관광 플랫폼 전략</div></div>
           <span style="margin-left:auto;color:rgba(255,255,255,.4);font-size:18px">↗</span>
         </div>
+        <div onclick="openIRVideo('9jpFaHZYBCY')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;cursor:pointer;transition:background .2s"
+          onmouseover="this.style.background='rgba(30,100,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
+          <span style="font-size:22px">▶️</span>
+          <div><div style="color:#fff;font-weight:700;font-size:14px">Bigwave3 소개 영상</div><div style="color:rgba(255,255,255,.4);font-size:12px;margin-top:2px">YouTube</div></div>
+          <span style="margin-left:auto;color:rgba(255,255,255,.4);font-size:18px">↗</span>
+        </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- IR 유튜브 영상 모달 -->
+<div id="ir-video-modal" style="display:none;position:fixed;inset:0;z-index:5000;background:rgba(6,15,40,.92);backdrop-filter:blur(10px);align-items:center;justify-content:center">
+  <div style="position:relative;width:92%;max-width:860px;background:#0d1e3d;border-radius:16px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.12)">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid rgba(255,255,255,.08)">
+      <span style="color:#fff;font-size:14px;font-weight:700">Bigwave3 소개 영상</span>
+      <button onclick="closeIRVideo()" style="background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">×</button>
+    </div>
+    <div style="position:relative;padding-bottom:56.25%;height:0">
+      <iframe id="ir-video-iframe" src="" style="position:absolute;inset:0;width:100%;height:100%;border:none" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
 </div>
@@ -1837,6 +1856,17 @@ function openIRRoom(){
 }
 function closeIRRoom(){
   document.getElementById('ir-room-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+function openIRVideo(id){
+  document.getElementById('ir-room-modal').style.display = 'none';
+  document.getElementById('ir-video-iframe').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+  document.getElementById('ir-video-modal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeIRVideo(){
+  document.getElementById('ir-video-modal').style.display = 'none';
+  document.getElementById('ir-video-iframe').src = '';
   document.body.style.overflow = '';
 }
 function openPdfModal(url){
