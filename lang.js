@@ -80,7 +80,7 @@ const T = {
     /* COMPARE */
     'sec-cmp-h':'일반 회원 vs <em>정회원</em> 혜택 비교',
     'ch-gen-lbl':'General Member','ch-gen-t':'일반 회원','ch-gen-sub':'무료 가입',
-    'ch-prem-lbl':'Premium Member','ch-prem-t':'정회원','ch-prem-sub':'연회비 또는 연계카드 등록',
+    'ch-prem-lbl':'Premium Member','ch-prem-t':'정회원','ch-prem-sub':'연회비 또는 이벤트 참여',
     'cr1':'🛍 코스백 구매','cr2':'💰 본인 캐시백','cr3':'👥 친구 추천 캐시백',
     'cr4':'🏥 닥터 리워드','cr5':'🎁 Great Beauty 키트','cr6':'🛡 삼성화재 보험','cr7':'🔗 추천 코드',
     'gen-v1':'가능','gen-v2':'기본 혜택','gen-v3':'제한적','gen-v4':'일부 정보만','gen-v5':'미제공','gen-v6':'미제공','gen-v7':'일반 추천',
