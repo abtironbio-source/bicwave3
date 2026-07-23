@@ -49,7 +49,7 @@ const T = {
     'ls6':'⑥ 닥터리워드<br>적립','ls7':'⑦ 병원<br>정보 탐색','ls8':'⑧ 시술 후<br>리워드 활용','ls9':'⑨ 삼성화재<br>보험 연동','ls10':'⑩ 친구추천<br>무한 캐시백',
     'loop-b1':'코스백 캐시백','loop-b2':'닥터 리워드 크레딧','loop-b3':'삼성화재 안심보험','loop-b4':'무한 캐시백 루틴',
     /* SAMSUNG CARD */
-    'sec-sc-h':'삼성카드 <em>iD VITA</em><br>협력 금융 루틴',
+    'sec-sc-h':'삼성 iD VITA카드<br>협력 금융 루틴',
     'sec-sc-lead':'COSBACK × Samsung Card iD VITA —<br>고객이 스스로 선택하는 스마트한 정회원 전환 엔진',
     'scf1-t':'병원·약국 혜택','scf1-d':'파트너 병원 및 약국에서 20% 할인 혜택 제공',
     'scf2-t':'생활 영역 혜택','scf2-d':'일상 생활 전반의 카드 혜택',
