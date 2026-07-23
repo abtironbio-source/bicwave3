@@ -57,7 +57,7 @@ const T = {
     'scf4-t':'삼성화재 보험 연동','scf4-d':'뷰티케어 안심보험 앱에서 실시간 확인',
     'paths-lbl':'정회원 가입 경로',
     'piA-tag':'Path A','piA-t':'현금 납부형','piA-d':'코스백 연회비 ₩150,000 직접 납부',
-    'piB-tag':'Path B ⭐','piB-t':'iD VITA 가입형','piB-d':'코스백 정회원 연회비 무료',
+    'piB-tag':'Path B ⭐ 이벤트 참여형','piB-t':'iD VITA 가입형','piB-d':'코스백 정회원 연회비 무료',
     'sc-float1-t':'친구 추천 캐시백','sc-float1-s':'삼성 iD VITA카드 결제 시',
     'sc-float2-t':'뷰티케어 보험','sc-float2-s':'Samsung Fire 연동 완료',
     /* DR REWARD */
@@ -196,7 +196,7 @@ const T = {
     'scf4-t':'Samsung Fire Integration','scf4-d':'Check beauty care insurance status in real time via app',
     'paths-lbl':'Premium Membership Paths',
     'piA-tag':'Path A','piA-t':'Direct Payment','piA-d':'Pay ₩150,000 annual fee directly',
-    'piB-tag':'Path B ⭐','piB-t':'iD VITA Voluntary Sign-up','piB-d':'Customer\'s own choice — no pressure',
+    'piB-tag':'Path B ⭐ 이벤트 참여형','piB-t':'iD VITA Voluntary Sign-up','piB-d':'Customer\'s own choice — no pressure',
     'sc-float1-t':'Friend Referral Cashback','sc-float1-s':'Via partner Samsung Card',
     'sc-float2-t':'Beauty Care Insurance','sc-float2-s':'Samsung Fire linked',
     'sec-dr-h':'Dr. Reward<br><em>Mobile Platform</em>',
