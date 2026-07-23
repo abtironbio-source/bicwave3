@@ -19,7 +19,7 @@ const T = {
     /* METRICS */
     'sec-metrics-h':'한눈에 보는 BIGWAVE3 <em>핵심 지표</em>',
     'mc1-lbl':'본인 구매 캐시백','mc1-desc':'코스백 입점 브랜드 구매 시 최대 적립',
-    'mc2-lbl':'친구 추천 무한 캐시백','mc2-desc':'제휴 삼성카드 결제 시 친구 구매금액 기준',
+    'mc2-lbl':'친구 추천 무한 캐시백','mc2-desc':'삼성 iD VITA카드 결제금액 기준',
     'mc3-lbl':'연간 Great Beauty 키트','mc3-desc':'정회원 가입 시 제공되는 연간 혜택 상당액',
     'mc4-lbl':'5년 누적 정회원 가치','mc4-desc':'정회원 유지 시 누적 혜택 추산',
     'mc5-lbl':'파트너 병원 네트워크','mc5-desc':'피부과·성형외과 500개 + 치과·여성의원 500개',
@@ -53,12 +53,12 @@ const T = {
     'sec-sc-lead':'COSBACK × Samsung Card iD VITA —<br>고객이 스스로 선택하는 스마트한 정회원 전환 엔진',
     'scf1-t':'병원·약국 혜택','scf1-d':'파트너 병원 및 약국에서 20% 할인 혜택 제공',
     'scf2-t':'생활 영역 혜택','scf2-d':'일상 생활 전반의 카드 혜택',
-    'scf3-t':'최대 15% 무한 캐시백','scf3-d':'제휴 삼성카드 결제 시 친구 구매금액의 15%',
+    'scf3-t':'최대 15% 무한 캐시백','scf3-d':'삼성 iD VITA카드 결제금액 기준',
     'scf4-t':'삼성화재 보험 연동','scf4-d':'뷰티케어 안심보험 앱에서 실시간 확인',
     'paths-lbl':'정회원 가입 경로',
     'piA-tag':'Path A','piA-t':'현금 납부형','piA-d':'코스백 연회비 ₩150,000 직접 납부',
     'piB-tag':'Path B ⭐ Recommended','piB-t':'iD VITA 가입형','piB-d':'코스백 정회원 연회비 무료',
-    'sc-float1-t':'친구 추천 캐시백','sc-float1-s':'제휴 삼성카드 결제 시',
+    'sc-float1-t':'친구 추천 캐시백','sc-float1-s':'삼성 iD VITA카드 결제 시',
     'sc-float2-t':'뷰티케어 보험','sc-float2-s':'Samsung Fire 연동 완료',
     /* DR REWARD */
     'sec-dr-h':'Dr. Reward<br><em>Beauty & Wellness Platform</em>',
