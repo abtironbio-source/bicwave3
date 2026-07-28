@@ -212,7 +212,13 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
 .cat-page{display:none;min-height:100vh;background:#f4f8fb;padding:48px 0 80px;background-size:cover;background-position:center;background-attachment:fixed;position:relative}
 .cat-page::before{content:'';position:absolute;inset:0;background:rgba(240,248,255,0.3);backdrop-filter:blur(0px);-webkit-backdrop-filter:blur(0px);z-index:0}
 .cat-page-inner{position:relative;z-index:1}
-#page-clinic{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_024423_682027f2-96cb-43e3-babb-6c967cbf4fbf.png')}
+#page-clinic-skin,#page-clinic-dental{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_024423_682027f2-96cb-43e3-babb-6c967cbf4fbf.png')}
+/* Clinic 드롭다운 */
+.nav-dropdown{position:relative;display:inline-block}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 4px);left:50%;transform:translateX(-50%);background:#fff;border-radius:10px;box-shadow:0 8px 28px rgba(0,0,0,.13);padding:6px;min-width:160px;z-index:200;white-space:nowrap}
+.nav-dropdown:hover .nav-dropdown-menu{display:block}
+.nav-dropdown-menu button{display:block;width:100%;padding:9px 16px;background:none;border:none;border-radius:6px;color:var(--navy);font-size:14px;font-weight:500;cursor:pointer;text-align:left;transition:.15s;letter-spacing:.04em}
+.nav-dropdown-menu button:hover{background:#f0f8ff;color:#0ea5e9}
 #page-insure{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_024426_d44b94ea-7543-4a58-b0f4-e3750957c2a7.png')}
 #page-insure::before{background:rgba(240,248,255,0.52)}
 #page-wellness{background-image:url('https://d8j0ntlcm91z4.cloudfront.net/user_3Fi3kqzItDsK5CfFHpFEN1b2cUe/hf_20260714_070947_9f93c1ec-1439-48b4-a9eb-279872da8e50.png')}
@@ -372,7 +378,13 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
       <nav class="nav-menu">
         <button class="nav-btn" onclick="showPage('essential',this)">Essential</button>
         <div class="nav-divider"></div>
-        <button class="nav-btn" onclick="showPage('clinic',this)">Clinic</button>
+        <div class="nav-dropdown">
+          <button class="nav-btn" id="nav-clinic-btn" onclick="showPage('clinic-skin',this)">Clinic</button>
+          <div class="nav-dropdown-menu">
+            <button data-sub="1" data-parent="nav-clinic-btn" onclick="showPage('clinic-skin',this)">피부과·성형외과</button>
+            <button data-sub="1" data-parent="nav-clinic-btn" onclick="showPage('clinic-dental',this)">치과</button>
+          </div>
+        </div>
         <div class="nav-divider"></div>
         <button class="nav-btn" onclick="showPage('insure',this)">Insure</button>
         <div class="nav-divider"></div>
@@ -385,8 +397,8 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
     </div>
   </header>
 
-  <!-- Clinic 페이지 -->
-  <div class="cat-page" id="page-clinic">
+  <!-- Clinic 피부과·성형외과 페이지 -->
+  <div class="cat-page" id="page-clinic-skin">
     <div class="cat-page-inner">
       <div class="cat-page-head">
         <div class="cat-page-label">CLINIC</div>
@@ -404,18 +416,8 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
             <div class="res-date-cell">2025.07.15</div>
           </div>
           <div class="res-group-row">
-            <div class="res-cat-cell"><div class="res-cat-inner"><div class="res-cat-tag">PDF</div><div class="res-cat-name">치과 영업자료</div><div class="res-cat-desc">영업 현장 문서</div></div></div>
-            <div class="res-name-cell"><a href="#" onclick="openPdf('files/CLINIC-치과 Dr-1.pdf','치과 Dr 코스백 영업 가이드');return false" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;cursor:pointer"><span class="res-type-badge PDF">PDF</span><span class="res-name-text">치과 Dr 코스백 영업 가이드</span></a></div>
-            <div class="res-date-cell">2025.07.15</div>
-          </div>
-          <div class="res-group-row">
             <div class="res-cat-cell"><div class="res-cat-inner"><div class="res-cat-tag" style="color:#ef4444">VIDEO</div><div class="res-cat-name">피부과 오디오 자료</div><div class="res-cat-desc">영상 가이드</div></div></div>
             <div class="res-name-cell"><a href="#" onclick="openVideo('IO0b3Pn6SI4','피부과 오디오 자료');return false" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;cursor:pointer"><span class="res-type-badge" style="background:#fee2e2;color:#dc2626">YT</span><span class="res-name-text">피부과 오디오 자료</span></a></div>
-            <div class="res-date-cell">2025.07.15</div>
-          </div>
-          <div class="res-group-row">
-            <div class="res-cat-cell"><div class="res-cat-inner"><div class="res-cat-tag" style="color:#ef4444">VIDEO</div><div class="res-cat-name">치과 오디오 자료</div><div class="res-cat-desc">영상 가이드</div></div></div>
-            <div class="res-name-cell"><a href="#" onclick="openVideo('rsNJ02vUErc','치과 오디오자료 01');return false" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;cursor:pointer"><span class="res-type-badge" style="background:#fee2e2;color:#dc2626">YT</span><span class="res-name-text">치과 오디오자료 01</span></a></div>
             <div class="res-date-cell">2025.07.15</div>
           </div>
           <div class="res-group-row">
@@ -435,6 +437,48 @@ header{background:#fff;border-bottom:1px solid var(--line);padding:16px 32px;dis
           <div class="qa-doc-top">
             <div class="qa-doc-top-label">CLINIC Q&amp;A</div>
             <div class="qa-doc-top-title">피부과·성형외과 영업 FAQ</div>
+          </div>
+          <div class="qa-empty">준비 중인 자료입니다</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clinic 치과 페이지 -->
+  <div class="cat-page" id="page-clinic-dental">
+    <div class="cat-page-inner">
+      <div class="cat-page-head">
+        <div class="cat-page-label">CLINIC</div>
+        <div class="cat-page-title">치과</div>
+        <div class="cat-page-sub">치과 영업사원 전용 자료실</div>
+      </div>
+      <div class="res-board">
+        <div class="res-board-header">
+          <div>구분</div><div>자료명</div><div>등록일</div>
+        </div>
+        <div class="res-group">
+          <div class="res-group-row">
+            <div class="res-cat-cell"><div class="res-cat-inner"><div class="res-cat-tag">PDF</div><div class="res-cat-name">치과 영업자료</div><div class="res-cat-desc">영업 현장 문서</div></div></div>
+            <div class="res-name-cell"><a href="#" onclick="openPdf('files/CLINIC-치과 Dr-1.pdf','치과 Dr 코스백 영업 가이드');return false" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;cursor:pointer"><span class="res-type-badge PDF">PDF</span><span class="res-name-text">치과 Dr 코스백 영업 가이드</span></a></div>
+            <div class="res-date-cell">2025.07.15</div>
+          </div>
+          <div class="res-group-row">
+            <div class="res-cat-cell"><div class="res-cat-inner"><div class="res-cat-tag" style="color:#ef4444">VIDEO</div><div class="res-cat-name">치과 오디오 자료</div><div class="res-cat-desc">영상 가이드</div></div></div>
+            <div class="res-name-cell"><a href="#" onclick="openVideo('rsNJ02vUErc','치과 오디오자료 01');return false" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;cursor:pointer"><span class="res-type-badge" style="background:#fee2e2;color:#dc2626">YT</span><span class="res-name-text">치과 오디오자료 01</span></a></div>
+            <div class="res-date-cell">2025.07.15</div>
+          </div>
+        </div>
+      </div>
+      <div class="qa-section">
+        <div class="qa-section-head">
+          <div class="qa-section-label">Q&amp;A</div>
+          <div class="qa-section-title">자주 묻는 질문</div>
+          <div class="qa-section-desc">치과 영업 현장</div>
+        </div>
+        <div class="qa-doc">
+          <div class="qa-doc-top">
+            <div class="qa-doc-top-label">CLINIC Q&amp;A</div>
+            <div class="qa-doc-top-title">치과 영업 FAQ</div>
           </div>
           <div class="qa-empty">준비 중인 자료입니다</div>
         </div>
@@ -870,13 +914,16 @@ function goHome(){
   window.scrollTo(0,0);
 }
 function showPage(id, btn){
-  const isActive = btn && btn.classList.contains('active');
+  const isSub = btn && btn.dataset.sub;
+  const isActive = btn && btn.classList.contains('active') && !isSub;
   document.querySelectorAll('.cat-page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('main-home').style.display = isActive ? 'block' : 'none';
   if(!isActive){
     document.getElementById('page-'+id).classList.add('active');
-    if(btn) btn.classList.add('active');
+    if(btn && !isSub) btn.classList.add('active');
+    var parentId = btn && btn.dataset.parent;
+    if(parentId) document.getElementById(parentId).classList.add('active');
   } else {
     document.getElementById('main-home').style.display = 'block';
   }
