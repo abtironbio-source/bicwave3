@@ -1885,10 +1885,10 @@ function openIRVideo(id){
 function closeIRVideo(){
   document.getElementById('ir-video-modal').style.display = 'none';
   document.getElementById('ir-video-iframe').src = '';
-  document.body.style.overflow = '';
+  document.getElementById('ir-room-modal').style.display = 'flex';
 }
 function openPdfModal(url){
-  closeIRRoom();
+  document.getElementById('ir-room-modal').style.display = 'none';
   const modal = document.getElementById('ir-pdf-modal');
   modal.querySelector('iframe').src = url;
   modal.querySelector('a[target="_blank"]').href = url;
@@ -1912,7 +1912,7 @@ function checkDocPassword(){
   const val = document.getElementById('ir-doc-pw-input').value;
   if(val === _irDocPassword){
     closeDocPw();
-    closeIRRoom();
+    document.getElementById('ir-room-modal').style.display = 'none';
     const modal = document.getElementById('ir-pdf-modal');
     modal.querySelector('iframe').src = _irDocTarget;
     modal.querySelector('a[target="_blank"]').href = _irDocTarget;
@@ -1972,15 +1972,14 @@ document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', functi
   const modal = document.getElementById('ir-pdf-modal');
   const closeBtn = document.getElementById('ir-pdf-close');
   if(!modal) return;
-  closeBtn.addEventListener('click', function(){
+  function closeIRPdf(){
     modal.style.display='none';
-    document.body.style.overflow='';
-  });
+    modal.querySelector('iframe').src='';
+    document.getElementById('ir-room-modal').style.display='flex';
+  }
+  closeBtn.addEventListener('click', closeIRPdf);
   modal.addEventListener('click', function(e){
-    if(e.target===modal){
-      modal.style.display='none';
-      document.body.style.overflow='';
-    }
+    if(e.target===modal) closeIRPdf();
   });
 })();
 </script>
