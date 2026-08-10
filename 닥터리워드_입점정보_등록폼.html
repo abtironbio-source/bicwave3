@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>닥터리워드 입점 정보 등록</title>
+<style>
+:root{
+  --primary:#2F6BFF; --primary-dark:#1E4FD6; --accent:#00B8A9;
+  --bg:#F4F7FC; --card:#FFFFFF; --line:#E3E9F4;
+  --text:#1A2333; --sub:#5B6B85; --danger:#E5484D; --warn:#B47D00; --ok:#18794E;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Pretendard','Malgun Gothic','맑은 고딕','Apple SD Gothic Neo',sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+header.top{background:linear-gradient(135deg,#1E4FD6,#2F6BFF 55%,#00B8A9);color:#fff;padding:28px 24px}
+header.top .inner{max-width:1080px;margin:0 auto}
+header.top h1{font-size:26px;font-weight:800;letter-spacing:-.5px}
+header.top p{opacity:.92;margin-top:6px;font-size:14.5px}
+.badge-dr{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:2px 12px;font-size:12.5px;margin-bottom:10px;font-weight:700}
+main{max-width:1080px;margin:0 auto;padding:20px 16px 80px}
+/* tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 20px;position:sticky;top:0;z-index:50;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--line)}
+.tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 16px;font-size:14px;font-weight:700;color:var(--sub);cursor:pointer;transition:.15s}
+.tab:hover{border-color:var(--primary);color:var(--primary)}
+.tab.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.step{display:none}
+.step.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 26px;margin-bottom:18px;box-shadow:0 1px 2px rgba(20,40,80,.04)}
+.card h2{font-size:19px;font-weight:800;margin-bottom:4px;letter-spacing:-.3px}
+.card h2 .num{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;font-size:14px;margin-right:8px;vertical-align:-3px}
+.card .desc{font-size:13.5px;color:var(--sub);margin-bottom:18px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.grid .full{grid-column:1/-1}
+@media(max-width:760px){.grid{grid-template-columns:1fr}}
+label.f{display:block;font-size:13.5px;font-weight:700;margin-bottom:6px;color:#2B3852}
+label.f .req{color:var(--danger)}
+label.f .hint{font-weight:500;color:var(--sub);font-size:12px;margin-left:6px}
+input[type=text],input[type=tel],input[type=date],input[type=number],input[type=time],select,textarea{
+  width:100%;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14.5px;font-family:inherit;background:#fff;color:var(--text);transition:border .15s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--primary)}
+textarea{resize:vertical;min-height:84px}
+.cnt{font-size:12px;color:var(--sub);text-align:right;margin-top:3px}
+.cnt.over{color:var(--danger);font-weight:700}
+.note{background:#EEF4FF;border:1px solid #D3E1FF;border-radius:10px;padding:10px 14px;font-size:13px;color:#27418F;margin:10px 0}
+.note.warn{background:#FFF7E6;border-color:#F5DFAE;color:#7A5A00}
+.note.danger{background:#FFF0F0;border-color:#F5C6C6;color:#8C2B2E}
+/* chips */
+.chipbox{border:1.5px solid var(--line);border-radius:10px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;background:#fff;cursor:text}
+.chipbox input{border:none!important;flex:1;min-width:120px;padding:4px 6px;font-size:14px}
+.chip{background:#EAF1FF;color:var(--primary-dark);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.chip b{cursor:pointer;font-weight:900;opacity:.55}
+.chip b:hover{opacity:1}
+.sugg{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px}
+.sugg span{border:1px dashed #B9C8E6;color:var(--sub);border-radius:999px;padding:3px 11px;font-size:12.5px;cursor:pointer}
+.sugg span:hover{border-color:var(--primary);color:var(--primary)}
+/* checkbox group */
+.ckgroup{display:flex;flex-wrap:wrap;gap:8px}
+.ck{border:1.5px solid var(--line);border-radius:10px;padding:8px 14px;font-size:13.5px;cursor:pointer;user-select:none;background:#fff;font-weight:600;color:#3A4A68}
+.ck input{display:none}
+.ck.on{border-color:var(--primary);background:#EAF1FF;color:var(--primary-dark)}
+/* hours table */
+table.hours{width:100%;border-collapse:collapse;font-size:14px}
+table.hours td{padding:6px 6px;border-bottom:1px solid #F0F3FA;vertical-align:middle}
+table.hours td:first-child{width:86px;font-weight:700}
+table.hours input[type=time]{width:120px;padding:7px 8px}
+.dayoff{color:var(--sub);font-size:12.5px}
+/* upload */
+.upzone{border:2px dashed #C4D2EC;border-radius:12px;padding:18px;text-align:center;color:var(--sub);font-size:13.5px;cursor:pointer;background:#FAFCFF;transition:.15s}
+.upzone:hover{border-color:var(--primary);color:var(--primary)}
+.thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.thumb{position:relative;width:132px;height:88px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#F2F5FB}
+.thumb.sq{width:88px;height:88px}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.thumb .del{position:absolute;top:4px;right:4px;background:rgba(15,20,30,.65);color:#fff;border:none;width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:12px;line-height:1}
+/* dynamic cards */
+.subcard{border:1.5px solid var(--line);border-radius:14px;padding:20px;margin-bottom:14px;background:#FBFCFF;position:relative}
+.subcard h3{font-size:15.5px;font-weight:800;margin-bottom:14px;color:var(--primary-dark)}
+.subcard .rm{position:absolute;top:14px;right:14px;border:1px solid #F1C5C7;background:#fff;color:var(--danger);border-radius:8px;padding:5px 12px;font-size:12.5px;cursor:pointer;font-weight:700}
+.addbtn{width:100%;border:2px dashed #B9C8E6;background:#fff;color:var(--primary);border-radius:12px;padding:13px;font-size:14.5px;font-weight:800;cursor:pointer}
+.addbtn:hover{background:#F3F7FF}
+/* buttons */
+.btn{border:none;border-radius:11px;padding:13px 22px;font-size:14.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:.15s}
+.btn.primary{background:var(--primary);color:#fff}
+.btn.primary:hover{background:var(--primary-dark)}
+.btn.ghost{background:#fff;color:var(--primary);border:1.5px solid var(--primary)}
+.btn.gray{background:#EDF1F8;color:#41506B}
+.btn.big{padding:15px 26px;font-size:15.5px}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.navrow{display:flex;justify-content:space-between;margin-top:6px}
+/* guide styles */
+.g-sec{margin-bottom:26px}
+.g-sec h3{font-size:16.5px;font-weight:800;color:var(--primary-dark);margin-bottom:10px;padding-left:10px;border-left:4px solid var(--primary)}
+.g-sec p,.g-sec li{font-size:14px;color:#33415C}
+.g-sec ol,.g-sec ul{padding-left:22px;display:grid;gap:6px}
+.g-flow{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.g-flow .st{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13.5px;font-weight:700;flex:1;min-width:150px;text-align:center}
+.g-flow .st b{display:block;color:var(--primary);font-size:12px;margin-bottom:4px}
+table.spec{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:8px}
+table.spec th{background:#F0F4FC;text-align:left;padding:9px 12px;border:1px solid var(--line);font-size:13px}
+table.spec td{padding:9px 12px;border:1px solid var(--line)}
+.tag-no{display:inline-block;background:#FFF0F0;color:#B3261E;border-radius:6px;padding:1px 8px;font-size:12.5px;font-weight:700;margin:2px}
+/* check results */
+.chk{border-radius:10px;padding:12px 16px;font-size:13.5px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.chk.err{background:#FFF0F0;color:#8C2B2E;border:1px solid #F5C6C6}
+.chk.warn{background:#FFF7E6;color:#7A5A00;border:1px solid #F5DFAE}
+.chk.ok{background:#EAF7EF;color:#18794E;border:1px solid #C4E5D2}
+.chk .ic{font-weight:900}
+/* preview */
+.pvwrap{border:1px solid var(--line);border-radius:14px;background:#EDF1F8;padding:16px;text-align:center;max-height:640px;overflow:auto}
+.pvwrap canvas,.pvwrap img{max-width:100%;height:auto;border-radius:8px;box-shadow:0 4px 18px rgba(20,40,80,.15)}
+.dlgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:14px}
+.dlcard{border:1.5px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+.dlcard h4{font-size:14.5px;font-weight:800;margin-bottom:6px}
+.dlcard p{font-size:12.5px;color:var(--sub);margin-bottom:12px;min-height:36px}
+footer{max-width:1080px;margin:0 auto;padding:0 16px 40px;color:var(--sub);font-size:12.5px}
+@media print{
+  .tabs,.navrow,.btnrow,header.top .noprint{display:none!important}
+  body{background:#fff}
+  .step{display:block!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="inner">
+    <span class="badge-dr">Doctor Reward 파트너 센터</span>
+    <h1>닥터리워드 입점 정보 등록</h1>
+    <p>가이드를 따라 병원 정보를 입력하면, 입점에 필요한 <b>내용 정보 파일</b>과 <b>상세페이지용 이미지</b>가 자동으로 만들어집니다.</p>
+  </div>
+</header>
+
+<main>
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-step="0">📖 입점 가이드</button>
+    <button class="tab" data-step="1">1. 병원 정보</button>
+    <button class="tab" data-step="2">2. 병원 이미지</button>
+    <button class="tab" data-step="3">3. 의료진 정보</button>
+    <button class="tab" data-step="4">4. 이벤트·시술 상품</button>
+    <button class="tab" data-step="5">5. 점검 및 다운로드</button>
+  </div>
+
+  <!-- ================ STEP 0 : GUIDE ================ -->
+  <section class="step active" id="step0">
+    <div class="card">
+      <h2>닥터리워드 입점 가이드</h2>
+      <p class="desc">처음 입점하시는 병원은 아래 안내를 먼저 읽어주세요. 작성 도중 언제든 이 탭으로 돌아올 수 있으며, 각 입력칸 옆의 도움말로도 동일한 기준이 안내됩니다.</p>
+
+      <div class="g-sec">
+        <h3>입점 절차</h3>
+        <div class="g-flow">
+          <div class="st"><b>STEP 1</b>이 폼에서 병원 정보 입력</div>
+          <div class="st"><b>STEP 2</b>자동 점검 통과 확인</div>
+          <div class="st"><b>STEP 3</b>[제출하기] 버튼으로 자동 접수</div>
+          <div class="st"><b>STEP 4</b>검수 (영업일 기준 당일 처리 원칙)</div>
+          <div class="st"><b>STEP 5</b>승인 후 앱·페이지 게시</div>
+        </div>
+        <ul>
+          <li>평일 업무시간(오전 10시 ~ 오후 6시) 중 접수된 건은 <b>당일 검수 완료</b>를 원칙으로 합니다.</li>
+          <li>승인되면 별도 안내 없이 일정에 따라 게시되며, 반려 시 사유를 회신드립니다.</li>
+          <li>작성 내용은 이 브라우저에 자동 임시저장됩니다. (같은 PC·같은 브라우저에서 이어쓰기 가능)</li>
+        </ul>
+      </div>
+
+      <div class="g-sec">
+        <h3>무엇을 준비해야 하나요?</h3>
+        <table class="spec">
+          <tr><th style="width:170px">항목</th><th>내용</th><th style="width:210px">비고</th></tr>
+          <tr><td>병원 기본 정보</td><td>병원명, 간단소개, 대표 전화번호, 주소, 인근 지하철역, 요일별 진료시간, 진료 과목</td><td>병원명은 등록 후 변경 불가</td></tr>
+          <tr><td>배너 이미지</td><td>병원 상단에 크게 노출되는 대표 사진 (내부 전경 등)</td><td>권장 1080×470px 이상, 2MB 이하</td></tr>
+          <tr><td>로고·프로필 이미지</td><td>목록에 노출되는 정사각형 이미지</td><td>권장 300×300px, 2MB 이하</td></tr>
+          <tr><td>병원 소개 이미지</td><td>시설·대기실·상담실 등 (여러 장 가능)</td><td>각 2MB 이하, 최대 8장</td></tr>
+          <tr><td>의료진 정보</td><td>의사명, 연혁(경력), 전문의 자격, 전문 시술 분야, 프로필 사진</td><td>전문의 자격은 실제 자격만</td></tr>
+          <tr><td>이벤트·시술 상품</td><td>상품명(15자), 설명(40자), 기간, 정상가/할인가, 시술 태그</td><td>할인율 최대 49%</td></tr>
+        </table>
+      </div>
+
+      <div class="g-sec">
+        <h3>작성 원칙 ① — 병원·의료진 정보</h3>
+        <ul>
+          <li><b>병원명</b>은 최초 등록 이후 수정이 불가능하니 정확히 입력해주세요.</li>
+          <li><b>간단소개</b>에는 병원의 대표 전화번호, SNS ID, 홈페이지 주소를 넣을 수 없습니다. (발견 시 별도 알림 없이 삭제될 수 있습니다)</li>
+          <li>진료시간의 정기 휴무·공휴일 안내는 <b>기타 정보</b>란에 적어주세요.</li>
+          <li><b>전문의 자격</b>은 실제 자격이 있는 전공만 선택해야 하며, 허위인 경우 경고 없이 삭제될 수 있습니다. 해당 전공이 없으면 "해당 없음"을 선택해주세요.</li>
+          <li>의료진 연혁에 학회 <b>'정회원'</b> 표기는 의료법 위반 소지가 있어 <b>'회원'</b>으로 표기해주세요.</li>
+        </ul>
+      </div>
+
+      <div class="g-sec">
+        <h3>작성 원칙 ② — 이벤트·시술 상품 (의료광고 규정)</h3>
+        <p style="margin-bottom:8px">아래 유형은 의료법 위반 소지로 <b>반려 대상</b>입니다. 폼의 자동 점검 기능이 1차로 확인해주지만, 최종 책임은 게재 병원에 있으니 꼭 확인해주세요.</p>
+        <ul>
+          <li><b>과도한 가격 할인</b> — 정상가 대비 <b>50% 이상 할인 불가</b> (49%까지 등록 가능)</li>
+          <li><b>부가세 명시</b> — 이벤트 비용의 부가세 포함/미포함 여부를 반드시 표기</li>
+          <li><b>최상급·과장 표현 금지</b> — <span class="tag-no">최고</span><span class="tag-no">최초</span><span class="tag-no">전국 최저가</span><span class="tag-no">흉터 최소화</span><span class="tag-no">최소 절개</span><span class="tag-no">부작용 없는</span> 등</li>
+          <li><b>끼워팔기 금지</b> — "윤곽수술 시 보톡스 무료" 등 무료 시술 추가 제공 불가</li>
+          <li><b>묶음상품</b> — 여러 시술을 묶는 경우 개별 시술의 정상가/할인가를 각각 명시하고, 고객이 개별 선택 가능해야 함</li>
+          <li><b>제3자 유인 금지</b> — "친구와 함께 방문 시 추가 할인" 등</li>
+          <li><b>특정시기·특정대상 할인 금지</b> — "겨울방학 특가", "수능시즌", "중·고등학생 한정", "수험표 지참" 등</li>
+          <li><b>선착순 조건할인 금지</b> — "선착순 10명" 등</li>
+          <li><b>금품제공 금지</b> — "최대지원 00만원" 등 시술 지원금액 제시</li>
+          <li><b>사진 제공·후기 작성 조건 할인 금지</b></li>
+          <li><b>연락처 기입 금지</b> — 이벤트 문구·이미지에 전화번호, 카카오톡·LINE 등 SNS ID 기재 불가</li>
+          <li><b>전/후 사진</b> 사용 시 '후' 이미지에 경과일 표기 필수</li>
+          <li><b>선정적이거나 시술과 무관한 이미지·문구</b> 사용 불가</li>
+        </ul>
+      </div>
+
+      <div class="g-sec">
+        <h3>이미지 규격 요약</h3>
+        <table class="spec">
+          <tr><th>이미지</th><th>권장 규격</th><th>용량</th><th>사용 위치</th></tr>
+          <tr><td>병원 배너</td><td>1080 × 470px 이상 (가로형)</td><td>2MB 이하</td><td>병원 상세 상단</td></tr>
+          <tr><td>로고·프로필</td><td>300 × 300px (정사각형)</td><td>2MB 이하</td><td>검색 목록, 프로필</td></tr>
+          <tr><td>병원 소개 이미지</td><td>1080 × 470px 내외</td><td>각 2MB 이하</td><td>병원 상세 소개 영역</td></tr>
+          <tr><td>의료진 프로필</td><td>300 × 300px 이상</td><td>2MB 이하</td><td>의료진 목록</td></tr>
+          <tr><td>이벤트 대표 이미지</td><td>1080 × 1080px (정사각형)</td><td>2MB 이하</td><td>이벤트 목록·카드</td></tr>
+        </table>
+        <p style="margin-top:8px">※ 이벤트 배너·카드·상세 이미지는 직접 제작하지 않아도 됩니다. 입력한 내용으로 <b>5단계에서 자동 생성</b>됩니다.</p>
+      </div>
+
+      <div class="g-sec">
+        <h3>자주 묻는 질문</h3>
+        <ul>
+          <li><b>Q. 이미지 디자이너가 없어요.</b> — 폼에 내용만 입력하면 상세페이지·배너·이벤트 카드 이미지가 자동 생성됩니다. 필요 시 담당자가 다듬어 드립니다.</li>
+          <li><b>Q. 가격을 공개하고 싶지 않아요.</b> — 정상가/할인가를 모두 비워두면 "상담 문의"로 표기됩니다.</li>
+          <li><b>Q. 작성하다 브라우저를 닫았어요.</b> — 같은 브라우저로 다시 열면 임시저장본이 복원됩니다. 다른 PC로 옮길 때는 5단계에서 JSON 파일을 내려받아 [불러오기] 하세요.</li>
+        </ul>
+      </div>
+
+      <div class="btnrow">
+        <button class="btn primary big" onclick="go(1)">작성 시작하기 →</button>
+        <button class="btn gray" onclick="window.print()">가이드 인쇄하기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================ STEP 1 : HOSPITAL INFO ================ -->
+  <section class="step" id="step1">
+    <div class="card">
+      <h2><span class="num">1</span>병원 기본 정보</h2>
+      <p class="desc">병원 상세페이지 상단과 검색 목록에 노출되는 기본 정보입니다.</p>
+      <div class="grid">
+        <div>
+          <label class="f">병원명 <span class="req">*</span><span class="hint">최초 등록 이후 수정 불가</span></label>
+          <input type="text" id="hName" placeholder="예) 닥터리워드의원">
+        </div>
+        <div>
+          <label class="f">대표 전화번호 <span class="req">*</span></label>
+          <input type="tel" id="hTel" placeholder="예) 02-1234-5678">
+        </div>
+        <div class="full">
+          <label class="f">간단소개 <span class="req">*</span><span class="hint">전화번호·SNS ID·홈페이지 주소 기재 불가</span></label>
+          <textarea id="hIntro" placeholder="예) 안녕하세요. 항상 더 나은 진료를 위해 고민하는 ○○의원입니다."></textarea>
+          <div id="hIntroWarn"></div>
+        </div>
+        <div class="full">
+          <label class="f">주소 <span class="req">*</span><span class="hint">지도 노출 기준이 됩니다</span></label>
+          <input type="text" id="hAddr" placeholder="예) 서울시 강남구 강남대로 000, ○○빌딩 5층">
+        </div>
+        <div class="full">
+          <label class="f">인근 지하철역 <span class="hint">최대 4개 · 입력 후 Enter</span></label>
+          <div class="chipbox" id="hStations"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">2</span>진료 시간</h2>
+      <p class="desc">진료하는 요일에 체크하고 시간을 설정해주세요. 공휴일·정기 휴무 안내는 기타 정보에 적어주세요.</p>
+      <table class="hours" id="hoursTable"></table>
+      <div class="btnrow"><button class="btn gray" onclick="copyMonToAll()">월요일 시간을 모든 요일에 복사</button></div>
+      <div style="margin-top:12px">
+        <label class="f">기타 정보 <span class="hint">예) 매주 셋째주 월요일 휴진, 공휴일 휴무</span></label>
+        <input type="text" id="hHoursEtc" placeholder="예) 매주 일요일·공휴일 휴진">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">3</span>진료 과목 · 언어 · 부가서비스</h2>
+      <p class="desc">고객이 필터로 검색할 때 사용되는 정보입니다.</p>
+      <label class="f">전문 진료 과목 <span class="req">*</span><span class="hint">입력 후 Enter, 아래 추천 태그 클릭도 가능</span></label>
+      <div class="chipbox" id="hSubjects"></div>
+      <div class="sugg" id="hSubjectsSugg"></div>
+      <div style="margin-top:16px">
+        <label class="f">응대 가능 언어</label>
+        <div class="ckgroup" id="hLangs"></div>
+      </div>
+      <div style="margin-top:16px">
+        <label class="f">부가서비스 <span class="hint">병원 상세 상단에 아이콘으로 노출됩니다</span></label>
+        <div class="ckgroup" id="hServices"></div>
+      </div>
+      <details style="margin-top:18px">
+        <summary style="cursor:pointer;font-size:13.5px;font-weight:700;color:var(--sub)">외국어 정보 입력 (선택 — 일본어)</summary>
+        <div class="grid" style="margin-top:12px">
+          <div><label class="f">병원명 (일본어)</label><input type="text" id="hNameJp" placeholder="例) ドクターリワード医院"></div>
+          <div class="full"><label class="f">간단소개 (일본어)</label><textarea id="hIntroJp" placeholder="例) こんにちは。..."></textarea></div>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">4</span>병원 담당자 정보</h2>
+      <p class="desc">검수 결과 안내와 문의 연락에 사용됩니다. 앱에는 노출되지 않습니다.</p>
+      <div class="grid">
+        <div>
+          <label class="f">담당자 이름 <span class="req">*</span></label>
+          <input type="text" id="cName" placeholder="예) 홍길동 실장">
+        </div>
+        <div>
+          <label class="f">담당자 휴대폰 <span class="req">*</span></label>
+          <input type="tel" id="cPhone" placeholder="예) 010-1234-5678">
+        </div>
+        <div class="full">
+          <label class="f">담당자 이메일 <span class="hint">접수 확인 메일을 받으실 주소</span></label>
+          <input type="text" id="cEmail" placeholder="예) manager@hospital.com">
+        </div>
+      </div>
+    </div>
+    <div class="navrow"><button class="btn gray" onclick="go(0)">← 가이드</button><button class="btn primary" onclick="go(2)">다음: 병원 이미지 →</button></div>
+  </section>
+
+  <!-- ================ STEP 2 : IMAGES ================ -->
+  <section class="step" id="step2">
+    <div class="card">
+      <h2><span class="num">1</span>배너 이미지 <span style="color:var(--danger);font-size:14px">*</span></h2>
+      <p class="desc">병원 상세페이지 상단에 크게 노출되는 대표 사진입니다. 권장 1080×470px 이상 가로형, 2MB 이하.</p>
+      <div class="upzone" onclick="pick('banner')">📷 클릭해서 배너 이미지 선택 (JPG/PNG)</div>
+      <div class="thumbs" id="tBanner"></div>
+    </div>
+    <div class="card">
+      <h2><span class="num">2</span>로고 · 프로필 이미지 <span style="color:var(--danger);font-size:14px">*</span></h2>
+      <p class="desc">검색 목록과 프로필 영역에 노출되는 정사각형 이미지입니다. 권장 300×300px, 2MB 이하.</p>
+      <div class="upzone" onclick="pick('logo')">📷 클릭해서 로고/프로필 이미지 선택</div>
+      <div class="thumbs" id="tLogo"></div>
+    </div>
+    <div class="card">
+      <h2><span class="num">3</span>병원 소개 이미지 <span class="hint" style="font-size:13px">선택 · 최대 8장</span></h2>
+      <p class="desc">시설, 대기실, 상담실, 수술실 등 병원을 소개할 수 있는 사진을 올려주세요. 각 2MB 이하.</p>
+      <div class="upzone" onclick="pick('gallery')">📷 클릭해서 소개 이미지 추가 (여러 장 선택 가능)</div>
+      <div class="thumbs" id="tGallery"></div>
+    </div>
+    <div class="navrow"><button class="btn gray" onclick="go(1)">← 이전</button><button class="btn primary" onclick="go(3)">다음: 의료진 정보 →</button></div>
+  </section>
+
+  <!-- ================ STEP 3 : DOCTORS ================ -->
+  <section class="step" id="step3">
+    <div class="card">
+      <h2><span class="num">1</span>의료진 정보</h2>
+      <p class="desc">등록한 순서대로 노출됩니다. 전문의 자격은 실제 자격이 있는 전공만 선택해주세요. (허위 기재 시 경고 없이 삭제될 수 있습니다)</p>
+      <div id="docList"></div>
+      <button class="addbtn" onclick="addDoctor()">＋ 의료진 추가</button>
+    </div>
+    <div class="navrow"><button class="btn gray" onclick="go(2)">← 이전</button><button class="btn primary" onclick="go(4)">다음: 이벤트·시술 상품 →</button></div>
+  </section>
+
+  <!-- ================ STEP 4 : EVENTS ================ -->
+  <section class="step" id="step4">
+    <div class="card">
+      <h2><span class="num">1</span>이벤트 · 시술 상품</h2>
+      <p class="desc">고객에게 노출할 시술 상품을 등록해주세요. 할인율은 최대 49%까지 가능하며, 가격을 모두 비우면 "상담 문의"로 표기됩니다.</p>
+      <div class="note warn">⚠ 이벤트 문구에는 최상급 표현(최고·최초·최저가 등), 연락처, 선착순·무료 제공 문구를 사용할 수 없습니다. 5단계에서 자동 점검됩니다.</div>
+      <div id="evList"></div>
+      <button class="addbtn" onclick="addEvent()">＋ 이벤트·상품 추가</button>
+    </div>
+    <div class="navrow"><button class="btn gray" onclick="go(3)">← 이전</button><button class="btn primary" onclick="go(5)">다음: 점검 및 다운로드 →</button></div>
+  </section>
+
+  <!-- ================ STEP 5 : CHECK & DOWNLOAD ================ -->
+  <section class="step" id="step5">
+    <div class="card">
+      <h2><span class="num">1</span>자동 점검</h2>
+      <p class="desc">필수 항목과 의료광고 규정 위반 소지를 확인합니다. 빨간 항목은 수정해야 접수가 가능합니다.</p>
+      <div class="btnrow"><button class="btn primary" onclick="runCheck()">지금 점검하기</button></div>
+      <div id="chkResult" style="margin-top:14px"></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">2</span>상세페이지 미리보기</h2>
+      <p class="desc">입력한 내용으로 자동 생성된 상세페이지 이미지입니다. 내용을 수정하면 [미리보기 새로고침]을 눌러주세요.</p>
+      <div class="btnrow"><button class="btn ghost" onclick="renderPreview()">🔄 미리보기 새로고침</button></div>
+      <div class="pvwrap" id="pvArea" style="margin-top:12px"><span style="color:var(--sub);font-size:13.5px">[미리보기 새로고침]을 누르면 여기에 표시됩니다.</span></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">3</span>제출하기</h2>
+      <p class="desc">아래 버튼을 누르면 입력하신 모든 정보와 이미지가 <b>닥터리워드 담당자에게 자동으로 접수</b>됩니다.</p>
+      <div class="note">✅ 제출 전 <b>자동 점검</b>이 한 번 더 실행됩니다. 수정 필요(빨간) 항목이 있으면 제출되지 않습니다.</div>
+      <div class="btnrow">
+        <button class="btn primary big" id="submitBtn" onclick="submitAll()">📮 닥터리워드에 제출하기</button>
+      </div>
+      <div id="submitResult" style="margin-top:14px"></div>
+    </div>
+
+    <div class="card">
+      <h2><span class="num">4</span>파일 다운로드 <span class="hint" style="font-size:13px">선택 · 보관용</span></h2>
+      <p class="desc">제출과 별개로, 입력 내용과 생성된 이미지를 파일로 보관하고 싶을 때 사용하세요. 제출이 실패하는 경우 아래 파일을 내려받아 이메일로 보내주셔도 됩니다.</p>
+      <div class="dlgrid">
+        <div class="dlcard"><h4>📄 입점 정보 데이터 (JSON)</h4><p>입력한 모든 정보와 이미지가 담긴 제출용 파일입니다. 재편집 시 불러오기에도 사용됩니다.</p><button class="btn primary" onclick="dlJSON()">다운로드</button></div>
+        <div class="dlcard"><h4>📝 입점 정보 요약 (TXT)</h4><p>담당자가 확인하기 쉬운 텍스트 요약본입니다.</p><button class="btn primary" onclick="dlTXT()">다운로드</button></div>
+        <div class="dlcard"><h4>🖼 상세페이지 이미지 (PNG)</h4><p>병원 상세페이지용 세로형 이미지가 자동 생성됩니다.</p><button class="btn primary" onclick="dlDetail()">다운로드</button></div>
+        <div class="dlcard"><h4>🖼 배너 이미지 (PNG)</h4><p>상단 배너용 1080×470 이미지가 자동 생성됩니다.</p><button class="btn primary" onclick="dlBanner()">다운로드</button></div>
+        <div class="dlcard"><h4>🖼 이벤트 카드 (PNG)</h4><p>등록한 이벤트별 1080×1080 카드 이미지가 각각 생성됩니다.</p><button class="btn primary" onclick="dlCards()">다운로드</button></div>
+      </div>
+      <div class="note" style="margin-top:16px">📬 평일 10:00~18:00 접수 건은 당일 검수를 원칙으로 하며, 검수 결과는 담당자 연락처로 안내드립니다.</div>
+      <div class="btnrow" style="margin-top:6px">
+        <button class="btn gray" onclick="importJSON()">저장해둔 JSON 불러오기</button>
+        <button class="btn gray" onclick="resetAll()">전체 초기화</button>
+      </div>
+    </div>
+    <div class="navrow"><button class="btn gray" onclick="go(4)">← 이전</button><span></span></div>
+  </section>
+</main>
+
+<footer>ⓒ Doctor Reward 파트너 센터 · 본 등록폼에 입력된 정보는 브라우저에만 저장되며, 다운로드한 파일을 전송하기 전까지 외부로 전송되지 않습니다.</footer>
+
+<input type="file" id="fileInput" accept="image/*" style="display:none">
+
+<script>
+/* ============ 설정 (관리자용) ============ */
+/* 백엔드 배포 후, 아래 따옴표 안에 Apps Script 웹앱 URL을 붙여넣으세요.
+   예) SUBMIT_URL:'https://script.google.com/macros/s/AKfycb.../exec' */
+const CONFIG={
+  SUBMIT_URL:'https://script.google.com/macros/s/AKfycbwWtMHhTt2Vrw8RcvF8BeZVvHS24QHHP54m8rCgFsRNukQXAi78p4zt8sJpqU37l8Nx/exec'
+};
+
+/* ============ state ============ */
+const DAYS=['월','화','수','목','금','토','일'];
+const S={
+  hName:'',hTel:'',hIntro:'',hAddr:'',hStations:[],hNameJp:'',hIntroJp:'',
+  cName:'',cPhone:'',cEmail:'',
+  hours:DAYS.map((d,i)=>({day:d,on:i<5,start:'10:00',end:'19:00'})),
+  hHoursEtc:'',hSubjects:[],hLangs:['한국어'],hServices:[],
+  imgBanner:null,imgLogo:null,imgGallery:[],
+  doctors:[],events:[]
+};
+const SUBJ_SUGG=['눈','코','안면윤곽','가슴','지방흡입','지방이식','리프팅','피부','보톡스','필러','제모','모발이식','치아교정','임플란트','라식·라섹','비만클리닉'];
+const LANGS=['한국어','일본어','중국어','영어'];
+const SERVICES=['CCTV','사후관리','안심실명제','응급시스템','쁘띠시술중심','여의사진료','전담회복실','분야별협진','마취전문의','야간진료','입원실','환자전용숙소'];
+const QUALS=['해당 없음','성형외과 전문의','피부과 전문의','마취통증의학과 전문의','이비인후과 전문의','안과 전문의','외과 전문의','내과 전문의','가정의학과 전문의','치과 전문의','한의사','기타'];
+
+/* banned expressions for compliance check */
+const BAN_SUPER=[/최고/,/최초/,/최저가?/,/최상급?/,/유일/,/1\s*등/,/no\.?\s*1/i,/100\s*%/,/완벽/,/부작용\s*없/,/흉터\s*(없|최소)/,/최소\s*절개/,/전국\s*(최저|최초|1위)/,/현존/];
+const BAN_LURE=[/선착순/,/무료/,/공짜/,/끼워/,/당첨/,/지원금/,/페이백/,/수험표/,/수능/,/방학\s*특가/,/학생\s*한정/,/친구.{0,6}(할인|혜택)/,/동반.{0,6}(할인|혜택)/];
+const BAN_CONTACT=[/01[016789][-\s.]?\d{3,4}[-\s.]?\d{4}/,/0\d{1,2}[-\s.]?\d{3,4}[-\s.]?\d{4}/,/카카오톡|카톡|kakao/i,/라인|line/i,/인스타|insta/i,/@[a-z0-9_]+/i,/https?:\/\//i,/www\./i,/\.(com|co\.kr|kr|net)/i];
+
+/* ============ helpers ============ */
+const $=id=>document.getElementById(id);
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function go(n){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',+t.dataset.step===n));
+  document.querySelectorAll('.step').forEach((s,i)=>s.classList.toggle('active',i===n));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>go(+t.dataset.step));
+
+/* chips input */
+function chips(boxOrId,arr,{max=99,onchange}={}){
+  const box=typeof boxOrId==='string'?$(boxOrId):boxOrId;
+  function render(){
+    box.innerHTML='';
+    arr.forEach((v,i)=>{
+      const c=document.createElement('span');c.className='chip';c.textContent=v;
+      const x=document.createElement('b');x.textContent='×';x.onclick=e=>{e.stopPropagation();arr.splice(i,1);render();onchange&&onchange()};
+      c.appendChild(x);box.appendChild(c);
+    });
+    const inp=document.createElement('input');inp.type='text';inp.placeholder=arr.length?'':'입력 후 Enter';
+    inp.onkeydown=e=>{
+      if(e.key==='Enter'&&inp.value.trim()){e.preventDefault();
+        if(arr.length>=max){alert('최대 '+max+'개까지 입력할 수 있습니다.');return}
+        if(!arr.includes(inp.value.trim()))arr.push(inp.value.trim());
+        render();onchange&&onchange();
+        box.querySelector('input').focus();
+      }else if(e.key==='Backspace'&&!inp.value&&arr.length){arr.pop();render();onchange&&onchange();box.querySelector('input').focus()}
+    };
+    inp.onblur=()=>{if(inp.value.trim()&&arr.length<max){if(!arr.includes(inp.value.trim()))arr.push(inp.value.trim());render();onchange&&onchange()}};
+    box.appendChild(inp);
+  }
+  box.onclick=()=>box.querySelector('input')?.focus();
+  render();
+  return{render};
+}
+/* checkbox group */
+function ckgroup(elId,items,arr,onchange){
+  const el=$(elId);el.innerHTML='';
+  items.forEach(it=>{
+    const lb=document.createElement('label');lb.className='ck'+(arr.includes(it)?' on':'');lb.textContent=it;
+    lb.onclick=e=>{e.preventDefault();
+      const i=arr.indexOf(it);
+      if(i>=0)arr.splice(i,1);else arr.push(it);
+      lb.classList.toggle('on',arr.includes(it));onchange&&onchange();
+    };
+    el.appendChild(lb);
+  });
+}
+
+/* ============ step1 init ============ */
+let stationChips,subjChips;
+function initStep1(){
+  stationChips=chips('hStations',S.hStations,{max:4,onchange:save});
+  subjChips=chips('hSubjects',S.hSubjects,{max:10,onchange:save});
+  const sg=$('hSubjectsSugg');sg.innerHTML='';
+  SUBJ_SUGG.forEach(s=>{const b=document.createElement('span');b.textContent='+ '+s;
+    b.onclick=()=>{if(!S.hSubjects.includes(s)&&S.hSubjects.length<10){S.hSubjects.push(s);subjChips.render();save()}};sg.appendChild(b)});
+  ckgroup('hLangs',LANGS,S.hLangs,save);
+  ckgroup('hServices',SERVICES,S.hServices,save);
+  renderHours();
+  ['hName','hTel','hIntro','hAddr','hHoursEtc','hNameJp','hIntroJp','cName','cPhone','cEmail'].forEach(id=>{
+    $(id).value=S[id]||'';
+    $(id).oninput=()=>{S[id]=$(id).value;if(id==='hIntro')introLiveCheck();save()};
+  });
+  introLiveCheck();
+}
+function introLiveCheck(){
+  const v=S.hIntro||'';const w=$('hIntroWarn');
+  const bad=BAN_CONTACT.some(r=>r.test(v));
+  w.innerHTML=bad?'<div class="note danger">⚠ 간단소개에 전화번호·SNS·홈페이지 주소로 보이는 내용이 있습니다. 삭제해주세요.</div>':'';
+}
+function renderHours(){
+  const t=$('hoursTable');t.innerHTML='';
+  S.hours.forEach((h,i)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<td><label style="cursor:pointer"><input type="checkbox" ${h.on?'checked':''} style="margin-right:6px;vertical-align:-2px">${h.day}요일</label></td>
+      <td><input type="time" value="${h.start}" ${h.on?'':'disabled'}></td>
+      <td style="width:20px;text-align:center;color:var(--sub)">–</td>
+      <td><input type="time" value="${h.end}" ${h.on?'':'disabled'}></td>
+      <td class="dayoff">${h.on?'':'휴진'}</td>`;
+    const[ck]=tr.querySelectorAll('input[type=checkbox]');
+    const[st,en]=tr.querySelectorAll('input[type=time]');
+    ck.onchange=()=>{h.on=ck.checked;renderHours();save()};
+    st.onchange=()=>{h.start=st.value;save()};
+    en.onchange=()=>{h.end=en.value;save()};
+    t.appendChild(tr);
+  });
+}
+function copyMonToAll(){
+  const m=S.hours[0];
+  S.hours.forEach((h,i)=>{if(i&&h.on){h.start=m.start;h.end=m.end}});
+  renderHours();save();
+}
+
+/* ============ step2 images ============ */
+let pickTarget=null;
+function pick(target){
+  pickTarget=target;
+  const fi=$('fileInput');
+  fi.multiple=(target==='gallery');
+  fi.value='';fi.click();
+}
+$('fileInput').onchange=async e=>{
+  const files=[...e.target.files];
+  for(const f of files){
+    if(f.size>15*1024*1024){alert(f.name+' : 15MB 이하 이미지를 사용해주세요.');continue}
+    const maxW=(pickTarget==='logo'||(pickTarget&&pickTarget.startsWith('doc:')))?700:1600;
+    const durl=await fileToDataURL(f,maxW);
+    if(pickTarget==='banner')S.imgBanner=durl;
+    else if(pickTarget==='logo')S.imgLogo=durl;
+    else if(pickTarget==='gallery'){if(S.imgGallery.length>=8){alert('소개 이미지는 최대 8장입니다.');break}S.imgGallery.push(durl)}
+    else if(pickTarget&&pickTarget.startsWith('doc:')){const i=+pickTarget.slice(4);S.doctors[i].photo=durl;renderDoctors()}
+    else if(pickTarget&&pickTarget.startsWith('ev:')){const i=+pickTarget.slice(3);S.events[i].img=durl;renderEvents()}
+  }
+  renderThumbs();save();
+};
+/* 업로드 이미지를 자동 축소·압축해 제출 용량을 줄인다 */
+function fileToDataURL(f,maxW=1600,quality=0.82){
+  return new Promise(r=>{
+    const fr=new FileReader();
+    fr.onload=()=>{
+      const im=new Image();
+      im.onload=()=>{
+        const sc=Math.min(1,maxW/im.width);
+        if(sc>=1&&f.size<1.8*1024*1024&&!/image\/(heic|heif|bmp|tiff)/.test(f.type)){r(fr.result);return}
+        const cv=document.createElement('canvas');
+        cv.width=Math.round(im.width*sc);cv.height=Math.round(im.height*sc);
+        cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
+        r(cv.toDataURL('image/jpeg',quality));
+      };
+      im.onerror=()=>r(fr.result);
+      im.src=fr.result;
+    };
+    fr.readAsDataURL(f);
+  });
+}
+function renderThumbs(){
+  thumbHTML('tBanner',S.imgBanner?[S.imgBanner]:[],(i)=>{S.imgBanner=null;renderThumbs();save()});
+  thumbHTML('tLogo',S.imgLogo?[S.imgLogo]:[],(i)=>{S.imgLogo=null;renderThumbs();save()},true);
+  thumbHTML('tGallery',S.imgGallery,(i)=>{S.imgGallery.splice(i,1);renderThumbs();save()});
+}
+function thumbHTML(elId,arr,onDel,sq){
+  const el=$(elId);el.innerHTML='';
+  arr.forEach((d,i)=>{
+    const t=document.createElement('div');t.className='thumb'+(sq?' sq':'');
+    t.innerHTML=`<img src="${d}"><button class="del">✕</button>`;
+    t.querySelector('.del').onclick=()=>onDel(i);
+    el.appendChild(t);
+  });
+}
+
+/* ============ step3 doctors ============ */
+function addDoctor(){
+  S.doctors.push({name:'',nameJp:'',isChief:false,gender:'남성',qual:'해당 없음',fields:[],career:'',photo:null});
+  renderDoctors();save();
+}
+function renderDoctors(){
+  const el=$('docList');el.innerHTML='';
+  S.doctors.forEach((d,i)=>{
+    const c=document.createElement('div');c.className='subcard';
+    c.innerHTML=`
+      <h3>의료진 ${i+1}</h3>
+      <button class="rm">삭제</button>
+      <div class="grid">
+        <div><label class="f">의사명 <span class="req">*</span></label><input type="text" data-k="name" value="${esc(d.name)}" placeholder="예) 김리워"></div>
+        <div><label class="f">성별</label><select data-k="gender"><option${d.gender==='남성'?' selected':''}>남성</option><option${d.gender==='여성'?' selected':''}>여성</option></select></div>
+        <div><label class="f">대표원장 여부</label><label class="ck ${d.isChief?'on':''}" data-chief style="display:inline-flex">대표원장입니다</label></div>
+        <div><label class="f">전문의 자격 <span class="hint">실제 자격만 선택</span></label><select data-k="qual">${QUALS.map(q=>`<option${q===d.qual?' selected':''}>${q}</option>`).join('')}</select></div>
+        <div class="full"><label class="f">전문 시술 분야 <span class="hint">최대 20개 · 입력 후 Enter</span></label><div class="chipbox" data-chips></div></div>
+        <div class="full"><label class="f">연혁(경력) <span class="req">*</span><span class="hint">한 줄에 하나씩 · 학회는 '정회원' 대신 '회원'으로 표기</span></label>
+          <textarea data-k="career" placeholder="예)&#10;○○대학교 의과대학 졸업&#10;대한성형외과학회 회원&#10;前 ○○성형외과 원장">${esc(d.career)}</textarea></div>
+        <div class="full"><label class="f">프로필 사진 <span class="hint">300×300px 권장</span></label>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="upzone" style="flex:1" data-photo>📷 사진 선택</div>
+            <div class="thumbs" data-photothumb></div>
+          </div></div>
+      </div>`;
+    c.querySelector('.rm').onclick=()=>{if(confirm('의료진 '+(i+1)+' 항목을 삭제할까요?')){S.doctors.splice(i,1);renderDoctors();save()}};
+    c.querySelectorAll('[data-k]').forEach(inp=>{
+      inp.oninput=()=>{d[inp.dataset.k]=inp.value;save()};
+      if(inp.tagName==='SELECT')inp.onchange=()=>{d[inp.dataset.k]=inp.value;save()};
+    });
+    const chief=c.querySelector('[data-chief]');
+    chief.onclick=e=>{e.preventDefault();d.isChief=!d.isChief;chief.classList.toggle('on',d.isChief);save()};
+    /* fields chips */
+    chips(c.querySelector('[data-chips]'),d.fields,{max:20,onchange:save});
+    /* photo */
+    c.querySelector('[data-photo]').onclick=()=>pick('doc:'+i);
+    const pt=c.querySelector('[data-photothumb]');
+    if(d.photo){const t=document.createElement('div');t.className='thumb sq';t.innerHTML=`<img src="${d.photo}"><button class="del">✕</button>`;
+      t.querySelector('.del').onclick=()=>{d.photo=null;renderDoctors();save()};pt.appendChild(t)}
+    el.appendChild(c);
+  });
+}
+
+/* ============ step4 events ============ */
+function addEvent(){
+  S.events.push({title:'',desc:'',always:false,start:'',end:'',priceN:'',priceD:'',vat:'포함',gender:'남녀공용',tags:[],freeTags:[],img:null});
+  renderEvents();save();
+}
+function renderEvents(){
+  const el=$('evList');el.innerHTML='';
+  S.events.forEach((ev,i)=>{
+    const disc=discountOf(ev);
+    const c=document.createElement('div');c.className='subcard';
+    c.innerHTML=`
+      <h3>이벤트 ${i+1}</h3>
+      <button class="rm">삭제</button>
+      <div class="grid">
+        <div><label class="f">상품명 <span class="req">*</span><span class="hint">최대 15자</span></label>
+          <input type="text" data-k="title" maxlength="30" value="${esc(ev.title)}" placeholder="예) 자연유착 쌍꺼풀">
+          <div class="cnt" data-cnt-title>${(ev.title||'').length}/15자</div></div>
+        <div><label class="f">설명 문구 <span class="req">*</span><span class="hint">최대 40자</span></label>
+          <input type="text" data-k="desc" maxlength="60" value="${esc(ev.desc)}" placeholder="예) 눈을 감았을 때 더 자연스러운 쌍꺼풀!">
+          <div class="cnt" data-cnt-desc>${(ev.desc||'').length}/40자</div></div>
+        <div><label class="f">이벤트 기간</label>
+          <div style="display:flex;gap:8px;align-items:center">
+            <input type="date" data-k="start" value="${ev.start}" ${ev.always?'disabled':''}>
+            <span style="color:var(--sub)">~</span>
+            <input type="date" data-k="end" value="${ev.end}" ${ev.always?'disabled':''}>
+          </div>
+          <label style="font-size:13px;margin-top:6px;display:inline-block;cursor:pointer"><input type="checkbox" data-always ${ev.always?'checked':''} style="vertical-align:-2px;margin-right:5px">상시 진행</label></div>
+        <div><label class="f">대상 성별</label><select data-k="gender"><option${ev.gender==='남녀공용'?' selected':''}>남녀공용</option><option${ev.gender==='여성'?' selected':''}>여성</option><option${ev.gender==='남성'?' selected':''}>남성</option></select></div>
+        <div><label class="f">정상가 (원) <span class="hint">비우면 상담 문의</span></label><input type="number" data-k="priceN" value="${ev.priceN}" placeholder="예) 900000" min="0"></div>
+        <div><label class="f">할인가 (원) <span class="hint">할인율 최대 49%</span></label><input type="number" data-k="priceD" value="${ev.priceD}" placeholder="예) 490000" min="0">
+          <div data-disc style="font-size:12.5px;margin-top:4px;${disc.err?'color:var(--danger);font-weight:700':'color:var(--sub)'}">${disc.msg}</div></div>
+        <div><label class="f">부가세 표기 <span class="req">*</span></label><select data-k="vat"><option${ev.vat==='포함'?' selected':''}>포함</option><option${ev.vat==='미포함'?' selected':''}>미포함</option></select></div>
+        <div class="full"><label class="f">시술명 태그 <span class="req">*</span><span class="hint">최대 8개</span></label><div class="chipbox" data-tags></div></div>
+        <div class="full"><label class="f">자유 태그 <span class="hint">최대 3개 · 이벤트와 무관한 태그는 삭제될 수 있습니다</span></label><div class="chipbox" data-free></div></div>
+        <div class="full"><label class="f">이벤트 대표 이미지 <span class="hint">선택 · 1080×1080 권장 · 없으면 자동 생성 디자인 사용</span></label>
+          <div style="display:flex;gap:10px;align-items:center">
+            <div class="upzone" style="flex:1" data-img>📷 이미지 선택</div>
+            <div class="thumbs" data-imgthumb></div>
+          </div></div>
+      </div>`;
+    c.querySelector('.rm').onclick=()=>{if(confirm('이벤트 '+(i+1)+' 항목을 삭제할까요?')){S.events.splice(i,1);renderEvents();save()}};
+    c.querySelectorAll('[data-k]').forEach(inp=>{
+      const h=()=>{ev[inp.dataset.k]=inp.value;
+        if(inp.dataset.k==='title')c.querySelector('[data-cnt-title]').outerHTML=`<div class="cnt ${ev.title.length>15?'over':''}" data-cnt-title>${ev.title.length}/15자</div>`;
+        if(inp.dataset.k==='desc')c.querySelector('[data-cnt-desc]').outerHTML=`<div class="cnt ${ev.desc.length>40?'over':''}" data-cnt-desc>${ev.desc.length}/40자</div>`;
+        if(inp.dataset.k==='priceN'||inp.dataset.k==='priceD'){const d2=discountOf(ev);const de=c.querySelector('[data-disc]');de.textContent=d2.msg;de.style.cssText='font-size:12.5px;margin-top:4px;'+(d2.err?'color:var(--danger);font-weight:700':'color:var(--sub)')}
+        save()};
+      inp.oninput=h;if(inp.tagName==='SELECT')inp.onchange=h;
+    });
+    c.querySelector('[data-always]').onchange=e2=>{ev.always=e2.target.checked;renderEvents();save()};
+    chips(c.querySelector('[data-tags]'),ev.tags,{max:8,onchange:save});
+    chips(c.querySelector('[data-free]'),ev.freeTags,{max:3,onchange:save});
+    c.querySelector('[data-img]').onclick=()=>pick('ev:'+i);
+    const pt=c.querySelector('[data-imgthumb]');
+    if(ev.img){const t=document.createElement('div');t.className='thumb sq';t.innerHTML=`<img src="${ev.img}"><button class="del">✕</button>`;
+      t.querySelector('.del').onclick=()=>{ev.img=null;renderEvents();save()};pt.appendChild(t)}
+    el.appendChild(c);
+  });
+}
+function discountOf(ev){
+  const n=+ev.priceN||0,d=+ev.priceD||0;
+  if(!n&&!d)return{msg:'가격 미입력 → "상담 문의"로 표기됩니다',err:false,rate:0};
+  if(n&&d){
+    if(d>n)return{msg:'할인가가 정상가보다 큽니다',err:true,rate:0};
+    const r=Math.round((1-d/n)*100);
+    return{msg:'할인율: '+r+'%'+(r>=50?' — 50% 이상 할인은 등록 불가':''),err:r>=50,rate:r};
+  }
+  return{msg:'정상가·할인가를 모두 입력하거나 모두 비워주세요',err:false,rate:0};
+}
+
+/* ============ compliance check ============ */
+function collectChecks(){
+  const R=[],seen=new Set();
+  const push=(t,m)=>{if(!seen.has(t+m)){seen.add(t+m);R.push({t,m})}};
+  const err=(m)=>push('err',m),warn=(m)=>push('warn',m);
+  if(!S.hName.trim())err('병원명이 비어 있습니다. (1단계)');
+  if(!S.hTel.trim())err('대표 전화번호가 비어 있습니다. (1단계)');
+  if(!S.hIntro.trim())err('간단소개가 비어 있습니다. (1단계)');
+  if(!S.hAddr.trim())err('주소가 비어 있습니다. (1단계)');
+  if(!S.cName.trim())err('병원 담당자 이름이 비어 있습니다. (1단계)');
+  if(!S.cPhone.trim())err('병원 담당자 휴대폰이 비어 있습니다. (1단계)');
+  if(!S.hSubjects.length)err('전문 진료 과목을 1개 이상 입력해주세요. (1단계)');
+  if(!S.hours.some(h=>h.on))err('진료 요일이 하나도 선택되지 않았습니다. (1단계)');
+  if(BAN_CONTACT.some(r=>r.test(S.hIntro)))err('간단소개에 전화번호·SNS·홈페이지로 보이는 내용이 있습니다. (1단계)');
+  if(!S.imgBanner)err('배너 이미지가 없습니다. (2단계)');
+  if(!S.imgLogo)err('로고·프로필 이미지가 없습니다. (2단계)');
+  if(!S.doctors.length)warn('의료진이 등록되지 않았습니다. 의료진 정보가 있으면 신뢰도가 높아집니다. (3단계)');
+  S.doctors.forEach((d,i)=>{
+    if(!d.name.trim())err(`의료진 ${i+1}: 의사명이 비어 있습니다. (3단계)`);
+    if(!d.career.trim())err(`의료진 ${i+1}: 연혁이 비어 있습니다. (3단계)`);
+    if(/정회원/.test(d.career))err(`의료진 ${i+1}: 연혁에 '정회원' 표기가 있습니다 → '회원'으로 수정해주세요. (3단계)`);
+    if(!d.photo)warn(`의료진 ${i+1}: 프로필 사진이 없습니다. (3단계)`);
+  });
+  if(!S.events.length)warn('등록된 이벤트·상품이 없습니다. 상품이 있어야 고객 상담 유입이 발생합니다. (4단계)');
+  S.events.forEach((ev,i)=>{
+    const L=`이벤트 ${i+1}`;
+    if(!ev.title.trim())err(`${L}: 상품명이 비어 있습니다. (4단계)`);
+    if(ev.title.length>15)err(`${L}: 상품명이 15자를 초과했습니다. (${ev.title.length}자)`);
+    if(!ev.desc.trim())err(`${L}: 설명 문구가 비어 있습니다.`);
+    if(ev.desc.length>40)err(`${L}: 설명이 40자를 초과했습니다. (${ev.desc.length}자)`);
+    if(!ev.always&&(!ev.start||!ev.end))warn(`${L}: 기간이 비어 있습니다. 상시 진행이면 '상시 진행'에 체크해주세요.`);
+    const dc=discountOf(ev);if(dc.err)err(`${L}: ${dc.msg}`);
+    if(!ev.tags.length)err(`${L}: 시술명 태그를 1개 이상 입력해주세요.`);
+    const texts=[ev.title,ev.desc,...ev.tags,...ev.freeTags].join(' ');
+    BAN_SUPER.forEach(r=>{const m=texts.match(r);if(m)err(`${L}: 최상급·과장 표현 "${m[0]}" 사용 불가 (반려 사유)`)});
+    BAN_LURE.forEach(r=>{const m=texts.match(r);if(m)err(`${L}: 유인성 표현 "${m[0]}" 사용 불가 (반려 사유)`)});
+    BAN_CONTACT.forEach(r=>{const m=texts.match(r);if(m)err(`${L}: 연락처·SNS 관련 표기 "${m[0]}" 사용 불가 (반려 사유)`)});
+  });
+  return R;
+}
+function runCheck(){
+  const R=collectChecks();
+  const box=$('chkResult');box.innerHTML='';
+  if(!R.length){box.innerHTML='<div class="chk ok"><span class="ic">✓</span><span>점검 완료 — 발견된 문제가 없습니다. 아래 [제출하기] 버튼으로 접수해주세요.</span></div>';return R}
+  const errs=R.filter(r=>r.t==='err');
+  if(errs.length)box.innerHTML+=`<div class="chk err"><span class="ic">✕</span><span><b>수정 필요 ${errs.length}건</b> — 아래 항목은 반려 사유이므로 반드시 수정해주세요.</span></div>`;
+  R.forEach(r=>{box.innerHTML+=`<div class="chk ${r.t}"><span class="ic">${r.t==='err'?'✕':'!'}</span><span>${esc(r.m)}</span></div>`});
+  return R;
+}
+
+/* ============ submit ============ */
+async function submitAll(){
+  const box=$('submitResult');box.innerHTML='';
+  if(!CONFIG.SUBMIT_URL){
+    box.innerHTML='<div class="chk warn"><span class="ic">!</span><span>제출 주소가 아직 설정되지 않았습니다. 닥터리워드 담당자에게 문의하시거나, 아래 [파일 다운로드]로 내려받아 이메일로 보내주세요.</span></div>';
+    return;
+  }
+  const R=runCheck();
+  const errs=R.filter(r=>r.t==='err');
+  if(errs.length){
+    box.innerHTML=`<div class="chk err"><span class="ic">✕</span><span>수정 필요 항목 ${errs.length}건이 있어 제출할 수 없습니다. 위 점검 결과를 확인해주세요.</span></div>`;
+    return;
+  }
+  const payload=JSON.stringify({app:'doctor-reward-onboarding',version:1,submittedAt:new Date().toISOString(),data:S});
+  const sizeMB=payload.length/1024/1024;
+  if(sizeMB>28){
+    box.innerHTML=`<div class="chk err"><span class="ic">✕</span><span>제출 용량이 너무 큽니다 (${sizeMB.toFixed(1)}MB). 이미지 장수를 줄이거나 용량이 작은 이미지로 교체해주세요.</span></div>`;
+    return;
+  }
+  const btn=$('submitBtn');btn.disabled=true;btn.textContent='접수 중... 잠시만 기다려주세요';
+  box.innerHTML='<div class="chk warn"><span class="ic">⏳</span><span>전송 중입니다. 창을 닫지 마세요. (이미지 용량에 따라 최대 1~2분 걸릴 수 있습니다)</span></div>';
+  try{
+    const res=await fetch(CONFIG.SUBMIT_URL,{method:'POST',body:payload});
+    const j=await res.json();
+    if(j.ok){
+      box.innerHTML=`<div class="chk ok"><span class="ic">✓</span><span><b>접수가 완료되었습니다!</b> 접수번호: <b>${esc(j.id||'-')}</b><br>검수 결과는 담당자 연락처(${esc(S.cPhone)})로 안내드립니다. 평일 10:00~18:00 접수 건은 당일 검수를 원칙으로 합니다.</span></div>`;
+      btn.textContent='✅ 접수 완료';
+    }else{throw new Error(j.error||'서버 오류')}
+  }catch(e){
+    box.innerHTML=`<div class="chk err"><span class="ic">✕</span><span><b>제출에 실패했습니다.</b> (${esc(e.message)})<br>잠시 후 다시 시도하시거나, 아래 [파일 다운로드]로 내려받아 이메일로 보내주세요.</span></div>`;
+    btn.disabled=false;btn.textContent='📮 닥터리워드에 제출하기';
+  }
+}
+
+/* ============ canvas generation ============ */
+const FONT="'Pretendard','Malgun Gothic','맑은 고딕',sans-serif";
+function loadImg(durl){return new Promise((res,rej)=>{if(!durl)return res(null);const im=new Image();im.onload=()=>res(im);im.onerror=()=>res(null);im.src=durl})}
+function cover(ctx,img,x,y,w,h){
+  const ir=img.width/img.height,r=w/h;let sw,sh,sx,sy;
+  if(ir>r){sh=img.height;sw=sh*r;sx=(img.width-sw)/2;sy=0}else{sw=img.width;sh=sw/r;sx=0;sy=(img.height-sh)/2}
+  ctx.drawImage(img,sx,sy,sw,sh,x,y,w,h);
+}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath()}
+function wrap(ctx,text,x,y,maxW,lh,maxLines=99){
+  const words=(text||'').split(/\s+/);let line='',lines=0;
+  for(let i=0;i<words.length;i++){
+    const t=line?line+' '+words[i]:words[i];
+    if(ctx.measureText(t).width>maxW&&line){
+      ctx.fillText(line,x,y);y+=lh;lines++;line=words[i];
+      if(lines>=maxLines-1){ctx.fillText(line+'…',x,y);return y+lh}
+    }else line=t;
+  }
+  if(line){ctx.fillText(line,x,y);y+=lh}
+  return y;
+}
+function wrapMulti(ctx,text,x,y,maxW,lh,maxLines=99){
+  const paras=(text||'').split(/\n/);let used=0;
+  for(const p of paras){
+    if(used>=maxLines)break;
+    if(!p.trim()){y+=lh*0.5;continue}
+    y=wrap(ctx,p.trim(),x,y,maxW,lh,maxLines-used);
+    used++;
+  }
+  return y;
+}
+function chipRow(ctx,items,x,y,maxW,{fs=22,pad=14,gap=10,h=40,bg='#EAF1FF',fg='#1E4FD6'}={}){
+  ctx.font=`700 ${fs}px ${FONT}`;
+  let cx=x;
+  for(const it of items){
+    const w=ctx.measureText(it).width+pad*2;
+    if(cx+w>x+maxW){cx=x;y+=h+gap}
+    ctx.fillStyle=bg;rr(ctx,cx,y,w,h,h/2);ctx.fill();
+    ctx.fillStyle=fg;ctx.textBaseline='middle';ctx.fillText(it,cx+pad,y+h/2+1);ctx.textBaseline='alphabetic';
+    cx+=w+gap;
+  }
+  return y+h;
+}
+function fmtWon(n){return(+n).toLocaleString('ko-KR')+'원'}
+function today(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+
+/* ---- detail page image ---- */
+async function makeDetail(){
+  const W=1080,PAD=64,CW=W-PAD*2;
+  const cv=document.createElement('canvas');cv.width=W;cv.height=9000+S.events.length*450+S.doctors.length*320+S.imgGallery.length*340;
+  const ctx=cv.getContext('2d');
+  ctx.fillStyle='#FFFFFF';ctx.fillRect(0,0,cv.width,cv.height);
+  const banner=await loadImg(S.imgBanner),logo=await loadImg(S.imgLogo);
+  /* hero */
+  const HH=500;
+  if(banner)cover(ctx,banner,0,0,W,HH);
+  else{const g=ctx.createLinearGradient(0,0,W,HH);g.addColorStop(0,'#1E4FD6');g.addColorStop(1,'#00B8A9');ctx.fillStyle=g;ctx.fillRect(0,0,W,HH)}
+  const ov=ctx.createLinearGradient(0,HH-260,0,HH);ov.addColorStop(0,'rgba(10,16,30,0)');ov.addColorStop(1,'rgba(10,16,30,.78)');
+  ctx.fillStyle=ov;ctx.fillRect(0,HH-260,W,260);
+  if(logo){ctx.save();ctx.beginPath();ctx.arc(PAD+55,HH-150,55,0,7);ctx.closePath();ctx.fillStyle='#fff';ctx.fill();ctx.clip();cover(ctx,logo,PAD,HH-205,110,110);ctx.restore();
+    ctx.beginPath();ctx.arc(PAD+55,HH-150,55,0,7);ctx.lineWidth=4;ctx.strokeStyle='#fff';ctx.stroke()}
+  ctx.fillStyle='#fff';ctx.font=`800 52px ${FONT}`;
+  ctx.fillText(S.hName||'병원명',PAD+(logo?135:0),HH-135);
+  ctx.font=`500 26px ${FONT}`;ctx.fillStyle='rgba(255,255,255,.92)';
+  const sub=[S.hAddr?S.hAddr.split(',')[0]:'',S.hStations.length?S.hStations.join('·'):''].filter(Boolean).join('  |  ');
+  ctx.fillText(sub,PAD+(logo?135:0),HH-90);
+  let y=HH+70;
+  const sect=(title)=>{ctx.fillStyle='#2F6BFF';ctx.fillRect(PAD,y-30,8,34);ctx.fillStyle='#1A2333';ctx.font=`800 34px ${FONT}`;ctx.fillText(title,PAD+22,y);y+=28};
+  /* intro */
+  sect('병원 소개');
+  ctx.fillStyle='#33415C';ctx.font=`400 27px ${FONT}`;
+  y=wrapMulti(ctx,S.hIntro||'-',PAD,y+30,CW,44)+30;
+  /* subjects */
+  if(S.hSubjects.length){sect('진료 과목');y=chipRow(ctx,S.hSubjects,PAD,y+22,CW,{fs:24,h:46})+60}
+  /* hours */
+  sect('진료 시간');y+=26;
+  ctx.font=`500 26px ${FONT}`;
+  S.hours.forEach(h=>{
+    ctx.fillStyle='#41506B';ctx.fillText(h.day+'요일',PAD,y);
+    if(h.on){ctx.fillStyle='#1A2333';ctx.fillText(h.start+' - '+h.end,PAD+140,y)}
+    else{ctx.fillStyle='#B0BACD';ctx.fillText('휴진',PAD+140,y)}
+    y+=42;
+  });
+  if(S.hHoursEtc){ctx.fillStyle='#8A97AD';ctx.font=`400 24px ${FONT}`;y=wrap(ctx,'※ '+S.hHoursEtc,PAD,y+4,CW,36)+4}
+  y+=36;
+  /* langs & services */
+  if(S.hLangs.length||S.hServices.length){
+    sect('응대 언어 · 부가서비스');y+=22;
+    if(S.hLangs.length){y=chipRow(ctx,S.hLangs.map(l=>'🗣 '+l),PAD,y,CW,{fs:23,h:44,bg:'#EAF7EF',fg:'#18794E'})+14}
+    if(S.hServices.length){y=chipRow(ctx,S.hServices,PAD,y,CW,{fs:23,h:44})+14}
+    y+=44;
+  }
+  /* gallery */
+  const gal=[];for(const g of S.imgGallery){const im=await loadImg(g);if(im)gal.push(im)}
+  if(gal.length){
+    sect('병원 둘러보기');y+=26;
+    const gw=(CW-20)/2,gh=Math.round(gw*0.62);
+    for(let i=0;i<gal.length;i++){
+      const gx=PAD+(i%2)*(gw+20),gy=y+Math.floor(i/2)*(gh+20);
+      ctx.save();rr(ctx,gx,gy,gw,gh,14);ctx.clip();cover(ctx,gal[i],gx,gy,gw,gh);ctx.restore();
+    }
+    y+=Math.ceil(gal.length/2)*(gh+20)+26;
+  }
+  /* doctors */
+  if(S.doctors.length){
+    sect('의료진 소개');y+=30;
+    for(const d of S.doctors){
+      const ph=await loadImg(d.photo);
+      const bh=150+Math.min(3,(d.career||'').split('\n').filter(x=>x.trim()).length)*34+(d.fields.length?54:0);
+      ctx.fillStyle='#FBFCFF';rr(ctx,PAD,y,CW,bh,16);ctx.fill();
+      ctx.strokeStyle='#E3E9F4';ctx.lineWidth=2;rr(ctx,PAD,y,CW,bh,16);ctx.stroke();
+      const px=PAD+28,py=y+28;
+      if(ph){ctx.save();ctx.beginPath();ctx.arc(px+48,py+48,48,0,7);ctx.clip();cover(ctx,ph,px,py,96,96);ctx.restore()}
+      else{ctx.fillStyle='#E3E9F4';ctx.beginPath();ctx.arc(px+48,py+48,48,0,7);ctx.fill();ctx.fillStyle='#8A97AD';ctx.font=`700 34px ${FONT}`;ctx.fillText('의',px+32,py+62)}
+      let tx=px+120,ty=py+36;
+      ctx.fillStyle='#1A2333';ctx.font=`800 30px ${FONT}`;
+      let nm=d.name||'의사명';ctx.fillText(nm,tx,ty);
+      let nw=ctx.measureText(nm).width;
+      if(d.isChief){ctx.fillStyle='#2F6BFF';ctx.font=`700 22px ${FONT}`;ctx.fillText('대표원장',tx+nw+14,ty)}
+      if(d.qual&&d.qual!=='해당 없음'){ctx.fillStyle='#00847A';ctx.font=`700 22px ${FONT}`;ctx.fillText('✓ '+d.qual,tx,ty+34);ty+=34}
+      ctx.fillStyle='#5B6B85';ctx.font=`400 23px ${FONT}`;
+      const cls=(d.career||'').split('\n').filter(x=>x.trim()).slice(0,3);
+      let cy=ty+34;
+      cls.forEach(l=>{cy=wrap(ctx,l.trim(),tx,cy,CW-160,32,1)});
+      if(d.fields.length){chipRow(ctx,d.fields.slice(0,6),tx,cy+6,CW-160,{fs:20,h:38})}
+      y+=bh+18;
+    }
+    y+=22;
+  }
+  /* events */
+  if(S.events.length){
+    sect('진행 중인 이벤트');y+=30;
+    for(const ev of S.events){
+      const dc=discountOf(ev);
+      const bh=ev.priceN&&ev.priceD?218:186;
+      ctx.fillStyle='#fff';rr(ctx,PAD,y,CW,bh,16);ctx.fill();
+      ctx.strokeStyle='#D9E4F8';ctx.lineWidth=2;rr(ctx,PAD,y,CW,bh,16);ctx.stroke();
+      let ex=PAD+30,eyy=y+52;
+      ctx.fillStyle='#1A2333';ctx.font=`800 30px ${FONT}`;ctx.fillText(ev.title||'상품명',ex,eyy);
+      ctx.fillStyle='#5B6B85';ctx.font=`400 24px ${FONT}`;eyy=wrap(ctx,ev.desc||'',ex,eyy+38,CW-320,34,2);
+      const period=ev.always?'상시 진행':(ev.start&&ev.end?ev.start+' ~ '+ev.end:'');
+      if(period){ctx.fillStyle='#8A97AD';ctx.font=`400 21px ${FONT}`;ctx.fillText('기간: '+period,ex,y+bh-26)}
+      /* price right */
+      const rx=PAD+CW-30;ctx.textAlign='right';
+      if(+ev.priceN&&+ev.priceD){
+        ctx.fillStyle='#B0BACD';ctx.font=`500 24px ${FONT}`;ctx.fillText(fmtWon(ev.priceN),rx,y+58);
+        const pw=ctx.measureText(fmtWon(ev.priceN)).width;
+        ctx.strokeStyle='#B0BACD';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(rx-pw,y+50);ctx.lineTo(rx,y+50);ctx.stroke();
+        ctx.fillStyle='#E5484D';ctx.font=`800 40px ${FONT}`;ctx.fillText(dc.rate+'%',rx-ctx.measureText(fmtWon(ev.priceD)).width-84,y+108);
+        ctx.fillStyle='#1A2333';ctx.font=`800 40px ${FONT}`;ctx.fillText(fmtWon(ev.priceD),rx,y+108);
+        ctx.fillStyle='#8A97AD';ctx.font=`400 20px ${FONT}`;ctx.fillText('부가세 '+ev.vat,rx,y+140);
+      }else{
+        ctx.fillStyle='#2F6BFF';ctx.font=`800 32px ${FONT}`;ctx.fillText('상담 문의',rx,y+70);
+      }
+      ctx.textAlign='left';
+      y+=bh+16;
+    }
+    y+=22;
+  }
+  /* location */
+  sect('오시는 길');y+=30;
+  ctx.fillStyle='#33415C';ctx.font=`500 26px ${FONT}`;
+  y=wrap(ctx,'주소  '+(S.hAddr||'-'),PAD,y,CW,40);
+  y=wrap(ctx,'전화  '+(S.hTel||'-'),PAD,y+6,CW,40);
+  if(S.hStations.length)y=wrap(ctx,'지하철  '+S.hStations.join(', '),PAD,y+6,CW,40);
+  y+=40;
+  /* footer */
+  ctx.fillStyle='#F0F4FC';ctx.fillRect(0,y,W,86);
+  ctx.fillStyle='#8A97AD';ctx.font=`500 21px ${FONT}`;
+  ctx.fillText('Doctor Reward · 닥터리워드 입점 등록폼 자동 생성 · '+today(),PAD,y+52);
+  y+=86;
+  /* crop */
+  const out=document.createElement('canvas');out.width=W;out.height=y;
+  out.getContext('2d').drawImage(cv,0,0,W,y,0,0,W,y);
+  return out;
+}
+/* ---- banner 1080x470 ---- */
+async function makeBanner(){
+  const W=1080,H=470,cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const ctx=cv.getContext('2d');
+  const banner=await loadImg(S.imgBanner),logo=await loadImg(S.imgLogo);
+  if(banner)cover(ctx,banner,0,0,W,H);
+  else{const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#1E4FD6');g.addColorStop(1,'#00B8A9');ctx.fillStyle=g;ctx.fillRect(0,0,W,H)}
+  const ov=ctx.createLinearGradient(0,0,0,H);ov.addColorStop(0,'rgba(10,16,30,.05)');ov.addColorStop(1,'rgba(10,16,30,.72)');
+  ctx.fillStyle=ov;ctx.fillRect(0,0,W,H);
+  if(logo){ctx.save();ctx.beginPath();ctx.arc(112,H-118,48,0,7);ctx.closePath();ctx.fillStyle='#fff';ctx.fill();ctx.clip();cover(ctx,logo,64,H-166,96,96);ctx.restore()}
+  ctx.fillStyle='#fff';ctx.font=`800 54px ${FONT}`;ctx.fillText(S.hName||'병원명',logo?180:64,H-108);
+  ctx.font=`500 26px ${FONT}`;ctx.fillStyle='rgba(255,255,255,.9)';
+  const sub=[S.hAddr?S.hAddr.split(',')[0]:'',S.hStations.join('·')].filter(Boolean).join('  |  ');
+  ctx.fillText(sub,logo?180:64,H-62);
+  return cv;
+}
+/* ---- event card 1080x1080 ---- */
+async function makeCard(ev){
+  const W=1080,H=1080,cv=document.createElement('canvas');cv.width=W;cv.height=H;
+  const ctx=cv.getContext('2d');
+  const bg=await loadImg(ev.img),logo=await loadImg(S.imgLogo);
+  if(bg){cover(ctx,bg,0,0,W,H);
+    const ov=ctx.createLinearGradient(0,H*0.35,0,H);ov.addColorStop(0,'rgba(12,18,34,0)');ov.addColorStop(1,'rgba(12,18,34,.88)');
+    ctx.fillStyle=ov;ctx.fillRect(0,0,W,H);
+  }else{
+    const g=ctx.createLinearGradient(0,0,W,H);g.addColorStop(0,'#16337F');g.addColorStop(.55,'#1E4FD6');g.addColorStop(1,'#00B8A9');
+    ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='rgba(255,255,255,.06)';ctx.beginPath();ctx.arc(W-120,180,260,0,7);ctx.fill();
+    ctx.beginPath();ctx.arc(160,H-160,200,0,7);ctx.fill();
+  }
+  const dc=discountOf(ev);
+  let y=H-360;
+  /* tags */
+  if(ev.tags.length){
+    ctx.font=`700 26px ${FONT}`;let cx=72;
+    for(const t of ev.tags.slice(0,4)){
+      const w=ctx.measureText('#'+t).width+36;
+      ctx.fillStyle='rgba(255,255,255,.16)';rr(ctx,cx,y-46,w,52,26);ctx.fill();
+      ctx.fillStyle='#fff';ctx.fillText('#'+t,cx+18,y-10);cx+=w+12;
+      if(cx>W-160)break;
+    }
+    y+=40;
+  }
+  ctx.fillStyle='#fff';ctx.font=`800 64px ${FONT}`;
+  y=wrap(ctx,ev.title||'상품명',72,y+30,W-144,80,2);
+  ctx.fillStyle='rgba(255,255,255,.85)';ctx.font=`500 32px ${FONT}`;
+  y=wrap(ctx,ev.desc||'',72,y+10,W-144,46,2);
+  if(+ev.priceN&&+ev.priceD){
+    ctx.fillStyle='#FFD166';ctx.font=`800 58px ${FONT}`;
+    ctx.fillText(dc.rate+'%',72,y+66);
+    const dw=ctx.measureText(dc.rate+'%').width;
+    ctx.fillStyle='#fff';ctx.font=`800 58px ${FONT}`;ctx.fillText(fmtWon(ev.priceD),72+dw+28,y+66);
+    const pw=ctx.measureText(fmtWon(ev.priceD)).width;
+    ctx.fillStyle='rgba(255,255,255,.55)';ctx.font=`500 30px ${FONT}`;ctx.fillText(fmtWon(ev.priceN),72+dw+28+pw+22,y+66);
+    const nw=ctx.measureText(fmtWon(ev.priceN)).width;
+    ctx.strokeStyle='rgba(255,255,255,.55)';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(72+dw+28+pw+22,y+56);ctx.lineTo(72+dw+28+pw+22+nw,y+56);ctx.stroke();
+    ctx.fillStyle='rgba(255,255,255,.75)';ctx.font=`500 24px ${FONT}`;ctx.fillText('부가세 '+ev.vat,72,y+112);
+  }else{
+    ctx.fillStyle='#FFD166';ctx.font=`800 46px ${FONT}`;ctx.fillText('상담 문의',72,y+60);
+  }
+  /* hospital row top */
+  if(logo){ctx.save();ctx.beginPath();ctx.arc(104,96,40,0,7);ctx.closePath();ctx.fillStyle='#fff';ctx.fill();ctx.clip();cover(ctx,logo,64,56,80,80);ctx.restore()}
+  ctx.fillStyle='#fff';ctx.font=`700 30px ${FONT}`;ctx.fillText(S.hName||'병원명',logo?160:64,106);
+  const period=ev.always?'상시 진행':(ev.start&&ev.end?ev.start+' ~ '+ev.end:'');
+  if(period){ctx.textAlign='right';ctx.fillStyle='rgba(255,255,255,.8)';ctx.font=`500 24px ${FONT}`;ctx.fillText(period,W-64,100);ctx.textAlign='left'}
+  return cv;
+}
+
+/* ============ preview & downloads ============ */
+async function renderPreview(){
+  const pv=$('pvArea');pv.innerHTML='<span style="color:var(--sub)">생성 중...</span>';
+  try{const cv=await makeDetail();const im=new Image();im.src=cv.toDataURL('image/png');pv.innerHTML='';pv.appendChild(im)}
+  catch(e){pv.innerHTML='<span style="color:var(--danger)">생성 실패: '+esc(e.message)+'</span>'}
+}
+function dl(canvas,name){canvas.toBlob(b=>{const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000)},'image/png')}
+function fname(base,ext){return (S.hName||'병원')+'_'+base+'_'+today()+'.'+ext}
+async function dlDetail(){dl(await makeDetail(),fname('상세페이지','png'))}
+async function dlBanner(){dl(await makeBanner(),fname('배너','png'))}
+async function dlCards(){
+  if(!S.events.length){alert('등록된 이벤트가 없습니다.');return}
+  for(let i=0;i<S.events.length;i++){dl(await makeCard(S.events[i]),fname('이벤트카드'+(i+1),'png'));await new Promise(r=>setTimeout(r,400))}
+}
+function dlJSON(){
+  const data=JSON.stringify({app:'doctor-reward-onboarding',version:1,savedAt:new Date().toISOString(),data:S},null,2);
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.download=fname('입점정보','json');a.click();
+}
+function dlTXT(){
+  const L=[];
+  L.push('■ 닥터리워드 입점 정보 요약  ('+today()+')');
+  L.push('');
+  L.push('[병원 기본 정보]');
+  L.push('병원명: '+(S.hName||'-'));
+  if(S.hNameJp)L.push('병원명(일본어): '+S.hNameJp);
+  L.push('대표 전화: '+(S.hTel||'-'));
+  L.push('주소: '+(S.hAddr||'-'));
+  L.push('인근 지하철역: '+(S.hStations.join(', ')||'-'));
+  L.push('간단소개: '+(S.hIntro||'-').replace(/\n/g,' / '));
+  if(S.hIntroJp)L.push('간단소개(일본어): '+S.hIntroJp.replace(/\n/g,' / '));
+  L.push('');
+  L.push('[병원 담당자] '+(S.cName||'-')+' / '+(S.cPhone||'-')+' / '+(S.cEmail||'-'));
+  L.push('');
+  L.push('[진료 시간]');
+  S.hours.forEach(h=>L.push('  '+h.day+': '+(h.on?h.start+' - '+h.end:'휴진')));
+  if(S.hHoursEtc)L.push('  기타: '+S.hHoursEtc);
+  L.push('');
+  L.push('[진료 과목] '+(S.hSubjects.join(', ')||'-'));
+  L.push('[응대 언어] '+(S.hLangs.join(', ')||'-'));
+  L.push('[부가서비스] '+(S.hServices.join(', ')||'-'));
+  L.push('[이미지] 배너:'+(S.imgBanner?'제출':'없음')+' / 로고:'+(S.imgLogo?'제출':'없음')+' / 소개 이미지:'+S.imgGallery.length+'장');
+  L.push('');
+  L.push('[의료진] 총 '+S.doctors.length+'명');
+  S.doctors.forEach((d,i)=>{
+    L.push('  '+(i+1)+'. '+(d.name||'-')+(d.isChief?' (대표원장)':'')+' / '+d.gender+' / '+d.qual);
+    if(d.fields.length)L.push('     전문분야: '+d.fields.join(', '));
+    (d.career||'').split('\n').filter(x=>x.trim()).forEach(c=>L.push('     - '+c.trim()));
+    L.push('     사진: '+(d.photo?'제출':'없음'));
+  });
+  L.push('');
+  L.push('[이벤트·상품] 총 '+S.events.length+'건');
+  S.events.forEach((ev,i)=>{
+    const dc=discountOf(ev);
+    L.push('  '+(i+1)+'. '+(ev.title||'-')+' — '+(ev.desc||''));
+    L.push('     기간: '+(ev.always?'상시':(ev.start&&ev.end?ev.start+' ~ '+ev.end:'-'))+' / 대상: '+ev.gender);
+    if(+ev.priceN&&+ev.priceD)L.push('     가격: 정상가 '+fmtWon(ev.priceN)+' → 할인가 '+fmtWon(ev.priceD)+' ('+dc.rate+'%) / 부가세 '+ev.vat);
+    else L.push('     가격: 상담 문의');
+    L.push('     시술 태그: '+(ev.tags.join(', ')||'-')+(ev.freeTags.length?' / 자유태그: '+ev.freeTags.join(', '):''));
+  });
+  L.push('');
+  L.push('※ 본 요약은 닥터리워드 입점 등록폼에서 자동 생성되었습니다.');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+L.join('\r\n')],{type:'text/plain;charset=utf-8'}));a.download=fname('입점정보요약','txt');a.click();
+}
+function importJSON(){
+  const fi=document.createElement('input');fi.type='file';fi.accept='.json,application/json';
+  fi.onchange=async()=>{
+    const f=fi.files[0];if(!f)return;
+    try{
+      const j=JSON.parse(await f.text());
+      const d=j.data||j;
+      Object.assign(S,d);
+      initStep1();renderThumbs();renderDoctors();renderEvents();save();
+      alert('불러오기 완료!');
+    }catch(e){alert('파일을 읽을 수 없습니다: '+e.message)}
+  };
+  fi.click();
+}
+function resetAll(){
+  if(!confirm('입력한 모든 내용을 삭제할까요? 되돌릴 수 없습니다.'))return;
+  localStorage.removeItem('drOnboard');location.reload();
+}
+
+/* ============ autosave ============ */
+let saveTimer=null;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{
+    try{localStorage.setItem('drOnboard',JSON.stringify(S))}
+    catch(e){/* quota: try without images */
+      try{const s2={...S,imgBanner:null,imgLogo:null,imgGallery:[],doctors:S.doctors.map(d=>({...d,photo:null})),events:S.events.map(ev=>({...ev,img:null}))};
+        localStorage.setItem('drOnboard',JSON.stringify(s2))}catch(e2){}
+    }
+  },400);
+}
+(function restore(){
+  try{
+    const raw=localStorage.getItem('drOnboard');
+    if(raw){const d=JSON.parse(raw);Object.assign(S,d)}
+  }catch(e){}
+  initStep1();renderThumbs();renderDoctors();renderEvents();
+})();
+</script>
+</body>
+</html>
