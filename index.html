@@ -1808,7 +1808,7 @@ addEventListener('load', () => {
   })();
 
   initModal({ openBtnId:'brand-apply-btn', modalId:'brand-modal', formId:'brand-form', doneId:'bm-done', subject:'[COSBACK 브랜드 입점 신청]' });
-  initModal({ openBtnId:'clinic-apply-btn', modalId:'clinic-modal', formId:'clinic-form', doneId:'clinic-done', subject:'[닥터리워드 병원 입점 신청]' });
+  // clinic-apply-btn: href로 직접 연결 (닥터리워드_입점정보_등록폼.html)
   initModal({ openBtnId:'ir-apply-btn', modalId:'ir-modal', formId:'ir-form', doneId:'ir-done', subject:'[BIGWAVE3 IR 자료 요청]' });
 
   // ── Counter animation ──────────────────────────────────────────
@@ -1949,7 +1949,7 @@ function openNewsImg(card){
 
 // 푸터 입점 신청 버튼 연결
 document.getElementById('ft-brand-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('brand-apply-btn').click(); });
-document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('clinic-apply-btn').click(); });
+document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); window.open('닥터리워드_입점정보_등록폼.html', '_blank'); });
 
 
 // 뷰티 핀테크 프로세스 모달
