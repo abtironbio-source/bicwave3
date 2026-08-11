@@ -1313,7 +1313,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
     </div>
     <div class="cta-cards r d1">
       <div class="ctac"><div class="ctac-ico">🏪</div><div class="ctac-for">For Brands</div><div class="ctac-t" data-i18n="ctac2-t">브랜드사</div><div class="ctac-d" data-i18n="ctac2-d">광고비 없이 성과 기반으로 고객에게 혜택이 돌아가는 코스백 입점을 시작하세요</div><a href="#" class="ctac-btn" id="brand-apply-btn" data-i18n="ctac2-btn">브랜드 입점 신청 →</a></div>
-      <div class="ctac"><div class="ctac-ico">🏥</div><div class="ctac-for">For Clinics</div><div class="ctac-t" data-i18n="ctac3-t">파트너 병원</div><div class="ctac-d" data-i18n="ctac3-d">고관여 뷰티 고객과 연결되는 닥터 리워드 파트너 병원이 되세요</div><a href="닥터리워드_입점정보_등록폼.html" target="_blank" rel="noopener" class="ctac-btn" id="clinic-apply-btn" data-i18n="ctac3-btn">병원 입점 신청 →</a></div>
+      <div class="ctac"><div class="ctac-ico">🏥</div><div class="ctac-for">For Clinics</div><div class="ctac-t" data-i18n="ctac3-t">파트너 병원</div><div class="ctac-d" data-i18n="ctac3-d">고관여 뷰티 고객과 연결되는 닥터 리워드 파트너 병원이 되세요</div><a href="#" class="ctac-btn" id="clinic-apply-btn" data-i18n="ctac3-btn">병원 입점 신청 →</a></div>
       <div class="ctac"><div class="ctac-ico">💅</div><div class="ctac-for">For Wellness Shops</div><div class="ctac-t">웰니스샵</div><div class="ctac-d">헤어샵, 네일샵, 요가, 필라테스 사업자라면 닥터 리워드 파트너로 함께하세요</div><a href="#" class="ctac-btn" id="wellness-apply-btn">웰니스샵 입점 신청 →</a></div>
       <div class="ctac"><div class="ctac-ico">📈</div><div class="ctac-for">For Investors</div><div class="ctac-t" data-i18n="ctac4-t">투자자</div><div class="ctac-d" data-i18n="ctac4-d">CosTechMed 생태계의 성장성과 투자 기회를 확인하세요</div><a href="#" class="ctac-btn" id="ir-apply-btn" data-i18n="ctac4-btn">IR 자료 요청 →</a></div>
     </div>
@@ -1579,6 +1579,10 @@ addEventListener('load', () => {
         <textarea class="bm-input bm-textarea" name="문의내용" placeholder="병원 소개 및 입점 관련 문의사항을 자유롭게 작성해 주세요"></textarea>
       </div>
       <button type="submit" class="bm-submit">입점 신청서 제출 →</button>
+      <div style="margin-top:14px;text-align:center;padding-top:14px;border-top:1px solid rgba(0,0,0,.08)">
+        <p style="font-size:12px;color:#888;margin-bottom:8px">더 자세한 정보를 입력하고 싶으신가요?</p>
+        <a href="닥터리워드_입점정보_등록폼.html" target="_blank" rel="noopener" style="display:inline-block;padding:9px 20px;border-radius:8px;border:1.5px solid var(--blue);color:var(--blue);font-size:12.5px;font-weight:700;transition:background .2s" onmouseover="this.style.background='#f0f8ff'" onmouseout="this.style.background='transparent'">📋 상세 입점정보 등록폼 열기 →</a>
+      </div>
     </form>
     <div class="bm-done" id="clinic-done" style="display:none">
       <div class="bm-done-ico">✅</div>
@@ -1865,7 +1869,7 @@ addEventListener('load', () => {
 
   initModal({ openBtnId:'brand-apply-btn', modalId:'brand-modal', formId:'brand-form', doneId:'bm-done', subject:'[COSBACK 브랜드 입점 신청]' });
   initModal({ openBtnId:'wellness-apply-btn', modalId:'wellness-modal', formId:'wellness-form', doneId:'wellness-done', subject:'[웰니스샵 입점 신청]' });
-  // clinic-apply-btn: href로 직접 연결 (닥터리워드_입점정보_등록폼.html)
+  initModal({ openBtnId:'clinic-apply-btn', modalId:'clinic-modal', formId:'clinic-form', doneId:'clinic-done', subject:'[닥터리워드 병원 입점 신청]' });
   initModal({ openBtnId:'ir-apply-btn', modalId:'ir-modal', formId:'ir-form', doneId:'ir-done', subject:'[BIGWAVE3 IR 자료 요청]' });
 
   // ── Counter animation ──────────────────────────────────────────
@@ -2006,7 +2010,7 @@ function openNewsImg(card){
 
 // 푸터 입점 신청 버튼 연결
 document.getElementById('ft-brand-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('brand-apply-btn').click(); });
-document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); window.open('닥터리워드_입점정보_등록폼.html', '_blank'); });
+document.getElementById('ft-clinic-apply-btn')?.addEventListener('click', function(e){ e.preventDefault(); document.getElementById('clinic-apply-btn').click(); });
 
 
 // 뷰티 핀테크 프로세스 모달
