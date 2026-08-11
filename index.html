@@ -1314,7 +1314,7 @@ nav.s .lang-trigger:hover{border-color:var(--blue);color:var(--blue)}
     <div class="cta-cards r d1">
       <div class="ctac"><div class="ctac-ico">🏪</div><div class="ctac-for">For Brands</div><div class="ctac-t" data-i18n="ctac2-t">브랜드사</div><div class="ctac-d" data-i18n="ctac2-d">광고비 없이 성과 기반으로 고객에게 혜택이 돌아가는 코스백 입점을 시작하세요</div><a href="#" class="ctac-btn" id="brand-apply-btn" data-i18n="ctac2-btn">브랜드 입점 신청 →</a></div>
       <div class="ctac"><div class="ctac-ico">🏥</div><div class="ctac-for">For Clinics</div><div class="ctac-t" data-i18n="ctac3-t">파트너 병원</div><div class="ctac-d" data-i18n="ctac3-d">고관여 뷰티 고객과 연결되는 닥터 리워드 파트너 병원이 되세요</div><a href="닥터리워드_입점정보_등록폼.html" target="_blank" rel="noopener" class="ctac-btn" id="clinic-apply-btn" data-i18n="ctac3-btn">병원 입점 신청 →</a></div>
-      <div class="ctac"><div class="ctac-ico">💅</div><div class="ctac-for">For Wellness Shops</div><div class="ctac-t">웰니스샵</div><div class="ctac-d">헤어샵, 네일샵, 요가, 필라테스 사업자라면 닥터 리워드 파트너로 함께하세요</div><a href="#" class="ctac-btn">웰니스샵 입점 신청 →</a></div>
+      <div class="ctac"><div class="ctac-ico">💅</div><div class="ctac-for">For Wellness Shops</div><div class="ctac-t">웰니스샵</div><div class="ctac-d">헤어샵, 네일샵, 요가, 필라테스 사업자라면 닥터 리워드 파트너로 함께하세요</div><a href="#" class="ctac-btn" id="wellness-apply-btn">웰니스샵 입점 신청 →</a></div>
       <div class="ctac"><div class="ctac-ico">📈</div><div class="ctac-for">For Investors</div><div class="ctac-t" data-i18n="ctac4-t">투자자</div><div class="ctac-d" data-i18n="ctac4-d">CosTechMed 생태계의 성장성과 투자 기회를 확인하세요</div><a href="#" class="ctac-btn" id="ir-apply-btn" data-i18n="ctac4-btn">IR 자료 요청 →</a></div>
     </div>
     <div class="cta-bottom r d2">
@@ -1655,6 +1655,62 @@ addEventListener('load', () => {
   </div>
 </div>
 
+<!-- WELLNESS APPLY MODAL -->
+<div id="wellness-modal" class="bm-overlay">
+  <div class="bm-box">
+    <button class="bm-close" data-close="wellness-modal">✕</button>
+    <div class="bm-header">
+      <div class="bm-logo">💅</div>
+      <h3 class="bm-title">웰니스샵 입점 신청</h3>
+      <p class="bm-sub">입점 신청서를 작성해 주시면 담당자가 영업일 기준 2일 내 연락드립니다.</p>
+    </div>
+    <form class="bm-form" id="wellness-form">
+      <div class="bm-row">
+        <div class="bm-field">
+          <label class="bm-label">상호명 <span class="bm-req">*</span></label>
+          <input class="bm-input" type="text" name="상호명" placeholder="상호명을 입력해 주세요" required>
+        </div>
+        <div class="bm-field">
+          <label class="bm-label">담당자명 <span class="bm-req">*</span></label>
+          <input class="bm-input" type="text" name="담당자명" placeholder="담당자 이름을 입력해 주세요" required>
+        </div>
+      </div>
+      <div class="bm-row">
+        <div class="bm-field">
+          <label class="bm-label">이메일 <span class="bm-req">*</span></label>
+          <input class="bm-input" type="email" name="이메일" placeholder="example@shop.com" required>
+        </div>
+        <div class="bm-field">
+          <label class="bm-label">연락처 <span class="bm-req">*</span></label>
+          <input class="bm-input" type="tel" name="연락처" placeholder="010-0000-0000" required>
+        </div>
+      </div>
+      <div class="bm-field">
+        <label class="bm-label">업종 <span class="bm-req">*</span></label>
+        <select class="bm-input bm-select" name="업종" required>
+          <option value="" disabled selected>업종을 선택해 주세요</option>
+          <option>헤어샵</option>
+          <option>네일샵</option>
+          <option>요가</option>
+          <option>필라테스</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="bm-field">
+        <label class="bm-label">소개 및 문의사항</label>
+        <textarea class="bm-input bm-textarea" name="문의내용" placeholder="샵 소개 및 입점 관련 문의사항을 자유롭게 작성해 주세요"></textarea>
+      </div>
+      <button type="submit" class="bm-submit">입점 신청서 제출 →</button>
+    </form>
+    <div class="bm-done" id="wellness-done" style="display:none">
+      <div class="bm-done-ico">✅</div>
+      <h4 class="bm-done-t">신청이 완료되었습니다!</h4>
+      <p class="bm-done-s">담당자가 영업일 기준 2일 내 연락드리겠습니다.<br>감사합니다 🙏</p>
+      <button class="bm-submit" data-close="wellness-modal">확인</button>
+    </div>
+  </div>
+</div>
+
 <!-- BRAND APPLY MODAL -->
 <div id="brand-modal" class="bm-overlay">
   <div class="bm-box">
@@ -1808,6 +1864,7 @@ addEventListener('load', () => {
   })();
 
   initModal({ openBtnId:'brand-apply-btn', modalId:'brand-modal', formId:'brand-form', doneId:'bm-done', subject:'[COSBACK 브랜드 입점 신청]' });
+  initModal({ openBtnId:'wellness-apply-btn', modalId:'wellness-modal', formId:'wellness-form', doneId:'wellness-done', subject:'[웰니스샵 입점 신청]' });
   // clinic-apply-btn: href로 직접 연결 (닥터리워드_입점정보_등록폼.html)
   initModal({ openBtnId:'ir-apply-btn', modalId:'ir-modal', formId:'ir-form', doneId:'ir-done', subject:'[BIGWAVE3 IR 자료 요청]' });
 
