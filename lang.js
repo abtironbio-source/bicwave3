@@ -22,7 +22,7 @@ const T = {
     'mc2-lbl':'친구 추천 무한 캐시백','mc2-desc':'삼성 iD VITA카드 결제금액 기준',
     'mc3-lbl':'연간 Great Beauty 키트','mc3-desc':'정회원 가입 시 제공되는 연간 혜택 상당액',
     'mc4-lbl':'5년 누적 정회원 가치','mc4-desc':'정회원 유지 시 누적 혜택 추산',
-    'mc5-lbl':'에스테틱 클리닉 & 웰니스살롱','mc5-desc':'피부과 성형외과 치과 + 네일샵, 헤어샵, 요가, 필라테스',
+    'mc5-lbl':'에스테틱 클리닉 & 웰니스살롱','mc5-desc':'피부과·성형외과·치과 + 네일샵·헤어샵·요가·필라테스',
     'mc6-lbl':'글로벌 Language Support','mc6-desc':'2032 회원 목표 600만 명',
     /* CTM */
     'sec-ctm-h':'CosTechMed <em>아키텍처</em>',
