@@ -1959,6 +1959,15 @@ function playTV(videoId, item){
 // IR 자료실
 let _irDocTarget = '';
 function openIRRoom(){
+  _irDocTarget = '__IR_ROOM__';
+  _irDocPassword = '4321';
+  const pwModal = document.getElementById('ir-doc-pw-modal');
+  document.getElementById('ir-doc-pw-input').value = '';
+  document.getElementById('ir-doc-pw-err').style.display = 'none';
+  pwModal.style.display = 'flex';
+  setTimeout(()=>document.getElementById('ir-doc-pw-input').focus(), 100);
+}
+function _openIRRoomInner(){
   const modal = document.getElementById('ir-room-modal');
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -2003,12 +2012,16 @@ function checkDocPassword(){
   const val = document.getElementById('ir-doc-pw-input').value;
   if(val === _irDocPassword){
     closeDocPw();
-    document.getElementById('ir-room-modal').style.display = 'none';
-    const modal = document.getElementById('ir-pdf-modal');
-    modal.querySelector('iframe').src = _irDocTarget;
-    modal.querySelector('a[target="_blank"]').href = _irDocTarget;
-    modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+    if(_irDocTarget === '__IR_ROOM__'){
+      _openIRRoomInner();
+    } else {
+      document.getElementById('ir-room-modal').style.display = 'none';
+      const modal = document.getElementById('ir-pdf-modal');
+      modal.querySelector('iframe').src = _irDocTarget;
+      modal.querySelector('a[target="_blank"]').href = _irDocTarget;
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
   } else {
     document.getElementById('ir-doc-pw-err').style.display = 'block';
     document.getElementById('ir-doc-pw-input').value = '';
