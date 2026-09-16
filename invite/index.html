@@ -82,7 +82,12 @@
   .codebox{margin:-90px var(--gutter) 0;background:rgba(13,30,61,.85);border:1px solid rgba(78,201,255,.4);border-radius:var(--r);padding:16px;position:relative;z-index:1;box-shadow:0 18px 40px rgba(0,0,0,.35)}
   .codebox .t{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ice)}
   .codebox .t svg{width:18px;height:18px;flex:0 0 18px;color:var(--sky)}
-  .codebox label{display:block;font-size:14px;font-weight:700;margin-top:12px}
+  .cstep{display:grid;grid-template-columns:24px 1fr;gap:10px;align-items:start;margin-top:14px}
+  .cstep .no{width:24px;height:24px;border-radius:50%;background:var(--sky);color:var(--navy-1);font-family:var(--eng);font-weight:700;font-size:13px;display:grid;place-items:center;margin-top:1px}
+  .cstep b{display:block;font-size:14px;font-weight:700;line-height:1.3}
+  .cstep span{display:block;font-size:12px;color:var(--ice-2);margin-top:2px}
+  .stores.top{margin:10px 0 0 34px}
+  .codebox .go.done{background:var(--mint);color:var(--navy-1)}
   .codebox .row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}
   .codebox input{width:100%;padding:14px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:#fff;color:var(--navy-2);font-size:15px;font-family:var(--eng);letter-spacing:.06em;font-weight:700}
   .codebox input::placeholder{color:#9DAAC4;font-weight:500;letter-spacing:0;font-family:var(--sans)}
@@ -296,11 +301,15 @@
   <!-- CODE BOX -->
   <div class="codebox" id="join">
     <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M18 8v6M15 11h6"/></svg>COSBACK 정회원 추천 혜택이 연결된 전용 초대 페이지</div>
-    <label for="refInput">추천코드 입력</label>
+    <div class="cstep"><span class="no">1</span><div><b>먼저 COSBACK 앱을 설치하세요</b><span>코스백은 앱으로만 가입·이용할 수 있습니다.</span></div></div>
+    <div class="stores top"><a href="https://apps.apple.com/kr/app/%EC%BD%94%EC%8A%A4%EB%B0%B1/id6760276501" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1.1-2.8-4.1zM14.3 5.1c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span>App Store</span></a><a href="https://play.google.com/store/apps/details?id=com.hyjoo.cosback" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.5c-.3.3-.5.8-.5 1.4v16.2c0 .6.2 1.1.5 1.4l8.9-9.5-8.9-9.5z" fill="#00D7FE"/><path d="M15.5 15l-3-3 3-3 3.9 2.2c1.1.6 1.1 1.6 0 2.2L15.5 15z" fill="#FFCE00"/><path d="M12.5 12l-8.9 9.5c.4.2.9.2 1.4-.1L15.5 15l-3-3z" fill="#FF3A44"/><path d="M12.5 12l3-3L5 3.1c-.5-.3-1-.3-1.4-.1L12.5 12z" fill="#00F076"/></svg><span>Google Play</span></a></div>
+    <div class="cstep"><span class="no">2</span><div><b>앱 가입 화면에 추천코드를 입력하세요</b><span>아래 코드를 복사해 두면 편합니다.</span></div></div>
     <div class="row">
       <input id="refInput" type="text" placeholder="예) COSBACK-123456" autocomplete="off" autocapitalize="characters">
-      <button type="button" class="go" id="goBtn">확인 및 가입하기 ›</button>
+      <button type="button" class="go" id="goBtn">코드 복사</button>
     </div>
+    <div class="hint">추천코드는 추천하신 지인의 멤버십 혜택을 연결하기 위해 사용됩니다.</div>
+  </div>
     <div class="hint">추천코드는 추천하신 지인의 멤버십 혜택을 연결하기 위해 사용됩니다. 가입은 COSBACK 앱에서 진행됩니다.</div>
   </div>
 
@@ -504,12 +513,13 @@
     document.getElementById('inviter').classList.add('on');
     if(by){document.getElementById('invName').textContent=by+' 님이 초대한 COSBACK 정회원 페이지입니다';document.getElementById('invAv').textContent=by.charAt(0);}
   }
-  /* TODO: 실제 가입 URL로 교체 (추천코드 파라미터 규격은 코스백 시스템 기준) */
-  var JOIN_URL='https://cosback.com/';
-  document.getElementById('goBtn').addEventListener('click',function(){
+  var goBtn=document.getElementById('goBtn');
+  goBtn.addEventListener('click',function(){
     var code=input.value.trim();
     if(!code){input.focus();input.placeholder='추천코드를 입력해 주세요';return;}
-    location.href=JOIN_URL+'?ref='+encodeURIComponent(code);
+    function ok(){goBtn.textContent='복사됨 ✓';goBtn.classList.add('done');setTimeout(function(){goBtn.textContent='코드 복사';goBtn.classList.remove('done');},2000);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code).then(ok,function(){input.select();});}
+    else{input.select();try{document.execCommand('copy');ok();}catch(e){}}
   });
   input.addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('goBtn').click();});
 
