@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>COSBACK 정회원 초대</title>
+<meta name="description" content="평소 쓰던 뷰티 소비를 코스백 정회원 혜택으로 돌려받으세요. 5년 누적 최대 750만 원 상당 + 본인 구매 15% 캐시백. 추천코드로 가입하세요.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=DM+Sans:wght@500;700&display=swap">
+<style>
+  :root{
+    --navy-0:#06101F; --navy-1:#0A1A3A; --navy-2:#0D1E3D; --navy-3:#1A2F5E; --navy-4:#0A2060;
+    --blue:#0095FF; --blue-2:#006FCC; --sky:#4EC9FF; --mint:#00C9B1;
+    --gold:#D9B978; --gold-2:#F1DCA6;
+    --ice:#C9D8F5; --ice-2:#8FA9D9; --white:#FFFFFF; --line:rgba(255,255,255,.12);
+    --sans:"Pretendard Variable","Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --serif:"Noto Serif KR","Nanum Myeongjo",serif;
+    --eng:"DM Sans","Pretendard Variable",sans-serif;
+    --r:16px; --gutter:18px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:var(--navy-0);color:#fff;font-family:var(--sans);font-size:15px;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}
+  img{max-width:100%;height:auto;display:block}
+  h1,h2,h3{margin:0;text-wrap:balance;line-height:1.28}
+  p{margin:0}
+  a{color:inherit}
+  button,input{font-family:inherit}
+  .page{max-width:480px;margin:0 auto;background:var(--navy-1);box-shadow:0 0 60px rgba(0,0,0,.5);padding-bottom:88px;position:relative;overflow:hidden}
+  section{padding-block:44px;padding-inline:var(--gutter);position:relative}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--eng);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);font-weight:700}
+  .eyebrow::before{content:"";width:18px;height:1px;background:var(--sky)}
+  .h2{font-family:var(--sans);font-size:25px;font-weight:800;letter-spacing:-.02em;margin-top:12px}
+  .h2 em{font-style:normal;color:var(--sky)}
+  .lead{margin-top:12px;color:var(--ice);font-size:14.5px}
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:16px 18px;border-radius:999px;border:0;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .12s ease}
+  .btn:active{transform:scale(.985)}
+  .btn-primary{background:linear-gradient(90deg,var(--blue) 0%,#2F6BFF 60%,#5B8BFF 100%);color:#fff;box-shadow:0 10px 26px rgba(0,149,255,.35)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
+  .btn svg{width:18px;height:18px}
+  .note{font-size:12px;color:var(--ice-2);line-height:1.6}
+  .light{background:#F4F8FF;color:var(--navy-2)}
+  .light .eyebrow{color:var(--blue-2)}.light .eyebrow::before{background:var(--blue-2)}
+  .light .lead{color:#5A6A85}.light .note{color:#7A8AA5}
+  .light .h2 em{color:var(--blue)}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px var(--gutter);background:rgba(6,16,31,.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .brand{font-family:var(--eng);letter-spacing:.32em;font-weight:700;font-size:14px;line-height:1}
+  .brand small{display:block;letter-spacing:.28em;font-size:8px;font-weight:500;color:var(--ice);margin-top:4px}
+  .topbar .tag{font-size:11px;color:var(--ice);border:1px solid rgba(201,216,245,.35);padding:5px 10px;border-radius:999px;white-space:nowrap}
+  .topbar .tag b{color:#fff}
+
+  /* inviter banner */
+  .inviter{display:none;align-items:center;gap:12px;margin:14px var(--gutter) 0;padding:12px 14px;border-radius:14px;background:linear-gradient(90deg,rgba(0,149,255,.22),rgba(0,201,177,.12));border:1px solid rgba(78,201,255,.35)}
+  .inviter.on{display:flex}
+  .inviter .av{width:40px;height:40px;border-radius:50%;background:var(--blue);display:grid;place-items:center;font-weight:900;font-size:16px;flex:0 0 40px}
+  .inviter b{display:block;font-size:14px}
+  .inviter span{display:block;font-size:12px;color:var(--ice)}
+  .inviter code{font-family:var(--eng);color:var(--gold-2);letter-spacing:.08em}
+
+  /* hero */
+  .hero{padding-top:30px;padding-bottom:0;overflow:hidden;
+    background:radial-gradient(90% 50% at 100% 0%,rgba(0,149,255,.28),transparent 60%),radial-gradient(60% 40% at 0% 60%,rgba(0,201,177,.10),transparent 60%),linear-gradient(180deg,var(--navy-4) 0%,var(--navy-1) 100%)}
+  .hero .q{font-size:13.5px;color:var(--ice);letter-spacing:.02em}
+  .hero h1{font-family:var(--sans);font-size:31px;font-weight:800;margin-top:10px;letter-spacing:-.02em}
+  .hero h1 em{font-style:normal;color:var(--sky)}
+  .hero .sub{margin-top:12px;color:var(--ice);font-size:14.5px}
+  .hero .big{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+  .hero .big .l1{font-size:15px;color:var(--ice)}
+  .hero .big .l1 b{font-family:var(--eng);font-size:38px;font-weight:700;color:var(--gold-2);margin:0 4px;line-height:1;letter-spacing:-.02em}
+  .hero .big .l2{margin-top:6px;font-size:15px;color:var(--ice)}
+  .hero .big .l2 b{font-family:var(--eng);font-size:24px;font-weight:700;color:#fff;margin:0 4px}
+  .hero-visual{margin:14px calc(-1 * var(--gutter)) 0;position:relative}
+  .hero-visual img{width:100%;height:430px;object-fit:cover;object-position:50% 18%;-webkit-mask-image:linear-gradient(180deg,#000 0%,#000 62%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,#000 62%,transparent 100%)}
+  .hero .btn{margin-top:8px}
+
+  /* code box */
+  .codebox{margin:-90px var(--gutter) 0;background:rgba(13,30,61,.85);border:1px solid rgba(78,201,255,.4);border-radius:var(--r);padding:16px;position:relative;z-index:1;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+  .codebox .t{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ice)}
+  .codebox .t svg{width:18px;height:18px;flex:0 0 18px;color:var(--sky)}
+  .codebox label{display:block;font-size:14px;font-weight:700;margin-top:12px}
+  .codebox .row{display:grid;grid-template-columns:1fr auto;gap:8px;margin-top:8px}
+  .codebox input{width:100%;padding:14px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:#fff;color:var(--navy-2);font-size:15px;font-family:var(--eng);letter-spacing:.06em;font-weight:700}
+  .codebox input::placeholder{color:#9DAAC4;font-weight:500;letter-spacing:0;font-family:var(--sans)}
+  .codebox .go{padding:0 16px;border-radius:12px;border:0;background:var(--blue);color:#fff;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
+  .codebox .hint{margin-top:10px;font-size:12px;color:var(--ice-2);display:flex;gap:6px;align-items:flex-start}
+  .codebox .hint::before{content:"!";flex:0 0 16px;width:16px;height:16px;border-radius:50%;border:1px solid var(--ice-2);display:grid;place-items:center;font-size:10px;margin-top:2px}
+
+
+  /* 750 breakdown */
+  .two{display:grid;gap:12px;margin-top:22px}
+  .bx{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+  .bx .k{font-family:var(--eng);font-size:11px;letter-spacing:.2em;color:var(--sky);font-weight:700;text-align:center}
+  .bx .v{text-align:center;font-size:15px;margin-top:6px;color:var(--ice)}
+  .bx .v b{font-family:var(--eng);font-size:34px;color:#fff;margin:0 4px;line-height:1}
+  .bx ul{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:10px}
+  .bx li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:center}
+  .bx li img{width:48px;height:48px;object-fit:contain}
+  .bx .kit{margin:-16px -16px 14px;border-radius:var(--r) var(--r) 0 0;overflow:hidden}
+  .bx .kit img{width:100%;aspect-ratio:4/3;object-fit:cover}
+  .bx li b{display:block;font-size:14px}
+  .bx li span{display:block;font-size:12px;color:var(--ice-2)}
+  .plus{display:grid;place-items:center;margin:-2px 0;color:var(--gold)}
+  .plus span{width:34px;height:34px;border-radius:50%;border:1px solid rgba(217,185,120,.5);display:grid;place-items:center;font-weight:900;font-size:18px;background:var(--navy-1)}
+  .total{margin-top:14px;text-align:center;border:1px solid rgba(217,185,120,.55);border-radius:var(--r);padding:20px 14px;background:linear-gradient(180deg,rgba(217,185,120,.12),rgba(217,185,120,.03))}
+  .total .l{font-family:var(--eng);font-size:11px;letter-spacing:.24em;color:var(--gold);font-weight:700}
+  .total .v{font-family:var(--eng);font-size:34px;font-weight:700;color:var(--gold-2);line-height:1.1;margin-top:6px;letter-spacing:-.02em;white-space:nowrap}
+  .total .v small{font-family:var(--sans);font-size:14px;font-weight:700;margin-left:4px;color:var(--gold)}
+  .total .s{font-size:13px;color:var(--ice);margin-top:6px}
+  .total .s b{color:#fff}
+  .calc{margin-top:14px;background:#fff;color:var(--navy-2);border-radius:var(--r);padding:16px}
+  .calc .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .calc label{font-size:13.5px;font-weight:700}
+  .calc output{font-family:var(--eng);font-size:20px;font-weight:700;color:var(--blue-2)}
+  input[type=range]{width:100%;margin:12px 0 4px;accent-color:var(--blue)}
+  .ticks{display:flex;justify-content:space-between;font-size:11px;color:#7A8AA5}
+  .calc .res{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .calc .r{background:#F4F8FF;border-radius:12px;padding:12px}
+  .calc .r .l{font-size:11.5px;color:#5A6A85}
+  .calc .r .v{font-family:var(--eng);font-size:20px;font-weight:700;margin-top:2px}
+  .calc .r.y5 .v{color:var(--blue-2)}
+
+  /* benefit cards (ref 02_09-4) */
+  .benefit{background:linear-gradient(180deg,#F7FAFF 0%,#EEF4FC 100%);padding-top:40px}
+  .ceye{font-family:var(--eng);font-size:11px;letter-spacing:.24em;color:var(--blue-2);font-weight:700;text-align:center}
+  .ctitle{font-size:24px;font-weight:800;letter-spacing:-.02em;text-align:center;margin-top:10px;position:relative;padding:0 8px}
+  .ctitle::before,.ctitle::after{content:"";position:absolute;top:50%;width:14%;height:1px;background:#C9D8F5}
+  .ctitle::before{left:-4px}.ctitle::after{right:-4px}
+  .grid4{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .gc{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:center;background:#fff;border-radius:16px;padding:14px 12px;box-shadow:0 10px 26px rgba(13,30,61,.08);border:1px solid #E4ECF7}
+  .gc img{width:76px;height:64px;object-fit:contain;border-radius:0}
+  .gc .n{font-size:16px;font-weight:900;letter-spacing:-.02em;line-height:1.2}
+  .gc .n .en{font-family:var(--eng);font-size:18px}
+  .gc .s{font-size:11.5px;color:#5A6A85;margin-top:3px;line-height:1.35}
+  .gc .p{display:inline-block;font-size:10.5px;color:var(--navy-2);background:#EEF4FC;border:1px solid #DCE6F5;padding:3px 7px;border-radius:6px;margin-top:6px;line-height:1.3}
+  .gc .p b{color:var(--blue-2)}
+  .friend{margin-top:12px;background:linear-gradient(90deg,#E8F4FF,#F4F8FF);border:1px solid #DCE6F5;border-radius:16px;padding:14px 16px;display:grid;grid-template-columns:76px 1fr auto;align-items:center;gap:12px}
+  .friend img{width:76px;height:64px;object-fit:contain;border-radius:0}
+  .friend .n{font-size:16px;font-weight:900;letter-spacing:-.02em;white-space:nowrap}.friend .n .en{font-family:var(--eng);color:var(--blue-2)}
+  .friend .s2{font-size:13px;color:var(--navy-2);margin-top:2px;font-weight:500}
+  .friend .s3{font-size:11.5px;color:#7A8AA5;margin-top:1px}
+  .friend .chev{width:30px;height:30px;border-radius:50%;border:1px solid #C9D8F5;display:grid;place-items:center;color:var(--blue-2);text-decoration:none;font-size:18px;background:#fff}
+  .ctaband{margin:18px calc(-1 * var(--gutter)) -44px;padding:26px var(--gutter) 30px;background:var(--navy-2);color:#fff;text-align:center}
+  .ctaband .ceye{color:var(--sky)}
+  .ctaband .t{font-size:19px;font-weight:800;letter-spacing:-.02em;margin-top:8px}
+  .ctaband .btn{margin-top:14px}
+  .iconrow{display:grid;grid-template-columns:repeat(4,1fr);margin-top:22px;text-align:center}
+  .ir{padding:4px 2px;border-left:1px solid rgba(255,255,255,.14)}
+  .ir:first-child{border-left:0}
+  .ir svg{width:34px;height:34px;color:var(--sky);margin:0 auto;filter:drop-shadow(0 0 6px rgba(78,201,255,.9)) drop-shadow(0 0 14px rgba(78,201,255,.45))}
+  .ir b{display:block;font-size:13px;font-weight:700;margin-top:10px;color:#fff}
+  .ir span{display:block;font-size:10.5px;color:var(--ice-2);margin-top:2px}
+  @media (max-width:400px){.gc{grid-template-columns:1fr;gap:8px}.gc img{width:72px;height:60px}}
+  /* steps: flowchart */
+  .flow{list-style:none;margin:22px 0 0;padding:0;position:relative}
+  .flow::before{content:"";position:absolute;left:35px;top:40px;bottom:40px;width:2px;background:linear-gradient(180deg,var(--sky),var(--blue));opacity:.7}
+  .flow li{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:start;position:relative;padding-bottom:28px}
+  .flow li:last-child{padding-bottom:0}
+  .flow li+li::before{content:"";position:absolute;left:31px;top:-19px;width:9px;height:9px;border-right:2px solid var(--sky);border-bottom:2px solid var(--sky);transform:rotate(45deg);z-index:1}
+  .flow .node{width:72px;height:72px;border-radius:50%;overflow:hidden;position:relative;z-index:1;box-shadow:0 0 0 5px var(--navy-1),0 10px 20px rgba(0,0,0,.45)}
+  .flow .node img{width:100%;height:100%;object-fit:cover}
+  .flow .node.svgnode{background:#10284F;border:2px solid var(--sky);display:grid;place-items:center;color:#fff}
+  .flow .node.svgnode svg{width:34px;height:34px}
+  .flow .body{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+  .flow .k{font-family:var(--eng);font-size:11px;letter-spacing:.2em;color:var(--sky);font-weight:700}
+  .flow .t{font-size:16px;font-weight:700;margin-top:4px}
+  .flow .s{font-size:13px;color:var(--ice);margin-top:3px}
+  .stores{display:flex;gap:6px;margin-top:10px}
+  .store{display:inline-flex;align-items:center;gap:7px;font-family:var(--eng);font-size:12px;font-weight:700;letter-spacing:.02em;color:#111;background:#fff;border:0;border-radius:10px;padding:8px 13px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+  .store svg{width:16px;height:16px;flex:0 0 16px}
+  .store span{white-space:nowrap}
+  .stores .store{flex:0 0 auto}
+  .flow li.hl .body{border-color:rgba(217,185,120,.6)}
+  .flow li.hl .node{box-shadow:0 0 0 5px var(--navy-1),0 0 0 7px rgba(217,185,120,.6),0 10px 20px rgba(0,0,0,.45)}
+  .flow li.hl .t::after{content:"정회원 시작";font-size:10.5px;font-weight:700;color:var(--navy-1);background:var(--gold-2);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+
+  /* iD VITA (ref 02_09-7) */
+  .vita{background:radial-gradient(70% 45% at 50% 60%,rgba(0,149,255,.28),transparent 70%),linear-gradient(180deg,var(--navy-1),var(--navy-4));text-align:center;overflow:hidden}
+  .vita .q{font-size:13px;color:var(--ice);line-height:1.6}
+  .vita .lead{margin-top:8px}
+  .vimg{margin:6px calc(-1 * var(--gutter)) 0}
+  .vimg img{width:100%;display:block;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}
+  .vcard{position:absolute;left:50%;top:16px;transform:translateX(-50%);width:150px;height:auto;filter:drop-shadow(0 22px 34px rgba(0,0,0,.55));z-index:2}
+  .pedestal{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:230px;height:46px;border-radius:50%;background:radial-gradient(ellipse at 50% 40%,#1A2F5E,#0A1A3A 70%);box-shadow:0 0 40px rgba(0,149,255,.35);z-index:1}
+  .badge{position:absolute;width:86px;height:86px;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(78,201,255,.35),rgba(13,30,61,.95) 65%);border:1px solid rgba(78,201,255,.45);box-shadow:0 10px 24px rgba(0,0,0,.4),inset 0 0 16px rgba(78,201,255,.15);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:3;line-height:1.1}
+  .badge .bl{font-size:10.5px;color:var(--ice);font-weight:700}
+  .badge b{font-size:22px;color:var(--gold-2);margin:2px 0}
+  .badge .bs{font-size:9.5px;color:var(--ice-2)}
+  .badge.b1{left:6px;top:110px}
+  .badge.b2{right:4px;top:8px}
+  .badge.b3{right:10px;top:150px}
+  .vsub{margin-top:18px;font-size:13.5px;color:var(--ice);line-height:1.7}
+  /* start ways */
+  .ways{display:grid;gap:12px;margin-top:20px}
+  .way{position:relative;background:#fff;border:1px solid #E4ECF7;border-radius:16px;padding:20px 16px;text-align:center;box-shadow:0 10px 26px rgba(13,30,61,.08)}
+  .way.rec{border:1.5px solid var(--blue);box-shadow:0 14px 30px rgba(0,149,255,.15)}
+  .way .tag{position:absolute;right:-1px;top:-1px;background:var(--blue);color:#fff;font-size:11px;font-weight:700;padding:5px 12px;border-radius:0 16px 0 12px}
+  .way img{width:64px;height:64px;object-fit:contain;margin:0 auto;filter:drop-shadow(0 8px 14px rgba(13,30,61,.25))}
+  .way img.cardthumb{width:auto;height:64px}
+  .way .n{font-size:18px;font-weight:900;margin-top:10px;letter-spacing:-.02em}
+  .way .s{font-size:13px;color:#5A6A85;margin-top:6px}
+  .wbtn{display:block;margin-top:14px;padding:13px;border-radius:12px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;text-decoration:none}
+  .wbtn.ghost{background:#fff;color:var(--navy-2);border:1px solid #D0DCF0}
+  .wnote{margin-top:12px;text-align:center;font-size:12px;color:#5A6A85;background:#fff;border:1px solid #E4ECF7;border-radius:12px;padding:10px}
+  /* vita band */
+  .vband{background:linear-gradient(180deg,var(--navy-4),var(--navy-1));text-align:center}
+  .vtiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:20px}
+  .vt{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:14px;padding:14px 8px}
+  .vt img{width:44px;height:44px;object-fit:contain;margin:0 auto}
+  .vt b{display:block;font-size:12.5px;font-weight:800;margin-top:8px;line-height:1.3}
+  .vt span{display:block;font-size:10.5px;color:var(--ice-2);margin-top:5px;line-height:1.4}
+  /* ecosystem */
+  .econ{background:linear-gradient(180deg,var(--navy-1) 0%,#061A4A 100%)}
+  .econ .eyebrow{color:var(--sky)}.econ .h2 em{color:var(--sky)}
+  .twophones{margin:6px calc(-1 * var(--gutter)) 0}
+  .twophones img{width:100%;display:block;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 84%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 16%,#000 84%,transparent 100%)}
+  .ecoflow{display:grid;grid-template-columns:1fr 14px 1fr 14px 1fr;align-items:stretch;gap:4px;margin-top:22px}
+  .ef{text-align:center;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;padding:16px 6px 14px}
+  .ef .ic{width:54px;height:54px;border-radius:50%;margin:0 auto;display:grid;place-items:center;color:var(--sky);background:radial-gradient(circle at 35% 30%,rgba(78,201,255,.35),rgba(13,30,61,.9) 65%);border:1px solid rgba(78,201,255,.45);box-shadow:0 8px 18px rgba(0,0,0,.35)}
+  .ef .ic svg{width:26px;height:26px}
+  .ef .k{font-family:var(--eng);font-size:11px;letter-spacing:.2em;color:var(--sky);font-weight:700;margin-top:10px}
+  .ef .t{font-size:14px;font-weight:800;line-height:1.3;margin-top:4px;letter-spacing:-.02em}
+  .ef .s{font-size:11px;color:var(--ice-2);line-height:1.45;margin-top:6px}
+  .ecoflow .ar{align-self:center;color:var(--sky);font-size:22px;font-weight:700;text-align:center;line-height:1;padding-top:40px}
+  .ecoline{text-align:center;margin-top:16px;font-size:13.5px;color:var(--ice);line-height:1.7}
+  .ecoline b{color:#fff}
+
+  /* partners */
+  .plogos{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:20px}
+  .pl{background:#fff;border-radius:12px;padding:10px 14px;height:48px;display:grid;place-items:center}
+  .pl img{height:22px;width:auto;max-width:110px;object-fit:contain}
+
+  /* faq */
+  .faq{margin-top:20px;display:grid;gap:8px}
+  .faq details{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:30px 1fr 24px;align-items:center;gap:10px;padding:13px 14px;font-weight:700;font-size:14.5px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .q{width:30px;height:30px;border-radius:50%;background:rgba(0,149,255,.2);color:var(--sky);display:grid;place-items:center;font-family:var(--eng);font-size:13px;font-weight:700}
+  .faq summary::after{content:"+";width:24px;height:24px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;font-weight:400;color:var(--ice);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .a{padding:0 14px 14px 54px;font-size:13.5px;color:var(--ice)}
+  .faq summary:focus-visible{outline:2px solid var(--sky);outline-offset:-2px}
+
+  /* final */
+  .final{background:var(--navy-1) url("img/final_bg.jpg") no-repeat center top;background-size:100% auto;text-align:center;padding-top:44px;padding-bottom:0}
+  .final h2{font-family:var(--sans);font-size:27px;font-weight:800;letter-spacing:-.02em;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+  .final h2 em{font-style:normal;color:var(--gold-2)}
+  .final .lead{text-shadow:0 1px 8px rgba(0,0,0,.5)}
+  .fspace{width:100%;padding-top:calc(143.5% - 95px)}
+  .final .btn{margin-top:18px}
+  footer{padding:26px var(--gutter) 32px;font-size:11.5px;color:var(--ice-2);border-top:1px solid var(--line);line-height:1.7;background:var(--navy-0)}
+  footer .brand{color:#fff;margin-bottom:10px}
+  footer ul{margin:12px 0 0;padding-left:16px}
+  footer li{margin-top:3px}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(6,16,31,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .bar .in{max-width:444px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+  .bar .l{font-size:11px;color:var(--ice);line-height:1.3}
+  .bar .l b{display:block;color:var(--gold-2);font-size:14px}
+  .bar .btn{width:auto;padding:12px 20px;font-size:14px}
+
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li{grid-template-columns:60px 1fr}.flow .node{width:60px;height:60px}.flow::before{left:29px}.flow li+li::before{left:25px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="brand">COSBACK<small>MEMBERSHIP</small></div>
+    <div class="tag"><b>삼성 iD VITA</b> 제휴 캠페인</div>
+  </header>
+
+  <div class="inviter" id="inviter">
+    <div class="av" id="invAv">C</div>
+    <div><b id="invName">지인이 초대한 COSBACK 정회원 페이지입니다</b><span>추천코드 <code id="invCode">—</code> · 가입 시 자동으로 연결됩니다</span></div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <p class="q">나에게 맞는 뷰티 멤버십, 지금 확인해 보셨나요?</p>
+    <h1>평소 쓰던 뷰티 소비,<br>이제 <em>정회원 혜택</em>으로<br>돌려받으세요.</h1>
+    <p class="sub">더 현명한 뷰티 라이프의 시작,<br>COSBACK 멤버십이 함께합니다.</p>
+    <div class="big">
+      <div class="l1">5년 누적 최대 <b class="num">750만원</b> 상당</div>
+      <div class="l2">+ 본인 구매 <b class="num">15%</b> CASHBACK</div>
+    </div>
+    <div class="hero-visual"><img src="img/hf_portrait.jpg" alt="코스백 앱 화면과 셀루크 제품을 든 여성" width="900" height="1350"></div>
+  </section>
+
+  <!-- CODE BOX -->
+  <div class="codebox" id="join">
+    <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-3.5 3-6 7-6s7 2.5 7 6"/><path d="M18 8v6M15 11h6"/></svg>COSBACK 정회원 추천 혜택이 연결된 전용 초대 페이지</div>
+    <label for="refInput">추천코드 입력</label>
+    <div class="row">
+      <input id="refInput" type="text" placeholder="예) COSBACK-123456" autocomplete="off" autocapitalize="characters">
+      <button type="button" class="go" id="goBtn">확인 및 가입하기 ›</button>
+    </div>
+    <div class="hint">추천코드는 추천하신 지인의 멤버십 혜택을 연결하기 위해 사용됩니다. 가입은 COSBACK 앱에서 진행됩니다.</div>
+  </div>
+
+  <!-- 750 BREAKDOWN -->
+  <section id="value" style="padding-top:54px">
+    <div class="eyebrow">A More Valuable Tomorrow</div>
+    <h2 class="h2"><em>750만원</em>은<br>어떻게 만들어지는가?</h2>
+    <p class="lead">COSBACK이 드리는 다양한 혜택의 구조를 한눈에 확인해 보세요. 정회원 1인 기준 5년 누적 상당액입니다.</p>
+    <div class="two">
+      <div class="bx">
+        <div class="kit"><img src="img/hf_kit.jpg" alt="GREAT BEAUTY 키트: 셀루크 더마코스메틱 3종과 삼성 iD VITA 카드" width="960" height="720"></div>
+        <div class="k">GREAT BEAUTY MEMBERSHIP</div>
+        <div class="v">최대 <b class="num">250만원</b> 상당 / 5년</div>
+        <ul>
+          <li><img src="img/g_gift.png" alt=""><div><b>웰컴 기프트 · 더마코스메틱 세트</b><span>15만 원 상당, 면세점 정품 택배 발송</span></div></li>
+          <li><img src="img/g_coin.png" alt=""><div><b>Dr.Reward 뷰티&amp;웰니스 크레딧</b><span>300,000 포인트, 코스백에서 사용</span></div></li>
+          <li><img src="img/g_shield.png" alt=""><div><b>삼성화재 뷰티케어 보험</b><span>보험료 0원, 단체보험 · 코스백 부담</span></div></li>
+          <li><img src="img/g_crown.png" alt=""><div><b>매년 갱신되는 연간 정회원 혜택</b><span>연 50만 원 상당 × 5년</span></div></li>
+        </ul>
+      </div>
+      <div class="plus"><span>+</span></div>
+      <div class="bx">
+        <div class="k">VIP FRIEND REWARD</div>
+        <div class="v">최대 <b class="num">500만</b> CREDIT / 5년</div>
+        <ul>
+          <li><img src="img/g_people.png" alt=""><div><b>친구 초대 1명당 20만 리워드</b><span>내 초대 링크로 가입한 가족·지인</span></div></li>
+          <li><img src="img/g_chart.png" alt=""><div><b>연간 최대 100만 × 5년</b><span>연 최대 5명까지 인정</span></div></li>
+          <li><img src="img/g_share.png" alt=""><div><b>친구 구매 5% 캐시백은 별도</b><span>추천 관계 자동 연결</span></div></li>
+        </ul>
+      </div>
+    </div>
+    <div class="total">
+      <div class="l">TOTAL VALUE</div>
+      <div class="v num">최대 7,500,000<small>원 상당</small></div>
+      <div class="s">+ 본인 구매 <b>15% CASHBACK</b></div>
+    </div>
+    <p class="note" style="margin-top:8px;text-align:center">※ 일부 혜택은 추천 실적·연간 이용조건 등 운영조건 충족 시 제공됩니다.</p>
+    <div class="calc" id="calc">
+      <div class="row"><label for="inv">내 혜택 계산 · 연간 초대 인원</label><output id="invOut" for="inv" class="num">3명</output></div>
+      <input type="range" id="inv" min="0" max="5" step="1" value="3">
+      <div class="ticks"><span>0명</span><span>5명</span></div>
+      <div class="res">
+        <div class="r"><div class="l">연간 혜택 상당</div><div class="v num" id="y1">110만 원</div></div>
+        <div class="r y5"><div class="l">5년 누적 상당</div><div class="v num" id="y5">550만 원</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFIT CARDS (ref 02_09-4) -->
+  <section class="light benefit" id="benefit">
+    <div class="ceye">COSBACK MEMBERSHIP</div>
+    <h2 class="ctitle">코스백 정회원만의 특별한 혜택,<br>지금 경험해 보세요.</h2>
+    <div class="grid4">
+      <div class="gc"><img src="img/v_coins.jpg" alt=""><div><div class="n"><span class="en">30만</span> CREDIT</div><div class="s">Dr.Reward 뷰티·웰니스 크레딧</div><span class="p">가입 선물 <b>10만</b> + 정회원 승급 <b>20만</b></span></div></div>
+      <div class="gc"><img src="img/v_gift.jpg" alt=""><div><div class="n"><span class="en">15만원</span> 상당</div><div class="s">정회원 웰컴 기프트</div><span class="p">프리미엄 라이프를 위한 특별한 선물</span></div></div>
+      <div class="gc"><img src="img/v_shield.jpg" alt=""><div><div class="n">고객 부담금 <span class="en">0원</span></div><div class="s">뷰티케어보험 가입 혜택</div><span class="p">Dr.Reward에서 별도 가입</span></div></div>
+      <div class="gc"><img src="img/v_bag.jpg" alt=""><div><div class="n">본인 구매 <span class="en">15%</span></div><div class="s">COSBACK 정회원 캐시백</div><span class="p">구매 확정 후 적립</span></div></div>
+    </div>
+    <div class="friend"><img src="img/v_people.jpg" alt=""><div><div class="n">친구 구매 <span class="en">5% CASHBACK</span></div><div class="s2">추천 관계 자동 연결</div><div class="s3">소중한 사람과 함께, 더 커지는 혜택</div></div><a class="chev" href="#join" aria-label="가입하기">›</a></div>
+    <div class="ctaband">
+      <div class="ceye">COSBACK MEMBERSHIP</div>
+      <div class="t">지금, 더 연결된 혜택을 시작하세요.</div>
+      <div class="iconrow">
+        <div class="ir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b>쇼핑</b><span>더 스마트한 선택</span></div>
+        <div class="ir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7"/><path d="M5 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></svg><b>캐시백</b><span>쓸수록 커지는 혜택</span></div>
+        <div class="ir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4.5 4L12 6l4.5 7L21 9l-2 10H5L3 9z"/></svg><b>멤버십</b><span>특별한 라이프스타일</span></div>
+        <div class="ir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg><b>뷰티 라이프</b><span>더 가치 있는 일상</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section id="steps">
+    <div class="eyebrow">Simple Join Process</div>
+    <h2 class="h2" style="white-space:nowrap">가입은 생각보다 <em>간단합니다</em></h2>
+    <ol class="flow">
+      <li><div class="node svgnode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div><div class="body"><div class="k">STEP 01</div><div class="t">COSBACK 앱 설치</div><div class="s">앱스토어 또는 구글플레이에서 COSBACK 앱을 설치합니다. 코스백은 앱으로만 이용할 수 있습니다.</div><div class="stores"><a href="https://apps.apple.com/kr/app/%EC%BD%94%EC%8A%A4%EB%B0%B1/id6760276501" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1.1-2.8-4.1zM14.3 5.1c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span>App Store</span></a><a href="https://play.google.com/store/apps/details?id=com.hyjoo.cosback" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.5c-.3.3-.5.8-.5 1.4v16.2c0 .6.2 1.1.5 1.4l8.9-9.5-8.9-9.5z" fill="#00D7FE"/><path d="M15.5 15l-3-3 3-3 3.9 2.2c1.1.6 1.1 1.6 0 2.2L15.5 15z" fill="#FFCE00"/><path d="M12.5 12l-8.9 9.5c.4.2.9.2 1.4-.1L15.5 15l-3-3z" fill="#FF3A44"/><path d="M12.5 12l3-3L5 3.1c-.5-.3-1-.3-1.4-.1L12.5 12z" fill="#00F076"/></svg><span>Google Play</span></a></div></div></li>
+      <li><div class="node"><img src="img/n1.jpg" alt=""></div><div class="body"><div class="k">STEP 02</div><div class="t">추천코드로 가입</div><div class="s">앱에서 회원가입 시 지인의 추천코드를 입력하면 추천 혜택이 자동으로 연결됩니다.</div></div></li>
+      <li><div class="node"><img src="img/n2.jpg" alt=""></div><div class="body"><div class="k">STEP 03</div><div class="t">삼성 iD VITA 카드 신청</div><div class="s">앱의 삼성 iD VITA 특별 이벤트 화면에서 안내에 따라 카드를 신청합니다.</div></div></li>
+      <li><div class="node"><img src="img/n3.jpg" alt=""></div><div class="body"><div class="k">STEP 04</div><div class="t">카드 심사 · 발급</div><div class="s">삼성카드 심사 후 발급됩니다. 연회비 2만 원은 청구할인·유지 캐시백으로 자동 무료.</div></div></li>
+      <li class="hl"><div class="node"><img src="img/n4.jpg" alt=""></div><div class="body"><div class="k">STEP 05</div><div class="t">발급 후 1개월 내 15만원 사용</div><div class="s">사용처 제한 없이 누적 15만 원 이상 결제하면 정회원으로 승인되고 혜택이 시작됩니다.</div></div></li>
+    </ol>
+  </section>
+
+  <!-- iD VITA (ref 02_09-7) -->
+  <section class="vita" id="vita">
+    <p class="q">프리미엄 라이프의 기준,<br>선택이 다르면 일상이 달라집니다.</p>
+    <h2 class="h2" style="margin-top:8px;white-space:nowrap">왜 <em>삼성 iD VITA</em>인가?</h2>
+    <p class="lead">COSBACK과 가장 잘 맞는<br>Beauty Lifestyle Card</p>
+    <div class="vimg"><img src="img/idvita_stage.jpg" alt="삼성 iD VITA 카드와 의료 20%, 헬스·뷰티 20%, 보험 10% 결제일 할인 혜택" width="960" height="721"></div>
+    <p class="vsub">일상의 건강한 아름다움을 위한 모든 순간,<br>삼성 iD VITA의 특별한 혜택과 COSBACK 멤버십이 함께합니다.</p>
+    <p class="note" style="margin-top:10px;text-align:center">카드 할인 혜택의 상세 조건은 삼성카드 상품 안내 기준이며, 제휴 가맹점 3개월 무이자가 적용됩니다.</p>
+  </section>
+
+  <section class="light" id="start">
+    <div class="ceye">MEMBERSHIP GUIDE</div>
+    <h2 class="ctitle">정회원 시작 방식</h2>
+    <p class="lead" style="text-align:center">지금, 나에게 맞는 방법으로 시작해 보세요.</p>
+    <div class="ways">
+      <div class="way rec">
+        <img src="img/idvita_card.png" alt="" class="cardthumb">
+        <div class="n">삼성 iD VITA 카드로 시작</div>
+        <div class="s">삼성 iD VITA로 결제하고 COSBACK 정회원 혜택까지 한 번에 시작하세요.</div>
+        <a class="wbtn" href="#join">삼성 iD VITA로 정회원 시작하기 ›</a>
+      </div>
+    </div>
+    <div class="wnote">! 이벤트 대상 여부는 삼성카드 기준에 따라 확인됩니다.</div>
+  </section>
+
+  <section class="vband" id="vband">
+    <div class="ceye" style="color:var(--sky)">SPECIAL POINT</div>
+    <h2 class="ctitle" style="color:#fff">삼성 iD VITA와 COSBACK이 만나<br>더 특별한 라이프가 시작됩니다.</h2>
+    <div class="vtiles">
+      <div class="vt"><img src="img/g_coin.png" alt=""><b>카드 혜택 +<br>COSBACK 혜택</b><span>일상의 소비가<br>더 큰 가치로 돌아옵니다.</span></div>
+      <div class="vt"><img src="img/g_shield.png" alt=""><b>더 가벼워지는<br>뷰티 라이프</b><span>건강한 아름다움을 위한<br>현명한 선택입니다.</span></div>
+      <div class="vt"><img src="img/g_crown.png" alt=""><b>더 특별한<br>멤버십 시작</b><span>지금, 프리미엄 라이프의<br>새로운 기준을 경험하세요.</span></div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section class="econ" id="eco">
+    <div class="eyebrow">COSBACK · Dr.Reward</div>
+    <h2 class="h2">COSBACK에서 시작해<br><em>Dr.Reward로 이어집니다.</em></h2>
+    <div class="twophones"><img src="img/v_twophones.jpg" alt="COSBACK 앱과 Dr.Reward 앱 화면" width="960" height="785"></div>
+    <div class="ecoflow">
+      <div class="ef">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg></div>
+        <div class="k">01</div><div class="t">코스백에서<br>구매</div><div class="s">화장품 · 이너뷰티<br>건강기능식품</div>
+      </div>
+      <div class="ar">›</div>
+      <div class="ef">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="7" rx="7" ry="3"/><path d="M5 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7"/><path d="M5 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></svg></div>
+        <div class="k">02</div><div class="t">캐시백 +<br>크레딧 적립</div><div class="s">15% 현금 캐시백과<br>웰니스 크레딧이 함께</div>
+      </div>
+      <div class="ar">›</div>
+      <div class="ef">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l8-5 8 5v13"/><path d="M12 10v6M9 13h6"/><path d="M2 21h20"/></svg></div>
+        <div class="k">03</div><div class="t">닥터리워드에서<br>사용</div><div class="s">피부과 시술 ·<br>입점 웰니스숍 결제</div>
+      </div>
+    </div>
+    <p class="ecoline">쇼핑은 <b>COSBACK</b>에서, 케어는 <b>Dr.Reward</b>에서.<br>하나의 멤버십으로 캐시백과 크레딧이 이어집니다.</p>
+    <div class="plogos">
+      <div class="pl"><img src="img/logo_cosback.png" alt="COSBACK"></div>
+      <div class="pl"><img src="img/logo_scard.jpg" alt="삼성카드"></div>
+      <div class="pl"><img src="img/logo_sfire.png" alt="삼성화재"></div>
+      <div class="pl"><img src="img/logo_shilla.png" alt="신라면세점"></div>
+      <div class="pl"><img src="img/logo_drreward.png" alt="닥터리워드"></div>
+      <div class="pl"><img src="img/logo_hecto.jpg" alt="헥토파이낸셜"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="h2">자주 묻는 질문</h2>
+    <div class="faq">
+      <details open><summary><span class="q">Q</span><span>삼성 iD VITA 이벤트는 누구나 참여할 수 있나요?</span></summary><div class="a">이벤트 대상 여부는 삼성카드 기준에 따라 확인됩니다. 안내된 링크로 카드를 신청하면 대상 여부가 확인되며, 카드 심사·발급은 삼성카드의 고유 권한입니다.</div></details>
+      <details><summary><span class="q">Q</span><span>카드만 신청하면 바로 정회원이 되나요?</span></summary><div class="a">아닙니다. 카드 발급 후 1개월 이내 누적 15만 원 이상 사용해야 정회원으로 승인되고, 승인과 동시에 웰컴 기프트가 제공됩니다.</div></details>
+      <details><summary><span class="q">Q</span><span>친구가 보내준 링크로 가입하면 무엇이 다른가요?</span></summary><div class="a">추천코드가 자동 연결되어 추천 관계와 관련 혜택이 정상적으로 연결됩니다. 이후 내가 초대한 친구에 대해서는 초대 1명당 20만 리워드와 친구 구매 5% 캐시백이 나에게 쌓입니다.</div></details>
+      <details><summary><span class="q">Q</span><span>750만 원은 현금으로 받나요?</span></summary><div class="a">현금이 아니라 5년 누적 혜택의 합산 정가입니다. 웰컴 기프트·크레딧·보험(연 50만 원 상당 × 5년)과 친구 초대 리워드(연 최대 100만 × 5년)로 구성됩니다. 본인 구매 15% 캐시백은 이와 별도로 현금 적립됩니다.</div></details>
+      <details><summary><span class="q">Q</span><span>뷰티케어보험은 자동으로 가입되나요?</span></summary><div class="a">아닙니다. 정회원 활성화 후 Dr.Reward에서 본인인증과 필수동의를 거쳐 가입합니다. 보험료는 코스백이 부담합니다.</div></details>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final" id="final">
+    <div class="eyebrow" style="justify-content:center">Good Choices, Brighter Tomorrow</div>
+    <h2>친구가 보내준 이 초대,<br><em>확인만 하고 지나치지 마세요.</em></h2>
+    <p class="lead" style="margin-top:8px">나에게 적용되는 COSBACK 정회원 혜택을 확인해 보세요.</p>
+    <div class="fspace" aria-hidden="true"></div>
+  </section>
+
+  <footer>
+    <div class="brand">COSBACK<small>MEMBERSHIP</small></div>
+    <div>주식회사 빅웨이브3 · 대표이사 서민희<br>(12936) 경기도 하남시 덕풍북로6번길 74 · doctorreward@gmail.com<br>bigwave3.com · cosback.com · m.doctorreward.com</div>
+    <ul>
+      <li>750만 원은 정회원 1인 기준 5년 누적 혜택의 합산 정가이며, 정회원 자격 유지(코스백 연 50만 원 이상 구매)와 연간 초대 상한(5명) 등 운영 조건 충족 시 제공됩니다.</li>
+      <li>카드 심사·한도·발급 여부는 삼성카드의 고유 권한이며, ㈜빅웨이브3는 발급을 보증하지 않습니다.</li>
+      <li>본인 구매 캐시백 15%는 구매 확정 후 적립되며, 친구 구매 캐시백 5%는 추천 관계가 연결된 정회원의 결제액 기준입니다.</li>
+      <li>뷰티케어보험은 삼성화재 단체보험으로 Dr.Reward에서 본인인증 및 필수동의 후 가입됩니다.</li>
+    </ul>
+  </footer>
+</div>
+
+<div class="bar">
+  <div class="in">
+    <div class="l">추천 혜택 자동 연결 · 5년 최대<b class="num">750만원 상당 + 15% 캐시백</b></div>
+    <a class="btn btn-primary" href="#join">가입하기</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ── 추천 링크: ?ref=코드&by=이름 ── */
+  var q=new URLSearchParams(location.search);
+  var ref=(q.get('ref')||'').trim(), by=(q.get('by')||'').trim();
+  var input=document.getElementById('refInput');
+  if(ref){
+    input.value=ref;
+    document.getElementById('invCode').textContent=ref;
+    document.getElementById('inviter').classList.add('on');
+    if(by){document.getElementById('invName').textContent=by+' 님이 초대한 COSBACK 정회원 페이지입니다';document.getElementById('invAv').textContent=by.charAt(0);}
+  }
+  /* TODO: 실제 가입 URL로 교체 (추천코드 파라미터 규격은 코스백 시스템 기준) */
+  var JOIN_URL='https://cosback.com/';
+  document.getElementById('goBtn').addEventListener('click',function(){
+    var code=input.value.trim();
+    if(!code){input.focus();input.placeholder='추천코드를 입력해 주세요';return;}
+    location.href=JOIN_URL+'?ref='+encodeURIComponent(code);
+  });
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('goBtn').click();});
+
+  /* ── 혜택 계산기 ── */
+  function comma(n){return n.toLocaleString('ko-KR');}
+  var inv=document.getElementById('inv');
+  function calc(){var n=+inv.value,y1=50+20*n;document.getElementById('invOut').textContent=n+'명';document.getElementById('y1').textContent=y1+'만 원';document.getElementById('y5').textContent=comma(y1*5)+'만 원';}
+  inv.addEventListener('input',calc);calc();
+
+})();
+</script>
+</body>
+</html>
