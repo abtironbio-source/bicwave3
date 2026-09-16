@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>코스백 × 대한간호조무사협회 공동마케팅 기금</title>
+<meta name="description" content="대한간호조무사협회 회원의 뷰티·웰니스 소비가 협회의 성장기금이 되고, 회원은 5년 누적 최대 750만 원 상당의 코스백 정회원 혜택을 누립니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --bg:#FFFFFF; --tint:#F2F7FD; --tint-2:#E4EEFB; --line:#D9E6F6;
+    --navy:#14264A; --ink-2:#5A6A85; --ink-3:#8A98B0;
+    --blue:#2F7BEA; --blue-2:#1E5FCF; --sky:#BFD8F8; --sky-2:#7FB0F0;
+    --gold:#C9A25C;
+    --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    --r:18px; --gutter:18px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{margin:0;background:#E9F1FA;color:var(--navy);font-family:var(--sans);font-size:15px;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}
+  img{max-width:100%;height:auto;display:block}
+  h1,h2,h3{margin:0;font-weight:900;text-wrap:balance;line-height:1.25;letter-spacing:-.02em}
+  p{margin:0}
+  a{color:inherit}
+  button{font-family:inherit}
+  .page{max-width:480px;margin:0 auto;background:var(--bg);box-shadow:0 0 50px rgba(20,38,74,.12);padding-bottom:88px;position:relative;overflow:hidden}
+  section{padding-block:44px;padding-inline:var(--gutter);position:relative}
+  .tint{background:linear-gradient(180deg,var(--tint) 0%,#FFFFFF 100%)}
+  .no{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:-.01em}
+  .no::after{content:"";display:block;width:34px;height:2px;background:var(--blue);margin-top:8px}
+  .lbl{font-size:11px;letter-spacing:.22em;color:var(--sky-2);font-weight:700;margin-top:16px;text-transform:uppercase}
+  .h2{font-size:27px;margin-top:8px}
+  .h2 em,.h1 em{font-style:normal;color:var(--blue)}
+  .lead{margin-top:14px;color:var(--ink-2);font-size:15px}
+  .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:17px 18px;border-radius:999px;border:0;font-size:17px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .12s ease}
+  .btn:active{transform:scale(.985)}
+  .btn-primary{background:var(--blue);color:#fff;box-shadow:0 10px 24px rgba(47,123,234,.32)}
+  .btn-outline{background:#fff;color:var(--blue-2);border:1.5px solid var(--sky)}
+  .btn svg{width:18px;height:18px}
+  .note{font-size:12px;color:var(--ink-3);line-height:1.6}
+  .calli{display:block;width:150px;margin:-14px 0 4px auto;pointer-events:none;mix-blend-mode:multiply}
+  .calli-b{display:block;margin:22px auto 0;width:min(300px,80%);mix-blend-mode:multiply}
+  .fi{width:64px;height:64px;border-radius:50%;object-fit:cover;flex:0 0 64px;background:var(--tint-2)}
+  .photo{border-radius:var(--r);overflow:hidden;box-shadow:0 14px 34px rgba(20,38,74,.14)}
+  .photo img{width:100%;object-fit:cover}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px var(--gutter);background:rgba(255,255,255,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .assoc{display:flex;align-items:center;gap:9px;min-width:0}
+  .assoc img{width:38px;height:36px;object-fit:contain;flex:0 0 38px}
+  .assoc b{display:block;font-size:15px;font-weight:900;color:var(--navy);line-height:1.15;letter-spacing:-.02em;white-space:nowrap}
+  .assoc span{display:block;font-size:10.5px;color:var(--ink-2);margin-top:2px;white-space:nowrap}
+  .cos{text-align:right;line-height:1;flex:0 0 auto}
+  .cos b{display:block;font-size:11px;letter-spacing:.3em;font-weight:700;color:var(--navy)}
+  .cos small{display:block;font-size:7.5px;letter-spacing:.26em;color:var(--ink-3);margin-top:3px}
+
+  /* hero */
+  .hero{padding-top:36px;padding-bottom:0;background:#fff url("img/calli_bg.png") no-repeat right top;background-size:70% auto}
+  .h1{font-size:36px;margin-top:14px;padding-right:20px}
+  .hero .lead{max-width:none;word-break:normal;text-wrap:pretty}
+  .hero .btn{margin-top:22px}
+  .hero .btn + .btn{margin-top:10px}
+  .tiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:22px}
+  .tile{background:var(--tint);border-radius:16px;padding:14px 8px 12px;text-align:center;border:1px solid rgba(217,230,246,.7)}
+  .tile img{width:56px;height:56px;border-radius:50%;margin:0 auto}
+  .tile b{display:block;font-size:14px;font-weight:900;margin-top:10px;letter-spacing:-.02em}
+  .tile .v{font-size:19px;font-weight:900;color:var(--blue);line-height:1.15;margin-top:2px}
+  .tile .v small{font-size:11px;font-weight:700;margin-left:1px}
+  .tile span{display:block;font-size:11px;color:var(--ink-2);margin-top:2px}
+  .hero-photo{margin:-24px calc(-1 * var(--gutter)) -6px;position:relative;z-index:0}
+  .hero-photo img{width:100%;display:block}
+
+  /* benefit */
+  .total{margin-top:22px;text-align:center;background:#fff;border:1.5px solid var(--sky);border-radius:var(--r);padding:20px 14px 18px;box-shadow:0 12px 30px rgba(47,123,234,.10)}
+  .total .l{font-size:11px;letter-spacing:.2em;color:var(--sky-2);font-weight:700}
+  .total .v{font-size:40px;font-weight:900;color:var(--blue);line-height:1.1;margin-top:6px;letter-spacing:-.02em}
+  .total .v small{font-size:16px;font-weight:700;margin-left:4px;color:var(--navy)}
+  .total .s{font-size:13px;color:var(--ink-2);margin-top:6px}
+  .bcard{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:0 8px 24px rgba(20,38,74,.06)}
+  .bcard .head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--line)}
+  .bcard .head .ttl{display:flex;align-items:center;gap:10px;min-width:0}
+  .bcard .head .ttl img{width:44px;height:44px;border-radius:50%;flex:0 0 44px}
+  .bcard .head h3{font-size:16px}
+  .bcard .head .m{font-size:11.5px;color:var(--ink-3)}
+  .bcard .head .amt{font-weight:900;font-size:18px;color:var(--blue);white-space:nowrap;text-align:right}
+  .bcard .head .amt small{font-size:11px;color:var(--ink-2);font-weight:500;display:block}
+  .items{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:var(--line)}
+  .item{background:#fff;padding:14px 8px 12px;text-align:center}
+  .item img{width:58px;height:58px;border-radius:50%;margin:0 auto}
+  .item .n{font-size:12.5px;font-weight:700;margin-top:8px;line-height:1.3}
+  .item .p{font-size:12.5px;color:var(--blue);font-weight:900;margin-top:2px}
+  .item .s{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+  .bcard .foot{padding:12px 16px;font-size:13px;color:var(--ink-2);background:var(--tint)}
+  .bcard .foot b{color:var(--navy)}
+  .ref{padding:14px 16px}
+  .ref .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .ref .stp{background:var(--tint);border-radius:12px;padding:10px 6px;text-align:center}
+  .ref .stp .k{font-size:11px;color:var(--ink-2)}
+  .ref .stp .v{font-weight:900;font-size:17px;margin-top:2px;color:var(--navy)}
+  .ref .stp .y{font-size:11px;color:var(--blue);font-weight:700;margin-top:2px}
+  .plus{display:grid;place-items:center;margin:8px 0;color:var(--blue)}
+  .plus span{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--sky);display:grid;place-items:center;font-weight:900;font-size:18px;background:#fff}
+  .extra{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+  .ex{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+  .ex img{width:48px;height:48px;border-radius:50%;flex:0 0 48px}
+  .ex .v{font-weight:900;font-size:20px;line-height:1.1;color:var(--blue)}
+  .ex .l{font-size:11.5px;color:var(--ink-2);margin-top:2px}
+  .calc,.sim{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 16px;box-shadow:0 8px 24px rgba(20,38,74,.06)}
+  .calc .row,.sim .row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .calc label,.sim label{font-size:13.5px;font-weight:700}
+  .calc output,.sim output{font-size:20px;font-weight:900;color:var(--blue)}
+  input[type=range]{width:100%;margin:12px 0 4px;accent-color:var(--blue)}
+  .ticks{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-3)}
+  .calc .res,.sim-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+  .calc .r,.so{background:var(--tint);border-radius:12px;padding:12px}
+  .calc .r .l,.so .l{font-size:11.5px;color:var(--ink-2)}
+  .calc .r .v,.so .v{font-size:19px;font-weight:900;margin-top:2px}
+  .calc .r.y5 .v{color:var(--blue)}
+  .so.big{grid-column:1/-1;background:var(--blue);color:#fff;display:grid;grid-template-columns:1fr auto;align-items:center}
+  .so.big .l{color:rgba(255,255,255,.8)}
+  .so.big .v{font-size:28px}
+  .so.big .v small{font-size:13px;font-weight:500;margin-left:4px;color:rgba(255,255,255,.85)}
+  .so.big img{width:56px;height:56px;object-fit:contain}
+  .so.opt{border:1px dashed var(--sky);background:#fff}
+  .gift-photo{margin-top:22px}
+
+  /* account */
+  .acct{margin-top:18px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 14px;box-shadow:0 8px 24px rgba(20,38,74,.06)}
+  .acct .eq{display:grid;grid-template-columns:1fr auto 1fr auto 1.15fr;align-items:center;gap:6px;text-align:center}
+  .acct .person{background:var(--tint);border-radius:14px;padding:10px 4px}
+  .acct .person img{width:44px;height:44px;border-radius:50%;margin:0 auto}
+  .acct .person .n{font-size:12.5px;font-weight:700;margin-top:6px}
+  .acct .person .s{font-size:11px;color:var(--ink-2)}
+  .acct .op{font-weight:900;font-size:20px;color:var(--sky-2)}
+  .acct .result{background:var(--blue);color:#fff;border-radius:14px;padding:14px 6px}
+  .acct .result .n{font-size:11px;opacity:.85}
+  .acct .result .v{font-size:19px;font-weight:900;line-height:1.15}
+  .acct p{margin-top:12px;font-size:13.5px;color:var(--ink-2)}
+
+  .calli-bg{padding-top:34px;background:url("img/calli_bg.png") no-repeat right top/70% auto,linear-gradient(180deg,var(--tint) 0%,#FFFFFF 100%)}
+  /* tiers */
+  .tiers{display:grid;gap:12px;margin-top:22px}
+  .tier{border-radius:var(--r);padding:18px 16px;background:#fff;border:1px solid var(--line);position:relative;box-shadow:0 8px 24px rgba(20,38,74,.06)}
+  .tier .ic3{position:absolute;top:10px;right:8px;width:112px;height:112px;object-fit:contain;filter:drop-shadow(0 8px 14px rgba(47,123,234,.22))}
+  .tier .badge,.tier h3,.tier .who,.tier .amt{max-width:calc(100% - 112px)}
+  .tier .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:4px 10px;border-radius:999px;background:var(--tint-2);color:var(--blue-2)}
+  .tier h3{font-size:17px;margin-top:10px}
+  .tier .who{font-size:12px;color:var(--ink-3);margin-top:2px}
+  .tier .amt{font-size:30px;font-weight:900;margin-top:8px;line-height:1.1;color:var(--blue)}
+  .tier .amt small{font-size:13px;font-weight:500;color:var(--ink-2);margin-left:4px}
+  .tier p.d{margin-top:8px;font-size:13.5px;color:var(--ink-2)}
+  .tier.opt{background:var(--tint);border-style:dashed;box-shadow:none}
+  .tier.opt .amt{color:var(--navy)}
+  .callout{margin-top:14px;display:flex;gap:12px;align-items:center;background:var(--tint);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+  .callout img{width:48px;height:48px;border-radius:50%;flex:0 0 48px}
+  .callout b{color:var(--navy)}
+  .callout p{font-size:13.5px;color:var(--ink-2)}
+
+  /* flow */
+  .flow{list-style:none;margin:24px 0 0;padding:0}
+  .flow li{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;background:var(--tint);border-radius:16px;padding:12px 14px 12px 12px;position:relative}
+  .flow li + li{margin-top:22px}
+  .flow li + li::before{content:"";position:absolute;left:47px;top:-22px;height:22px;border-left:1.5px dashed var(--sky-2)}
+  .flow li + li::after{content:"";position:absolute;left:43px;top:-8px;width:6px;height:6px;border-right:1.5px solid var(--sky-2);border-bottom:1.5px solid var(--sky-2);transform:rotate(45deg)}
+  .flow .fi{width:72px;height:72px;flex-basis:72px;box-shadow:0 6px 14px rgba(47,123,234,.15)}
+  .flow .k{font-size:12px;font-weight:700;color:var(--blue)}
+  .flow .t{font-weight:900;font-size:16px;margin-top:1px}
+  .flow .s{font-size:13px;color:var(--ink-2);margin-top:2px}
+
+  /* steps */
+  .steps5{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:22px}
+  .steps5 li{position:relative}
+  .steps5 li+li::after{content:"";position:absolute;left:50%;top:-16px;width:7px;height:7px;border-right:1.5px solid var(--sky-2);border-bottom:1.5px solid var(--sky-2);transform:translateX(-50%) rotate(45deg);opacity:.9}
+  .steps5 li{display:grid;grid-template-columns:1fr 76px;gap:12px;align-items:center;background:var(--tint);border-radius:16px;padding:14px 12px 14px 16px}
+  .steps5 .pill{display:inline-block;font-size:11px;font-weight:700;color:var(--blue-2);background:var(--tint-2);padding:3px 10px;border-radius:999px}
+  .steps5 .t{font-weight:900;font-size:16px;margin-top:6px}
+  .steps5 .s{font-size:13px;color:var(--ink-2);margin-top:3px}
+  .steps5 .shot{width:76px;height:76px;object-fit:cover;border-radius:50%}
+  .steps5 li.hl{border:1.5px solid var(--blue)}
+  .steps5 li.hl .t::after{content:"정회원 승인";font-size:10.5px;font-weight:700;color:#fff;background:var(--blue);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+
+  /* partners */
+  .partners{display:grid;gap:12px;margin-top:22px}
+  .pt{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;box-shadow:0 8px 24px rgba(20,38,74,.05)}
+  .pt .lg{width:96px;height:76px;display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px}
+  .pt .lg img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+  .lgrow{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:22px;padding:14px 12px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 8px 24px rgba(20,38,74,.05)}
+  .lgrow img{height:20px;width:auto;max-width:96px;object-fit:contain}
+  .lgrow span{color:var(--sky-2);font-weight:700;font-size:14px}
+  .lgsub{margin-top:12px;background:var(--tint);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:grid;gap:8px}
+  .lgsub .k{font-size:11px;letter-spacing:.14em;color:var(--sky-2);font-weight:700}
+  .lgsub .r{display:flex;align-items:center;gap:12px}
+  .lgsub .r img{height:22px;width:auto;max-width:90px;object-fit:contain;background:#fff;border-radius:6px;padding:2px 6px;border:1px solid var(--line)}
+  .lgsub .r span{font-size:12.5px;color:var(--ink-2)}
+  .pt .n{font-weight:900;font-size:16px}
+  .pt .r{font-size:12px;color:var(--blue);font-weight:700;margin-top:1px}
+  .pt .s{font-size:12.5px;color:var(--ink-2);margin-top:4px}
+
+  /* trust & uses */
+  .trust{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:22px}
+  .tr{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 12px}
+  .tr img{width:50px;height:50px;border-radius:50%}
+  .tr .t{font-weight:900;font-size:14px;margin-top:10px}
+  .tr .s{font-size:12px;color:var(--ink-2);margin-top:3px}
+  .uses{display:grid;gap:10px;margin-top:14px}
+  .use{display:grid;grid-template-columns:56px 1fr;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px 14px 10px 10px}
+  .use img{width:56px;height:56px;border-radius:50%}
+  .use .t{font-weight:900;font-size:15px}
+  .use .s{font-size:12.5px;color:var(--ink-2);margin-top:1px}
+  .quote{margin-top:14px;padding:14px 16px;border-left:3px solid var(--blue);background:#fff;border-radius:0 14px 14px 0;font-size:13.5px;color:var(--ink-2)}
+
+  /* share */
+  .channels{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:18px}
+  .ch{text-align:center}
+  .ch img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:14px;border:1px solid var(--line)}
+  .ch span{display:block;font-size:11px;color:var(--ink-2);margin-top:6px}
+
+  /* faq */
+  .faq{margin-top:20px;display:grid;gap:8px}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:30px 1fr 24px;align-items:center;gap:10px;padding:13px 14px;font-weight:700;font-size:14.5px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .q{width:30px;height:30px;border-radius:50%;background:var(--tint-2);color:var(--blue-2);display:grid;place-items:center;font-size:13px;font-weight:900}
+  .faq summary::after{content:"+";width:24px;height:24px;border-radius:50%;border:1px solid var(--sky);display:grid;place-items:center;font-weight:400;color:var(--blue);transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq .a{padding:0 14px 14px 54px;font-size:13.5px;color:var(--ink-2)}
+  .faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+
+  /* final (navy finale, ref 07) */
+  .final{background:linear-gradient(180deg,#0D2E75 0%,#1652C4 55%,#2F7BEA 100%);color:#fff;padding-bottom:0;text-align:center}
+  .final .no{color:#fff}.final .no::after{background:#fff;margin-left:auto;margin-right:auto}
+  .final .lbl{color:rgba(255,255,255,.7)}
+  .final h2{font-size:28px;margin-top:8px}
+  .final h2 em{font-style:normal;color:#9CD3FF}
+  .final .lead{color:rgba(255,255,255,.85)}
+  .wicons{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:24px}
+  .wicons div{padding:0 6px}
+  .wicons div + div{border-left:1px solid rgba(255,255,255,.25)}
+  .wicons img{width:64px;height:64px;border-radius:50%;margin:0 auto;box-shadow:0 8px 18px rgba(0,0,0,.25)}
+  .wicons b{display:block;font-size:13px;font-weight:700;margin-top:10px;line-height:1.35}
+  .final .btn{margin-top:22px}
+  .final .btn-primary{background:#fff;color:var(--blue-2);box-shadow:0 10px 24px rgba(0,0,0,.2)}
+  .final .btn-ghost{margin-top:10px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.7)}
+  .code{display:inline-flex;align-items:center;gap:10px;margin-top:18px;background:rgba(255,255,255,.12);border:1px dashed rgba(255,255,255,.5);border-radius:10px;padding:10px 14px;font-size:13px}
+  .code b{font-size:16px;letter-spacing:.12em;color:#fff}
+  .final-photo{margin:26px calc(-1 * var(--gutter)) 0}
+  .final-photo img{width:100%;display:block}
+  footer{background:#0B2560;color:rgba(255,255,255,.7);padding:22px var(--gutter) 30px;font-size:11.5px;line-height:1.7}
+  footer .fb{display:flex;align-items:center;gap:10px;color:#fff}
+  footer .fb img{width:36px;height:34px;object-fit:contain;background:#fff;border-radius:9px;padding:3px}
+  footer .fb b{font-size:14px;font-weight:900;display:block;line-height:1.15}
+  footer .fb span{font-size:10.5px;opacity:.8}
+  footer .co{margin-top:12px;color:#fff}
+  footer ul{margin:12px 0 0;padding-left:16px}
+  footer li{margin-top:3px}
+
+  .bar{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+  .bar .in{max-width:444px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+  .bar .l{font-size:11px;color:var(--ink-2);line-height:1.3}
+  .bar .l b{display:block;color:var(--navy);font-size:14px;font-weight:900}
+  .bar .btn{width:auto;padding:12px 22px;font-size:14px}
+
+  a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  @media (max-width:360px){.h1{font-size:31px}.h2{font-size:24px}.item .n{font-size:11.5px}.steps5 li{grid-template-columns:1fr 64px}.steps5 .shot{width:64px;height:64px}.calli{width:120px}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="topbar">
+    <div class="assoc"><img src="img/mark.png" alt="대한간호조무사협회 마크" width="80" height="76"><div><b>대한간호조무사협회</b><span>회원 안내 · 코스백 공동 마케팅 캠페인</span></div></div>
+    <div class="cos"><b>COSBACK</b><small>MEMBERSHIP</small></div>
+  </header>
+
+  <!-- 01 HERO -->
+  <section class="hero" id="top">
+    <div class="no">01. 회원 참여 프로젝트</div>
+    <h1 class="h1">회원에게는<br>750만 원의 혜택,<br><em>협회에는 성장기금</em></h1>
+    <p class="lead"><b style="color:var(--navy)">삼성카드·삼성화재</b>와 함께하는 코스백 프리미엄 정회원.<br>뷰티 소비가 5년 최대 <b style="color:var(--navy)">750만 원 상당</b>의 혜택으로 돌아오고,<br>협회에는 기부금이 아닌 확정 재원이 됩니다.</p>
+    <a class="btn btn-primary" href="#join">회원 참여하기
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn-outline" href="#benefit">혜택 자세히 보기
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <div class="tiles">
+      <div class="tile"><img src="img/fi_gift2.jpg" alt=""><b>회원 혜택</b><div class="v num">750<small>만 원</small></div><span>5년 누적 상당</span></div>
+      <div class="tile"><img src="img/fi_sprout2.jpg" alt=""><b>상생기금</b><div class="v num">6<small>만 원</small></div><span>정회원 1인당 협회 귀속</span></div>
+      <div class="tile"><img src="img/fi_people2.jpg" alt=""><b>간편 참여</b><div class="v">링크 하나</div><span>회비·출연금 없음</span></div>
+    </div>
+    <div class="hero-photo"><img src="img/hero_nurse.png" alt="코스백 앱 화면을 보여주는 간호조무사" width="900" height="1071"></div>
+  </section>
+
+  <!-- 02 BENEFIT -->
+  <section class="tint" id="benefit">
+    <div class="no">02. 회원 혜택은 무엇인가요?</div>
+    <div class="lbl">Member Benefit</div>
+    <h2 class="h2">코스백 정회원이 되면<br><em>이런 혜택을 누립니다</em></h2>
+    <p class="lead">정회원 1인이 5년 동안 받는 혜택의 합산 정가가 750만 원 상당입니다. 회원 본인과 초대한 가족·지인 모두 같은 조건입니다.</p>
+
+    <div class="total">
+      <div class="l">TOTAL VALUE · 5년 누적</div>
+      <div class="v num">7,500,000<small>원 상당</small></div>
+      <div class="s">+ 본인 구매 15% 캐시백 · 친구 구매 5% 캐시백은 별도</div>
+    </div>
+
+    <div class="bcard">
+      <div class="head">
+        <div class="ttl"><img src="img/fi_gift.jpg" alt=""><div><h3>GREAT BEAUTY 키트 3종</h3><div class="m">정회원 승인 즉시 · 매년 갱신</div></div></div>
+        <div class="amt num">연 50만 원<small>× 5년 = 250만 원</small></div>
+      </div>
+      <div class="items">
+        <div class="item"><img src="img/fi_gift3.jpg" alt=""><div class="n">더마코스메틱<br>세트</div><div class="p num">15만 원 상당</div><div class="s">면세점 정품 택배 발송</div></div>
+        <div class="item"><img src="img/fi_cart2.jpg" alt=""><div class="n">뷰티&amp;웰니스<br>리워드 크레딧</div><div class="p num">300,000 P</div><div class="s">코스백에서 사용</div></div>
+        <div class="item"><img src="img/fi_heart.jpg" alt=""><div class="n">삼성화재<br>뷰티케어 보험</div><div class="p">보험료 0원</div><div class="s">단체보험 · 코스백 부담</div></div>
+      </div>
+      <div class="foot">정회원 자격(코스백 연 <b>50만 원 이상 구매</b>)을 유지하면 매년 갱신됩니다. 1계좌(본인+친구) 기준 500만 원 상당.</div>
+    </div>
+
+    <div class="plus"><span>+</span></div>
+
+    <div class="bcard">
+      <div class="head">
+        <div class="ttl"><img src="img/fi_people.jpg" alt=""><div><h3>친구 초대 리워드</h3><div class="m">초대 1명당 20만 리워드 · 연 최대 5명</div></div></div>
+        <div class="amt num">연 최대 100만<small>× 5년 = 500만</small></div>
+      </div>
+      <div class="ref">
+        <p style="font-size:13.5px;color:var(--ink-2)">내 초대 링크(QR)로 가족·지인이 정회원이 되면 초대한 나에게 리워드가 쌓입니다. 코스백에서 화장품·건강기능식품 구매에 현금처럼 사용합니다.</p>
+        <div class="steps">
+          <div class="stp"><div class="k">1명 초대</div><div class="v num">20만</div><div class="y num">5년 100만</div></div>
+          <div class="stp"><div class="k">3명 초대</div><div class="v num">60만</div><div class="y num">5년 300만</div></div>
+          <div class="stp"><div class="k">5명 초대</div><div class="v num">100만</div><div class="y num">5년 500만</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="extra">
+      <div class="ex"><img src="img/fi_bag.jpg" alt=""><div><div class="v num">15%</div><div class="l">본인 구매 캐시백<br>구매 확정 후 현금 적립</div></div></div>
+      <div class="ex"><img src="img/fi_cart.jpg" alt=""><div><div class="v num">5%</div><div class="l">친구 구매 캐시백<br>추천 관계 자동 연결</div></div></div>
+    </div>
+
+    <div class="calc" id="calc">
+      <div class="row"><label for="inv">내 혜택 계산 · 연간 초대 인원</label><output id="invOut" for="inv" class="num">3명</output></div>
+      <input type="range" id="inv" min="0" max="5" step="1" value="3">
+      <div class="ticks"><span>0명</span><span>5명</span></div>
+      <div class="res">
+        <div class="r"><div class="l">연간 혜택 상당</div><div class="v num" id="y1">110만 원</div></div>
+        <div class="r y5"><div class="l">5년 누적 상당</div><div class="v num" id="y5">550만 원</div></div>
+      </div>
+      <p class="note" style="margin-top:10px">키트 연 50만 원 + 초대 리워드(20만 × 인원). 정회원 자격 유지 및 연간 초대 상한(5명) 기준.</p>
+    </div>
+
+    <div class="photo gift-photo"><img src="img/gift_blue.jpg" alt="협회 회원 혜택 선물 상자" width="960" height="360"></div>
+  </section>
+
+  <!-- 03 ACCOUNT -->
+  <section id="account">
+    <div class="no">03. 참여 단위</div>
+    <h2 class="h2">나 하나로 끝나지 않습니다.<br><em>'1계좌 = 본인 + 친구 1명'</em></h2>
+    <p class="lead">회원 한 분이 본인과 가족·지인 한 분을 함께 정회원으로 만들면 1계좌가 성립합니다. 두 사람 모두 같은 혜택을 받고, 협회에는 두 사람 몫의 확정 현금이 들어옵니다.</p>
+    <div class="acct">
+      <div class="eq">
+        <div class="person"><img src="img/fi_check.jpg" alt=""><div class="n">회원 본인</div><div class="s">6만 원</div></div>
+        <div class="op">+</div>
+        <div class="person"><img src="img/fi_people2.jpg" alt=""><div class="n">가족·지인 1명</div><div class="s">6만 원</div></div>
+        <div class="op">=</div>
+        <div class="result"><div class="n">협회 확정 현금</div><div class="v num">12만 원</div></div>
+      </div>
+      <p>초대로 가입한 친구도 같은 절차를 거치고, 키트·크레딧·보험 혜택을 동등하게 받습니다. 1계좌 기준 5년 누적 <b class="num">1,500만 원 상당</b>. 그 이상 추가로 초대한 분은 위 친구 초대 리워드로 나에게 쌓입니다.</p>
+    </div>
+  </section>
+
+  <!-- 04 STRUCTURE -->
+  <section class="tint calli-bg" id="structure">
+    <div class="no">04. 기금은 어떻게 만들어지나요?</div>
+    <div class="lbl">Fund Structure</div>
+    <h2 class="h2">회원의 혜택이 그대로,<br><em>협회의 성장기금이 더해집니다</em></h2>
+    <p class="lead">㈜빅웨이브3가 광고비로 쓸 회원 개발 예산을, 협회의 안내 활동에 대한 대가로 협회 명의 계좌에 지급합니다. 기부금이 아닌 공동 마케팅 기금 구조이며, 무엇이 확정이고 무엇이 선택인지 분명히 구분합니다.</p>
+    <div class="tiers">
+      <div class="tier">
+        <img class="ic3" src="img/ic3p_bank.png" alt="">
+        <span class="badge">1차 · 확정 현금</span>
+        <h3>정회원 1인당 6만 원</h3>
+        <div class="who">코스백 정회원 확정 시 · 카드 발급 익월 영업일 3일차 지급</div>
+        <div class="amt num">144<small>억 원 (회원 15만 명 · 참여율 80% 가정)</small></div>
+        <p class="d">회원 동의 절차가 필요 없는 확정 재원. 단가 인하 없이 협회 명의 계좌로만 입금됩니다.</p>
+      </div>
+      <div class="tier">
+        <img class="ic3" src="img/ic3p_gift.png" alt="">
+        <span class="badge">2차 · 확정 현물</span>
+        <h3>GREAT BEAUTY 키트 + 친구 초대 리워드</h3>
+        <div class="who">정회원 승인 즉시 · 매년 갱신</div>
+        <div class="amt num">750<small>만 원 상당 (1인 · 5년 누적 최대)</small></div>
+        <p class="d">회원 본인과 초대한 가족·지인 모두 동등하게 받습니다. 현물을 협회 재원으로 돌리는 제도는 없습니다.</p>
+      </div>
+      <div class="tier opt">
+        <img class="ic3" src="img/ic3p_coin.png" alt="">
+        <span class="badge">3차 · 선택 사항</span>
+        <h3>캐시백의 자발적 양보</h3>
+        <div class="who">본인 구매 캐시백 15%(1년 한시) · 친구 초대 캐시백 5%</div>
+        <p class="d">원래 회원 본인 계좌로 쌓이는 현금 캐시백입니다. 회원이 개별 동의한 경우에만 협회로 귀속되고, 언제든 철회할 수 있습니다. 동의하지 않아도 1차·2차는 그대로 실행됩니다.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <img src="img/fi_doc.jpg" alt="">
+      <p><b>세법·회계를 먼저 정리했습니다.</b> 지급액은 「공동 마케팅 용역의 대가」로, 협회는 세금계산서를 발행하고 수익사업 회계로 계리합니다. 개인 계좌 지급은 어떤 경우에도 없습니다.</p>
+    </div>
+    <div class="photo" style="margin-top:22px"><img src="img/hands.jpg" alt="환자의 손을 잡은 간호조무사" width="863" height="370"></div>
+  </section>
+
+  <!-- 05 FLOW + SIM -->
+  <section id="flow">
+    <div class="no">05. 참여가 어떻게 기금이 되나요?</div>
+    <div class="lbl">How It Works</div>
+    <h2 class="h2">회원의 참여가<br><em>혜택과 기금으로 이어집니다</em></h2>
+    <ol class="flow">
+      <li><img class="fi" src="img/fi_people.jpg" alt=""><div><div class="k">01</div><div class="t">회원 참여</div><div class="s">협회가 안내하는 전용 링크 또는 QR로 접속합니다.</div></div></li>
+      <li><img class="fi" src="img/fi_check.jpg" alt=""><div><div class="k">02</div><div class="t">코스백 정회원 가입</div><div class="s">삼성 iD VITA 이벤트로 카드를 발급하고 1개월 내 15만 원을 사용하면 정회원으로 승인됩니다.</div></div></li>
+      <li><img class="fi" src="img/fi_bag.jpg" alt=""><div><div class="k">03</div><div class="t">뷰티·웰니스 소비</div><div class="s">장시간·교대 근무로 늘 필요한 피부·수면·건강 관리 소비를 코스백에서 합니다.</div></div></li>
+      <li><img class="fi" src="img/fi_doc.jpg" alt=""><div><div class="k">04</div><div class="t">공동 마케팅 재원 형성</div><div class="s">㈜빅웨이브3의 자사 마케팅 예산이 광고비 대신 협회 재원으로 전환됩니다.</div></div></li>
+      <li><img class="fi" src="img/fi_sprout.jpg" alt=""><div><div class="k">05</div><div class="t">협회 성장기금으로 귀속</div><div class="s">협회 명의 계좌로 입금되고, 사용처는 협회의 목적과 결정에 따릅니다.</div></div></li>
+    </ol>
+
+    <div class="sim" id="sim">
+      <div class="row"><label for="rate">참여율 시뮬레이션</label><output id="rateOut" for="rate" class="num">80%</output></div>
+      <input type="range" id="rate" min="50" max="100" step="5" value="80" aria-describedby="simNote">
+      <div class="ticks"><span>50%</span><span>75%</span><span>100%</span></div>
+      <div class="sim-out">
+        <div class="so"><div class="l">참여 회원 = 계좌 수</div><div class="v num" id="accounts">120,000 계좌</div></div>
+        <div class="so"><div class="l">확정 정회원 (본인+친구)</div><div class="v num" id="members">240,000명</div></div>
+        <div class="so big"><div><div class="l">1차 확정 현금 · 협회 귀속</div><div class="v num" id="fund">144억 원<small>1인당 6만 원</small></div></div><img src="img/ic3_fund.png" alt=""></div>
+        <div class="so opt" style="grid-column:1/-1"><div class="l">3차 선택 사항 최대 (회원 전원 동의 시)</div><div class="v num" id="opt">210억 원</div></div>
+      </div>
+      <p class="note" id="simNote" style="margin-top:10px">회원 150,000명 기준의 가정치입니다. 실제 금액은 협회 명부 확인 후 재산출되며, 연간 지급 한도와 초과분 이월은 협약으로 정합니다.</p>
+    </div>
+    <img class="calli-b" src="img/calli2.png" alt="나의 일상이 협회의 내일이 됩니다" width="420" height="140">
+  </section>
+
+  <!-- 06 STEPS -->
+  <section class="tint" id="steps">
+    <div class="no">06. 어떻게 시작하나요?</div>
+    <div class="lbl">Easy Start</div>
+    <h2 class="h2">참여 방법은 <em>간단합니다</em></h2>
+    <p class="lead">복잡한 절차 없이 협회가 안내한 전용 링크 하나로 시작할 수 있습니다.</p>
+    <ol class="steps5">
+      <li><div><span class="pill">STEP 01</span><div class="t">협회 전용 링크 또는 QR 접속</div><div class="s">협회가 안내한 링크로 코스백 정회원 참여하기 페이지에 접속합니다.</div></div><img class="shot round" src="img/si1.jpg" alt=""></li>
+      <li><div><span class="pill">STEP 02</span><div class="t">삼성 iD VITA 카드 신청</div><div class="s">코스백 이벤트 화면에서 안내에 따라 온라인으로 카드를 신청합니다. 연회비 2만 원은 청구할인·유지 캐시백으로 자동 무료.</div></div><img class="shot round" src="img/si2.jpg" alt=""></li>
+      <li><div><span class="pill">STEP 03</span><div class="t">카드 심사 및 발급</div><div class="s">심사·한도·발급 여부는 삼성카드의 고유 권한입니다.</div></div><img class="shot round" src="img/si3.jpg" alt=""></li>
+      <li class="hl"><div><span class="pill">STEP 04</span><div class="t">발급 후 1개월 내 15만 원 사용</div><div class="s">사용처 제한 없이 누적 15만 원 이상 결제하면 정회원으로 승인되고, 즉시 GREAT BEAUTY 키트가 제공됩니다.</div></div><img class="shot round" src="img/si4.jpg" alt=""></li>
+      <li><div><span class="pill">STEP 05</span><div class="t">협회 기금 지급</div><div class="s">발급 익월 영업일 3일차, 정회원 1인당 6만 원이 협회 명의 계좌로 지급되고 확정 인원 집계표가 함께 송부됩니다.</div></div><img class="shot round" src="img/si5.jpg" alt=""></li>
+    </ol>
+    <img class="calli-b" src="img/calli4.png" alt="함께하는 작은 참여가 큰 변화를 만듭니다" width="235" height="115" style="width:200px">
+  </section>
+
+  <!-- 07 PARTNERS -->
+  <section id="partners">
+    <div class="no">07. 함께하는 파트너</div>
+    <h2 class="h2">세 파트너가 만드는<br><em>공동 마케팅 구조</em></h2>
+    <p class="lead">삼성카드·삼성화재·신라면세점은 자체 준법감시 절차를 통과한 사업만 제휴합니다. 파트너 구성 자체가 실행 가능성의 담보입니다.</p>
+    <div class="lgrow"><img src="img/logo_cosback.png" alt="COSBACK"><span>×</span><img src="img/logo_scard.jpg" alt="삼성카드"><span>×</span><img src="img/logo_sfire.png" alt="삼성화재"></div>
+    <div class="partners">
+      <div class="pt"><div class="lg"><img src="img/logo_cosback.png" alt="COSBACK"></div><div><div class="n">COSBACK</div><div class="r">뷰티·웰니스 이커머스 플랫폼</div><div class="s">화장품·이너뷰티·건강기능식품. 정회원 구매 15% 캐시백, 닥터리워드와 하나의 리워드 엔진으로 연결.</div></div></div>
+      <div class="pt"><div class="lg"><img src="img/logo_scard.jpg" alt="삼성카드"></div><div><div class="n">삼성카드</div><div class="r">결제 파트너 · 삼성 iD VITA</div><div class="s">여신전문금융업법 절차에 따라 운영되는 정식 제휴 캠페인. 정회원 온보딩의 결제 인프라.</div></div></div>
+      <div class="pt"><div class="lg"><img src="img/logo_sfire.png" alt="삼성화재"></div><div><div class="n">삼성화재</div><div class="r">뷰티케어 단체보험</div><div class="s">정회원 대상 단체보험 인수. 보험료는 코스백이 전액 부담, 회원 부담 0원.</div></div></div>
+    </div>
+    <div class="lgsub"><div class="k">공급 · 리워드 파트너</div><div class="r"><img src="img/logo_shilla.png" alt="신라면세점"><span>더마코스메틱 세트 공급 · 닥터리워드 존</span></div><div class="r"><img src="img/logo_drreward.png" alt="닥터리워드"><span>크레딧 · 보험 · 제휴 사용처</span></div></div>
+    <div class="callout" style="margin-top:16px">
+      <img src="img/fi_cap.jpg" alt="">
+      <p><b>창업팀 이력.</b> 더마코스메틱 CELL FUSION C를 국내 4,000개 병원에 공급하고 43개국에 수출한 뒤 원익그룹에 매각한 팀입니다. 키트의 더마코스메틱 세트가 실제로 공급 가능한 이유입니다.</p>
+    </div>
+  </section>
+
+  <!-- 08 TRUST & USES -->
+  <section class="tint calli-bg" id="trust">
+    <div class="no">08. 조성된 기금은 어떻게 사용되나요?</div>
+    <div class="lbl">Fund Value</div>
+    <h2 class="h2">투명하게 모이고,<br><em>협회의 결정에 따라 쓰입니다</em></h2>
+    <div class="trust">
+      <div class="tr"><img src="img/fi_check.jpg" alt=""><div class="t">협회 명의 계좌</div><div class="s">개인 계좌 지급은 어떤 경우에도 없습니다.</div></div>
+      <div class="tr"><img src="img/fi_doc.jpg" alt=""><div class="t">세법·회계 고려</div><div class="s">공동 마케팅 용역비. 세금계산서 발행, 수익사업 회계 계리.</div></div>
+      <div class="tr"><img src="img/fi_cart.jpg" alt=""><div class="t">월별 집계표 · 분기 보고</div><div class="s">확정 인원과 지급액을 같은 집계표로 받아 감사·총회에 제출 가능.</div></div>
+      <div class="tr"><img src="img/fi_heart.jpg" alt=""><div class="t">회원 혜택 우선</div><div class="s">회원이 포기하는 혜택은 없습니다. 키트·크레딧·보험을 참여 회원 전원이 그대로 받습니다.</div></div>
+    </div>
+    <div class="uses">
+      <div class="use"><img src="img/fi_people2.jpg" alt=""><div><div class="t">회원 권익 향상</div><div class="s">회원이 체감할 수 있는 지원 기반을 확대합니다.</div></div></div>
+      <div class="use"><img src="img/fi_gift2.jpg" alt=""><div><div class="t">회원 복지 확대</div><div class="s">회원에게 필요한 새로운 복지와 서비스를 마련합니다.</div></div></div>
+      <div class="use"><img src="img/fi_cap.jpg" alt=""><div><div class="t">보수교육·직무교육 지원</div><div class="s">회원 역량 강화와 전문성 향상을 위한 사업에 힘을 더합니다.</div></div></div>
+      <div class="use"><img src="img/fi_sprout2.jpg" alt=""><div><div class="t">지속 가능한 협회</div><div class="s">안정적인 사업 재원으로 회원과 함께 성장하는 협회를 만듭니다.</div></div></div>
+    </div>
+    <div class="quote">기금의 사용처는 전적으로 협회의 고유 권한입니다. ㈜빅웨이브3는 그 부분에 관하여 어떠한 의견도 제시하지 않습니다.</div>
+    <div class="photo" style="margin-top:22px"><img src="img/steth.jpg" alt="" width="863" height="235"></div>
+  </section>
+
+  <!-- 09 SHARE -->
+  <section id="share">
+    <div class="no">09. 함께하면 더 커집니다</div>
+    <h2 class="h2">동료·가족에게<br><em>알려 주세요</em></h2>
+    <p class="lead">내 초대 링크로 가입한 가족·지인은 같은 혜택을 받고, 나에게는 초대 리워드가 쌓입니다. 일상에서 쓰는 채널로 간편하게 전해 주세요.</p>
+    <div class="photo" style="margin-top:20px"><img src="img/hf_nurses.jpg" alt="근무 기관에서 동료에게 스마트폰 화면을 보여주는 두 간호조무사" width="960" height="723"></div>
+    <div class="channels">
+      <div class="ch"><img src="img/ch1.jpg" alt="카카오톡"><span>카카오 공유</span></div>
+      <div class="ch"><img src="img/ch2.jpg" alt="인스타그램 페이스북"><span>SNS 안내</span></div>
+      <div class="ch"><img src="img/ch3.jpg" alt="문자"><span>문자 발송</span></div>
+      <div class="ch"><img src="img/ch4.jpg" alt="홈페이지"><span>근무기관 게시판</span></div>
+      <div class="ch"><img src="img/ch5.jpg" alt="QR"><span>직무교육센터 QR</span></div>
+    </div>
+  </section>
+
+  <!-- 10 FAQ -->
+  <section class="tint" id="faq">
+    <div class="no">10. 자주 묻는 질문</div>
+    <h2 class="h2">궁금한 점을 <em>확인하세요</em></h2>
+    <div class="faq">
+      <details open><summary><span class="q">Q</span><span>회원이 직접 돈을 내야 하나요?</span></summary><div class="a">별도의 회비나 출연금은 없습니다. 카드 발급 후 일상 결제로 15만 원을 사용하고, 이미 하던 뷰티·웰니스 소비를 코스백에서 하면 750만 원 상당의 정회원 혜택이 시작됩니다. 협회 재원은 ㈜빅웨이브3의 마케팅 예산에서 나옵니다.</div></details>
+      <details><summary><span class="q">Q</span><span>협회 기금은 기부금인가요?</span></summary><div class="a">아닙니다. 협회가 회원 공지·홍보·조직망 안내라는 역무를 제공하고 받는 「공동 마케팅 용역의 대가」입니다. 협회는 세금계산서를 발행하고 수익사업 회계로 구분 계리합니다.</div></details>
+      <details><summary><span class="q">Q</span><span>750만 원은 현금으로 받나요?</span></summary><div class="a">현금이 아니라 5년 누적 혜택의 합산 정가입니다. GREAT BEAUTY 키트(연 50만 원 상당 × 5년 = 250만 원)와 친구 초대 리워드(연 최대 100만 × 5년 = 500만)로 구성됩니다. 본인 구매 15% 캐시백은 이와 별도로 본인 계좌에 현금 적립됩니다.</div></details>
+      <details><summary><span class="q">Q</span><span>삼성카드를 꼭 발급해야 하나요?</span></summary><div class="a">제휴카드 방식 외에 코스백 직접 가입 경로도 있습니다. 이벤트 대상 여부는 삼성카드 기준에 따라 확인되며, 카드 심사·발급은 카드사의 고유 권한입니다.</div></details>
+      <details><summary><span class="q">Q</span><span>카드만 신청하면 바로 정회원이 되나요?</span></summary><div class="a">아닙니다. 카드 발급 후 1개월 이내 누적 15만 원 이상 사용해야 정회원으로 승인됩니다. 승인과 동시에 키트가 제공되고, 익월 협회 기금이 지급됩니다.</div></details>
+      <details><summary><span class="q">Q</span><span>친구 1명을 꼭 초대해야 하나요?</span></summary><div class="a">참여 단위가 1계좌(본인 + 친구 1명)입니다. 본인만 가입하고 친구가 없으면 계좌가 성립하지 않습니다. 초대한 친구도 동일한 절차를 거치고 동등한 혜택을 받습니다.</div></details>
+      <details><summary><span class="q">Q</span><span>뷰티케어보험은 자동으로 가입되나요?</span></summary><div class="a">아닙니다. 정회원 활성화 후 닥터리워드에서 본인인증과 필수동의를 거쳐 가입합니다. 보험료는 코스백이 부담합니다.</div></details>
+      <details><summary><span class="q">Q</span><span>3차 선택 사항에 동의하지 않으면 불이익이 있나요?</span></summary><div class="a">없습니다. 캐시백은 본인 계좌로 정상 지급되며, 1차 확정 현금과 2차 확정 현물은 동의 여부와 무관하게 그대로 실행됩니다. 동의 후에도 언제든 철회할 수 있습니다.</div></details>
+    </div>
+  </section>
+
+  <!-- 11 FINAL -->
+  <section class="final" id="join">
+    <div class="no" style="display:inline-block">11. 함께해요</div>
+    <div class="lbl">Together for a Better Tomorrow</div>
+    <h2>나의 일상적인 참여가<br>우리 모두를 위한 <em>힘이 됩니다</em></h2>
+    <p class="lead">회원 한 분 한 분의 참여가 모여 750만 원의 정회원 혜택을 만들고, 대한간호조무사협회의 지속 가능한 성장기금이 됩니다.</p>
+    <div class="wicons">
+      <div><img src="img/wi_gift.jpg" alt=""><b>회원을 위한<br>혜택</b></div>
+      <div><img src="img/wi_sprout.jpg" alt=""><b>협회를 위한<br>성장기금</b></div>
+      <div><img src="img/wi_people.jpg" alt=""><b>함께 만드는<br>더 나은 내일</b></div>
+    </div>
+    <div class="code">추천코드 <b>KLPNA2026</b></div>
+    <!-- TODO: 협회 전용 링크 URL로 교체 -->
+    <a class="btn btn-primary" href="https://cosback.com/" target="_blank" rel="noopener">회원 참여 신청하기
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="btn btn-ghost" href="mailto:doctorreward@gmail.com?subject=대한간호조무사협회%20공동마케팅%20캠페인%20문의">문의하기</a>
+    <div class="final-photo"><img src="img/final_nurse.jpg" alt="도시를 바라보는 간호조무사" width="863" height="560"></div>
+  </section>
+
+  <footer>
+    <div class="fb"><img src="img/mark.png" alt=""><div><b>대한간호조무사협회 × COSBACK</b><span>회원 안내 · 공동 마케팅 캠페인</span></div></div>
+    <div class="co">주식회사 빅웨이브3 · 대표이사 서민희<br>(12936) 경기도 하남시 덕풍북로6번길 74 · doctorreward@gmail.com<br>bigwave3.com · cosback.com · m.doctorreward.com</div>
+    <ul>
+      <li>본 페이지의 협회 기금 금액은 회원 150,000명·참여율 80% 가정에 따른 시뮬레이션이며, 실제 금액은 협회 명부 확인 및 업무협약에 따라 확정됩니다.</li>
+      <li>750만 원은 정회원 1인 기준 5년 누적 혜택의 합산 정가이며, 정회원 자격 유지(코스백 연 50만 원 이상 구매)와 연간 초대 상한(5명) 등 운영 조건 충족 시 제공됩니다.</li>
+      <li>카드 심사·한도·발급 여부는 삼성카드의 고유 권한이며, ㈜빅웨이브3는 발급을 보증하지 않습니다.</li>
+      <li>GREAT BEAUTY 키트는 코스백 정회원 전원에게 동일하게 제공되는 일반 소비자 대상 공개 캠페인 혜택입니다.</li>
+      <li>부가가치세 포함·별도 여부 등 세부 조건은 협약 시 별도 협의합니다.</li>
+    </ul>
+  </footer>
+</div>
+
+<div class="bar">
+  <div class="in">
+    <div class="l">프리미엄 정회원 혜택 · 5년 최대<b class="num">750만 원 상당을 누리세요</b></div>
+    <a class="btn btn-primary" href="#join">참여하기</a>
+  </div>
+</div>
+
+<script>
+(function(){
+  var BASE=150000, UNIT=60000;
+  function comma(n){return n.toLocaleString('ko-KR');}
+  function eok(won){var e=Math.floor(won/1e8), m=Math.round((won-e*1e8)/1e4); return m===0? e+'억 원' : e+'억 '+comma(m)+'만 원';}
+  var rate=document.getElementById('rate');
+  function sim(){
+    var r=+rate.value/100, acc=Math.round(BASE*r), mem=acc*2;
+    document.getElementById('rateOut').textContent=rate.value+'%';
+    document.getElementById('accounts').textContent=comma(acc)+' 계좌';
+    document.getElementById('members').textContent=comma(mem)+'명';
+    document.getElementById('fund').innerHTML=eok(mem*UNIT)+'<small>1인당 6만 원</small>';
+    document.getElementById('opt').textContent=eok(mem*75000+acc*25000);
+  }
+  rate.addEventListener('input',sim); sim();
+
+  var inv=document.getElementById('inv');
+  function calc(){
+    var n=+inv.value, y1=50+20*n;
+    document.getElementById('invOut').textContent=n+'명';
+    document.getElementById('y1').textContent=y1+'만 원';
+    document.getElementById('y5').textContent=comma(y1*5)+'만 원';
+  }
+  inv.addEventListener('input',calc); calc();
+
+})();
+</script>
+</body>
+</html>
