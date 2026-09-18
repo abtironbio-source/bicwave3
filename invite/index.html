@@ -33,8 +33,9 @@
     --r:16px; --gutter:18px;
   }
   *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-  body{margin:0;background:var(--navy-0);color:#fff;font-family:var(--sans);font-size:15px;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden}
+  body{margin:0;background:var(--navy-0);color:#fff;font-family:var(--sans);font-size:15px;line-height:1.65;word-break:keep-all;overflow-wrap:anywhere;overflow-x:hidden;width:100%;touch-action:pan-y pinch-zoom}
+  input,select,textarea{font-size:16px!important}
   img{max-width:100%;height:auto;display:block}
   h1,h2,h3{margin:0;text-wrap:balance;line-height:1.28}
   p{margin:0}
@@ -346,6 +347,7 @@
 
   a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  @media (max-width:340px){.flow .stores{grid-template-columns:1fr}.friend .chev{display:none}}
   @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li:not(.phd){grid-template-columns:62px 1fr;gap:11px;padding:12px}.flow .node{width:62px;height:62px}}
 </style>
 </head>
