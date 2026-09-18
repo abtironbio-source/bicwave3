@@ -195,6 +195,40 @@
   .flow li.hl .node{box-shadow:0 0 0 5px var(--navy-1),0 0 0 7px rgba(217,185,120,.6),0 10px 20px rgba(0,0,0,.45)}
   .flow li.hl .t::after{content:"정회원 시작";font-size:10.5px;font-weight:700;color:var(--navy-1);background:var(--gold-2);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
 
+  /* 12 step guide */
+  .guide{background:linear-gradient(180deg,var(--navy-1) 0%,#08204F 50%,var(--navy-1) 100%)}
+  .phases{display:grid;gap:12px;margin-top:22px}
+  .ph{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .ph summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;padding:14px}
+  .ph summary::-webkit-details-marker{display:none}
+  .ph .pn{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font-family:var(--eng);font-size:20px;font-weight:700;color:var(--navy-1);background:linear-gradient(135deg,var(--sky),var(--blue))}
+  .ph .pt b{display:block;font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .ph .pt i{display:block;font-style:normal;font-size:12px;color:var(--ice-2);margin-top:1px}
+  .ph .pr{font-family:var(--eng);font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--sky);border:1px solid rgba(78,201,255,.4);border-radius:999px;padding:4px 9px;white-space:nowrap}
+  .ph summary:focus-visible{outline:2px solid var(--sky);outline-offset:-2px}
+  .gsgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:0 10px 12px}
+  .gs{background:rgba(6,16,31,.55);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 11px}
+  .gs .gh{display:flex;align-items:center;justify-content:space-between}
+  .gs .gn{font-family:var(--eng);font-size:12px;font-weight:700;color:var(--navy-1);background:var(--sky);border-radius:7px;padding:2px 7px}
+  .gs svg{width:26px;height:26px;color:var(--sky);filter:drop-shadow(0 0 5px rgba(78,201,255,.8))}
+  .gs b{display:block;font-size:14.5px;font-weight:800;margin-top:9px;letter-spacing:-.02em}
+  .gs p{font-size:12px;color:var(--ice);line-height:1.5;margin-top:4px}
+  .gchip{display:inline-block;margin-top:7px;font-size:10.5px;font-weight:700;color:var(--gold-2);background:rgba(217,185,120,.14);border:1px solid rgba(217,185,120,.4);border-radius:6px;padding:2px 7px;line-height:1.4}
+  .gsub{margin-top:26px;font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .gsub span{display:block;font-size:12.5px;font-weight:400;color:var(--ice-2);margin-top:2px}
+  .use3{display:grid;grid-template-columns:repeat(3,1fr);margin-top:14px;text-align:center}
+  .u3{padding:6px 4px;border-left:1px solid rgba(255,255,255,.14)}
+  .u3:first-child{border-left:0}
+  .u3 svg{width:32px;height:32px;color:var(--sky);margin:0 auto;filter:drop-shadow(0 0 6px rgba(78,201,255,.85))}
+  .u3 b{display:block;font-size:13px;font-weight:700;margin-top:9px}
+  .u3 span{display:block;font-size:11px;color:var(--ice-2);margin-top:2px}
+  .u3 span i{font-style:normal;color:var(--gold-2);font-weight:700}
+  .donebox{margin-top:18px;border:1px solid rgba(78,201,255,.4);border-radius:var(--r);overflow:hidden}
+  .donebox .dt{background:linear-gradient(90deg,var(--blue),#2F6BFF);font-size:14px;font-weight:800;padding:10px 14px}
+  .donebox ul{list-style:none;margin:0;padding:12px 14px;display:grid;gap:7px;background:rgba(255,255,255,.03)}
+  .donebox li{font-size:13.5px;color:var(--ice);display:flex;gap:8px;align-items:center}
+  .donebox li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:var(--sky);color:var(--navy-1);font-size:11px;font-weight:900;display:grid;place-items:center;flex:0 0 18px}
+  @media (max-width:340px){.gsgrid{grid-template-columns:1fr}}
   /* iD VITA (ref 02_09-7) */
   .vita{background:radial-gradient(70% 45% at 50% 60%,rgba(0,149,255,.28),transparent 70%),linear-gradient(180deg,var(--navy-1),var(--navy-4));text-align:center;overflow:hidden}
   .vita .q{font-size:13px;color:var(--ice);line-height:1.6}
@@ -404,6 +438,29 @@
       <li><div class="node"><img src="img/n3.jpg" alt=""></div><div class="body"><div class="k">STEP 04</div><div class="t">카드 심사 · 발급</div><div class="s">삼성카드 심사 후 발급됩니다. 연회비 2만 원은 청구할인·유지 캐시백으로 자동 무료.</div></div></li>
       <li class="hl"><div class="node"><img src="img/n4.jpg" alt=""></div><div class="body"><div class="k">STEP 05</div><div class="t">발급 후 1개월 내 15만원 사용</div><div class="s">사용처 제한 없이 누적 15만 원 이상 결제하면 정회원으로 승인되고 혜택이 시작됩니다.</div></div></li>
     </ol>
+  </section>
+
+  <!-- 12 STEP GUIDE (전개도 내용) -->
+  <section class="guide" id="guide">
+    <div class="eyebrow">12 Step Guide</div>
+    <h2 class="h2">가입부터 혜택 이용까지<br><em>한눈에 보기</em></h2>
+    <p class="lead">QR 스캔부터 크레딧 사용까지, 핵심 12단계 요약입니다.</p>
+    <div class="phases">
+      <details class="ph" open><summary><span class="pn">1</span><span class="pt"><b>가입 시작</b><i>지금, COSBACK과 만나는 첫걸음</i></span><span class="pr">01–04</span></summary><div class="gsgrid"><div class="gs"><div class="gh"><span class="gn">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2v2M18 18h2v2"/></svg></div><b>추천코드 입력</b><p>매장 QR 스캔 또는 초대 링크로 추천코드 자동 입력</p></div><div class="gs"><div class="gh"><span class="gn">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div><b>회원가입</b><p>카카오 가입 또는 일반 가입 후 카카오톡 메시지 2개 확인</p></div><div class="gs"><div class="gh"><span class="gn">03</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h3l7 4V6L6 10H3z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg></div><b>특별혜택 배너</b><p>코스백 정회원 특별혜택 EVENT 페이지로 이동</p></div><div class="gs"><div class="gh"><span class="gn">04</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 0 0 4v4h18v-4a2 2 0 0 0 0-4V7H3v2z"/><path d="M9 12l2 2 4-4"/></svg></div><b>이벤트 응모</b><p>먼저 응모하기 진행</p><span class="gchip">비대상자는 15만원 직접가입 가능</span></div></div></details>
+      <details class="ph" open><summary><span class="pn">2</span><span class="pt"><b>정회원 승격</b><i>카드 사용으로 더 큰 혜택이 시작됩니다</i></span><span class="pr">05–08</span></summary><div class="gsgrid"><div class="gs"><div class="gh"><span class="gn">05</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div><b>카드 신청</b><p>삼성 iD VITA 카드 신청</p></div><div class="gs"><div class="gh"><span class="gn">06</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4.5 4L12 6l4.5 7L21 9l-2 10H5L3 9z"/></svg></div><b>자동 승격</b><p>카드 15만원 이상 사용 시 정회원으로 자동 승격</p><span class="gchip">+200,000 웰니스 크레딧</span></div><div class="gs"><div class="gh"><span class="gn">07</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h16v9H4zM3 7h18v4H3zM12 7v13"/><path d="M12 7c-1.5-3-5-3-5-1s3 1 5 1zm0 0c1.5-3 5-3 5-1s-3 1-5 1z"/></svg></div><b>혜택받기</b><p>화장품 세트 1개 선택, 배송지 입력 후 완료</p></div><div class="gs"><div class="gh"><span class="gn">08</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7M9 11.5l3 3 3-3"/></svg></div><b>Dr.Reward 가입</b><p>앱 설치 후 회원가입</p><span class="gchip">COSBACK과 같은 휴대폰 번호 사용</span></div></div></details>
+      <details class="ph" open><summary><span class="pn">3</span><span class="pt"><b>혜택 확장</b><i>더 다양한 혜택으로, 더 특별한 일상</i></span><span class="pr">09–12</span></summary><div class="gsgrid"><div class="gs"><div class="gh"><span class="gn">09</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 12h.01M10.5 12h.01M14 12h.01M17.5 12h.01"/></svg></div><b>크레딧 등록</b><p>카카오톡으로 받은 일련번호 입력</p><span class="gchip">최대 49% 사용 가능</span></div><div class="gs"><div class="gh"><span class="gn">10</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M12 9v6M9 12h6"/></svg></div><b>보험 안내</b><p>삼성화재 뷰티케어보험, 고객 부담금 0원</p><span class="gchip">자동가입 아님</span></div><div class="gs"><div class="gh"><span class="gn">11</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M8.5 8l1.2 1.2L12 7M8.5 13l1.2 1.2L12 12M14 8.5h2.5M14 13.5h2.5"/></svg></div><b>보험 가입 완료</b><p>본인인증 → 필수동의 → 최종확인 후 가입 완료</p></div><div class="gs"><div class="gh"><span class="gn">12</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg></div><b>추가 이벤트</b><p>어드밴스드 케어 세트 신청</p><span class="gchip">선택 참여</span></div></div></details>
+    </div>
+
+    <div class="gsub">정회원 활용 <span>일상 속에서 더 커지는 COSBACK의 가치</span></div>
+    <div class="use3">
+      <div class="u3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><b>쇼핑 &amp; 캐시백</b><span>구매 후 캐시백 관리</span></div>
+      <div class="u3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></svg><b>제휴처 찾기</b><span>병원 · 뷰티 · 웰니스</span></div>
+      <div class="u3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4z"/><path d="M14 14h2v2h-2zM18 14h2M14 18h2v2M18 18h2v2"/></svg><b>QR 크레딧 사용</b><span>결제금액의 <i>최대 49%</i></span></div>
+    </div>
+    <div class="donebox">
+      <div class="dt">완료 후 이용 가능</div>
+      <ul><li>정회원 혜택</li><li>화장품 세트 수령</li><li>웰니스 크레딧 등록 · 사용</li><li>뷰티케어보험 가입</li><li>쇼핑 캐시백 · 친구추천 활용</li></ul>
+    </div>
   </section>
 
   <!-- iD VITA (ref 02_09-7) -->
