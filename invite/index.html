@@ -212,15 +212,16 @@
 
   /* 12 step guide */
   /* 통합 순서도: 한 박스(일러스트 좌 + 설명 우) + 중앙 화살표 */
-  .flow li:not(.phd){grid-template-columns:66px 1fr;gap:13px;align-items:center;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:36px}
+  .flow li:not(.phd){grid-template-columns:74px 1fr;gap:13px;align-items:center;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:36px}
   .flow li.end{padding-bottom:14px;margin-bottom:30px}
   .flow li.end:last-child{padding-bottom:14px;margin-bottom:0}
-  .flow .node{width:66px;height:66px;box-shadow:none}
+  .flow .node{width:74px;height:74px;box-shadow:none;background:none;border:0;border-radius:0;overflow:visible}
+  .flow .node img{transform:none;filter:drop-shadow(0 4px 10px rgba(78,201,255,.28))}
   .flow .body{background:none;border:0;border-radius:0;padding:0}
   .flow li:not(.phd):not(.end)::after{left:calc(50% - 1px);top:calc(100% + 7px);bottom:auto;height:18px}
   .flow li+li::before{left:calc(50% - 5.5px);top:-23px}
   .flow li.hl{border-color:rgba(217,185,120,.6);background:rgba(217,185,120,.06)}
-  .flow li.hl .node{box-shadow:0 0 0 2px rgba(217,185,120,.6)}
+  .flow li.hl .node{box-shadow:none}
   .guide{background:linear-gradient(180deg,var(--navy-1) 0%,#08204F 50%,var(--navy-1) 100%)}
   .phases{display:grid;gap:12px;margin-top:22px}
   .ph{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -341,7 +342,7 @@
 
   a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li:not(.phd){grid-template-columns:56px 1fr;gap:11px;padding:12px}.flow .node{width:56px;height:56px}}
+  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li:not(.phd){grid-template-columns:62px 1fr;gap:11px;padding:12px}.flow .node{width:62px;height:62px}}
 </style>
 </head>
 <body>
