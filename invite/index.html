@@ -211,6 +211,16 @@
   .flow li.hl .k::after{content:"정회원 시작";font-family:var(--kr,inherit);letter-spacing:0;font-size:10.5px;font-weight:700;color:var(--navy-1);background:var(--gold-2);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
 
   /* 12 step guide */
+  /* 통합 순서도: 한 박스(일러스트 좌 + 설명 우) + 중앙 화살표 */
+  .flow li:not(.phd){grid-template-columns:66px 1fr;gap:13px;align-items:center;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:var(--r);padding:14px;margin-bottom:36px}
+  .flow li.end{padding-bottom:14px;margin-bottom:30px}
+  .flow li.end:last-child{padding-bottom:14px;margin-bottom:0}
+  .flow .node{width:66px;height:66px;box-shadow:none}
+  .flow .body{background:none;border:0;border-radius:0;padding:0}
+  .flow li:not(.phd):not(.end)::after{left:calc(50% - 1px);top:calc(100% + 7px);bottom:auto;height:18px}
+  .flow li+li::before{left:calc(50% - 5.5px);top:-23px}
+  .flow li.hl{border-color:rgba(217,185,120,.6);background:rgba(217,185,120,.06)}
+  .flow li.hl .node{box-shadow:0 0 0 2px rgba(217,185,120,.6)}
   .guide{background:linear-gradient(180deg,var(--navy-1) 0%,#08204F 50%,var(--navy-1) 100%)}
   .phases{display:grid;gap:12px;margin-top:22px}
   .ph{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
@@ -331,7 +341,7 @@
 
   a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li{grid-template-columns:60px 1fr}.flow .node{width:60px;height:60px}.flow li:not(.phd):not(.end)::after{left:29px;top:60px}.flow li+li::before{left:25px}}
+  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li:not(.phd){grid-template-columns:56px 1fr;gap:11px;padding:12px}.flow .node{width:56px;height:56px}}
 </style>
 </head>
 <body>
