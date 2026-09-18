@@ -179,11 +179,12 @@
   .flow li:last-child{padding-bottom:0}
   .flow li+li::before{content:"";position:absolute;left:31px;top:-19px;width:9px;height:9px;border-right:2px solid var(--sky);border-bottom:2px solid var(--sky);transform:rotate(45deg);z-index:1}
   .flow .node{width:72px;height:72px;border-radius:50%;overflow:hidden;position:relative;z-index:1;box-shadow:0 0 0 5px var(--navy-1),0 10px 20px rgba(0,0,0,.45)}
-  .flow .node img{width:100%;height:100%;object-fit:cover}
+  .flow .node{background:radial-gradient(circle at 50% 35%,#16386F,#0B1E43);border:1.5px solid rgba(78,201,255,.55)}
+  .flow .node img{width:100%;height:100%;object-fit:contain;transform:scale(1.12)}
   .flow .node.svgnode{background:#10284F;border:2px solid var(--sky);display:grid;place-items:center;color:#fff}
   .flow .node.svgnode svg{width:34px;height:34px}
   .flow .body{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
-  .flow .k{font-family:var(--eng);font-size:11px;letter-spacing:.2em;color:var(--sky);font-weight:700}
+  .flow .k{font-family:var(--eng);font-size:12px;letter-spacing:.12em;color:var(--sky);font-weight:700}
   .flow .t{font-size:16px;font-weight:700;margin-top:4px}
   .flow .s{font-size:13px;color:var(--ice);margin-top:3px}
   .stores{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
@@ -191,9 +192,23 @@
   .store svg{width:22px;height:22px;flex:0 0 22px}
   .store span{white-space:nowrap}
   .stores .store{width:100%}
+  .flow .body{min-width:0}
+  .flow .stores{gap:6px}
+  .flow .store{font-size:12.5px;gap:5px;padding:10px 4px;min-width:0}
+  .flow .store svg{width:19px;height:19px;flex:0 0 19px}
+  .flow::before{display:none}
+  .flow li:not(.phd):not(.end)::after{content:"";position:absolute;left:35px;top:72px;bottom:0;width:2px;background:linear-gradient(180deg,var(--sky),var(--blue));opacity:.7}
+  .flow li.end{padding-bottom:30px}
+  .flow li.end:last-child{padding-bottom:0}
+  .flow li.phd{display:block;padding:0 0 16px}
+  .flow li.phd:not(:first-child){padding-top:4px}
+  .flow li.phd::before,.flow li.phd+li::before{display:none}
+  .flow li.phd .pk{font-family:var(--eng);font-size:13px;font-weight:700;letter-spacing:.08em;color:var(--sky);text-shadow:0 0 10px rgba(78,201,255,.55);margin-right:9px}
+  .flow li.phd b{font-size:18px;font-weight:800;letter-spacing:-.02em}
+  .flow li.phd i{display:block;font-style:normal;font-size:12px;color:var(--ice-2);margin-top:2px}
   .flow li.hl .body{border-color:rgba(217,185,120,.6)}
   .flow li.hl .node{box-shadow:0 0 0 5px var(--navy-1),0 0 0 7px rgba(217,185,120,.6),0 10px 20px rgba(0,0,0,.45)}
-  .flow li.hl .t::after{content:"정회원 시작";font-size:10.5px;font-weight:700;color:var(--navy-1);background:var(--gold-2);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
+  .flow li.hl .k::after{content:"정회원 시작";font-family:var(--kr,inherit);letter-spacing:0;font-size:10.5px;font-weight:700;color:var(--navy-1);background:var(--gold-2);padding:2px 8px;border-radius:999px;margin-left:8px;vertical-align:2px;white-space:nowrap}
 
   /* 12 step guide */
   .guide{background:linear-gradient(180deg,var(--navy-1) 0%,#08204F 50%,var(--navy-1) 100%)}
@@ -316,7 +331,7 @@
 
   a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li{grid-template-columns:60px 1fr}.flow .node{width:60px;height:60px}.flow::before{left:29px}.flow li+li::before{left:25px}}
+  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li{grid-template-columns:60px 1fr}.flow .node{width:60px;height:60px}.flow li:not(.phd):not(.end)::after{left:29px;top:60px}.flow li+li::before{left:25px}}
 </style>
 </head>
 <body>
@@ -427,29 +442,29 @@
     </div>
   </section>
 
-  <!-- STEPS -->
-  <section id="steps">
-    <div class="eyebrow">Simple Join Process</div>
-    <h2 class="h2" style="white-space:nowrap">가입은 생각보다 <em>간단합니다</em></h2>
-    <ol class="flow">
-      <li><div class="node svgnode"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11"/><path d="M8 10l4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></div><div class="body"><div class="k">STEP 01</div><div class="t">COSBACK 앱 설치</div><div class="s">앱스토어 또는 구글플레이에서 COSBACK 앱을 설치합니다. 코스백은 앱으로만 이용할 수 있습니다.</div><div class="stores"><a href="https://apps.apple.com/kr/app/%EC%BD%94%EC%8A%A4%EB%B0%B1/id6760276501" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1.1-2.8-4.1zM14.3 5.1c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span>App Store</span></a><a href="https://play.google.com/store/apps/details?id=com.hyjoo.cosback" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.5c-.3.3-.5.8-.5 1.4v16.2c0 .6.2 1.1.5 1.4l8.9-9.5-8.9-9.5z" fill="#00D7FE"/><path d="M15.5 15l-3-3 3-3 3.9 2.2c1.1.6 1.1 1.6 0 2.2L15.5 15z" fill="#FFCE00"/><path d="M12.5 12l-8.9 9.5c.4.2.9.2 1.4-.1L15.5 15l-3-3z" fill="#FF3A44"/><path d="M12.5 12l3-3L5 3.1c-.5-.3-1-.3-1.4-.1L12.5 12z" fill="#00F076"/></svg><span>Google Play</span></a></div></div></li>
-      <li><div class="node"><img src="img/n1.jpg" alt=""></div><div class="body"><div class="k">STEP 02</div><div class="t">추천코드로 가입</div><div class="s">앱에서 회원가입 시 지인의 추천코드를 입력하면 추천 혜택이 자동으로 연결됩니다.</div></div></li>
-      <li><div class="node"><img src="img/n2.jpg" alt=""></div><div class="body"><div class="k">STEP 03</div><div class="t">삼성 iD VITA 카드 신청</div><div class="s">앱의 삼성 iD VITA 특별 이벤트 화면에서 안내에 따라 카드를 신청합니다.</div></div></li>
-      <li><div class="node"><img src="img/n3.jpg" alt=""></div><div class="body"><div class="k">STEP 04</div><div class="t">카드 심사 · 발급</div><div class="s">삼성카드 심사 후 발급됩니다. 연회비 2만 원은 청구할인·유지 캐시백으로 자동 무료.</div></div></li>
-      <li class="hl"><div class="node"><img src="img/n4.jpg" alt=""></div><div class="body"><div class="k">STEP 05</div><div class="t">발급 후 1개월 내 15만원 사용</div><div class="s">사용처 제한 없이 누적 15만 원 이상 결제하면 정회원으로 승인되고 혜택이 시작됩니다.</div></div></li>
-    </ol>
-  </section>
-
-  <!-- 12 STEP GUIDE (전개도 내용) -->
-  <section class="guide" id="guide">
+  <!-- JOIN + 12 STEP GUIDE (가입 절차 + 전개도 통합) -->
+  <section class="guide" id="steps">
+    <span id="guide"></span>
     <div class="eyebrow">12 Step Guide</div>
     <h2 class="h2">가입부터 혜택 이용까지<br><em>한눈에 보기</em></h2>
-    <p class="lead">QR 스캔부터 크레딧 사용까지, 핵심 12단계 요약입니다.</p>
-    <div class="phases">
-      <details class="ph" open><summary><span class="pn">STEP 01</span><span class="pt"><b>가입 시작</b><i>지금, COSBACK과 만나는 첫걸음</i></span><span class="pr">01–04</span></summary><div class="gsgrid"><div class="gs"><div class="gh"><span class="gn">01</span><img src="img/gi01.png" alt="" width="240" height="242" loading="lazy"></div><b>추천코드 입력</b><p>매장 QR 스캔 또는 초대 링크로 추천코드 자동 입력</p></div><div class="gs"><div class="gh"><span class="gn">02</span><img src="img/gi02.png" alt="" width="240" height="242" loading="lazy"></div><b>회원가입</b><p>카카오 가입 또는 일반 가입 후 카카오톡 메시지 2개 확인</p></div><div class="gs"><div class="gh"><span class="gn">03</span><img src="img/gi03.png" alt="" width="240" height="242" loading="lazy"></div><b>특별혜택 배너</b><p>코스백 정회원 특별혜택 EVENT 페이지로 이동</p></div><div class="gs"><div class="gh"><span class="gn">04</span><img src="img/gi04.png" alt="" width="240" height="242" loading="lazy"></div><b>이벤트 응모</b><p>먼저 응모하기 진행</p><span class="gchip">비대상자는 15만원 직접가입 가능</span></div></div></details>
-      <details class="ph" open><summary><span class="pn">STEP 02</span><span class="pt"><b>정회원 승격</b><i>카드 사용으로 더 큰 혜택이 시작됩니다</i></span><span class="pr">05–08</span></summary><div class="gsgrid"><div class="gs"><div class="gh"><span class="gn">05</span><img src="img/gi05.png" alt="" width="240" height="242" loading="lazy"></div><b>카드 신청</b><p>삼성 iD VITA 카드 신청</p></div><div class="gs"><div class="gh"><span class="gn">06</span><img src="img/gi06.png" alt="" width="240" height="242" loading="lazy"></div><b>자동 승격</b><p>카드 15만원 이상 사용 시 정회원으로 자동 승격</p><span class="gchip">+200,000 웰니스 크레딧</span></div><div class="gs"><div class="gh"><span class="gn">07</span><img src="img/gi07.png" alt="" width="240" height="242" loading="lazy"></div><b>혜택받기</b><p>화장품 세트 1개 선택, 배송지 입력 후 완료</p></div><div class="gs"><div class="gh"><span class="gn">08</span><img src="img/gi08.png" alt="" width="240" height="242" loading="lazy"></div><b>Dr.Reward 가입</b><p>앱 설치 후 회원가입</p><span class="gchip">COSBACK과 같은 휴대폰 번호 사용</span></div></div></details>
-      <details class="ph" open><summary><span class="pn">STEP 03</span><span class="pt"><b>혜택 확장</b><i>더 다양한 혜택으로, 더 특별한 일상</i></span><span class="pr">09–12</span></summary><div class="gsgrid"><div class="gs"><div class="gh"><span class="gn">09</span><img src="img/gi09.png" alt="" width="240" height="242" loading="lazy"></div><b>크레딧 등록</b><p>카카오톡으로 받은 일련번호 입력</p><span class="gchip">최대 49% 사용 가능</span></div><div class="gs"><div class="gh"><span class="gn">10</span><img src="img/gi10.png" alt="" width="240" height="242" loading="lazy"></div><b>보험 안내</b><p>삼성화재 뷰티케어보험, 고객 부담금 0원</p><span class="gchip">자동가입 아님</span></div><div class="gs"><div class="gh"><span class="gn">11</span><img src="img/gi11.png" alt="" width="240" height="242" loading="lazy"></div><b>보험 가입 완료</b><p>본인인증 → 필수동의 → 최종확인 후 가입 완료</p></div><div class="gs"><div class="gh"><span class="gn">12</span><img src="img/gi12.png" alt="" width="240" height="242" loading="lazy"></div><b>추가 이벤트</b><p>어드밴스드 케어 세트 신청</p><span class="gchip">선택 참여</span></div></div></details>
-    </div>
+    <p class="lead">앱 설치부터 크레딧 사용까지, 순서대로 따라오시면 됩니다.</p>
+    <ol class="flow">
+      <li class="phd"><span class="pk">STEP 01</span><b>가입 시작</b><i>지금, COSBACK과 만나는 첫걸음</i></li>
+      <li><div class="node"><img src="img/gi00.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">01</div><div class="t">COSBACK 앱 설치</div><div class="s">앱스토어 또는 구글플레이에서 COSBACK 앱을 설치합니다. 코스백은 앱으로만 이용할 수 있습니다.</div><div class="stores"><a href="https://apps.apple.com/kr/app/%EC%BD%94%EC%8A%A4%EB%B0%B1/id6760276501" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8s2 .8 3.3.8c1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.8-1.1-2.8-4.1zM14.3 5.1c.7-.8 1.1-2 1-3.1-1 0-2.2.7-2.9 1.5-.6.7-1.2 1.9-1 3 1.1.1 2.2-.6 2.9-1.4z"/></svg><span>App Store</span></a><a href="https://play.google.com/store/apps/details?id=com.hyjoo.cosback" target="_blank" rel="noopener" class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 2.5c-.3.3-.5.8-.5 1.4v16.2c0 .6.2 1.1.5 1.4l8.9-9.5-8.9-9.5z" fill="#00D7FE"/><path d="M15.5 15l-3-3 3-3 3.9 2.2c1.1.6 1.1 1.6 0 2.2L15.5 15z" fill="#FFCE00"/><path d="M12.5 12l-8.9 9.5c.4.2.9.2 1.4-.1L15.5 15l-3-3z" fill="#FF3A44"/><path d="M12.5 12l3-3L5 3.1c-.5-.3-1-.3-1.4-.1L12.5 12z" fill="#00F076"/></svg><span>Google Play</span></a></div></div></li>
+      <li><div class="node"><img src="img/gi01.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">02</div><div class="t">추천코드 입력</div><div class="s">매장 QR 스캔 또는 초대 링크로 들어오면 추천코드가 자동 입력됩니다. 가입 화면에서 직접 입력해도 됩니다.</div></div></li>
+      <li><div class="node"><img src="img/gi02.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">03</div><div class="t">회원가입</div><div class="s">카카오 가입 또는 일반 가입 후 카카오톡 메시지 2개를 확인합니다. 추천 혜택이 자동으로 연결됩니다.</div></div></li>
+      <li class="end"><div class="node"><img src="img/gi04.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">04</div><div class="t">특별혜택 이벤트 응모</div><div class="s">앱의 코스백 정회원 특별혜택 배너에서 EVENT 페이지로 이동해 먼저 응모하기를 진행합니다.</div><span class="gchip">비대상자는 15만원 직접가입 가능</span></div></li>
+      <li class="phd"><span class="pk">STEP 02</span><b>정회원 승격</b><i>카드 사용으로 더 큰 혜택이 시작됩니다</i></li>
+      <li><div class="node"><img src="img/gi05.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">05</div><div class="t">삼성 iD VITA 카드 신청</div><div class="s">앱의 삼성 iD VITA 특별 이벤트 화면에서 안내에 따라 카드를 신청합니다.</div></div></li>
+      <li><div class="node"><img src="img/gi11.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">06</div><div class="t">카드 심사 · 발급</div><div class="s">삼성카드 심사 후 발급됩니다. 연회비 2만 원은 청구할인·유지 캐시백으로 자동 무료.</div></div></li>
+      <li class="hl"><div class="node"><img src="img/gi06.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">07</div><div class="t">발급 후 1개월 내 15만원 사용</div><div class="s">사용처 제한 없이 누적 15만 원 이상 결제하면 정회원으로 자동 승격되고 혜택이 시작됩니다.</div><span class="gchip">+200,000 웰니스 크레딧</span></div></li>
+      <li class="end"><div class="node"><img src="img/gi07.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">08</div><div class="t">혜택받기</div><div class="s">화장품 세트 1개를 선택하고 배송지를 입력하면 완료됩니다.</div></div></li>
+      <li class="phd"><span class="pk">STEP 03</span><b>혜택 확장</b><i>더 다양한 혜택으로, 더 특별한 일상</i></li>
+      <li><div class="node"><img src="img/gi08.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">09</div><div class="t">Dr.Reward 가입</div><div class="s">닥터리워드 앱을 설치하고 회원가입합니다.</div><span class="gchip">COSBACK과 같은 휴대폰 번호 사용</span></div></li>
+      <li><div class="node"><img src="img/gi09.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">10</div><div class="t">크레딧 등록</div><div class="s">카카오톡으로 받은 일련번호를 입력해 웰니스 크레딧을 등록합니다.</div><span class="gchip">최대 49% 사용 가능</span></div></li>
+      <li><div class="node"><img src="img/gi10.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">11</div><div class="t">뷰티케어보험 가입</div><div class="s">삼성화재 뷰티케어보험, 고객 부담금 0원. 본인인증 → 필수동의 → 최종확인 후 가입이 완료됩니다.</div><span class="gchip">자동가입 아님</span></div></li>
+      <li class="end"><div class="node"><img src="img/gi12.png" alt="" width="240" height="242" loading="lazy"></div><div class="body"><div class="k">12</div><div class="t">추가 이벤트</div><div class="s">어드밴스드 케어 세트를 신청할 수 있습니다.</div><span class="gchip">선택 참여</span></div></li>
+    </ol>
 
     <div class="gsub">정회원 활용 <span>일상 속에서 더 커지는 COSBACK의 가치</span></div>
     <div class="use3">
