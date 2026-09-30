@@ -79,7 +79,7 @@
   .hero{padding-top:30px;padding-bottom:0;overflow:hidden;
     background:radial-gradient(90% 50% at 100% 0%,rgba(0,149,255,.28),transparent 60%),radial-gradient(60% 40% at 0% 60%,rgba(0,201,177,.10),transparent 60%),linear-gradient(180deg,var(--navy-4) 0%,var(--navy-1) 100%)}
   .hero .q{font-size:13.5px;color:var(--ice);letter-spacing:.02em}
-  .hero h1{font-family:var(--sans);font-size:31px;font-weight:800;margin-top:10px;letter-spacing:-.02em}
+  .hero h1{font-family:var(--sans);font-size:min(31px,calc((100vw - 40px)/11));font-weight:800;margin-top:10px;letter-spacing:-.02em}
   .hero h1 em{font-style:normal;color:var(--sky)}
   .hero .sub{margin-top:12px;color:var(--ice);font-size:14.5px}
   .hero .big{margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
@@ -391,7 +391,7 @@
   a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
   @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
   @media (max-width:340px){.flow .stores{grid-template-columns:1fr}.friend .chev{display:none}}
-  @media (max-width:360px){.hero h1{font-size:27px}.hero .big .l1 b{font-size:32px}.flow li:not(.phd){grid-template-columns:62px 1fr;gap:11px;padding:12px}.flow .node{width:62px;height:62px}}
+  @media (max-width:360px){.hero .big .l1 b{font-size:32px}.flow li:not(.phd){grid-template-columns:62px 1fr;gap:11px;padding:12px}.flow .node{width:62px;height:62px}}
 </style>
 </head>
 <body>
@@ -410,7 +410,7 @@
   <!-- HERO -->
   <section class="hero" id="top">
     <p class="q">나에게 맞는 뷰티 멤버십, 지금 확인해 보셨나요?</p>
-    <h1>평소 쓰던 뷰티 소비,<br>이제 <em>정회원 혜택</em>으로<br>돌려받으세요.</h1>
+    <h1>나를 위한 뷰티 라이프, 이제<br><em>정회원 혜택</em>까지 누리세요.</h1>
     <p class="sub">더 현명한 뷰티 라이프의 시작,<br>COSBACK 멤버십이 함께합니다.</p>
     <div class="big">
       <div class="l1">5년 누적 최대 <b class="num">750만</b> 상당</div>
