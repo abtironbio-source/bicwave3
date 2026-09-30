@@ -260,6 +260,49 @@
   .donebox li{font-size:13.5px;color:var(--ice);display:flex;gap:8px;align-items:center}
   .donebox li::before{content:"✓";width:18px;height:18px;border-radius:50%;background:var(--sky);color:var(--navy-1);font-size:11px;font-weight:900;display:grid;place-items:center;flex:0 0 18px}
   @media (max-width:340px){.gsgrid{grid-template-columns:1fr}}
+  /* 신라면세점 프리미엄 입점 화장품 (조선치대 페이지에서 가져옴, 앰플 추가 증정 제외) */
+  .shl{background:#fff;color:var(--navy-2);padding:0 0 40px}
+  .shl-top{background:var(--navy-1);color:#fff;text-align:center;padding:28px var(--gutter) 22px;border-top:1px solid rgba(255,255,255,.14);position:relative}
+  .shl-top b{display:block;font-size:clamp(19px,6vw,23px);font-weight:800;letter-spacing:-.04em;white-space:nowrap;color:#FFC93C}
+  .shl-top span{display:block;margin-top:5px;font-size:13.5px;color:#C9D8F5;letter-spacing:-.02em}
+  .shl-ph{position:relative}
+  .shl-ph img{width:100%;display:block}
+  .shl-ph .lg{position:absolute;z-index:2;left:50%;top:20px;transform:translateX(-50%);width:138px}
+  .shl-ph::after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff)}
+  .shl-in{padding:6px var(--gutter) 0;text-align:center}
+  .shl-in .a{font-size:17px;color:#E0457B;font-weight:500;letter-spacing:-.02em}
+  .shl-in .b{font-size:12.5px;color:#55607A;margin-top:3px}
+  .shl-in .cc{font-size:clamp(20px,6.4vw,25px);font-weight:900;color:#E0457B;letter-spacing:-.03em;margin-top:8px;line-height:1.3}
+  .shl-in .d{font-size:14.5px;line-height:1.7;color:#3F4B66;margin-top:12px;letter-spacing:-.02em}
+  .shl-in .d b{color:var(--navy-2);font-weight:800}
+  .shl-in .chips{display:flex;gap:7px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+  .shl-in .chips span{font-size:12.5px;font-weight:700;border-radius:999px;padding:6px 13px;background:#FCE9EF;color:#E0457B}
+  .shl-in .chips span:first-child{background:#E8F0FF;color:var(--blue-2)}
+  .shl-set{margin:0 var(--gutter)}
+  .shl-note{margin:22px 0 0;padding:12px 14px;border-radius:12px;background:#FFF6E5;border:1px solid #F5D9A6;color:#7A4B00;font-size:13.5px;font-weight:700;line-height:1.5;letter-spacing:-.02em;text-align:center;text-wrap:pretty}
+  .shl-note::before{content:"※ "}
+
+  /* 5 CLICK (조선치대 페이지에서 가져옴, 네이비 테마에 맞춤) */
+  .click5{background:linear-gradient(180deg,var(--navy-1),#0B2350 55%,var(--navy-1))}
+  .click5 .clk{margin-top:0}
+  .click5 .ct{text-align:center}
+  .click5 .ct .e{display:inline-block;font-family:var(--eng);font-size:11px;font-weight:700;letter-spacing:.22em;color:var(--navy-1);background:var(--sky);border-radius:999px;padding:4px 14px}
+  .click5 .ct b{display:block;margin-top:10px;font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.3;color:#fff}
+  .click5 .ct b em{font-style:normal;color:var(--sky)}
+  .click5 .ct p{margin:8px 0 0;font-size:14px;color:var(--ice)}
+  .click5 .rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;margin:18px calc(var(--gutter)*-1) 0;padding:6px var(--gutter) 14px;scrollbar-width:none}
+  .click5 .rail::-webkit-scrollbar{display:none}
+  .click5 .cd{flex:0 0 172px;scroll-snap-align:center;text-align:center}
+  .click5 .ph5{position:relative;border-radius:22px;border:5px solid #050B18;background:#050B18;overflow:hidden;box-shadow:0 12px 26px rgba(0,0,0,.45),0 0 0 1px rgba(78,201,255,.35)}
+  .click5 .ph5 img.sc{width:100%;display:block}
+  .click5 .ph5 img.tap{position:absolute;height:auto;filter:drop-shadow(0 4px 6px rgba(0,0,0,.45));animation:tapit 1.6s ease-in-out infinite}
+  @keyframes tapit{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(4px) scale(.93)}}
+  @media (prefers-reduced-motion:reduce){.click5 .ph5 img.tap{animation:none}}
+  .click5 .no{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sky);color:var(--navy-1);font-family:var(--eng);font-weight:700;font-size:15px;margin-top:-15px;position:relative;z-index:2;border:3px solid #0B2350}
+  .click5 .cp{margin-top:6px;font-size:13.5px;font-weight:700;line-height:1.4;letter-spacing:-.03em;color:#fff}
+  .click5 .cp i{font-style:normal;color:var(--sky)}
+  .click5 .hint{text-align:center;font-size:12px;color:var(--ice-2);margin-top:2px}
+
   /* iD VITA (ref 02_09-7) */
   .vita{background:radial-gradient(70% 45% at 50% 60%,rgba(0,149,255,.28),transparent 70%),linear-gradient(180deg,var(--navy-1),var(--navy-4));text-align:center;overflow:hidden}
   .vita .q{font-size:13px;color:var(--ice);line-height:1.6}
@@ -386,9 +429,8 @@
       <input id="refInput" type="text" placeholder="예) COSBACK-123456" autocomplete="off" autocapitalize="characters">
       <button type="button" class="go" id="goBtn">코드 복사</button>
     </div>
-    <div class="hint">추천코드는 추천하신 지인의 멤버십 혜택을 연결하기 위해 사용됩니다.</div>
+    <div class="hint"><span>추천코드는 추천하신 지인의 멤버십 혜택을 연결하기 위해 사용됩니다.<br>가입은 COSBACK 앱에서 진행됩니다.</span></div>
   </div>
-    <div class="hint">추천코드는 추천하신 지인의 멤버십 혜택을 연결하기 위해 사용됩니다. 가입은 COSBACK 앱에서 진행됩니다.</div>
   </div>
 
   <!-- 750 BREAKDOWN -->
@@ -456,6 +498,22 @@
         <div class="ir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4.5 4L12 6l4.5 7L21 9l-2 10H5L3 9z"/></svg><b>멤버십</b><span>특별한 라이프스타일</span></div>
         <div class="ir"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg><b>뷰티 라이프</b><span>더 가치 있는 일상</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- 신라면세점 프리미엄 입점 화장품 -->
+  <section class="shl" id="shilla">
+    <div class="shl-top"><b>신라면세점 프리미엄 입점 화장품</b><span>셀퓨전씨를 엑시트한 창업자가 만든 브랜드</span></div>
+    <div class="shl-ph"><img class="lg" src="img/sh_logo.png" alt="SHILLA IPARK duty free" width="480" height="155" loading="lazy"><img src="img/sh_kit.jpg" alt="셀루크 Welcome Kit 구성" width="1080" height="1098" loading="lazy"></div>
+    <div class="shl-in">
+      <div class="a">신라면세점 입점 더마화장품 셀루크</div>
+      <div class="b">셀퓨전씨를 엑시트한 창업자가 만든 브랜드</div>
+      <div class="cc">15만원 상당 프리미엄 스킨케어</div>
+      <div class="d">정해진 세트를 받는 방식이 아니라,<br>15만원 상당의 다양한 구성 중에서<br><b>원하는 제품을 자율적으로 선택</b>해 받으실 수 있습니다.</div>
+      <div class="chips"><span>15만원 상당</span><span>다양한 구성</span><span>자율 선택</span></div>
+    </div>
+    <div class="shl-set">
+      <p class="shl-note">준비된 수량이 조기 소진될 경우, 셀루크 15만 원 구매 상품권으로 제공됩니다.</p>
     </div>
   </section>
 
@@ -572,6 +630,21 @@
       <details><summary><span class="q">Q</span><span>친구가 보내준 링크로 가입하면 무엇이 다른가요?</span></summary><div class="a">추천코드가 자동 연결되어 추천 관계와 관련 혜택이 정상적으로 연결됩니다. 이후 내가 초대한 친구에 대해서는 초대 1명당 20만 리워드와 친구 구매 5% 캐시백이 나에게 쌓입니다.</div></details>
       <details><summary><span class="q">Q</span><span>750만 상당 혜택은 현금으로 받나요?</span></summary><div class="a">현금이 아니라 5년 누적 혜택의 합산 가치입니다. 웰컴 기프트·크레딧·보험(연 50만 상당 × 5년)과 친구 초대 리워드(연 최대 100만 × 5년)로 구성됩니다. 본인 구매 15% 캐시백과 친구 구매 5%는 이와 별도로 현금 적립됩니다.</div></details>
       <details><summary><span class="q">Q</span><span>뷰티케어보험은 자동으로 가입되나요?</span></summary><div class="a">아닙니다. 정회원 활성화 후 Dr.Reward에서 본인인증과 필수동의를 거쳐 가입합니다. 보험료는 코스백이 부담합니다.</div></details>
+    </div>
+  </section>
+
+  <!-- 5 CLICK -->
+  <section class="click5" id="click5">
+    <div class="clk">
+      <div class="ct"><span class="e">5 CLICK</span><b><em>5번의 클릭</em>이면 참여 완료</b><p>앱을 설치한 뒤, 아래 5개 버튼만 차례로 누르면 됩니다.</p></div>
+      <div class="rail">
+        <div class="cd"><div class="ph5"><img class="sc" src="img/clk1.jpg" alt="COSBACK 앱 메인 화면" width="480" height="1067" loading="lazy"><img class="tap" src="img/tap.png" alt="" style="left:40%;top:40.5%;width:30%"></div><span class="no">1</span><div class="cp"><i>정회원 특별혜택</i> 배너 누르기</div></div>
+        <div class="cd"><div class="ph5"><img class="sc" src="img/clk2.jpg" alt="정회원 혜택 안내 화면" width="480" height="1067" loading="lazy"><img class="tap" src="img/tap.png" alt="" style="left:37.51%;top:86.06%;width:28.46%"></div><span class="no">2</span><div class="cp"><i>코스백 정회원 신청하기</i> 누르기</div></div>
+        <div class="cd"><div class="ph5"><img class="sc" src="img/clk3.jpg" alt="정회원 가입 방법 선택 화면" width="480" height="1067" loading="lazy"><img class="tap" src="img/tap.png" alt="" style="left:36.63%;top:65.74%;width:28.58%"></div><span class="no">3</span><div class="cp"><i>삼성iD VITA카드 이벤트로 가입하기</i> 선택</div></div>
+        <div class="cd"><div class="ph5"><img class="sc" src="img/clk4.jpg" alt="삼성 iD VITA 카드 이벤트 안내 화면" width="480" height="1067" loading="lazy"><img class="tap" src="img/tap.png" alt="" style="left:13.55%;top:89.44%;width:28.58%"></div><span class="no">4</span><div class="cp"><i>이벤트 응모하기</i> 누르기</div></div>
+        <div class="cd"><div class="ph5"><img class="sc" src="img/clk5.jpg" alt="삼성 iD VITA 카드 상세 화면" width="480" height="1067" loading="lazy"><img class="tap" src="img/tap.png" alt="" style="left:40.36%;top:87.79%;width:28.58%"></div><span class="no">5</span><div class="cp"><i>카드신청</i> 누르기</div></div>
+      </div>
+      <div class="hint">← 옆으로 넘겨 5단계를 확인하세요 →</div>
     </div>
   </section>
 
