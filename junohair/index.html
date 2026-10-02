@@ -30,7 +30,7 @@
   p{margin:0}
   a{color:inherit}
   button,input{font-family:inherit}
-  .page{max-width:1040px;margin:0 auto;background:var(--navy-1);padding-bottom:84px;position:relative;overflow:hidden}
+  .page{max-width:1040px;margin:0 auto;background:var(--navy-1);padding-bottom:92px;position:relative;overflow:hidden}
   section{padding:52px var(--gutter);position:relative}
   .wrap{max-width:860px;margin:0 auto}
   .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--eng);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);font-weight:700}
@@ -39,7 +39,7 @@
   .h2 em{font-style:normal;color:var(--sky)}
   .lead{margin-top:12px;color:var(--ice);font-size:15px}
   .note{font-size:12px;color:var(--ice-2);line-height:1.6}
-  .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 26px;border-radius:999px;border:0;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .12s ease}
+  .btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:19px 26px;border-radius:999px;border:0;font-size:19px;font-weight:800;letter-spacing:-.01em;text-decoration:none;cursor:pointer;transition:transform .12s ease}
   .btn:active{transform:scale(.985)}
   .btn-primary{background:linear-gradient(90deg,#B8934A 0%,#D9B978 55%,#F1DCA6 100%);color:#17120A;box-shadow:0 10px 26px rgba(201,164,92,.30)}
   .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35)}
@@ -242,7 +242,7 @@
   .legal .note{max-width:860px;margin:0 auto}
   .legal .note + .note{margin-top:6px}
   .fixed{position:fixed;left:0;right:0;bottom:0;z-index:30;padding:10px var(--gutter) calc(10px + env(safe-area-inset-bottom));background:rgba(5,5,5,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
-  .fixed .btn{max-width:520px;margin:0 auto;padding:14px 18px;font-size:15px}
+  .fixed .btn{max-width:520px;margin:0 auto;padding:16px 18px;font-size:18px}
 
   @media (min-width:760px){
     :root{--gutter:40px}
@@ -284,7 +284,6 @@
         </div>
         <div class="cta">
           <a class="btn btn-primary join" href="https://play.google.com/store/apps/details?id=com.hyjoo.cosback" target="_blank" rel="noopener">코스백 정회원 가입</a>
-          <a class="btn btn-ghost" href="#sim">우리 지점 수익 계산</a>
         </div>
       </div>
       <div class="hero-img"><img src="img/j_hero.jpg" alt="밝은 원목 살롱 상담 테이블 위의 선물 키트"></div>
@@ -537,6 +536,8 @@
 
 <script>
 (function(){
+  // 항상 맨 위에서 시작(해시 링크가 없을 때)
+  try{ if(!location.hash){ history.scrollRestoration="manual"; window.scrollTo(0,0);} }catch(e){}
   // 코스백 정회원 가입: 기기별 스토어(iOS=App Store, 그 외=Google Play)
   var ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
   if(ios){[].forEach.call(document.querySelectorAll("a.join"),function(a){a.href="https://apps.apple.com/kr/app/%EC%BD%94%EC%8A%A4%EB%B0%B1/id6760276501"})}
