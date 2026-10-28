@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>리쥬란 FESTIVAL 2027 쉬운 요약본</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --red:#00A79D;        /* 리쥬란 CI 청록(엠블럼) — 포인트 */
+  --red-deep:#007A72;   /* 딥 틸 */
+  --wine:#1C1E22;       /* 차콜 블랙 */
+  --gold:#C9A96E;
+  --gold-deep:#A8864B;
+  --ivory:#F6F5F1;
+  --blush:#E4F3F1;      /* 틸 미스트 */
+  --line:#E1E4E3;
+  --ink:#1C1E22;
+  --mute:#6B6F70;
+}
+html, body { background:#e9e3df; }
+body { font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",sans-serif; color:var(--ink); line-height:1.5; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page { width:210mm; height:297mm; margin:0 auto 8mm; background:#fff; position:relative; overflow:hidden; page-break-after:always; padding:11mm 14mm 0; }
+.page:last-child { page-break-after:auto; }
+@media print { html,body{background:#fff;} .page{margin:0;} }
+.lat { font-family:Georgia,"Times New Roman",serif; }
+
+/* 공통 머리글/바닥글 */
+.head { display:flex; justify-content:space-between; align-items:center; font-size:7.5pt; letter-spacing:.4px; color:var(--mute); padding-bottom:2.5mm; border-bottom:1px solid var(--line); margin-bottom:6mm; }
+.head b { color:var(--red); font-weight:700; }
+.head .hl { display:flex; align-items:center; gap:2mm; }
+.head .hl img { height:4.4mm; opacity:.9; }
+.foot { position:absolute; left:14mm; right:14mm; bottom:7mm; display:flex; justify-content:space-between; align-items:center; font-size:7pt; color:var(--mute); }
+.foot .bar { flex:1; height:1px; background:var(--line); margin:0 4mm; }
+.foot .pg { color:var(--red); font-weight:700; letter-spacing:.5px; }
+
+/* 섹션 제목 */
+h2 { font-size:14.5pt; font-weight:800; color:var(--ink); letter-spacing:-.3px; margin:4.7mm 0 2.5mm; padding-left:4mm; position:relative; line-height:1.25; }
+h2::before { content:""; position:absolute; left:0; top:1.5px; bottom:1.5px; width:4px; border-radius:2px; background:linear-gradient(var(--red), var(--gold)); }
+h2 .en { color:var(--red); }
+p.body { font-size:9.3pt; line-height:1.65; }
+p.body b { color:var(--red-deep); }
+.note { font-size:7.4pt; color:var(--mute); line-height:1.5; margin-top:1.8mm; }
+.note.red { color:var(--red); }
+
+/* ---------- P1 ---------- */
+.hero { position:relative; height:49mm; border-radius:4mm; overflow:hidden; color:#fff;
+  background:
+    url("img/hero_ci.png") center / cover no-repeat,
+    radial-gradient(120% 140% at 85% 20%, rgba(255,255,255,.18), rgba(255,255,255,0) 45%),
+    linear-gradient(115deg, #0E0F11 0%, #1C1E22 50%, #0F4F4B 100%); }
+.hero .shade { position:absolute; inset:0; background:linear-gradient(90deg, rgba(8,9,11,.78) 0%, rgba(14,15,17,.45) 50%, rgba(14,15,17,0) 100%); }
+.hero .deco { position:absolute; right:-14mm; top:-20mm; width:70mm; height:70mm; border-radius:50%; border:1.2mm solid rgba(201,169,110,.45); }
+.hero .deco2 { position:absolute; right:6mm; bottom:-24mm; width:46mm; height:46mm; border-radius:50%; border:.6mm solid rgba(255,255,255,.25); }
+.hero .txt { position:absolute; left:9mm; top:9mm; right:9mm; }
+.hero .kicker { font-size:8pt; letter-spacing:2px; color:var(--gold); font-weight:700; display:flex; align-items:center; gap:3mm; }
+.hero .hlogo { height:7.5mm; display:block; }
+.hero .hprod { position:absolute; right:17mm; bottom:-1.5mm; height:49mm; filter:drop-shadow(0 6px 14px rgba(0,0,0,.45)); }
+.hero h1 { font-size:27pt; font-weight:900; letter-spacing:-.5px; line-height:1.15; margin-top:1.5mm; text-shadow:0 2px 10px rgba(0,0,0,.45); }
+.hero h1 .lat { font-weight:700; letter-spacing:1px; }
+.hero .sub { margin-top:3mm; display:inline-flex; align-items:center; gap:2.5mm; font-size:9pt; font-weight:600; background:rgba(0,0,0,.38); border:1px solid rgba(0,167,157,.65); padding:1.6mm 3.5mm; border-radius:20px; }
+.hero .sub .tag { background:var(--red); color:#fff; font-weight:800; font-size:7.5pt; padding:.5mm 2mm; border-radius:10px; letter-spacing:.5px; }
+
+.oneline { margin-top:5mm; background:var(--ivory); border:1px solid var(--line); border-left:4px solid var(--red); border-radius:0 3mm 3mm 0; padding:3.5mm 5mm; }
+.oneline .q { font-size:10.5pt; font-weight:800; color:var(--red); margin-bottom:1mm; letter-spacing:1px; }
+.oneline p { font-size:9.3pt; line-height:1.7; }
+.oneline b { color:var(--red-deep); background:linear-gradient(transparent 62%, rgba(201,169,110,.35) 62%); }
+.oneline .hb { display:inline-block; background:var(--blush); color:var(--red-deep); font-weight:800; padding:0 1.6mm; border-radius:1mm; }
+.rule .hl { color:var(--red-deep); font-weight:700; background:linear-gradient(transparent 62%, rgba(201,169,110,.35) 62%); }
+
+/* 고객 흐름 */
+.flow { display:grid; grid-template-columns:1fr 7mm 1fr 7mm 1fr; align-items:stretch; gap:0; }
+.step { border:1.2px solid var(--line); border-radius:3mm; padding:3mm 3mm 3.5mm; display:flex; flex-direction:column; justify-content:center; background:#fff; position:relative; text-align:center; }
+.step .n { position:absolute; left:50%; top:-3.4mm; transform:translateX(-50%); width:7mm; height:7mm; border-radius:50%; background:var(--red); color:#fff; font-weight:800; font-size:8.5pt; display:flex; align-items:center; justify-content:center; box-shadow:0 0 0 1.2mm #fff; }
+.step .t { font-size:9.6pt; font-weight:800; line-height:1.35; margin-top:2mm; }
+.step .s { font-size:7.8pt; color:var(--mute); margin-top:1mm; line-height:1.4; }
+.step.hi { background:var(--blush); border-color:var(--red); }
+.step.hi .t { color:var(--red-deep); }
+.step.dark { background:linear-gradient(135deg, #111315, #1C1E22); border-color:var(--wine); color:#fff; }
+.step.dark .n { background:var(--gold); color:var(--wine); }
+.step.dark .s { color:rgba(255,255,255,.78); }
+.arr { display:flex; align-items:center; justify-content:center; color:var(--gold-deep); }
+.arr svg { width:5.5mm; height:5.5mm; }
+.loop { font-size:7.4pt; color:var(--mute); text-align:right; margin-top:1.2mm; }
+
+.goal { margin-top:3mm; background:var(--blush); border:1px dashed var(--red); border-radius:2.5mm; text-align:center; font-size:11.5pt; font-weight:800; color:var(--red-deep); padding:2.4mm; letter-spacing:-.2px; }
+.goal .star { color:var(--gold-deep); }
+
+.stats { display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:3mm; }
+.stat { border-radius:3mm; padding:3.5mm 3mm 3.2mm; text-align:center; border:1.2px solid var(--line); background:#fff; }
+.stat .v { font-size:19pt; font-weight:900; color:var(--red); letter-spacing:-.5px; line-height:1.1; }
+.stat .v small { font-size:11pt; }
+.stat .l { font-size:8pt; color:var(--mute); margin-top:1.4mm; line-height:1.4; }
+.stat.main { background:linear-gradient(135deg, #111315, #1C1E22 60%, #0F3B38); border-color:var(--wine); color:#fff; }
+.stat.main .v { color:var(--gold); font-size:23pt; }
+.stat.main .l { color:#BFE9E4; font-weight:700; font-size:8.6pt; }
+
+.glossary { border-top:1.5px solid var(--red); }
+.glossary .row { display:grid; grid-template-columns:24mm 1fr; border-bottom:1px solid var(--line); font-size:8.8pt; }
+.glossary .k { background:var(--ivory); padding:2.2mm 3mm; font-weight:800; color:var(--red-deep); }
+.glossary .d { padding:2.2mm 3mm; }
+
+
+/* Great Beauty 키트 바 (보강) */
+.reward { position:relative; margin-top:3.5mm; display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:4.5mm; min-height:17mm; padding:2.2mm 6mm 2.2mm 6mm; border-radius:3.5mm; color:var(--ink); overflow:visible;
+  background:#F1F2F3; border:1px solid #D3D7D8; }
+.reward::before { content:""; position:absolute; left:0; top:0; bottom:0; width:1.8mm; border-radius:3.5mm 0 0 3.5mm; background:var(--red); }
+.reward .lbl { font-size:8.2pt; color:var(--red-deep); font-weight:700; letter-spacing:.2px; }
+.reward .kit { font-size:14pt; font-weight:900; letter-spacing:.2px; color:var(--ink); line-height:1.15; margin-top:.5mm; }
+.reward .comp { font-size:9.2pt; font-weight:700; color:#3A4142; margin-top:.9mm; }
+.reward .comp i { font-style:normal; color:var(--red); margin:0 1.4mm; }
+.reward .kiticon { position:relative; height:14mm; display:flex; align-items:center; justify-content:center; }
+.reward .kiticon img { position:relative; height:17mm; margin-top:-2.5mm; filter:drop-shadow(0 4px 6px rgba(0,0,0,.25)); }
+.reward .amt { text-align:left; white-space:nowrap; }
+.reward .amt .a1 { font-size:9.5pt; color:#4A5052; font-weight:700; letter-spacing:.2px; }
+.reward .amt .a2 { line-height:1; margin-top:.8mm; display:flex; align-items:baseline; }
+.reward .amt .a2 b { font-size:26pt; font-weight:900; color:var(--red-deep); letter-spacing:-.5px; }
+.reward .amt .a2 span { font-size:15pt; font-weight:800; color:var(--red-deep); margin-left:.8mm; }
+.reward .amt .a3 { font-size:15pt; font-weight:800; color:var(--ink); margin-left:2.2mm; }
+
+/* ---------- P2 ---------- */
+.diagram { width:100%; height:auto; display:block; margin:3mm auto 0; }
+.legend { display:grid; grid-template-columns:1fr 1fr; gap:4mm 4mm; margin-top:7mm; }
+.lg { display:grid; grid-template-columns:7mm 1fr; gap:2.5mm; align-items:start; background:var(--ivory); border:1px solid var(--line); border-radius:2.5mm; padding:4.5mm 4mm; }
+.lg .n { width:7mm; height:7mm; border-radius:50%; background:var(--red); color:#fff; font-weight:800; font-size:9pt; display:flex; align-items:center; justify-content:center; margin-top:.3mm; }
+.lg .t { font-size:10.2pt; font-weight:800; color:var(--red-deep); line-height:1.3; }
+.lg .d { font-size:9.3pt; line-height:1.5; margin-top:.6mm; }
+.lg.gold .n { background:var(--gold-deep); }
+.lg.gold .t { color:var(--gold-deep); }
+
+
+/* ---------- P2 (스토리보드) ---------- */
+.cast { display:grid; grid-template-columns:1fr 1.25fr 1fr 1fr; gap:3mm; margin-top:3mm; }
+.cast .c { border-radius:3mm; padding:3.5mm 2.5mm; text-align:center; }
+.cast .nm { font-size:11pt; font-weight:800; line-height:1.25; }
+.cast .sb { font-size:7.8pt; opacity:.85; margin-top:.8mm; }
+.cast .ds { font-size:8.3pt; font-weight:700; margin-top:1.2mm; }
+.cast .rj { background:linear-gradient(135deg, var(--red), var(--red-deep)); color:#fff; }
+.cast .cu { background:var(--blush); border:1.5px solid var(--red); color:var(--ink); }
+.cast .cu .nm { color:var(--red-deep); } .cast .cu .ds { color:var(--red); }
+.cast .bw { background:linear-gradient(135deg, var(--wine), var(--red-deep)); color:#fff; }
+.cast .bw .sb { color:var(--gold); opacity:1; }
+.cast .ss { background:var(--ivory); border:1.5px dashed var(--gold); color:var(--gold-deep); }
+.cast .ss .sb, .cast .ss .ds { color:var(--mute); }
+.panels { display:grid; grid-template-columns:1fr 1fr; gap:6mm 8mm; margin-top:4mm; }
+.panel { border:1.2px solid var(--line); border-radius:3mm; overflow:visible; background:#fff; position:relative; display:flex; flex-direction:column; }
+.panel .ph { display:flex; align-items:center; gap:2mm; padding:2.8mm 3.5mm; background:var(--blush); border-bottom:1px solid var(--line); border-radius:3mm 3mm 0 0; }
+.panel .n { width:6.5mm; height:6.5mm; border-radius:50%; background:var(--red); color:#fff; font-weight:800; font-size:9pt; display:flex; align-items:center; justify-content:center; flex:none; }
+.panel .t { font-weight:800; font-size:11pt; color:var(--red-deep); white-space:nowrap; }
+.panel .t small { font-size:8pt; font-weight:500; color:var(--mute); }
+.panel .who { margin-left:auto; font-size:8pt; color:var(--mute); font-weight:700; white-space:nowrap; }
+.panel.b2b .ph { background:#F6EEDF; } .panel.b2b .n { background:var(--gold-deep); } .panel.b2b .t { color:var(--gold-deep); }
+.panel .mini { width:72mm; height:auto; display:block; margin:0 auto; padding:4mm 0 0; }
+.panel p { font-size:9.6pt; line-height:1.65; padding:2mm 5mm 4.5mm; text-align:center; }
+.panel:nth-child(odd)::after { content:""; position:absolute; right:-5.6mm; top:50%; width:3mm; height:3mm; border-top:2.2px solid var(--gold); border-right:2.2px solid var(--gold); transform:translateY(-50%) rotate(45deg); }
+.keyline { margin-top:4mm; font-size:8.2pt; color:var(--mute); text-align:center; }
+.keyline .k { display:inline-block; font-weight:800; padding:.3mm 2mm; border-radius:10px; }
+.keyline .r { background:var(--blush); color:var(--red); } .keyline .g { background:#F6EEDF; color:var(--gold-deep); }
+
+/* ---------- P3 ---------- */
+table.tb { width:100%; border-collapse:collapse; font-size:8.9pt; }
+.tb th { background:var(--wine); color:#fff; font-weight:700; text-align:left; padding:2.4mm 3mm; font-size:8.6pt; }
+.tb th:first-child { border-radius:2mm 0 0 0; } .tb th:last-child { border-radius:0 2mm 0 0; }
+.tb td { padding:2.3mm 3mm; border-bottom:1px solid var(--line); vertical-align:middle; }
+.tb td.v { font-weight:700; color:var(--red-deep); white-space:nowrap; }
+.tb tr.sum td { background:var(--blush); font-weight:800; }
+.tb tr.sum td.v { color:var(--red); }
+.tb tr.total td { background:#1C1E22; color:#fff; font-weight:800; }
+.tb tr.total td.v { color:var(--gold); font-size:10pt; }
+
+.lotto { margin-top:3mm; border-radius:3mm; background:linear-gradient(120deg, #111315, #1C1E22 55%, #0F4F4B); color:#fff; padding:4mm 5mm; text-align:center; position:relative; overflow:hidden; }
+.lotto::before { content:""; position:absolute; right:-10mm; top:-14mm; width:40mm; height:40mm; border-radius:50%; border:1mm solid rgba(201,169,110,.35); }
+.lotto .h { font-size:15pt; font-weight:900; letter-spacing:-.2px; }
+.lotto .h .star { color:var(--gold); }
+.lotto .s { font-size:9pt; margin-top:1mm; color:rgba(255,255,255,.9); }
+.lotto .s b { color:var(--gold); }
+
+.prizes { display:grid; grid-template-columns:repeat(3, 1fr); gap:3mm; margin-top:3mm; }
+.prize { border:1.2px solid var(--line); border-radius:3mm; overflow:hidden; background:#fff; text-align:center; }
+.prize .rank { background:var(--red); color:#fff; font-weight:800; font-size:9pt; padding:1.6mm; }
+.prize .rank.g { background:linear-gradient(90deg, var(--gold-deep), var(--gold)); color:var(--wine); }
+.prize .ph { height:30mm; display:flex; align-items:center; justify-content:center; background:var(--ivory); padding:2mm; }
+.prize .ph img { max-width:100%; max-height:100%; object-fit:contain; mix-blend-mode:multiply; }
+.prize .nm { font-size:8.3pt; color:var(--mute); margin-top:1.8mm; }
+.prize .md { font-size:9.3pt; font-weight:800; line-height:1.3; padding:0 2mm; }
+.prize .nt { font-size:7pt; color:var(--red); margin:1.4mm 0 2.2mm; }
+.prize4 { margin-top:3mm; display:grid; grid-template-columns:1.25fr 1fr; border:1.2px solid var(--line); border-radius:3mm; overflow:hidden; }
+.prize4 .ph { background:var(--ivory); display:flex; align-items:center; }
+.prize4 .ph img { width:100%; height:100%; object-fit:cover; display:block; }
+.prize4 .info { padding:3mm 4mm; text-align:center; display:flex; flex-direction:column; justify-content:center; gap:1.2mm; }
+.prize4 .rank { display:inline-block; align-self:center; background:var(--red); color:#fff; font-weight:800; font-size:9pt; padding:1.2mm 5mm; border-radius:20px; }
+.prize4 .md { font-size:10pt; font-weight:800; margin-top:1mm; }
+.prize4 .nt { font-size:7.6pt; color:var(--red); line-height:1.5; }
+.prize4 .nt2 { font-size:7.6pt; color:var(--mute); }
+
+.rule { margin-top:3mm; background:var(--ivory); border:1px solid var(--line); border-left:4px solid var(--gold); border-radius:0 2.5mm 2.5mm 0; padding:3mm 4mm; font-size:8.8pt; line-height:1.65; }
+.rule b { color:var(--red-deep); }
+.rule .em { color:var(--red); font-weight:700; }
+
+/* ---------- P4 ---------- */
+.tb.rev td { text-align:right; }
+.tb.rev td:first-child, .tb.rev th:first-child { text-align:left; }
+.tb.rev th { text-align:right; } .tb.rev th:first-child { text-align:left; }
+.kpi { display:grid; grid-template-columns:1fr 1fr; gap:3mm; margin-top:3mm; }
+.kp { border:1.2px solid var(--line); border-radius:3mm; padding:3mm 3mm 2.8mm; text-align:center; background:#fff; }
+.kp .v { font-size:19pt; font-weight:900; color:var(--red); line-height:1.1; letter-spacing:-.5px; }
+.kp .l { font-size:8pt; color:var(--mute); margin-top:1.2mm; line-height:1.45; }
+.kp .v.kgoal { font-size:14.5pt; line-height:1.25; padding-top:2mm; }
+.tb td .sub { font-size:7.2pt; color:var(--mute); font-weight:400; }
+.kp.gold { background:linear-gradient(135deg, #111315, #1C1E22 60%, #0F3B38); border-color:var(--wine); }
+.kp.gold .v { color:var(--gold); } .kp.gold .l { color:#BFE9E4; }
+
+.qa { display:grid; grid-template-columns:1fr 1fr; gap:3mm; }
+.qa .box { border-radius:2.5mm; padding:3mm 4mm; font-size:8.8pt; line-height:1.6; }
+.qa .box .t { font-weight:800; font-size:9.6pt; margin-bottom:1mm; }
+.qa .yes { background:var(--blush); border:1px solid var(--line); border-top:3px solid var(--red); }
+.qa .yes .t { color:var(--red); }
+.qa .no { background:var(--ivory); border:1px solid var(--line); border-top:3px solid var(--gold); }
+.qa .no .t { color:var(--gold-deep); }
+.qa .wide { grid-column:1 / -1; background:#fff; border:1px solid var(--line); border-left:4px solid var(--red); border-radius:0 2.5mm 2.5mm 0; }
+.qa .wide b { color:var(--red-deep); }
+
+.sched { display:grid; grid-template-columns:1fr 1fr; gap:5mm; align-items:start; }
+.todo { counter-reset:td; }
+.todo .it { display:grid; grid-template-columns:7mm 1fr; gap:2.5mm; align-items:start; font-size:8.9pt; line-height:1.45; padding:1.9mm 0; border-bottom:1px solid var(--line); }
+.todo .it:last-child { border-bottom:0; }
+.todo .it::before { counter-increment:td; content:counter(td); width:7mm; height:7mm; border-radius:50%; background:var(--red); color:#fff; font-size:8.5pt; font-weight:800; display:flex; align-items:center; justify-content:center; }
+.tl { position:relative; padding-left:8mm; }
+.tl::before { content:""; position:absolute; left:3mm; top:3mm; bottom:3mm; width:2px; background:linear-gradient(var(--gold), var(--red)); }
+.tl .m { position:relative; padding:1.6mm 0 1.6mm 2mm; }
+.tl .m::before { content:""; position:absolute; left:-6.6mm; top:3.3mm; width:3.2mm; height:3.2mm; border-radius:50%; background:#fff; border:2.5px solid var(--red); }
+.tl .m.g::before { border-color:var(--gold-deep); }
+.tl .m.end::before { background:var(--red); }
+.tl .d { font-size:9.6pt; font-weight:800; color:var(--red-deep); }
+.tl .m.g .d { color:var(--gold-deep); }
+.tl .w { font-size:9.6pt; font-weight:800; color:var(--ink); }
+
+/* ---------- 화면 전용: 좁은 화면에서 A4 페이지를 비율대로 축소 ---------- */
+:root { --s:1; --pg-bg:#E9ECEC; }
+body { background:var(--pg-bg); overflow-x:hidden; padding-block:16px; padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px)); }
+.pw { width:calc(210mm * var(--s)); height:calc(297mm * var(--s)); margin:0 auto 16px; max-width:100%; }
+.pw .page { transform:scale(var(--s)); transform-origin:top left; margin:0; box-shadow:0 2px 14px rgba(28,30,34,.14); }
+@media print { body{padding:0; background:#fff;} .pw{width:auto; height:auto; margin:0;} .pw .page{transform:none; box-shadow:none;} }
+/* ---------- 배포 전용: PDF 다운로드 버튼 ---------- */
+.dl { position:fixed; right:max(16px, env(safe-area-inset-right, 0px)); bottom:max(16px, env(safe-area-inset-bottom, 0px)); z-index:20; display:inline-flex; align-items:center; gap:8px; background:#1C1E22; color:#fff; text-decoration:none; font-weight:800; font-size:14px; padding:12px 18px; border-radius:999px; box-shadow:0 6px 18px rgba(28,30,34,.35); font-family:"Pretendard","Malgun Gothic",sans-serif; }
+.dl:hover { background:#007A72; }
+.dl svg { width:16px; height:16px; }
+@media print { .dl { display:none; } }
+</style>
+<!-- ===================== PAGE 1 ===================== -->
+<div class="pw"><section class="page">
+  <div class="head"><span class="hl"><img src="img/brand/logo_rejuran_cosmetics_black_crop.png" alt="REJURAN"><span>FESTIVAL 2027 · 쉬운 요약본</span></span><span><b>BIGWAVE3</b> × COSBACK</span></div>
+
+  <div class="hero">
+    <div class="shade"></div>
+    <div class="txt">
+      <div class="kicker"><img class="hlogo" src="img/brand/logo_rejuran_white_teal_crop.png" alt="REJURAN"><span class="lat">× COSBACK · EASY SUMMARY</span></div>
+      <h1>리쥬란 <span class="lat">FESTIVAL 2027</span></h1>
+      <div class="sub"><span class="tag lat">RED LAMB</span> 챌린지 2027 · 150일 (2026.12.1 ~ 2027.4.29)</div>
+    </div>
+    <img class="hprod" src="img/brand/product_dual_effect_ampoule_crop.png" alt="">
+  </div>
+
+  <div class="oneline">
+    <div class="q lat">Insight</div>
+    <p><b>리쥬란 이벤트</b>에 <b>무료로 회원가입</b>하고 <b>뷰티웰니스 플랫폼 코스백 정회원</b>이 되면, 5년 동안 매년 리쥬란 제품 선물과 뷰티 케어 보험과 뷰티 웰니스 리워드를 받아요. <span class="hb">최대 750만원 상당의 GREAT BEAUTY 키트입니다.</span> 그 선물에 들어가는 리쥬란 제품은 <b>빅웨이브3</b>라는 회사가 구매하기 때문에, 리쥬란은 <b>돈을 쓰지 않고도 매출</b>이 생겨요.</p>
+  </div>
+
+  <h2>고객은 이렇게 움직여요</h2>
+  <div class="flow">
+    <div class="step"><div class="n">1</div><div class="t">리쥬란 이벤트 가입</div><div class="s">(혹은 자사몰)</div></div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M4 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="step hi"><div class="n">2</div><div class="t">뷰티 웰니스 플랫폼 COSBACK<br>정회원 가입</div><div class="s">(삼성 iD VITA 등록)</div></div>
+    <div class="arr"><svg viewBox="0 0 24 24"><path d="M4 12h13M12 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="step dark"><div class="n">3</div><div class="t">리쥬란X코스백<br>이벤트 제공</div></div>
+  </div>
+  <div class="reward">
+    <div class="rw-l">
+      <div class="lbl">이벤트 홍보 마케팅 실시 : 행사명_브랜드사</div>
+      <div class="kit"><span class="lat">Great Beauty</span> 키트</div>
+      <div class="comp">리쥬란 제품<i>·</i>뷰티케어보험<i>·</i>웰니스 크레딧</div>
+    </div>
+    <div class="kiticon"><img src="img/icon_bigwave_ci_clean.png" alt=""></div>
+    <div class="amt">
+      <div class="a1">5년간 최대</div>
+      <div class="a2"><b>750</b><span>만 원</span><span class="a3">상당 선물 제공</span></div>
+    </div>
+  </div>
+
+  <h2>왜 이 캠페인을 할까요?</h2>
+  <p class="body">리쥬란 화장품은 <b>수출</b>이 크게 늘며 자랐어요. 2026년 상반기에 수출은 약 705억 원, 우리나라 안에서는 약 319억 원이었어요. 나라 안 손님을 더 늘리려면 <b>손님과 직접 만날 수 있는 회원</b>이 필요해요. 그래서 이 캠페인의 목표는</p>
+  <div class="goal"><span class="star">★</span> 리쥬란 이벤트(자사몰) 회원 20만 명 가입 (코스백 정회원 10만 명 가입) <span class="star">★</span></div>
+  <div class="note">※ "국내에서 손님과 직접 만나는 곳이 적다"는 내용은 제안한 회사의 생각(가설)이며, 리쥬란의 실제 데이터로 확인해야 해요.</div>
+
+  <h2>숫자로 보는 핵심</h2>
+  <div class="stats">
+    <div class="stat main"><div class="v">20만 명<small>+</small></div><div class="l">리쥬란 쇼핑몰 회원 목표!</div></div>
+    <div class="stat"><div class="v">300억 원</div><div class="l">5년 동안 리쥬란이 받는<br>제품값 (기준 계획)</div></div>
+    <div class="stat"><div class="v">0원</div><div class="l">리쥬란이 따로 쓰는 돈<br>(비용은 빅웨이브3가 부담)</div></div>
+  </div>
+
+
+  <div class="foot"><span>리쥬란 FESTIVAL 2027</span><span class="bar"></span><span class="pg">쉬운 요약본 · 1 / 4</span></div>
+</section></div>
+
+<!-- ===================== PAGE 2 ===================== -->
+<div class="pw"><section class="page">
+  <div class="head"><span class="hl"><img src="img/brand/logo_rejuran_cosmetics_black_crop.png" alt="REJURAN"><span>FESTIVAL 2027 · 쉬운 요약본</span></span><span><b>BIGWAVE3</b> × COSBACK</span></div>
+
+  <h2 style="margin-top:0">사업의 구조를 그림으로 볼까요?</h2>
+  <p class="body" style="font-size:8.8pt;color:var(--mute)">세 주인공은 모든 장면에서 같은 자리에 서 있어요. 장면마다 켜지는 화살표 하나(● 출발 → ▶ 도착)만 따라가면 1번부터 6번까지 순서대로 읽혀요.</p>
+
+  <div class="panels">
+    <div class="panel"><div class="ph"><span class="n">1</span><span class="t">소식 알림</span><span class="who">리쥬란 → 고객</span></div><svg class="mini" viewBox="0 8 240 78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Pretendard, Malgun Gothic, sans-serif">
+<defs><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00A79D"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A8864B"/></marker></defs><g opacity="1"><image href="img/brand/product_dual_effect_ampoule_crop.png" xlink:href="img/brand/product_dual_effect_ampoule_crop.png" x="12" y="7" width="40" height="66" preserveAspectRatio="xMidYMid meet"/><text x="32" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">리쥬란</text></g><g opacity="1"><image href="img/icon_customer_v3a_clean.png" xlink:href="img/icon_customer_v3a_clean.png" x="91" y="14" width="58" height="52" preserveAspectRatio="xMidYMid meet"/><text x="120" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">고객</text></g><g opacity="0.2"><image href="img/icon_bigwave_ci_clean.png" xlink:href="img/icon_bigwave_ci_clean.png" x="183" y="15" width="50" height="50" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6B6F70">빅웨이브3</text></g><line x1="48" y1="40" x2="87" y2="40" stroke="#00A79D" stroke-width="3" marker-end="url(#mr)"/><circle cx="48" cy="40" r="4" fill="#00A79D"/></svg><p>리쥬란이 자기 이벤트·광고·SNS로 "챌린지가 시작돼요!"라고 알려요.</p></div>
+    <div class="panel"><div class="ph"><span class="n">2</span><span class="t">자사몰 가입 <small>(무료)</small></span><span class="who">고객 → 리쥬란</span></div><svg class="mini" viewBox="0 8 240 78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Pretendard, Malgun Gothic, sans-serif">
+<defs><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00A79D"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A8864B"/></marker></defs><g opacity="1"><image href="img/brand/product_dual_effect_ampoule_crop.png" xlink:href="img/brand/product_dual_effect_ampoule_crop.png" x="12" y="7" width="40" height="66" preserveAspectRatio="xMidYMid meet"/><text x="32" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">리쥬란</text></g><g opacity="1"><image href="img/icon_customer_v3a_clean.png" xlink:href="img/icon_customer_v3a_clean.png" x="91" y="14" width="58" height="52" preserveAspectRatio="xMidYMid meet"/><text x="120" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">고객</text></g><g opacity="0.2"><image href="img/icon_bigwave_ci_clean.png" xlink:href="img/icon_bigwave_ci_clean.png" x="183" y="15" width="50" height="50" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6B6F70">빅웨이브3</text></g><line x1="87" y1="40" x2="48" y2="40" stroke="#00A79D" stroke-width="3" marker-end="url(#mr)"/><circle cx="87" cy="40" r="4" fill="#00A79D"/></svg><p>고객이 리쥬란 이벤트 회원이 돼요. 물건을 안 사도 되고 돈도 안 내요.</p></div>
+    <div class="panel"><div class="ph"><span class="n">3</span><span class="t">코스백 정회원 가입</span><span class="who">고객 → 빅웨이브3</span></div><svg class="mini" viewBox="0 8 240 78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Pretendard, Malgun Gothic, sans-serif">
+<defs><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00A79D"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A8864B"/></marker></defs><g opacity="0.2"><image href="img/brand/product_dual_effect_ampoule_crop.png" xlink:href="img/brand/product_dual_effect_ampoule_crop.png" x="12" y="7" width="40" height="66" preserveAspectRatio="xMidYMid meet"/><text x="32" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6B6F70">리쥬란</text></g><g opacity="1"><image href="img/icon_customer_v3a_clean.png" xlink:href="img/icon_customer_v3a_clean.png" x="91" y="14" width="58" height="52" preserveAspectRatio="xMidYMid meet"/><text x="120" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">고객</text></g><g opacity="1"><image href="img/icon_bigwave_ci_clean.png" xlink:href="img/icon_bigwave_ci_clean.png" x="183" y="15" width="50" height="50" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">빅웨이브3</text></g><line x1="153" y1="40" x2="179" y2="40" stroke="#00A79D" stroke-width="3" marker-end="url(#mr)"/><circle cx="153" cy="40" r="4" fill="#00A79D"/></svg><p>고객이 코스백 정회원이 돼요. 삼성 iD VITA 카드를 직접 신청해야 해요.</p></div>
+    <div class="panel"><div class="ph"><span class="n">4</span><span class="t">선물 전달</span><span class="who">빅웨이브3 → 고객</span></div><svg class="mini" viewBox="0 8 240 78" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Pretendard, Malgun Gothic, sans-serif">
+<defs><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00A79D"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A8864B"/></marker></defs><g opacity="0.2"><image href="img/brand/product_dual_effect_ampoule_crop.png" xlink:href="img/brand/product_dual_effect_ampoule_crop.png" x="12" y="7" width="40" height="66" preserveAspectRatio="xMidYMid meet"/><text x="32" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6B6F70">리쥬란</text></g><g opacity="1"><image href="img/icon_customer_v3a_clean.png" xlink:href="img/icon_customer_v3a_clean.png" x="91" y="14" width="58" height="52" preserveAspectRatio="xMidYMid meet"/><text x="120" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">고객</text></g><g opacity="1"><image href="img/icon_bigwave_ci_clean.png" xlink:href="img/icon_bigwave_ci_clean.png" x="183" y="15" width="50" height="50" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">빅웨이브3</text></g><line x1="179" y1="40" x2="153" y2="40" stroke="#00A79D" stroke-width="3" marker-end="url(#mr)"/><circle cx="179" cy="40" r="4" fill="#00A79D"/></svg><p>빅웨이브3가 매년 리쥬란 제품 + 삼성화재 뷰티케어보험 + 크레딧을 고객에게 무료로 줘요.</p></div>
+    <div class="panel b2b"><div class="ph"><span class="n">5</span><span class="t">제품 공급</span><span class="who">리쥬란 → 고객</span></div><svg class="mini" viewBox="0 -16 240 102" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Pretendard, Malgun Gothic, sans-serif">
+<defs><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00A79D"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A8864B"/></marker></defs><g opacity="1"><image href="img/brand/product_dual_effect_ampoule_crop.png" xlink:href="img/brand/product_dual_effect_ampoule_crop.png" x="12" y="7" width="40" height="66" preserveAspectRatio="xMidYMid meet"/><text x="32" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">리쥬란</text></g><g opacity="1"><image href="img/icon_customer_v3a_clean.png" xlink:href="img/icon_customer_v3a_clean.png" x="91" y="14" width="58" height="52" preserveAspectRatio="xMidYMid meet"/><text x="120" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">고객</text></g><g opacity="0.2"><image href="img/icon_bigwave_ci_clean.png" xlink:href="img/icon_bigwave_ci_clean.png" x="183" y="15" width="50" height="50" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6B6F70">빅웨이브3</text></g><line x1="48" y1="40" x2="87" y2="40" stroke="#A8864B" stroke-width="3" marker-end="url(#mg)"/><circle cx="48" cy="40" r="4" fill="#A8864B"/></svg><p>리쥬란은 15만 원 상당 제품 세트를 정회원 고객에게 5년간 년 1회 보내요.</p></div>
+    <div class="panel b2b"><div class="ph"><span class="n">6</span><span class="t">제품값(돈)</span><span class="who">빅웨이브3 → 리쥬란</span></div><svg class="mini" viewBox="0 -16 240 102" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" font-family="Pretendard, Malgun Gothic, sans-serif">
+<defs><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#00A79D"/></marker><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#A8864B"/></marker></defs><g opacity="1"><image href="img/brand/product_dual_effect_ampoule_crop.png" xlink:href="img/brand/product_dual_effect_ampoule_crop.png" x="12" y="7" width="40" height="66" preserveAspectRatio="xMidYMid meet"/><text x="32" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">리쥬란</text></g><g opacity="0.2"><image href="img/icon_customer_v3a_clean.png" xlink:href="img/icon_customer_v3a_clean.png" x="91" y="14" width="58" height="52" preserveAspectRatio="xMidYMid meet"/><text x="120" y="80" text-anchor="middle" font-size="10.5" font-weight="600" fill="#6B6F70">고객</text></g><g opacity="1"><image href="img/icon_bigwave_ci_clean.png" xlink:href="img/icon_bigwave_ci_clean.png" x="183" y="15" width="50" height="50" preserveAspectRatio="xMidYMid meet"/><text x="208" y="80" text-anchor="middle" font-size="10.5" font-weight="800" fill="#1C1E22">빅웨이브3</text></g><path d="M208,11 C208,-16 32,-16 32,5" fill="none" stroke="#A8864B" stroke-width="3" marker-end="url(#mg)"/><circle cx="208" cy="11" r="4" fill="#A8864B"/></svg><p>플랫폼에서 리쥬란 구매가격 별도 공지</p></div>
+  </div>
+  <div class="keyline"><span class="k r">①~④</span> 고객을 모으는 흐름 &nbsp;·&nbsp; <span class="k g">⑤⑥</span> 두 회사가 제품과 돈을 주고받는 흐름 (고객을 거치지 않아요)</div>
+
+  <div class="foot"><span>리쥬란 FESTIVAL 2027</span><span class="bar"></span><span class="pg">쉬운 요약본 · 2 / 4</span></div>
+</section></div>
+
+<!-- ===================== PAGE 3 ===================== -->
+<div class="pw"><section class="page">
+  <div class="head"><span class="hl"><img src="img/brand/logo_rejuran_cosmetics_black_crop.png" alt="REJURAN"><span>FESTIVAL 2027 · 쉬운 요약본</span></span><span><b>BIGWAVE3</b> × COSBACK</span></div>
+
+  <h2 style="margin-top:0">고객은 무엇을 받나요? <span class="en lat">— GREAT BEAUTY</span></h2>
+  <table class="tb">
+    <thead><tr><th style="width:36mm">구성</th><th style="width:26mm">5년 가치</th><th>쉬운 설명</th></tr></thead>
+    <tbody>
+      <tr><td>리쥬란 15만 원 세트</td><td class="v">75만 원</td><td>코스백 정회원이 되면 바로, 그 뒤로 매년 한 번 받아요.</td></tr>
+      <tr><td>닥터리워드 크레딧</td><td class="v">150만 원</td><td>매년 30만 원어치 포인트. 뷰티·웰니스 가게에서 써요.</td></tr>
+      <tr><td>삼성화재 뷰티케어보험</td><td class="v">1년X5회</td><td>보험료는 매년 코스백이 내 줘요.</td></tr>
+      <tr class="sum"><td>키트 소계</td><td class="v">250만 원</td><td>1년에 50만 원 상당 × 5년 (GREAT BEAUTY라고 해요)</td></tr>
+      <tr><td>친구 초대 크레딧</td><td class="v">최대 500만 원</td><td>조건 있음. 친구 1명당 연 20만 원 × 최대 5명 × 5년</td></tr>
+      <tr class="total"><td>합계</td><td class="v">최대 750만 원</td><td>현금 캐시백·행운권은 따로예요.</td></tr>
+    </tbody>
+  </table>
+  <div class="note">※ 크레딧과 키트의 가치는 현금이 아니라 코스백·닥터리워드에서 쓰는 적립 가치예요. 코스백 정회원 자격을 유지해야 하며, 보험 범위 등은 협의 후 확정돼요.</div>
+  <div class="note red" style="margin-top:1mm">※ 아래 행운권 추첨은 '리쥬란X코스백 이벤트'를 가정한 예시예요.</div>
+
+  <div class="lotto">
+    <div class="h"><span class="star">★</span> 유튜브 라이브 행운권 추첨! <span class="star">★</span></div>
+    <div class="s">코스백 정회원이 <b>누적 2,000명</b> 모일 때마다 유튜브 라이브로 행운의 추첨을 진행해요</div>
+  </div>
+
+  <div class="prizes">
+    <div class="prize"><div class="rank g">1등 · 회당 1명</div><div class="ph"><img src="img/prize1_celine.png" alt=""></div><div class="nm">셀린느</div><div class="md">클래식 트리옹프 백</div><div class="nt">※ 업체와 협의 후 변경될 수 있어요</div></div>
+    <div class="prize"><div class="rank">2등 · 회당 1명</div><div class="ph"><img src="img/prize2_dior.png" alt=""></div><div class="nm">디올</div><div class="md">북 토트 스트랩 백 미디엄</div><div class="nt">※ 업체와 협의 후 변경될 수 있어요</div></div>
+    <div class="prize"><div class="rank">3등 · 회당 1명</div><div class="ph"><img src="img/prize3_lv.png" alt=""></div><div class="nm">루이 비통</div><div class="md">올 인 BB 모노그램</div><div class="nt">※ 업체와 협의 후 변경될 수 있어요</div></div>
+  </div>
+  <div class="prize4">
+    <div class="ph"><img src="img/prize4_saeskin.png" alt=""></div>
+    <div class="info">
+      <span class="rank">4등 · 회당 7명</span>
+      <div class="md">세이스킨 플라즈마 홈케어 뷰티 디바이스</div>
+      <div class="nt">※ 업체와 협의 후 변경될 수 있어요</div>
+      <div class="nt2">(디바이스 비용·구성은 협의로 확정)</div>
+    </div>
+  </div>
+
+  <div class="rule"><b>"2,000명마다 추첨"이란?</b> 코스백 정회원이 <b>누적 2,000명</b> 모일 때마다 유튜브 라이브로 추첨해요. 휴일에 가입해도 괜찮고, 추첨은 다음 영업일에 해요. 당첨자 명단과 결과는 라이브로 모두 공개해요. <span class="hl">이 선물은 뷰티웰니스 플랫폼 코스백이 제공해요.</span><br><span class="em">※ 이벤트에 필요한 가입 인원은 예시이며, 협의 가능해요.</span></div>
+
+  <div class="foot"><span>리쥬란 FESTIVAL 2027</span><span class="bar"></span><span class="pg">쉬운 요약본 · 3 / 4</span></div>
+</section></div>
+
+<!-- ===================== PAGE 4 ===================== -->
+<div class="pw"><section class="page">
+  <div class="head"><span class="hl"><img src="img/brand/logo_rejuran_cosmetics_black_crop.png" alt="REJURAN"><span>FESTIVAL 2027 · 쉬운 요약본</span></span><span><b>BIGWAVE3</b> × COSBACK</span></div>
+
+  <h2 style="margin-top:0">리쥬란은 무엇을 얻나요?</h2>
+  <table class="tb rev">
+    <thead><tr><th>어디서 생기나요?</th><th style="width:30mm">1년차</th><th style="width:30mm">5년 합계</th></tr></thead>
+    <tbody>
+      <tr><td>① 키트 제품값 (빅웨이브3가 지급)<br><span class="sub">(최종 제품 구매가는 협의 후 별도 공지 · 매출은 기준 시나리오로 계산한 값)</span></td><td>60.0억</td><td>300.0억</td></tr>
+      <tr><td>② 리쥬란 회원들이 자사몰에서 재구매해요</td><td>150.0억</td><td>750.0억</td></tr>
+      <tr><td>③ 추가유입 회원_정회원 외 자사몰 회원+친구초대로 유입된 회원</td><td>60.0억</td><td>300.0억</td></tr>
+      <tr class="total"><td>매출이 늘어나는 합계</td><td class="v">270.0억</td><td class="v">1,350.0억</td></tr>
+    </tbody>
+  </table>
+  <div class="note">※ 가입 비율·구매 금액은 계획상의 가정이에요. 리쥬란의 실제 데이터를 받으면 다시 계산해요.</div>
+  <div class="kpi">
+    <div class="kp gold"><div class="v kgoal">리쥬란 쇼핑몰 회원 20만 (코스백 정회원 10만명, 예시)</div><div class="l">목표</div></div>
+    <div class="kp"><div class="v">5년 누적 1,350억</div><div class="l">매출이 늘어나는 합계 (기준 시나리오)</div></div>
+  </div>
+
+  <h2>카드는 꼭 만들어야 하나요?</h2>
+  <div class="qa">
+    <div class="box yes"><div class="t">코스백 정회원이 되려면 예!</div>삼성 iD VITA 카드를 고객이 직접 신청해요. 연회비 2만 원은 정회원 혜택(청구할인·캐시백)으로 자동 차감된다고 안내돼요. 리쥬란은 카드를 권하거나 대신 신청하지 않아요.</div>
+    <div class="box no"><div class="t">카드를 만들지 않아도 괜찮아요.</div>그 고객은 리쥬란 자사몰 회원으로 남아요. 리쥬란이 알림톡·앱푸시로 신제품 소식을 직접 보낼 수 있어요. 억지로 권하지 않아요.</div>
+    <div class="box wide"><b>리쥬란에게 "손해 보는 쪽"은 없어요.</b> 카드를 만든 고객은 5년 동안 제품을 받는 정회원이 되고, 만들지 않은 고객도 자사몰 회원으로 남아요. 어느 쪽이든 리쥬란의 지출은 0원이에요. 회원이 줄면 빅웨이브3의 제품 구매가 그만큼 줄어드는 것이에요.</div>
+  </div>
+
+  <h2>리쥬란이 결정할 일과 일정</h2>
+  <div class="sched">
+    <div class="todo">
+      <div class="it"><div>행사 기간과 15만 원 키트 구성, 공급 조건 확정</div></div>
+      <div class="it"><div>자사몰 가입 → 전용 랜딩페이지 연결, 배너 게시 승인</div></div>
+      <div class="it"><div>리쥬란 행사 기획•진행</div></div>
+      <div class="it"><div>협의 후 계획 확정</div></div>
+    </div>
+    <div class="tl">
+      <div class="m g"><div class="w">조건 합의·준비·티징</div></div>
+      <div class="m"><div class="w">챌린지 시작 (150일)</div></div>
+      <div class="m end"><div class="w">챌린지 끝</div></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:3mm">※ 이 요약본의 숫자는 제안서(리쥬란 FESTIVAL 2027)의 기획 가정을 쉽게 옮긴 것이며, 협약 후 확정돼요.</div>
+
+  <div class="foot"><span>리쥬란 FESTIVAL 2027</span><span class="bar"></span><span class="pg">쉬운 요약본 · 4 / 4</span></div>
+</section></div>
+<a class="dl" href="rejuran_festival2027_summary_4p.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>PDF 다운로드</a>
+<script>
+(function(){ var r=document.documentElement; function fit(){ var cs=getComputedStyle(document.body); var avail=document.body.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight); var pageW=(210/25.4)*96; var s=Math.min(1, avail/pageW); r.style.setProperty('--s', s.toFixed(4)); }
+  fit(); window.addEventListener('resize', fit); })();
+</script>
+</body>
+</html>
