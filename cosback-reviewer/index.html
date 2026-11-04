@@ -165,7 +165,40 @@ ul.pts li b{color:var(--ink);font-weight:800}
   .mascot{animation:bob 3s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 }
-@media print{.sticky{display:none}.phone{padding-bottom:0}}
+/* 신청서 바텀시트 */
+.sheet{position:fixed;inset:0;z-index:20;display:none}
+.sheet.open{display:block}
+.sheet .dim{position:absolute;inset:0;background:rgba(75,58,90,.45)}
+.sheet .panel{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:100%;max-width:430px;max-height:92vh;overflow:auto;background:var(--bg);border-radius:28px 28px 0 0;padding:14px 18px calc(24px + env(safe-area-inset-bottom));box-shadow:0 -10px 40px rgba(75,58,90,.25)}
+.sheet .grip{width:44px;height:5px;border-radius:3px;background:#d9cfe8;margin:0 auto 10px}
+.sheet .ph{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.sheet .ph h2{font-size:2rem;margin:0}
+.sheet .close{width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:1.4rem;font-weight:800;box-shadow:var(--shadow);cursor:pointer}
+.sheet .sub{color:var(--mute);font-size:.98rem;font-weight:500;margin-bottom:12px}
+.fld{display:block;margin-bottom:12px}
+.fld span.l{display:block;font-weight:800;font-size:1rem;margin-bottom:6px}
+.fld span.l em{font-style:normal;color:var(--pink)}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;font-size:1.05rem;font-weight:500;color:var(--ink);background:#fff;border:2px solid #efe6f3;border-radius:16px;padding:12px 14px;outline:none}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--pink);box-shadow:0 0 0 4px var(--pink-soft)}
+.fld textarea{min-height:84px;resize:vertical}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0;width:0;height:0}
+.seg span{display:block;text-align:center;background:#fff;border:2px solid #efe6f3;border-radius:14px;padding:10px 6px;font-weight:800;font-size:.98rem;cursor:pointer}
+.seg input:checked + span{background:var(--pink);border-color:var(--pink);color:#fff}
+.seg input:focus-visible + span{box-shadow:0 0 0 4px var(--pink-soft)}
+.agree{display:flex;gap:10px;align-items:flex-start;background:#fff;border-radius:16px;padding:12px 14px;font-size:.95rem;font-weight:500;margin:4px 0 14px}
+.agree input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--pink)}
+.sheet .btn{width:100%;border:0;background:var(--ink);color:#fff;font-family:var(--font-display);font-size:1.65rem;padding:13px;border-radius:999px;cursor:pointer;box-shadow:0 10px 24px rgba(75,58,90,.3)}
+.sheet .btn[disabled]{opacity:.6;cursor:wait}
+.sheet .msg{margin-top:10px;font-size:.95rem;font-weight:600;text-align:center;min-height:1.4em}
+.sheet .msg.err{color:#d9465f}
+.done{text-align:center;padding:16px 0 8px}
+.done .big{font-family:var(--font-display);font-size:2.2rem;color:var(--pink);line-height:1.2}
+.done p{color:var(--mute);font-weight:500;margin-top:8px}
+.btn2{display:inline-block;margin-top:12px;background:var(--ink);color:#fff;font-family:var(--font-display);font-size:1.4rem;padding:11px 26px;border-radius:999px;text-decoration:none;border:0;cursor:pointer}
+body.lock{overflow:hidden}
+@media print{.sticky,.sheet{display:none}.phone{padding-bottom:0}}
 </style>
 </head>
 <body>
@@ -192,9 +225,9 @@ ul.pts li b{color:var(--ink);font-weight:800}
       <path d="M26 40l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#b9a3ff"/>
       <path d="M138 70l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#8fe3c0"/>
     </svg>
-    <div class="bubble">카드 한 장이면<br>45만원 혜택이 따라와요!</div>
+    <div class="bubble">카드 한 장이면<br>최대 750만 혜택이 따라와요!</div>
     <h1>알려주면 <em>팔로워도</em><br><em>나도</em> 좋은 꿀정보</h1>
-    <p>삼성 iD VITA 카드로 코스백정회원이 되면 <span class="hl">30만 크레딧</span> + <span class="hl">15만원 이상 더마 세트</span> + <span class="hl">뷰티케어보험</span>. 이 소식을 전해 줄 리뷰어를 찾아요.</p>
+    <p>삼성 iD VITA 카드로 코스백정회원이 되면 <span class="hl">30만 크레딧</span> + <span class="hl">15만원 이상 더마 세트</span> + <span class="hl">뷰티케어보험</span>, 5년 누적이면 <span class="hl">최대 750만 상당</span>. 이 소식을 전해 줄 리뷰어를 찾아요.</p>
     <div class="duo">
       <div class="you">
         <svg class="deco" viewBox="0 0 24 24" fill="#ff8fab"><path d="M12 2l2.6 6.3L21 9l-5 4.4 1.5 6.6L12 16.6 6.5 20l1.5-6.6L3 9l6.4-.7z"/></svg>
@@ -295,6 +328,7 @@ ul.pts li b{color:var(--ink);font-weight:800}
         <li>정회원이 되면 코스백 이커머스 <b>본인 구매 15% 캐시백</b></li>
         <li>추천한 친구의 구매액 <b>5% 캐시백</b></li>
         <li>친구 추천 1명당 <b>20만 크레딧</b>, 연 최대 5명</li>
+        <li>5년 갱신 누적 시 <b>최대 750만 상당</b> 혜택</li>
       </ul>
     </div>
   </section>
@@ -306,7 +340,8 @@ ul.pts li b{color:var(--ink);font-weight:800}
       <div>
         <b class="h">팔로워에게 진짜 이득</b>
         <ul class="pts sun">
-          <li>카드 발급과 일상 소비만으로 45만원 상당 혜택</li>
+          <li>카드 발급과 일상 소비만으로 가입 즉시 45만원 상당 혜택</li>
+          <li>5년 누적이면 최대 750만 상당, 후킹이 확실해요</li>
           <li>광고가 아니라 "알려주는 콘텐츠"로 읽혀요</li>
         </ul>
       </div>
@@ -404,7 +439,7 @@ ul.pts li b{color:var(--ink);font-weight:800}
             <li>필수 장면 ② 카드 EVENT 배너에서 신청하는 화면</li>
             <li>필수 장면 ③ 대상 조건과 따라 하는 순서</li>
           </ul>
-          <div class="ex">오프닝 3초 후킹 예: "카드 한 장 만들었더니 피부과 크레딧 30만에 화장품 세트까지?"</div>
+          <div class="ex">오프닝 3초 후킹 예: "카드 한 장이면 최대 750만 혜택? 피부과 크레딧 30만에 화장품 세트까지"</div>
         </div>
         <div>
           <div class="h"><i>2</i>피드 1개</div>
@@ -493,6 +528,7 @@ ul.pts li b{color:var(--ink);font-weight:800}
         <dt>원고료</dt><dd>검수 완료 후 7일 이내</dd>
         <dt>수수료</dt><dd>월 집계, 익월 말 지급</dd>
       </dl>
+      <div style="text-align:center;margin-top:16px"><button type="button" class="btn2 js-open" style="background:#fff;color:var(--ink)">신청서 작성하기</button></div>
     </div>
   </section>
 
@@ -503,6 +539,94 @@ ul.pts li b{color:var(--ink);font-weight:800}
 
 </div>
 
-<div class="sticky"><a href="#apply">리뷰어 신청하기</a></div>
+<div class="sticky"><a href="#apply" class="js-open">리뷰어 신청하기</a></div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="dim js-close"></div>
+  <div class="panel">
+    <div class="grip"></div>
+    <div class="ph"><h2 id="sheetTitle">리뷰어 신청서</h2><button type="button" class="close js-close" aria-label="닫기">×</button></div>
+    <p class="sub">1분이면 끝나요. 선정 결과는 입력한 연락처로 알려 드려요.</p>
+    <form id="applyForm" novalidate>
+      <label class="fld"><span class="l">이름 <em>*</em></span><input type="text" name="name" id="f-name" required autocomplete="name" placeholder="홍길동"></label>
+      <label class="fld"><span class="l">휴대폰 번호 <em>*</em></span><input type="tel" name="phone" id="f-phone" required autocomplete="tel" inputmode="numeric" placeholder="010-0000-0000"></label>
+      <label class="fld"><span class="l">이메일</span><input type="email" name="email" id="f-email" autocomplete="email" placeholder="선택 입력"></label>
+      <div class="fld"><span class="l">활동 채널 <em>*</em></span>
+        <div class="seg">
+          <label><input type="radio" name="channel" value="네이버 블로그" required><span>블로그</span></label>
+          <label><input type="radio" name="channel" value="인스타그램"><span>인스타</span></label>
+          <label><input type="radio" name="channel" value="블로그+인스타"><span>둘 다</span></label>
+        </div>
+      </div>
+      <label class="fld"><span class="l">채널 주소 <em>*</em></span><input type="url" name="channel_url" id="f-url" required inputmode="url" placeholder="https://blog.naver.com/아이디 또는 instagram.com/아이디"></label>
+      <label class="fld"><span class="l">팔로워·이웃 수 <em>*</em></span><input type="text" name="followers" id="f-followers" required inputmode="numeric" placeholder="예: 3,500"></label>
+      <label class="fld"><span class="l">주로 다루는 분야</span>
+        <select name="topic" id="f-topic">
+          <option value="">선택</option><option>뷰티·화장품</option><option>피부과·시술</option><option>라이프·일상</option><option>재테크·카드 혜택</option><option>육아·가족</option><option>기타</option>
+        </select>
+      </label>
+      <label class="fld"><span class="l">하고 싶은 말</span><textarea name="message" id="f-message" placeholder="포스팅 아이디어, 경험 등 자유롭게"></textarea></label>
+      <label class="agree"><input type="checkbox" name="agree" id="f-agree" required><span>리뷰어 선정과 원고료·수수료 정산을 위해 이름·연락처·채널 정보를 수집하며, 캠페인 종료 후 6개월 내 파기하는 데 동의합니다. <em style="font-style:normal;color:var(--pink)">*</em></span></label>
+      <input type="hidden" name="subject" value="[코스백 리뷰어 신청] 새 신청서">
+      <input type="hidden" name="from_name" value="코스백 리뷰어 모집 랜딩">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <button type="submit" class="btn" id="submitBtn">신청서 보내기</button>
+      <div class="msg" id="formMsg" aria-live="polite"></div>
+    </form>
+    <div class="done" id="doneBox" hidden>
+      <div class="big">신청 완료!</div>
+      <p>선정 결과는 입력하신 연락처로 안내해 드려요.<br>곧 연락드릴게요.</p>
+      <button type="button" class="btn2 js-close">닫기</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  // 접수 연결: Web3Forms 액세스 키(https://web3forms.com, 수신 이메일로 발급). 비어 있으면 안내만 표시
+  var ACCESS_KEY = "";
+  var ENDPOINT = "https://api.web3forms.com/submit";
+  var sheet = document.getElementById('sheet');
+  var form = document.getElementById('applyForm');
+  var msg = document.getElementById('formMsg');
+  var btn = document.getElementById('submitBtn');
+  var done = document.getElementById('doneBox');
+  var lastFocus = null;
+  function open(e){ if(e) e.preventDefault(); lastFocus = document.activeElement; sheet.classList.add('open'); document.body.classList.add('lock'); var f = document.getElementById('f-name'); if(f) setTimeout(function(){ f.focus(); }, 50); }
+  function close(){ sheet.classList.remove('open'); document.body.classList.remove('lock'); if(lastFocus && lastFocus.focus) lastFocus.focus(); }
+  Array.prototype.forEach.call(document.querySelectorAll('.js-open'), function(el){ el.addEventListener('click', open); });
+  Array.prototype.forEach.call(document.querySelectorAll('.js-close'), function(el){ el.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && sheet.classList.contains('open')) close(); });
+  document.getElementById('f-phone').addEventListener('input', function(){
+    var d = this.value.replace(/\D/g,'').slice(0,11);
+    this.value = d.length > 7 ? d.replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3') : d.length > 3 ? d.replace(/(\d{3})(\d+)/, '$1-$2') : d;
+  });
+  function setMsg(t, err){ msg.textContent = t; msg.className = 'msg' + (err ? ' err' : ''); }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = form.name.value.trim(), phone = form.phone.value.trim(), url = form.channel_url.value.trim(), fol = form.followers.value.trim();
+    var ch = form.querySelector('input[name="channel"]:checked');
+    if(!name){ setMsg('이름을 입력해 주세요.', true); form.name.focus(); return; }
+    if(!/^01\d-\d{3,4}-\d{4}$/.test(phone)){ setMsg('휴대폰 번호를 다시 확인해 주세요.', true); form.phone.focus(); return; }
+    if(!ch){ setMsg('활동 채널을 골라 주세요.', true); return; }
+    if(!url){ setMsg('채널 주소를 입력해 주세요.', true); form.channel_url.focus(); return; }
+    if(!fol){ setMsg('팔로워·이웃 수를 입력해 주세요.', true); form.followers.focus(); return; }
+    if(!form.agree.checked){ setMsg('개인정보 수집에 동의해 주세요.', true); form.agree.focus(); return; }
+    if(!ACCESS_KEY){ setMsg('접수 연결 전입니다. 담당자가 수신 설정을 마치면 바로 접수돼요.', true); return; }
+    var data = {};
+    Array.prototype.forEach.call(form.elements, function(el){ if(el.name && el.type !== 'submit' && !(el.type === 'radio' && !el.checked) && el.name !== 'botcheck'){ data[el.name] = el.type === 'checkbox' ? (el.checked ? '동의' : '') : el.value; } });
+    data.access_key = ACCESS_KEY;
+    data.subject = '[코스백 리뷰어 신청] ' + name + ' · ' + ch.value;
+    btn.disabled = true; setMsg('보내는 중…');
+    fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body: JSON.stringify(data) })
+      .then(function(r){ return r.json().then(function(j){ return { ok: r.ok && j.success !== false, j: j }; }); })
+      .then(function(res){
+        if(res.ok){ form.hidden = true; done.hidden = false; document.querySelector('.sheet .sub').hidden = true; }
+        else { setMsg('전송에 실패했어요. 잠시 후 다시 시도해 주세요.', true); btn.disabled = false; }
+      })
+      .catch(function(){ setMsg('네트워크 오류예요. 연결을 확인하고 다시 시도해 주세요.', true); btn.disabled = false; });
+  });
+})();
+</script>
 </body>
 </html>
