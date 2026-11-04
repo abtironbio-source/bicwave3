@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>코스백 리뷰어 모집 B안</title>
+<link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Gothic+A1:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* 모바일 랜딩(최대 430px 한 열). 파스텔 핑크·라벤더·피치·민트, 부드러운 그림자, 말풍선과 동글이 캐릭터. 제목 Gaegu(손글씨), 본문 Gothic A1. 본문 17px 기준, 설명은 모두 불릿으로 세분화. 단일 라이트 테마 */
+  --ink:#4b3a5a; --mute:#7a6a8a; --bg:#fff6f0; --card:#ffffff;
+  --pink:#ff8fab; --pink-soft:#ffe3ea; --peach:#ffb785; --peach-soft:#ffe9d6;
+  --lav:#b9a3ff; --lav-soft:#ede7ff; --mint:#8fe3c0; --mint-soft:#dff8ec; --sun:#ffd166;
+  --shadow:0 10px 28px rgba(255,143,171,.22);
+  --font-display:"Gaegu","Gothic A1",sans-serif;
+  --font-body:"Gothic A1","Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font-body);color:var(--ink);background:#fbeee6;line-height:1.65;font-size:17px;word-break:keep-all}
+.phone{max-width:430px;margin:0 auto;background:var(--bg);min-height:100vh;position:relative;overflow:hidden;padding-bottom:100px}
+.phone::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 10% 6%,var(--pink-soft) 0 120px,transparent 121px),
+  radial-gradient(circle at 92% 14%,var(--lav-soft) 0 90px,transparent 91px),
+  radial-gradient(circle at 88% 62%,var(--mint-soft) 0 110px,transparent 111px),
+  radial-gradient(circle at 6% 88%,var(--peach-soft) 0 100px,transparent 101px);
+  pointer-events:none;z-index:0}
+.phone > *{position:relative;z-index:1}
+.sec{padding:30px 18px}
+h1,h2,h3{text-wrap:balance;line-height:1.25}
+h2{font-family:var(--font-display);font-size:2.15rem;color:var(--ink);margin-bottom:8px;font-weight:700}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:.9rem;font-weight:800;color:var(--ink);background:#fff;border:2px solid var(--pink);padding:4px 13px;border-radius:999px;margin-bottom:10px}
+.chip i{width:9px;height:9px;border-radius:50%;background:var(--pink);display:inline-block}
+.lead{color:var(--mute);margin-bottom:16px;font-weight:500;font-size:1.05rem}
+.num{font-variant-numeric:tabular-nums}
+.badge{display:inline-block;font-size:.78rem;font-weight:800;padding:2px 9px;border-radius:999px;background:var(--sun);color:var(--ink);vertical-align:middle;white-space:nowrap}
+ul.pts{list-style:none;padding:0;display:grid;gap:6px}
+ul.pts li{position:relative;padding-left:20px;font-size:1rem;font-weight:500;color:var(--ink);line-height:1.55}
+ul.pts li::before{content:"";position:absolute;left:2px;top:.6em;width:9px;height:9px;border-radius:50%;background:var(--pink)}
+ul.pts.lav li::before{background:var(--lav)} ul.pts.mint li::before{background:var(--mint)} ul.pts.sun li::before{background:var(--sun)}
+ul.pts li b{color:var(--ink);font-weight:800}
+
+/* 상단 */
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 18px 0}
+.logo{font-family:var(--font-display);font-size:1.6rem;color:var(--pink);letter-spacing:.06em}
+.top small{font-size:.8rem;font-weight:800;color:var(--mute);background:#fff;padding:4px 10px;border-radius:999px}
+
+/* 히어로 */
+.hero{padding:18px 18px 10px;text-align:center}
+.mascot{width:160px;height:160px;margin:6px auto 4px;display:block}
+.bubble{position:relative;background:#fff;border-radius:22px;padding:12px 18px;font-family:var(--font-display);font-size:1.55rem;color:var(--ink);box-shadow:var(--shadow);display:inline-block;margin-bottom:16px;line-height:1.3}
+.bubble::after{content:"";position:absolute;left:50%;bottom:-10px;width:18px;height:18px;background:#fff;transform:translateX(-50%) rotate(45deg);border-radius:4px}
+.hero h1{font-family:var(--font-display);font-size:2.8rem;color:var(--ink);margin:6px 0 12px;font-weight:700}
+.hero h1 em{font-style:normal;color:var(--pink)}
+.hero p{color:var(--mute);font-weight:500;font-size:1.05rem}
+.hero .hl{background:linear-gradient(transparent 58%,var(--sun) 58%);padding:0 2px;font-weight:800;color:var(--ink)}
+.duo{display:grid;gap:14px;margin-top:20px;text-align:left}
+.duo div{border-radius:24px;padding:18px 20px;box-shadow:var(--shadow);background:#fff;position:relative;overflow:hidden}
+.duo .you{background:linear-gradient(135deg,#fff 0%,var(--pink-soft) 100%)}
+.duo .them{background:linear-gradient(135deg,#fff 0%,var(--lav-soft) 100%)}
+.duo .t{font-size:.85rem;font-weight:800;letter-spacing:.04em;color:#fff;background:var(--pink);padding:4px 12px;border-radius:999px;display:inline-block;margin-bottom:10px}
+.duo .them .t{background:var(--lav)}
+.duo > div > b{display:block;font-family:var(--font-display);font-size:1.85rem;line-height:1.25;color:var(--ink)}
+.duo ul.pts{margin-top:10px}
+.duo svg.deco{position:absolute;right:12px;top:12px;width:36px;height:36px;opacity:.9}
+
+/* 보상 */
+.formula{background:var(--ink);color:#fff;border-radius:24px;padding:20px 18px;box-shadow:0 10px 28px rgba(75,58,90,.25)}
+.formula .f{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--font-display);font-size:1.7rem;justify-content:center}
+.formula .f b{background:var(--sun);color:var(--ink);border-radius:14px;padding:6px 14px;font-weight:700}
+.formula .f b.c{background:var(--pink);color:#fff}
+.formula .f i{font-style:normal;color:#d9cfe8}
+.formula ul.pts{margin-top:14px}
+.formula ul.pts li{color:#efe9f8;font-size:1rem}
+.formula ul.pts li b{color:var(--sun)}
+.calc{margin-top:14px;background:#fff;border-radius:24px;padding:8px 18px;box-shadow:var(--shadow)}
+.calc .row{display:grid;grid-template-columns:58px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:2px dotted var(--pink-soft)}
+.calc .row:last-child{border-bottom:0}
+.calc .row span{font-weight:800;color:var(--mute);font-size:1.05rem}
+.calc .row .bar{height:14px;border-radius:8px;background:var(--pink-soft);overflow:hidden}
+.calc .row .bar i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--pink),var(--peach))}
+.calc .row strong{font-family:var(--font-display);color:var(--pink);font-size:1.6rem;font-weight:700}
+.calc .head{display:flex;justify-content:space-between;padding:14px 0 6px;font-size:.88rem;font-weight:800;color:var(--mute)}
+
+/* 혜택 */
+.flow{background:#fff;border-radius:24px;padding:14px 18px;box-shadow:var(--shadow);margin-bottom:14px}
+.flow .p{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:center;padding:10px 0}
+.flow .p + .p{border-top:2px dotted var(--lav-soft)}
+.flow .p .n{width:40px;height:40px;border-radius:50%;background:var(--lav);color:#fff;font-family:var(--font-display);font-size:1.4rem;display:grid;place-items:center;font-weight:700}
+.flow .p:nth-child(2) .n{background:var(--peach)} .flow .p:nth-child(3) .n{background:var(--mint);color:var(--ink)}
+.flow .p b{display:block;font-size:1.12rem}
+.flow .p small{color:var(--mute);font-weight:500;display:block;line-height:1.5;font-size:.98rem}
+.gift{display:grid;gap:14px}
+.gift > div{background:#fff;border-radius:24px;padding:18px;box-shadow:var(--shadow)}
+.gift .hd{display:grid;grid-template-columns:60px 1fr;gap:14px;align-items:center;margin-bottom:10px}
+.gift .ic{width:60px;height:60px;border-radius:18px;display:grid;place-items:center}
+.gift > div:nth-child(1) .ic{background:var(--lav-soft)} .gift > div:nth-child(2) .ic{background:var(--pink-soft)} .gift > div:nth-child(3) .ic{background:var(--mint-soft)}
+.gift svg{width:32px;height:32px}
+.gift .val{font-family:var(--font-display);font-size:1.75rem;color:var(--pink);display:block;line-height:1.1;font-weight:700}
+.gift h3{font-size:1.1rem;font-weight:800;margin-top:2px}
+.note{margin-top:14px;background:#fff;border:2px dashed var(--peach);border-radius:20px;padding:14px 16px}
+.note .t{display:inline-block;color:var(--ink);background:var(--peach-soft);padding:2px 10px;border-radius:999px;font-weight:800;font-size:.95rem;margin-bottom:8px}
+
+/* 왜 */
+.why{display:grid;gap:12px}
+.why > div{background:#fff;border-radius:20px;padding:16px 18px 16px 58px;position:relative;box-shadow:var(--shadow)}
+.why > div::before{content:"";position:absolute;left:16px;top:18px;width:28px;height:28px;border-radius:50%;background:var(--sun)}
+.why > div:nth-child(2)::before{background:var(--mint)} .why > div:nth-child(3)::before{background:var(--lav)}
+.why > div::after{content:"";position:absolute;left:24px;top:30px;width:12px;height:6px;border:2.5px solid var(--ink);border-top:0;border-radius:0 0 8px 8px}
+.why b.h{display:block;font-size:1.12rem;margin-bottom:6px}
+
+/* 절차 */
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;counter-reset:s}
+.step{background:#fff;border-radius:20px;padding:14px 10px 12px;text-align:center;box-shadow:var(--shadow)}
+.step::before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pink);color:#fff;font-family:var(--font-display);font-size:1.35rem;margin-bottom:8px;font-weight:700}
+.step:nth-child(2n)::before{background:var(--lav)} .step:nth-child(3n)::before{background:var(--mint);color:var(--ink)}
+.step b{display:block;font-size:1.08rem;margin-bottom:3px}
+.step small{color:var(--mute);display:block;line-height:1.45;font-weight:500;font-size:.95rem}
+.step.pay{background:var(--sun)} .step.pay small{color:#6b5a2a}
+
+/* 미션 */
+.card{background:#fff;border-radius:24px;padding:20px 18px;box-shadow:var(--shadow)}
+.card + .card{margin-top:14px}
+.card h3{font-family:var(--font-display);font-size:1.7rem;display:flex;align-items:center;gap:8px;margin-bottom:12px;font-weight:700}
+.card h3 .tag{font-family:var(--font-body);font-size:.78rem;font-weight:800;padding:3px 10px;border-radius:999px;background:var(--pink);color:#fff}
+.card h3 .tag.r{background:var(--lav)}
+.mi{display:grid;gap:12px}
+.mi > div{border-top:2px dotted var(--pink-soft);padding-top:10px}
+.mi > div:first-child{border-top:0;padding-top:0}
+.mi .h{display:flex;align-items:center;gap:8px;font-weight:800;font-size:1.08rem;margin-bottom:6px}
+.mi .h i{font-style:normal;width:26px;height:26px;border-radius:50%;background:var(--pink);color:#fff;font-family:var(--font-display);font-size:1.1rem;display:grid;place-items:center;flex:none}
+.mi.r .h i{background:var(--lav)}
+.ex{background:var(--lav-soft);border-radius:14px;padding:8px 12px;font-size:1rem;font-weight:600;margin-top:6px}
+.kw{margin-top:14px;background:#fff;border-radius:24px;padding:18px;box-shadow:var(--shadow);font-size:1rem}
+.kw dt{font-weight:800;margin:12px 0 6px;color:var(--pink);font-size:1.05rem}
+.kw dt:first-child{margin-top:0}
+.kw dd code{font-family:inherit;background:var(--lav-soft);color:var(--ink);border-radius:999px;padding:3px 12px;margin:0 4px 6px 0;display:inline-block;font-weight:700;font-size:1rem}
+.kw dd.rule{color:var(--ink);font-weight:500}
+
+/* 유의 */
+.ftc{background:var(--sun);border-radius:18px;padding:14px 16px;font-size:1rem;margin-bottom:14px;font-weight:600;color:#4b3a1a;line-height:1.55}
+.ftc b{display:block;font-size:1.08rem;margin-bottom:4px;font-weight:800}
+.ng{display:grid;gap:10px}
+.ng div{background:var(--pink-soft);border-radius:16px;padding:10px 14px;font-size:1rem;font-weight:500}
+.ng .x{color:#d9465f;text-decoration:line-through;text-decoration-thickness:2px;display:block}
+.ng .ok{color:var(--ink);font-weight:800;display:block;margin-top:2px}
+.ng .ok::before{content:"→ ";color:var(--pink)}
+
+/* 신청 */
+.apply{background:linear-gradient(160deg,var(--pink) 0%,var(--lav) 100%);color:#fff;border-radius:28px;padding:24px 20px;box-shadow:0 12px 30px rgba(185,163,255,.35)}
+.apply h2{color:#fff}
+.apply ul.pts{margin-top:4px}
+.apply ul.pts li{color:#fff}
+.apply ul.pts li::before{background:#fff}
+.apply dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;font-size:1rem;background:rgba(255,255,255,.94);color:var(--ink);border-radius:20px;padding:16px 18px;margin-top:16px;font-weight:500}
+.apply dt{color:var(--pink);font-weight:800}
+.foot{padding:12px 18px 20px;color:var(--mute);font-size:.88rem;line-height:1.6;font-weight:500;text-align:center}
+
+/* 하단 고정 CTA */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;padding:10px 16px calc(10px + env(safe-area-inset-bottom));pointer-events:none}
+.sticky a{pointer-events:auto;width:100%;max-width:398px;display:block;text-align:center;background:var(--ink);color:#fff;font-family:var(--font-display);font-size:1.65rem;padding:13px 18px;border-radius:999px;text-decoration:none;box-shadow:0 10px 24px rgba(75,58,90,.35)}
+.sticky a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+@media (prefers-reduced-motion:no-preference){
+  .mascot{animation:bob 3s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+}
+@media print{.sticky{display:none}.phone{padding-bottom:0}}
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="top">
+    <span class="logo">COSBACK</span>
+    <small>리뷰어 모집 · 2026.11</small>
+  </div>
+
+  <section class="hero">
+    <svg class="mascot" viewBox="0 0 160 160" aria-hidden="true">
+      <circle cx="80" cy="84" r="58" fill="#ffd166"/>
+      <circle cx="80" cy="84" r="58" fill="none" stroke="#f3b63f" stroke-width="6"/>
+      <circle cx="80" cy="84" r="44" fill="none" stroke="#f3b63f" stroke-width="3" stroke-dasharray="4 6"/>
+      <circle cx="62" cy="80" r="5" fill="#4b3a5a"/>
+      <circle cx="98" cy="80" r="5" fill="#4b3a5a"/>
+      <circle cx="64" cy="82" r="1.6" fill="#fff"/>
+      <circle cx="100" cy="82" r="1.6" fill="#fff"/>
+      <path d="M66 96q14 12 28 0" fill="none" stroke="#4b3a5a" stroke-width="4" stroke-linecap="round"/>
+      <ellipse cx="52" cy="94" rx="8" ry="5" fill="#ff8fab" opacity=".7"/>
+      <ellipse cx="108" cy="94" rx="8" ry="5" fill="#ff8fab" opacity=".7"/>
+      <path d="M126 22l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="#ff8fab"/>
+      <path d="M26 40l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#b9a3ff"/>
+      <path d="M138 70l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#8fe3c0"/>
+    </svg>
+    <div class="bubble">카드 한 장이면<br>45만원 혜택이 따라와요!</div>
+    <h1>알려주면 <em>팔로워도</em><br><em>나도</em> 좋은 꿀정보</h1>
+    <p>삼성 iD VITA 카드로 코스백정회원이 되면 <span class="hl">30만 크레딧</span> + <span class="hl">15만원 이상 더마 세트</span> + <span class="hl">뷰티케어보험</span>. 이 소식을 전해 줄 리뷰어를 찾아요.</p>
+    <div class="duo">
+      <div class="you">
+        <svg class="deco" viewBox="0 0 24 24" fill="#ff8fab"><path d="M12 2l2.6 6.3L21 9l-5 4.4 1.5 6.6L12 16.6 6.5 20l1.5-6.6L3 9l6.4-.7z"/></svg>
+        <span class="t">리뷰어가 받는 것</span>
+        <b class="num">원고료 10만원<br>+ 가입자 1명당 5만원</b>
+        <ul class="pts">
+          <li>포스팅 1건당 원고료 <b>10만원</b></li>
+          <li>포스팅을 타고 코스백정회원이 된 사람 <b>1명당 5만원</b></li>
+          <li>수수료는 상한 없이 계속 쌓여요</li>
+        </ul>
+      </div>
+      <div class="them">
+        <svg class="deco" viewBox="0 0 24 24" fill="#b9a3ff"><path d="M12 21s-7-4.6-9-9A5 5 0 0 1 12 6a5 5 0 0 1 9 6c-2 4.4-9 9-9 9z"/></svg>
+        <span class="t">팔로워가 받는 것</span>
+        <b class="num">30만 크레딧 + 더마 세트<br>+ 뷰티케어보험</b>
+        <ul class="pts lav">
+          <li>iD VITA 카드 발급 후 <b>15만원 이상</b> 사용</li>
+          <li>가입비 없이 <b>코스백정회원 자동 승격</b></li>
+          <li>승격 즉시 세 가지 혜택 지급</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="chip"><i></i>01 리뷰어 보상</span>
+    <h2>포스팅 한 건이면 얼마?</h2>
+    <p class="lead">원고료는 검수 후 확정, 수수료는 내 추천코드로 코스백정회원이 된 사람 수만큼 늘어나요.</p>
+    <div class="formula">
+      <div class="f"><b class="num">10만원</b><i>+</i><b class="num c">5만원 × 가입자</b></div>
+      <ul class="pts sun">
+        <li><b>가입자</b> = 내 추천코드(또는 전용 링크)로 가입해 정회원 승격이 끝난 사람</li>
+        <li>일반 가입만 하고 승격되지 않으면 집계 제외</li>
+        <li>집계 기간은 포스팅 등록일부터 3개월 <span class="badge">확정 예정</span></li>
+        <li>리뷰어 본인도 같은 조건으로 정회원 가입 가능(선택)</li>
+        <li>본인이 가입하면 코스백 앱 친구 추천 크레딧(1명당 20만, 연 최대 5명)이 따로 쌓여요</li>
+      </ul>
+    </div>
+    <div class="calc">
+      <div class="head"><span>포스팅 경유 가입자</span><span>원고료 + 수수료</span></div>
+      <div class="row"><span>0명</span><div class="bar"><i style="width:9%"></i></div><strong class="num">10만원</strong></div>
+      <div class="row"><span>5명</span><div class="bar"><i style="width:32%"></i></div><strong class="num">35만원</strong></div>
+      <div class="row"><span>10명</span><div class="bar"><i style="width:55%"></i></div><strong class="num">60만원</strong></div>
+      <div class="row"><span>20명</span><div class="bar"><i style="width:100%"></i></div><strong class="num">110만원</strong></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="chip"><i></i>02 팔로워가 받는 혜택</span>
+    <h2>포스팅에서 알려줄 내용</h2>
+    <p class="lead">일상에서 쓰는 카드 한 장을 삼성 iD VITA 카드로 만들고 15만원 이상 쓰면 끝. 가입비 없이 코스백정회원이 돼요.</p>
+    <div class="flow">
+      <div class="p"><span class="n">1</span><div><b>삼성 iD VITA 카드 발급</b><small>코스백 앱 메인 배너의 카드 EVENT에서 응모·신청</small></div></div>
+      <div class="p"><span class="n">2</span><div><b>카드로 15만원 이상 이용</b><small>일상 소비로 충족, 별도 가입비 없음</small></div></div>
+      <div class="p"><span class="n">3</span><div><b>코스백정회원 자동 승격</b><small>승격 완료 알림톡 후 혜택 지급</small></div></div>
+    </div>
+    <div class="gift">
+      <div>
+        <div class="hd">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#b9a3ff" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h3.5a2 2 0 0 1 0 4h-2a2 2 0 0 0 0 4H15"/></svg></span>
+          <div><span class="val num">30만 크레딧</span><h3>Dr.Reward 웰니스 크레딧</h3></div>
+        </div>
+        <ul class="pts lav">
+          <li>일반 가입 10만 + 정회원 승격 20만</li>
+          <li>제휴 <b>피부과·성형외과·웰니스 샵</b>에서 사용</li>
+          <li>결제액의 <b>최대 49%</b>까지 크레딧으로 결제</li>
+          <li>사용 한도는 가맹점 정책에 따라 조정될 수 있어요</li>
+        </ul>
+      </div>
+      <div>
+        <div class="hd">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8fab" stroke-width="2.2" stroke-linecap="round"><rect x="3" y="8" width="18" height="13" rx="3"/><path d="M3 12h18M12 8v13M7.5 8a2.5 2.5 0 1 1 4.5-1.5A2.5 2.5 0 1 1 16.5 8"/></svg></span>
+          <div><span class="val num">15만원 이상 세트</span><h3>프리미엄 더마 화장품</h3></div>
+        </div>
+        <ul class="pts">
+          <li><b>신라면세점</b>에서 판매하는 프리미엄 더마 브랜드</li>
+          <li>여러 세트 중 <b>본인이 직접 선택</b></li>
+          <li>집으로 <b>무료 배송</b></li>
+        </ul>
+      </div>
+      <div>
+        <div class="hd">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#5fc99a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div><span class="val">삼성화재 보험</span><h3>뷰티케어보험 가입 자격</h3></div>
+        </div>
+        <ul class="pts mint">
+          <li>빅웨이브쓰리가 계약자인 <b>단체보험</b></li>
+          <li>Dr.Reward 앱에서 가입</li>
+          <li>가입 후 뷰티라이프 상담을 마치면 <b>어드밴스드 케어 더마 세트</b> 추가</li>
+        </ul>
+      </div>
+    </div>
+    <div class="note">
+      <span class="t">대상 조건과 이어지는 혜택</span>
+      <ul class="pts sun">
+        <li>대상: <b>최근 6개월간 삼성카드 사용 이력이 없는 분</b></li>
+        <li>해당하지 않으면 가입비 15만원으로 직접 가입해 같은 혜택 수령 가능</li>
+        <li>정회원이 되면 코스백 이커머스 <b>본인 구매 15% 캐시백</b></li>
+        <li>추천한 친구의 구매액 <b>5% 캐시백</b></li>
+        <li>친구 추천 1명당 <b>20만 크레딧</b>, 연 최대 5명</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="chip"><i></i>03 왜 리뷰어에게도 이득?</span>
+    <h2>고마운 정보가 곧 수익</h2>
+    <div class="why">
+      <div>
+        <b class="h">팔로워에게 진짜 이득</b>
+        <ul class="pts sun">
+          <li>카드 발급과 일상 소비만으로 45만원 상당 혜택</li>
+          <li>광고가 아니라 "알려주는 콘텐츠"로 읽혀요</li>
+        </ul>
+      </div>
+      <div>
+        <b class="h">가입자가 늘수록 수수료도 쑥쑥</b>
+        <ul class="pts mint">
+          <li>원고료 10만원은 고정</li>
+          <li>가입자 1명당 5만원은 상한 없음</li>
+          <li>집계 기간 동안 계속 쌓여요</li>
+        </ul>
+      </div>
+      <div>
+        <b class="h">방문·촬영 부담 없음</b>
+        <ul class="pts lav">
+          <li>제품 체험형이 아니라 정보 전달형</li>
+          <li>앱 화면과 공식 자료 이미지 제공</li>
+          <li>카드 발급 장면 촬영은 본인 선택</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="chip"><i></i>04 진행 절차</span>
+    <h2>신청부터 정산까지 6단계</h2>
+    <div class="steps">
+      <div class="step"><b>신청</b><small>플랫폼에서 리뷰어 신청</small></div>
+      <div class="step"><b>선정 발표</b><small>전용 추천코드·자료 전달</small></div>
+      <div class="step"><b>포스팅 등록</b><small>발표 후 14일 이내, 미션 검수</small></div>
+      <div class="step pay"><b>원고료 지급</b><small>검수 완료 후 7일 이내</small></div>
+      <div class="step"><b>가입자 집계</b><small>추천코드 기준 승격 인원, 월 1회</small></div>
+      <div class="step pay"><b>수수료 지급</b><small>월 집계분 익월 말 지급</small></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="chip"><i></i>05 리뷰어 미션</span>
+    <h2>포스팅에 꼭 넣을 것</h2>
+    <p class="lead">"카드 한 장으로 코스백정회원이 되면 뭘 받는지"를 팔로워가 바로 따라 할 수 있게 전달하는 게 핵심이에요.</p>
+    <div class="card">
+      <h3><span class="tag">BLOG</span>네이버 블로그</h3>
+      <div class="mi">
+        <div>
+          <div class="h"><i>1</i>제목</div>
+          <ul class="pts">
+            <li>코스백 + 코스백정회원 + 제공 키워드 1개 + 혜택(또는 추천)</li>
+          </ul>
+          <div class="ex">예: "코스백정회원 혜택 정리, iD VITA 카드 하나로 30만 크레딧과 더마 세트 받는 법"</div>
+        </div>
+        <div>
+          <div class="h"><i>2</i>이미지 10장 이상</div>
+          <ul class="pts">
+            <li>혜택 3가지 요약 이미지(공식 자료 제공)</li>
+            <li>카드 EVENT 배너와 정회원 신청 화면</li>
+            <li>혜택 수령 화면(세트 선택, 크레딧)</li>
+            <li>본인 촬영 컷 2장 이상</li>
+          </ul>
+        </div>
+        <div>
+          <div class="h"><i>3</i>본문 필수 1 · 혜택 소개</div>
+          <ul class="pts">
+            <li>화장품·피부과에 쓰는 돈이 그냥 사라지는 아까움에서 시작</li>
+            <li>30만 크레딧(피부과·성형외과·웰니스 샵, 최대 49%)</li>
+            <li>15만원 이상 더마 세트(신라면세점 브랜드)</li>
+            <li>삼성화재 뷰티케어보험</li>
+          </ul>
+        </div>
+        <div>
+          <div class="h"><i>4</i>본문 필수 2 · 따라 하는 법</div>
+          <ul class="pts">
+            <li>코스백 앱 설치 → 추천코드 입력 후 가입</li>
+            <li>메인 배너 카드 EVENT → 카드 발급</li>
+            <li>카드로 15만원 이용 → 자동 승격 → 세트 선택·배송</li>
+            <li>대상 조건(최근 6개월 삼성카드 미사용) 반드시 명시</li>
+          </ul>
+        </div>
+        <div>
+          <div class="h"><i>5</i>하단</div>
+          <ul class="pts">
+            <li>앱 다운로드 링크</li>
+            <li>내 추천코드</li>
+            <li>제공 해시태그 전체 복사</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3><span class="tag r">REELS</span>인스타그램 · 숏츠</h3>
+      <div class="mi r">
+        <div>
+          <div class="h"><i>1</i>릴스 1개</div>
+          <ul class="pts lav">
+            <li>세로 9:16, 30~60초, 자막 필수</li>
+            <li>필수 장면 ① 혜택 3가지 요약</li>
+            <li>필수 장면 ② 카드 EVENT 배너에서 신청하는 화면</li>
+            <li>필수 장면 ③ 대상 조건과 따라 하는 순서</li>
+          </ul>
+          <div class="ex">오프닝 3초 후킹 예: "카드 한 장 만들었더니 피부과 크레딧 30만에 화장품 세트까지?"</div>
+        </div>
+        <div>
+          <div class="h"><i>2</i>피드 1개</div>
+          <ul class="pts lav">
+            <li>혜택 요약 카드뉴스 5~7장</li>
+            <li>공식 자료 활용 가능</li>
+          </ul>
+        </div>
+        <div>
+          <div class="h"><i>3</i>캡션</div>
+          <ul class="pts lav">
+            <li>첫 줄에 대가성 문구 또는 유료광고 라벨</li>
+            <li>본문 키워드 1개 이상 2회</li>
+            <li>브랜드 키워드(코스백) 1회</li>
+            <li>해시태그 전체</li>
+          </ul>
+        </div>
+        <div>
+          <div class="h"><i>4</i>유지</div>
+          <ul class="pts lav">
+            <li>프로필 링크에 앱 링크 + 추천코드 30일 이상</li>
+            <li>게시물 6개월 유지</li>
+            <li>브랜드 계정 태그 <span class="badge">계정명 확정 예정</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="kw">
+      <dl>
+        <dt>브랜드 키워드</dt><dd><code>코스백</code></dd>
+        <dt>제목 키워드</dt><dd><code>코스백정회원혜택</code><code>뷰티멤버십추천</code><code>피부과크레딧</code><code>더마화장품세트</code></dd>
+        <dt>본문 키워드</dt><dd><code>코스백정회원</code><code>코스백앱</code><code>닥터리워드</code><code>웰니스크레딧</code><code>뷰티케어보험</code><code>iD VITA 카드</code></dd>
+        <dt>기재 규칙</dt>
+        <dd class="rule">
+          <ul class="pts">
+            <li>브랜드 키워드는 제목·본문·태그에 각 1회 이상</li>
+            <li>제목 키워드 1개 이상을 제목에</li>
+            <li>본문 키워드 1개 이상을 본문에 4회 이상</li>
+            <li><b>"코스백정회원"은 꼭 붙여 쓰기</b></li>
+          </ul>
+        </dd>
+        <dt>해시태그</dt><dd class="rule">#코스백 #코스백정회원 #코스백정회원혜택 #뷰티멤버십추천 #피부과크레딧 #더마화장품세트 #닥터리워드 #웰니스크레딧 #뷰티케어보험 #iDVITA카드 #화장품캐시백 #뷰티핀테크</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="chip"><i></i>06 캠페인 안내</span>
+    <h2>꼭 지켜 주세요</h2>
+    <div class="card">
+      <div class="ftc"><b>공정위 대가성 문구는 리뷰 상단에!</b>"본 포스팅은 빅웨이브쓰리(코스백)로부터 원고료를 제공받아 작성하였습니다."</div>
+      <ul class="pts">
+        <li>후기 글·이미지·영상은 코스백 앱·홈페이지·SNS·영업자료에 홍보 목적으로 쓰일 수 있어요</li>
+        <li>혜택 수치와 대상 조건은 안내된 표기 그대로</li>
+        <li>임의 계산·과장 표현은 수정 요청 대상</li>
+        <li>카드 발급 조건·혜택은 삼성카드 안내를 따르고, 카드 연회비·혜택을 임의로 적지 않아요</li>
+        <li>포스팅 미등록 시 원고료 미지급, 페널티는 플랫폼 규정에 따라요</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>쓰면 안 되는 표현</h3>
+      <div class="ng">
+        <div><span class="x">무한 캐시백, 15% 무한 환급</span><span class="ok">본인 구매 15% 캐시백, 친구 구매액 5% 캐시백</span></div>
+        <div><span class="x">수익 보장, 다단계, 투자</span><span class="ok">멤버십 혜택, 친구 추천 크레딧</span></div>
+        <div><span class="x">750만원 현금 지급</span><span class="ok">5년 누적 최대 750만 상당 혜택</span></div>
+        <div><span class="x">시술비 49% 할인</span><span class="ok">결제액의 최대 49%까지 크레딧 사용</span></div>
+        <div><span class="x">보험 무료 가입, 개인보험</span><span class="ok">빅웨이브쓰리가 계약자인 단체보험 가입 자격</span></div>
+        <div><span class="x">카드만 만들면 무조건 지급</span><span class="ok">카드 발급 후 15만원 이상 이용 시 자동 승격</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="apply">
+    <div class="apply">
+      <span class="chip" style="border-color:#fff;background:#fff"><i></i>07 모집 요강</span>
+      <h2>블로그 10명 · 인스타 10명 <span class="badge">확정 예정</span></h2>
+      <ul class="pts">
+        <li>뷰티·라이프·재테크 분야 운영자</li>
+        <li>만 19세 이상</li>
+        <li>원고료 지급용 본인 명의 계좌 보유</li>
+      </ul>
+      <dl>
+        <dt>신청</dt><dd>11월 10일(월) ~ 11월 19일(수)</dd>
+        <dt>발표</dt><dd>11월 21일(금)</dd>
+        <dt>포스팅 등록</dt><dd>12월 5일(금)까지</dd>
+        <dt>원고료</dt><dd>검수 완료 후 7일 이내</dd>
+        <dt>수수료</dt><dd>월 집계, 익월 말 지급</dd>
+      </dl>
+    </div>
+  </section>
+
+  <div class="foot">
+    광고주 빅웨이브쓰리 (COSBACK · Dr.Reward 운영사) · 담당자 연락처는 선정 발표 시 안내<br>
+    원고료·수수료는 3.3% 원천징수 후 지급. 크레딧 사용 한도는 가맹점 정책에 따라 조정될 수 있어요.
+  </div>
+
+</div>
+
+<div class="sticky"><a href="#apply">리뷰어 신청하기</a></div>
+</body>
+</html>
